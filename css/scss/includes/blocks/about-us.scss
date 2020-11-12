@@ -1,0 +1,185 @@
+.about-us {
+	padding: 80px 0 24px;
+	text-align: center;
+	
+	@include desktop {
+		padding: 120px 0 70px;
+	}
+	
+	h2 {
+		font: 300 34px/41px $font-MessinaSans;
+		margin: 0 0 24px;
+		
+		@include desktop {
+			font-size: 54px;
+			line-height: 56px;
+			margin: 0 0 30px;
+		}
+	}
+	
+	p {
+		font: 17px/25px $font-MessinaSans;
+		letter-spacing: -0.01em;
+		margin: 0 auto 40px;
+		max-width: 720px;
+		
+		@include desktop {
+			font-size: 20px;
+			line-height: 30px;
+			margin: 0 auto 48px;
+		}
+	}
+	
+	&-slider {
+		display: flex;
+		padding: 64px 0 80px;
+		overflow: hidden; /* remove after js */
+		
+		@include desktop {
+			padding: 120px 0 84px;
+		}
+		
+		&-wrapper {
+			display: flex; /* remove after js */
+			position: relative; /* remove after js */
+			left: 50%; /* remove after js */
+			transform: translateX(-50%); /* remove after js */
+		}
+	}
+	
+	&-slide {
+		margin: 0 8px;
+		//max-width: 278px;
+		min-width: 278px; /* remove after js */
+		
+		@include desktop {
+			//max-width: 294px;
+			min-width: 294px; /* remove after js */
+		}
+		
+		&:focus {
+			outline: none;
+		}
+		
+		&-photo {
+			filter: grayscale(100%);
+			opacity: .2;
+			padding: 0 0 24px;
+			transition: all .45s ease;
+			
+			@include desktop {
+				padding: 0 0 36px;
+			}
+			
+			.slide-center & {
+				opacity: 1;
+				filter: grayscale(0%);
+			}
+			
+			img {
+				border-radius: 8px;
+			}
+		}
+		
+		&-logo {
+			opacity: 0;
+			padding: 0 0 16px;
+			position: relative;
+			visibility: hidden;
+			top: 15px;
+			transition: all .45s ease;
+			
+			@include desktop {
+				padding: 0 0 21px;
+			}
+			
+			.slide-center & {
+				opacity: 1;
+				visibility: visible;
+				top: 0;
+			}
+			
+			img {
+				max-width: 151px;
+			}
+		}
+		
+		&-description {
+			opacity: 0;
+			visibility: hidden;
+			position: relative;
+			top: 15px;
+			transition: all .45s ease;
+			
+			.slide-center & {
+				opacity: 1;
+				visibility: visible;
+				top: 0;
+			}
+			
+			p {
+				font: 14px/20px $font-MessinaSans;
+				margin: 0;
+				
+				@include desktop {
+					font-size: 17px;
+					line-height: 25px;
+				}
+			}
+		}
+		
+		img {
+			display: block;
+			height: auto;
+			margin: auto;
+		}
+	}
+	
+	&-counters {
+		border-top: 1px solid #D7D7D7;
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -15px;
+		padding: 36px 0 0;
+		text-align: center;
+		
+		@include desktop {
+			padding: 53px 0 0;
+		}
+	}
+	
+	&-counter {
+		flex: 1 0 100%;
+		padding: 28px 15px;
+		
+		@include tablet {
+			flex: 1 0 50%;
+		}
+		
+		@include desktop {
+			padding: 0 15px;
+			flex: 1 0 25%;
+		}
+		
+		&-title {
+			color: $color-red;
+			font: 300 44px/53px $font-Manrope;
+			
+			@include desktop {
+				font-size: 56px;
+				line-height: 88px;
+			}
+		}
+		
+		p {
+			font: 14px/17px $font-MessinaSans;
+			margin: 0;
+			opacity: .6;
+			
+			@include desktop {
+				font-size: 15px;
+				line-height: 18px;
+			}
+		}
+	}
+}

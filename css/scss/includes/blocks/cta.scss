@@ -1,0 +1,44 @@
+.cta {
+	padding: 160px 0 70px;
+	text-align: center;
+	
+	@include desktop {
+		padding: 160px 0 91px;
+	}
+	
+	h2 {
+		font: 300 28px/34px $font-MessinaSans;
+		letter-spacing: -0.02em;
+		margin: 0 0 64px;
+		
+		@include desktop {
+			font-size: 72px;
+			line-height: 80px;
+			margin: 0 0 90px;
+		}
+	}
+	
+	&-btns {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin: auto;
+		max-width: 500px;
+		width: 100%;
+		
+		@include mobile {
+			flex-direction: row;
+		}
+		
+		.btn {
+			margin: 0 10px 10px;
+			width: 240px;
+			
+			@include mobile {
+				width: calc(50% - 10px);
+				margin: 0 10px;
+			}
+		}
+	}
+}

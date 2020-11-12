@@ -1,0 +1,278 @@
+.select-company {
+	background: #fff;
+	padding: 120px 0 0;
+	
+	@include desktop {
+		padding: 182px 0 0;
+	}
+	
+	&-header {
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+		justify-content: center;
+		margin: auto;
+		max-width: 890px;
+		padding: 0 0 90px;
+		position: relative;
+		text-align: center;
+		
+		&-list {
+			background: #fff;
+			border: 1px solid #D7D7D7;
+			box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+			border-radius: 8px;
+			display: flex;
+			flex-direction: column;
+			padding: 20px 18px 23px 47px;
+			position: absolute;
+			right: calc(50% - 147px);
+			top: 51px;
+			width: 294px;
+			z-index: 99;
+			
+			@include desktop {
+				background: transparent;
+				border: none;
+				border-radius: 0;
+				box-shadow: none;
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: center;
+				padding: 0;
+				position: static;
+				width: auto;
+			}
+		}
+		
+		&-title {
+			align-items: center;
+			border: 1px solid #242528;
+			border-radius: 40px;
+			color: $color-black;
+			display: inline-flex;
+			font: 16px/19px $font-MessinaSans;
+			height: 40px;
+			padding: 0 45px 0 22px;
+			position: relative;
+			
+			&::after {
+				border-left: 2px solid #1A1A1A;
+				border-bottom: 2px solid #1A1A1A;
+				content: '';
+				height: 9px;
+				transform: rotate(-45deg);
+				position: absolute;
+				transition: all .25s ease;
+				right: 19px;
+				top: calc(50% - 5px);
+				width: 9px;
+			}
+			
+			&:hover,
+			&.current {
+				background: #1A1A1A;
+				color: #fff;
+				
+				&::after {
+					border-color: #fff;
+					transform: rotate(-225deg);
+					top: calc(50% - 2px);
+				}
+			}
+			
+			@include desktop {
+				display: none;
+			}
+		}
+		
+		a {
+			color: $color-black;
+			display: inline-flex;
+			font: 15px/18px $font-MessinaSans;
+			height: 38px;
+			min-width: 136px;
+			max-width: 294px;
+			padding: 10px 0;
+			position: relative;
+			text-align: center;
+			width: 100%;
+			
+			&::before {
+				background: url("../img/dest/icon-tick.svg") no-repeat;
+				content: '';
+				height: 11px;
+				left: -27px;
+				opacity: 0;
+				position: absolute;
+				top: calc(50% - 5.5px);
+				transition: all .25s ease;
+				width: 14px;
+				
+				@include desktop {
+					display: none;
+				}
+			}
+			
+			&:hover,
+			&.current {
+				&::before {
+					opacity: 1;
+				}
+			}
+			
+			@include desktop {
+				align-items: center;
+				border-radius: 38px;
+				border: 1px solid #242528;
+				justify-content: center;
+				margin: 4px;
+				max-width: 100%;
+				padding: 0 15px;
+				width: auto;
+			}
+			
+			&.current,
+			&:hover {
+				
+				@include desktop {
+					background: $color-black;
+					color: #fff;
+				}
+			}
+			
+			&.all {
+				min-width: 81px;
+			}
+		}
+	}
+	
+	&-content {
+		margin: auto;
+		max-width: 1028px;
+		
+		&-list {
+			@include desktop {
+				width: calc(100% - 60px);
+			}
+			
+			&-item {
+				margin: 0 0 32px;
+				
+				@include desktop {
+					align-items: center;
+					display: flex;
+					margin: 0 0 40px;
+				}
+				
+				&:hover {
+					.select-company-position {
+						font-family: $font-MessinaSansSerif;
+						font-style: italic;
+					}
+					
+					.select-company-info {
+						color: $color-black;
+					}
+				}
+			}
+		}
+		
+		&-open {
+			align-items: center;
+			background: #F9F8F7 url("../img/dest/icon-link.svg") no-repeat right 25px center;
+			border: 1px solid #D7D7D7;
+			color: $color-black;
+			display: flex;
+			font: 17px/23px $font-MessinaSans;
+			height: 96px;
+			letter-spacing: -0.02em;
+			padding: 15px 108px 15px 24px;
+			width: 100%;
+			
+			@include desktop {
+				background-position: right 52px center;
+				font-size: 22px;
+				line-height: 30px;
+				height: 125px;
+				padding: 15px 108px 15px 48px;
+				width: calc(100% - 60px);
+			}
+		}
+	}
+	
+	&-item {
+		display: flex;
+		flex-direction: column;
+		margin: 0 0 88px;
+		position: relative;
+		
+		@include desktop {
+			flex-direction: row;
+			margin: 0 0 140px;
+		}
+		
+		&-centered {
+			.select-company-name span {
+				top: 5px;
+			}
+		}
+	}
+	
+	&-name {
+		border-bottom: 1px solid #D7D7D7;
+		font: 700 16px/20px $font-MessinaSans;
+		letter-spacing: -0.02em;
+		margin: 0 0 32px;
+		padding: 0 0 16px;
+		
+		@include desktop {
+			border: none;
+			font-style: 20px;
+			line-height: 30px;
+			margin: 0;
+			padding: 0;
+			width: 60px;
+		}
+		
+		span {
+			
+			@include desktop {
+				display: flex;
+				justify-content: flex-end;
+				left: 10px;
+				position: relative;
+				transform: rotate(-90deg);
+				white-space: nowrap;
+				width: 10px;
+			}
+		}
+	}
+	
+	&-position {
+		font: 20px/24px $font-MessinaSans;
+		letter-spacing: -0.02em;
+		margin: 0 0 10px;
+		
+		@include desktop {
+			font-size: 22px;
+			line-height: 38px;
+			margin: 0;
+		}
+	}
+	
+	&-info {
+		color: rgba($color-black, .5);
+		font: 14px/18px $font-MessinaSansMono;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		
+		@include desktop {
+			line-height: 20px;
+			margin: 0 0 0 auto;
+			text-align: right;
+			width: 300px;
+		}
+	}
+}
