@@ -1,0 +1,89 @@
+.company-page {
+	padding: 50px 0 144px;
+
+	@include desktop {
+		padding: 156px 0 212px;
+	}
+
+	&-list {
+		position: relative;
+	}
+
+	.company {
+		padding: 15px 0 16px;
+		position: relative;
+
+		@include desktop {
+			padding: 20px 30px 20px 0;
+			// width: 50%;
+
+			&.current,
+			&:hover {
+				h3 {
+					font-family: $font-MessinaSansSerif;
+					font-style: italic;
+					letter-spacing: .2px;
+				}
+
+				.company-photo {
+					opacity: 1;
+					transform: scale(1) translate(0, -20px);
+				}
+
+			}
+		}
+
+		h3 {
+			cursor: pointer;
+			font: 300 34px/40px $font-MessinaSans;
+			letter-spacing: -0.02em;
+			margin: 0;
+
+			@include desktop {
+				font-size: 64px;
+				line-height: 64px;
+			}
+
+			a {
+				color: $color-black;
+			}
+		}
+
+		&-photo {
+			display: none;
+			opacity: 0;
+			position: absolute;
+			right: 0;
+			top: -100%;
+			transform: scale(0);
+			transition: opacity .25s ease;
+
+			@include desktop {
+				display: block;
+				width: 50%;
+			}
+
+			img {
+				display: block;
+				height: auto;
+				max-width: 100%;
+			}
+		}
+
+
+		&:first-child .company-photo {
+			top: 0;
+		}
+		&:nth-child(2) .company-photo {
+			top: calc(-100% + 20px);
+		}
+		&:nth-last-of-type(2) .company-photo {
+			top: auto;
+			bottom: calc(-100% - 20px);;
+		}
+		&:last-child .company-photo {
+			top: auto;
+			bottom: -40px;
+		}
+	}
+}

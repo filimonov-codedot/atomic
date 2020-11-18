@@ -1,0 +1,221 @@
+{
+  "data": {
+    "header": {
+      "logo": {
+        "file": {
+          "src": "//images.ctfassets.net/13ygwdmf0s6j/1a9xni7aMFuFtYRE6ggOiQ/1fc87423e6127faafb1812daa6350ab0/logo.svg"
+        },
+        "alt": "logo"
+      },
+      "logoMobile": {
+        "file": {
+          "src": "//images.ctfassets.net/13ygwdmf0s6j/6in0fAw0OEXY3h84jSDZx3/9b33d9daeffd15afbfad47cc4938fbdf/logo-mobile.svg"
+        },
+        "alt": "logo-mobile"
+      }
+    },
+    "footer": {
+      "email": "info@atomic.vc",
+      "social": [
+        {
+          "icon": {
+            "file": {
+              "src": "//images.ctfassets.net/13ygwdmf0s6j/51WtHvYsIHvVT5KK6XYdS5/dc381be2543dfd6d02a5924c0c01a788/twitter.svg"
+            },
+            "alt": "twitter"
+          },
+          "link": "https://twitter.com/"
+        },
+        {
+          "icon": {
+            "file": {
+              "src": "//images.ctfassets.net/13ygwdmf0s6j/41YtJzl3c6DFBzWXc2zDHZ/075d2d5edea2077b77f2252de6745dc3/linkedin.svg"
+            },
+            "alt": "linkedin"
+          },
+          "link": "https://www.linkedin.com/"
+        },
+        {
+          "icon": {
+            "file": {
+              "src": "//images.ctfassets.net/13ygwdmf0s6j/2Xqt3jCKYxkKSng6U0d1Ps/8a7938cb087a897dabb8b9ffddb02c89/medium.svg"
+            },
+            "alt": "medium"
+          },
+          "link": "https://medium.com/"
+        }
+      ]
+    },
+    "companiesPage": {
+      "mainCompanies": [
+        {
+          "name": "Bungalow",
+          "previewImage": {
+            "file": {
+              "src": "//images.ctfassets.net/13ygwdmf0s6j/1i6UwJZPKLHmlPSxHwAppR/6f0062e9c5d1815a5c6d3b340a14bc3b/Bungalow_preview.jpg"
+            },
+            "alt": "Bungalow preview"
+          },
+          "logoBlack": {
+            "file": {
+              "src": "//images.ctfassets.net/13ygwdmf0s6j/3yyZN5XOwvuo3tkE2pKEyD/d21e95e82a3ab70103654a9ab909e325/Bungalow_logo_black.svg"
+            },
+            "alt": "Bungalow logo black"
+          },
+          "title": "The leading co-living company.",
+          "desc": {
+            "text": "We created Bungalow to address the massive urbanization trend, which is exacerbating the housing shortage facing young professionals. Bungalow is a shared living company helping people more affordably live in major cities, in beautiful community-led homes. Bungalow is now live in over 20 cities and grew faster in its first 2 years than Airbnb and WeWork. "
+          },
+          "investors": [
+            {
+              "name": "Founders Fund"
+            },
+            {
+              "name": "Khosla Ventures"
+            },
+            {
+              "name": "Wing VC"
+            }
+          ],
+          "links": [
+            {
+              "link": "bungalow.com"
+            }
+          ],
+          "images": [
+            {
+              "file": {
+                "src": "//images.ctfassets.net/13ygwdmf0s6j/1i6UwJZPKLHmlPSxHwAppR/6f0062e9c5d1815a5c6d3b340a14bc3b/Bungalow_preview.jpg"
+              },
+              "alt": "Bungalow preview"
+            },
+            {
+              "file": {
+                "src": "//images.ctfassets.net/13ygwdmf0s6j/4Xp9M5SDTsUZ2r1ycSWZF9/ea8188bdfb2fdd2ae0a3b1903a837281/bungalow_img_2.jpg"
+              },
+              "alt": "bungalow img 2"
+            }
+          ]
+        },
+        {
+          "name": "Hims and Hers",
+          "previewImage": {
+            "file": {
+              "src": "//images.ctfassets.net/13ygwdmf0s6j/17eoFwQWFk8ZfzE1W7ZX1y/82a281fe35d18de3783445f340c29816/img-company-2.jpg"
+            },
+            "alt": "img-company-2"
+          },
+          "logoBlack": {
+            "file": {
+              "src": "//images.ctfassets.net/13ygwdmf0s6j/4YXFaPJXSap8aJZkJY9ijn/6f1381eec3157e2ddc34daafacf93ac3/company-logo-2.png"
+            },
+            "alt": "company-logo-2"
+          },
+          "title": "A modern approach to health and wellness.",
+          "desc": {
+            "text": "We created Hims and Hers because access to quality healthcare should be convenient and affordable for all. Hims & Hers is a telehealth company eliminating stigmas and making it easier for people to access care and treatment for the conditions that impact their daily lives. The company, one of the fastest growing DTC brands ever, was the 2nd fastest in US history to reach a billion-dollar valuation."
+          },
+          "investors": [
+            {
+              "name": "IVP"
+            },
+            {
+              "name": "Redpoint"
+            },
+            {
+              "name": "Thrive Capital"
+            }
+          ],
+          "links": [
+            {
+              "link": "forhims.com"
+            },
+            {
+              "link": "forhers.com"
+            }
+          ],
+          "images": [
+            {
+              "file": {
+                "src": "//images.ctfassets.net/13ygwdmf0s6j/1OEmi3hxJJpsbBZ9s66i2t/8a02efedc75a183e7805942f5fe2eb65/modal-company-photo-3.jpg"
+              },
+              "alt": "modal-company-photo-3"
+            },
+            {
+              "file": {
+                "src": "//images.ctfassets.net/13ygwdmf0s6j/6mk8KLaWxviWLhkwoPQClm/f554c0d2872dc0f0bd44b83b848eaca9/modal-company-photo-4.jpg"
+              },
+              "alt": "modal-company-photo-4"
+            }
+          ]
+        },
+        {
+          "name": "Homebound",
+          "previewImage": {
+            "file": {
+              "src": "//images.ctfassets.net/13ygwdmf0s6j/1UM85TPwOhaNwFxzT05aPT/f7ed7c2a279b745b98d0b6f4265e1a4d/homebound_preview.jpg"
+            },
+            "alt": "homebound preview"
+          },
+          "logoBlack": {
+            "file": {
+              "src": "//images.ctfassets.net/13ygwdmf0s6j/1ODLreC3tQmuJUvUuGZIGA/ffe17d372305a76fd84b8ced34317558/homebound_logo_black.svg"
+            },
+            "alt": "homebound logo black"
+          },
+          "title": "Helping communities rebuild after natural disaster.",
+          "desc": {
+            "text": "We created Homebound because residential construction is costly, inefficient, and opaque, which results in a universally terrible experience. Homebound is a tech-enabled construction company, starting by rebuilding homes lost in natural disasters with a better labor model and a delightful homeowner experience. In just its first year, Homebound grew to over $200M in presales."
+          },
+          "investors": [
+            {
+              "name": "Founders Fund"
+            },
+            {
+              "name": "Khosla Ventures"
+            },
+            {
+              "name": "Wing VC"
+            }
+          ],
+          "links": [
+            {
+              "link": "homebound.com"
+            }
+          ],
+          "images": [
+            {
+              "file": {
+                "src": "//images.ctfassets.net/13ygwdmf0s6j/48aAe7LCGSAuVeqyzteiYP/66a8f8e466157611c880126f42f91336/homebound_img_1.jpg"
+              },
+              "alt": "homebound img 1"
+            },
+            {
+              "file": {
+                "src": "//images.ctfassets.net/13ygwdmf0s6j/3rz3pJe8jQG3BhATzhJebS/682c307b1a7c33f3782f3f4affa445bf/homebound_img_2.jpg"
+              },
+              "alt": "homebound img 2"
+            }
+          ]
+        }
+      ],
+      "stealthCompanies": [
+        {
+          "name": "Consumer Health"
+        },
+        {
+          "name": "Payments Infrastructure"
+        }
+      ],
+      "ctaTitle": "Come build the next great company.",
+      "ticker": [
+        {
+          "content": {
+            "text": "ic isn’t just an investor. They truly co-found businesses with entrepreneurs, and continue to support those businesses in every way as they grow.”  – Nikki Pechet, Co-Founder and CEO, Ho"
+          }
+        }
+      ]
+    }
+  },
+  "extensions": {}
+}

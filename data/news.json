@@ -1,0 +1,227 @@
+{
+  "data": {
+    "header": {
+      "logo": {
+        "file": {
+          "src": "//images.ctfassets.net/13ygwdmf0s6j/1a9xni7aMFuFtYRE6ggOiQ/1fc87423e6127faafb1812daa6350ab0/logo.svg"
+        },
+        "alt": "logo"
+      },
+      "logoMobile": {
+        "file": {
+          "src": "//images.ctfassets.net/13ygwdmf0s6j/6in0fAw0OEXY3h84jSDZx3/9b33d9daeffd15afbfad47cc4938fbdf/logo-mobile.svg"
+        },
+        "alt": "logo-mobile"
+      }
+    },
+    "footer": {
+      "email": "info@atomic.vc",
+      "social": [
+        {
+          "icon": {
+            "file": {
+              "src": "//images.ctfassets.net/13ygwdmf0s6j/51WtHvYsIHvVT5KK6XYdS5/dc381be2543dfd6d02a5924c0c01a788/twitter.svg"
+            },
+            "alt": "twitter"
+          },
+          "link": "https://twitter.com/"
+        },
+        {
+          "icon": {
+            "file": {
+              "src": "//images.ctfassets.net/13ygwdmf0s6j/41YtJzl3c6DFBzWXc2zDHZ/075d2d5edea2077b77f2252de6745dc3/linkedin.svg"
+            },
+            "alt": "linkedin"
+          },
+          "link": "https://www.linkedin.com/"
+        },
+        {
+          "icon": {
+            "file": {
+              "src": "//images.ctfassets.net/13ygwdmf0s6j/2Xqt3jCKYxkKSng6U0d1Ps/8a7938cb087a897dabb8b9ffddb02c89/medium.svg"
+            },
+            "alt": "medium"
+          },
+          "link": "https://medium.com/"
+        }
+      ]
+    },
+    "news": {
+      "listCompanies": [
+        {
+          "name": "Atomic"
+        },
+        {
+          "name": "Bungalow"
+        },
+        {
+          "name": "Hims & Hers"
+        },
+        {
+          "name": "Homebound"
+        },
+        {
+          "name": "Paravision"
+        },
+        {
+          "name": "Raydiant"
+        },
+        {
+          "name": "Remrise"
+        },
+        {
+          "name": "Replicant"
+        },
+        {
+          "name": "TalkIQ"
+        },
+        {
+          "name": "Terminal"
+        },
+        {
+          "name": "Zenreach"
+        }
+      ],
+      "newsSection": [
+        {
+          "image": {
+            "file": {
+              "src": "//images.ctfassets.net/13ygwdmf0s6j/7pSQO9XHLgEZJd4MrV2VsW/94092f2816ce681b1238f0f5840cc4d7/news_homebound_1.jpg"
+            },
+            "alt": "Homebound: The One-Stop Rebuilding Shop for Wildfire Victims"
+          },
+          "date": "2020-10-06",
+          "title": "The One-Stop Rebuilding Shop for Wildfire Victims",
+          "companyName": {
+            "name": "Homebound",
+            "color": "#000000"
+          },
+          "sourceTitle": "Bloomberg",
+          "sourceLink": "http://...https://www.bloomberg.com/news/features/2020-10-06/is-rebuilding-in-fire-prone-areas-worth-it-homebound-thinks-so"
+        },
+        {
+          "image": {
+            "file": {
+              "src": "//images.ctfassets.net/13ygwdmf0s6j/2mMlPRhMM8ttQxEEUKtaeY/adf89772e01f436dbb16a4ca31553232/News_Image_2.png"
+            },
+            "alt": "Dialpad Raises $100 Million At A $1.2 Billion Valuation As Businesses Embrace ‘Work From Anywhere’"
+          },
+          "date": "2020-10-06",
+          "title": "Dialpad Raises $100 Million At A $1.2 Billion Valuation As Businesses Embrace ‘Work From Anywhere’",
+          "companyName": {
+            "name": "TalkIQ",
+            "color": "#000000"
+          },
+          "sourceTitle": "VentureBeat",
+          "sourceLink": "https://venturebeat.com/2020/10/06/dialpad-raises-100-million-at-a-1-2-billion-valuation-as-businesses-embrace-work-from-anywhere/"
+        },
+        {
+          "image": {
+            "file": {
+              "src": "//images.ctfassets.net/13ygwdmf0s6j/6DEkxDEK0UZkjcIOMDBdyR/f98b1626bd905afaf4f9495773a3c1f8/News_Image_3.png"
+            },
+            "alt": "Hims, A Direct-To-Consumer Health Company, Is Going Public Via SPAC"
+          },
+          "date": "2020-10-01",
+          "title": "Hims, A Direct-To-Consumer Health Company, Is Going Public Via SPAC",
+          "companyName": {
+            "name": "Hims & Hers",
+            "color": "#000000"
+          },
+          "sourceTitle": "CNBC",
+          "sourceLink": "https://www.cnbc.com/2020/10/01/hims-a-direct-to-consumer-health-company-is-going-public-via-spac.html"
+        },
+        {
+          "image": {
+            "file": {
+              "src": "//images.ctfassets.net/13ygwdmf0s6j/4tMc1PSLIomR2pSptTtn24/43d5938916404cf5c06cef8ab319a9bf/News_Image_4.png"
+            },
+            "alt": "Replicant Raises $27 Million To Propel Its Voice AI For Customer Service Phone Calls"
+          },
+          "date": "2020-09-10",
+          "title": "Replicant Raises $27 Million To Propel Its Voice AI For Customer Service Phone Calls",
+          "companyName": {
+            "name": "Replicant",
+            "color": "#000000"
+          },
+          "sourceTitle": "Forbes",
+          "sourceLink": "https://www.forbes.com/sites/kenrickcai/2020/09/10/replicant-series-a-call-center-voice-ai"
+        },
+        {
+          "image": {
+            "file": {
+              "src": "//images.ctfassets.net/13ygwdmf0s6j/1HGZaUGwHAfhXNHjr0Stcl/d1c44e5a1d3fe238eba7a003a1b16488/News_Image_5.png"
+            },
+            "alt": "Top 40 Under 40: Andrew Dudum"
+          },
+          "date": "2020-09-02",
+          "title": "Top 40 Under 40: Andrew Dudum",
+          "companyName": {
+            "name": "Hims & Hers",
+            "color": "#000000"
+          },
+          "sourceTitle": "Fortune",
+          "sourceLink": "https://fortune.com/40-under-40/2020/andrew-dudum/"
+        },
+        {
+          "image": {
+            "file": {
+              "src": "//images.ctfassets.net/13ygwdmf0s6j/3RhcEOb6me3amnBr3bYl0q/e767a32357b1472a0daa60e679dbda43/News_Image_6.png"
+            },
+            "alt": "Hims & Hers – Featured At Target, Goes Where Few Brands Have Dared"
+          },
+          "date": "2020-08-31",
+          "title": "Hims & Hers – Featured At Target, Goes Where Few Brands Have Dared",
+          "companyName": {
+            "name": "Hims & Hers",
+            "color": "#000000"
+          },
+          "sourceTitle": "Forbes",
+          "sourceLink": "https://www.forbes.com/sites/sanfordstein/2020/08/31/hims--hersfeatured-at-target-goes-where-few-brands-have-dared/"
+        }
+      ],
+      "blogSection": [
+        {
+          "image": {
+            "file": {
+              "src": "//images.ctfassets.net/13ygwdmf0s6j/5QtuS2LGogkKaPX1Ewjo6H/d14a915b73449161bbdc11f305a1452a/Blog_Image_1.jpeg"
+            },
+            "alt": "Atomic Summer Fellowship 2020"
+          },
+          "title": "Entrepreneurship is a career path: notes from our first Fellowship Program",
+          "date": "2020-11-16",
+          "shortContent": {
+            "text": "It is our goal to encourage the next generation of leaders to build great companies of enduring meaning and value, so we launched our Atomic Fellowship Program for graduate and undergraduate students."
+          },
+          "fullContent": {
+            "text": "It is our goal to encourage the next generation of leaders to build great companies of enduring meaning and value, so we launched our Atomic Fellowship Program for graduate and undergraduate students.\nOur Fellowship has three main pillars:\n\n1. Value Creation: Fellows are empowered to immediately contribute and create value on 0-to-1 initiatives.\n\n2. Community: Company building is a team sport, we host events and activities to foster community in the cohort. Fellows will invariably be the leaders of tomorrow.\n\n3. Diversity of Thought: Diversity of backgrounds and skills creates better opportunities to learn and expand thinking.\n\n2020 was our Fellowship’s inaugural year. We had 567 applicants in two weeks. With only ten spots available, candidate selection became a challenging task. Our acceptance rate was on course to be lower than even the most prestigious colleges (1.76%). Ultimately we made some tough decisions and chose an absolutely amazing cohort.\n\nWhen COVID hit and San Francisco went into lockdown, companies began canceling summer programs left and right. Not us. We believe it has never been a better time to start a company. Our incredible team quickly pivoted from the original plan and enabled us to host a fully-remote Fellowship Program. But this change raised some important questions:\n\n–  Can a remote Fellowship offer a comparable amount of value to an in-person Fellowship?\n–  Will the Fellows feel connected to Atomic and to each other?\n–  Would the cohort be able to learn and deliver on projects effectively?\n\nAfter 12 weeks, we can report the answer was a resounding YES to each of those questions. Every week was full of CEO fireside chats from around Atomic, courses from external experts, peer to peer lessons, socials, and self-organized jam sessions to work through intractable problems.\n\nEach Fellow provided demonstrable value in ways that exceeded expectations. From tackling huge problems, building custom web applications, re-designing parts of the conversion funnel, intensely researching and pitching companies, building out painted door tests and MVPs, to synthesizing huge data sets — Fellows quickly became important members of the Atomic Family.\n\nWe plan to continue the program next summer and cannot wait to see what the next round of Fellows bring to the table. We will begin hiring for the summer cohort starting in February. Although we are not actively looking for Fellows during the rest of the year, we do encourage anyone who thinks they’ve got what it takes to create value at Atomic to submit an application."
+          }
+        },
+        {
+          "image": {
+            "file": {
+              "src": "//images.ctfassets.net/13ygwdmf0s6j/5YA8ArscJtHZjE6hMtxRJu/f2635f0447df1fb1590bffe03ced327b/blog_img_1.jpg"
+            },
+            "alt": "blog img 1"
+          },
+          "title": "Replicant – The Future of Customer Service",
+          "date": "2020-10-01",
+          "shortContent": {
+            "text": "When we started Replicant in 2017, we certainly did not predict that a global pandemic would create a customer service disaster, suddenly accelerating businesses into AI and automation."
+          },
+          "fullContent": {
+            "text": "When we started Replicant in 2017, we certainly did not predict that a global pandemic would create a customer service disaster, suddenly accelerating businesses into AI and automation. We “merely” believed that machines were ready to have useful, complex conversations with people and that the future business applications of this could be profound.\n\nWe look around us today (while living in a dystopian scene from our namesake film) and know the world has turned upside down over the past six months. For businesses — call centers have shut down due to Covid-19, customer service call volumes have surged unpredictability, and customers are more frustrated than ever with long wait times leading to unresolved issues. Replicant’s autonomous call center is now enabling these businesses to fully resolve customer issues (even the most complex ones) over the phone with natural-sounding conversations — improving the customer experience while reducing costs.\n\n\n“Hundreds of millions of consumers use voice assistants such as Amazon Alexa or Apple’s Siri for simple tasks in their daily lives. Now, one company wants to take talking bots to the next level: the highly conversational field of customer service.\n\nReplicant, named after Blade Runner’s genetically engineering humans, is entering uncharted territory with its software...”\nForbes\n\n\nStartups have moments. Replicant’s is now. The company is now handling over two million autonomous customer support calls a month, grown over 15X in revenue in just six months, and is partnering with some of the largest enterprises and call centers in the world. We’re inspired by how this incredible team, led by our co-founders Gadi Shamia (CEO) and Benjamin Gleitzman (CTO), have fearlessly seized their moment during this pandemic to help businesses and customers across the globe.\n\nWe’re excited to share today that with Replicant, Atomic has made one of our most significant investments in any company to-date, and partnered with Scott Beechuk at Norwest Venture Partners who led a $27 million investment in the company, alongside a group of co-investors deeply experienced with the intersection of AI and the enterprise: Mark Selcow at Costanoa Ventures, James Cham at Bloomberg Beta, and State Farm Ventures. Scott, who is intimately familiar with the customer service software industry from his time as SVP Product for Salesforce Service Cloud points out why Replicant is well positioned:\n\n\n(Replicant’s) attention to this humanscale connection is what sets them apart in the customer service arena: they start with the experience between caller and agent and build their AI-driven product around it. The result is a first-of-its-kind product that honors the human aspect of customer service no matter how automated operations get.\n\n\nThe company has come a long way from its humble beginnings converting our storage closet into a closely guarded private office where Benjamin Gleitzman’s hand-picked team of AI and machine learning engineers started building the world’s first autonomous call center. But we know this is just the beginning and couldn’t be more hopeful about the future of customer service."
+          }
+        }
+      ],
+      "ticker": [
+        {
+          "text": {
+            "text": "ic isn’t just an investor. They truly co-found businesses with entrepreneurs, and continue to support those businesses in every way as they grow.”  – Nikki Pechet, Co-Founder and CEO, Hom"
+          }
+        }
+      ]
+    }
+  },
+  "extensions": {}
+}

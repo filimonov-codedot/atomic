@@ -1,0 +1,51 @@
+.carousel {
+	overflow: hidden;
+
+	&-wrapper {
+		//display: flex;
+		//left: 50%;
+		//justify-content: center;
+		//position: relative;
+		//transform: translateX(-50%);
+
+		//&::before {
+		//	background: #fff;
+		//	bottom: 0;
+		//	content: '';
+		//	left: 0;
+		//	height: 50%;
+		//	position: absolute;
+		//	right: 0;
+		//}
+	}
+
+	&-item {
+		//min-width: 278px;
+		padding: 0 8px;
+		position: relative;
+		z-index: 5;
+
+		//@include desktop {
+		//	min-width: 294px;
+		//}
+
+		.carousel-image {
+			position: relative;
+			width: 100%;
+			height: 0;
+			padding-bottom: 125%;
+			border-radius: 8px;
+			overflow: hidden;
+		}
+
+		img {
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}

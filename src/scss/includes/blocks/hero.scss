@@ -1,0 +1,104 @@
+.hero {
+	position: relative;
+	width: 100%;
+	height: calc(100vh + 1px);
+	align-items: center;
+	background: #242528;
+	display: flex;
+	justify-content: center;
+	padding: 0 0 85px;
+	text-align: center;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s ease-in-out;
+
+	&-logo {
+		margin: 0 0 60px;
+	}
+
+	h1 {
+		color: #fff;
+		font: 300 44px/52px $font-MessinaSans;
+		letter-spacing: -1.3px;
+		font-weight: 200;
+		margin: 0;
+
+		@include desktop {
+			font-size: 72px;
+			line-height: 80px;
+			margin: 0 auto;
+			max-width: 840px;
+		}
+
+		span {
+			color: $color-red;
+			font-family: $font-MessinaSansSerif;
+			font-style: italic;
+			margin-left: 10px;
+			font-weight: 200;
+		}
+
+		div {
+			display: inline;
+		}
+	}
+
+	&-scroll {
+		align-items: center;
+		bottom: 80px;
+		cursor: pointer;
+		display: flex;
+		left: calc(50% - 16px);
+		justify-content: center;
+		height: 32px;
+		position: absolute;
+		background-color: transparent;
+		border: none;
+
+		@include tablet {
+			bottom: 40px;
+		}
+
+		&:active,
+		&:focus {
+			outline: none;
+		}
+
+		svg {
+			animation: scroll 2s infinite;
+			position: relative;
+		}
+	}
+
+	@keyframes scroll {
+		0% {
+			opacity: 1;
+			top: -8px;
+		}
+
+		50% {
+			opacity: .4;
+			top: 8px;
+		}
+
+		100% {
+			opacity: 1;
+			top: -8px;
+		}
+	}
+
+	.hero-ticker {
+		position: relative;
+	}
+
+	.typed-cursor {
+    position: absolute;
+    right: -3px;
+    top: 50%;
+    font-size: 0;
+    height: 88%;
+    width: 1px;
+    transform: translateY(-50%);
+    background-color: currentColor;
+	}
+}
