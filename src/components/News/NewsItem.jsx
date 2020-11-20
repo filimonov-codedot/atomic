@@ -10,7 +10,7 @@ export const NewsItem = ({ title, image, date, companyName, sourceTitle, sourceL
   }
 
   return (
-    <div className="news-item">
+    <a href={sourceLink} target="_blank" rel="noreferrer" className="news-item">
       <div className="news-item-img">
         <img src={src} alt={alt} />
       </div>
@@ -21,7 +21,9 @@ export const NewsItem = ({ title, image, date, companyName, sourceTitle, sourceL
         • <div className="news-item-date">{dateFormat(new Date(date))}</div>
       </div>
       <h2>{title}</h2>
-      <a href={sourceLink} target="_blank" rel="noreferrer" className="news-item-link">{sourceTitle}</a>
-    </div>
+      <span className="news-item-link">
+        {sourceTitle}
+      </span>
+    </a>
   )
 }

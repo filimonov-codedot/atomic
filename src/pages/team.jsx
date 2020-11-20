@@ -14,6 +14,7 @@ export default function Team ({ data }) {
       topHeader,
       teamMembers,
       ctaTitle,
+      tickerDuration,
       tickerData
     }
   } = data
@@ -24,6 +25,7 @@ export default function Team ({ data }) {
       footerData={footerData}
       ctaType="cta-inner"
       ctaTitle={ctaTitle}
+      tickerDuration={tickerDuration}
       tickerData={tickerData}
       pageTitle="Team"
     >
@@ -113,6 +115,9 @@ export const pageQuery = graphql`
         }
       }
       ctaTitle
+      tickerDuration {
+        duration
+      }
       tickerData: ticker {
         text {
           text

@@ -35,7 +35,7 @@
 
 		h3 {
 			cursor: pointer;
-			font: 300 34px/40px $font-MessinaSans;
+			font: 200 34px/40px $font-MessinaSans;
 			letter-spacing: -0.02em;
 			margin: 0;
 
@@ -57,6 +57,7 @@
 			top: -100%;
 			transform: scale(0);
 			transition: opacity .25s ease;
+			cursor: pointer;
 
 			@include desktop {
 				display: block;

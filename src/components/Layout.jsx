@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PageTransition from 'gatsby-plugin-page-transitions'
 
 import { SEO } from './SEO'
@@ -8,10 +8,13 @@ import { Cta } from './Cta'
 import { Ticker } from './Ticker'
 import { MenuModal } from './MenuModal'
 import { MenuModalMobile } from './MenuModalMobile'
+import { ContactUsModal } from "./ContactUsModal"
+import childrenContext from './childrenContext'
 
 export const Layout = ({
   headerData,
   footerData,
+  tickerDuration,
   tickerData,
   ctaTitle,
   ctaType = '',
@@ -22,6 +25,7 @@ export const Layout = ({
 }) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false)
   const [isOpenMenuMobile, setIsOpenMenuMobile] = useState(false)
+  const [isOpenContactModal, setIsOpenContactModal] = useState(true)
 
   const navHeader = [
     {
@@ -45,7 +49,7 @@ export const Layout = ({
         link: '/'
       },
       {
-        title: 'About',
+        title: 'Team',
         link: '/team'
       },
       {
@@ -63,11 +67,11 @@ export const Layout = ({
         link: '/blog'
       },
       {
-        title: 'Start a Company',
+        title: 'Co-Found with us',
         link: '/co-found'
       },
       {
-        title: 'Join a Company',
+        title: 'Join a team',
         link: '/join-team'
       },
       {
@@ -85,7 +89,7 @@ export const Layout = ({
     },
     {
       title: 'PRIVACY POLICY',
-      link: '/'
+      link: '/privacy-policy'
     }
   ]
 
@@ -132,6 +136,10 @@ export const Layout = ({
     }
   ]
 
+  useEffect(() => {
+    setIsOpenContactModal(false)
+  }, [])
+
   return (
     <PageTransition transitionTime={250}>
       <div className={`page-wrapper ${isHomePage ? 'is-home' : ''}`}>
@@ -144,7 +152,12 @@ export const Layout = ({
           pageTitle={pageTitle}
         />
 
-        {children}
+        <childrenContext.Provider value={{
+          openContactModal: () => setIsOpenContactModal(true)
+        }}>
+          {children}
+        </childrenContext.Provider>
+
 
         {ctaDisplay && (
           <Cta
@@ -152,9 +165,10 @@ export const Layout = ({
             ctaType={ctaType}
             openMenu={() => setIsOpenMenu(true)}
             openMenuMobile={() => setIsOpenMenuMobile(true)}
+            openContactModal={() => setIsOpenContactModal(true)}
           />
         )}
-        <Ticker tickerData={tickerData} />
+        <Ticker tickerData={tickerData} tickerDuration={tickerDuration} />
         <Footer
           footerData={footerData}
           navSiteMap={navSiteMap}
@@ -172,6 +186,10 @@ export const Layout = ({
             navModalMobile={navModalMobile}
           />
         )}
+        <ContactUsModal
+          isOpenContactModal={isOpenContactModal}
+          onClose={setIsOpenContactModal}
+        />
       </div>
     </PageTransition>
   )
