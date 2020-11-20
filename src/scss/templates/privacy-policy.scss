@@ -1,0 +1,7 @@
+.privacy-policy {
+  padding: 80px 0;
+
+  @include desktop {
+    padding: 100px 0;
+  }
+}

@@ -1,17 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-
 import { Layout } from '../components/Layout'
-import { CompanyStealth } from '../components/Companies/CompanyStealth'
-import { CompanyMain } from '../components/Companies/CompanyMain'
 
-export default function Companies ({ data }) {
+export default function PrivacyPolicy ({ data }) {
   const {
     headerData,
     footerData,
-    companiesPage: {
-      mainCompanies,
-      stealthCompanies,
+    privacyPage: {
+      text: { html },
       ctaTitle,
       tickerDuration,
       tickerData
@@ -26,16 +22,19 @@ export default function Companies ({ data }) {
       ctaType="cta-inner"
       tickerDuration={tickerDuration}
       tickerData={tickerData}
-      pageTitle="Companies"
+      pageTitle="Privacy Policy"
     >
-      <CompanyMain mainCompanies={mainCompanies} />
-      <CompanyStealth stealthCompanies={stealthCompanies} />
+      <div className="privacy-policy page-content">
+        {html && <div className="container" dangerouslySetInnerHTML={{
+          __html: html
+        }}/>}
+      </div>
     </Layout>
   )
 }
 
 export const pageQuery = graphql`
-  query CompaniesQuery {
+  query PrivacyQuery {
     headerData: contentfulSectionHeader {
       logo {
         file {
@@ -70,49 +69,16 @@ export const pageQuery = graphql`
       }
       copyright
     }
-    companiesPage: contentfulPageCompanies {
-      mainCompanies {
-        name
-        previewImage {
-          file {
-            src: url
-          }
-          alt: title
-        }
-        logoBlack {
-          file {
-            src: url
-          }
-          alt: title
-        }
-        title
-        desc {
-          text: desc
-        }
-        investors {
-          name
-        }
-        links {
-          link
-        }
-        images {
-          file {
-            src: url
-          }
-          alt: title
-        }
-      }
-      stealthCompanies {
-        name
+    privacyPage: contentfulPagePrivacyPolicy {
+      text {
+        html: text
       }
       ctaTitle
       tickerDuration {
         duration
       }
       tickerData: ticker {
-        text {
-          text
-        }
+        id
       }
     }
   }

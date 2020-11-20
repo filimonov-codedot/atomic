@@ -82,7 +82,7 @@
 
 			span {
 				color: #242528;
-				font: 300 34px/41px $font-MessinaSans;
+				font: 200 34px/41px $font-MessinaSans;
 				letter-spacing: -0.02em;
 				cursor: pointer;
 
@@ -151,6 +151,7 @@
 				font: 20px/30px $font-MessinaSans;
 				letter-spacing: -0.02em;
 				margin: 0 0 10px;
+				color: $color-black;
 
 				@include desktop {
 					margin: 0 0 19px;

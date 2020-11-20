@@ -15,6 +15,7 @@ export default function JoinTeam ({ data }) {
       slides,
       selectionCompanies,
       ctaTitle,
+      tickerDuration,
       tickerData
     }
   } = data
@@ -25,6 +26,7 @@ export default function JoinTeam ({ data }) {
       footerData={footerData}
       ctaTitle={ctaTitle}
       ctaType="cta-inner"
+      tickerDuration={tickerDuration}
       tickerData={tickerData}
       pageTitle="Join a Team"
     >
@@ -93,6 +95,9 @@ export const pageQuery = graphql`
 
       }
       ctaTitle
+      tickerDuration {
+        duration
+      }
       tickerData: ticker {
         text {
           text

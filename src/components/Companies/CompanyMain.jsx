@@ -27,7 +27,7 @@ export const CompanyMain = ({ mainCompanies }) => {
             return (
               <div key={index} className={`company${loaded ? "" : " current"}`}>
                 <h3 onClick={() => handleClick(item)}>{name}</h3>
-                <div className="company-photo">
+                <div className="company-photo" onClick={() => handleClick(item)}>
                   <img src={src} alt={alt} />
                 </div>
               </div>

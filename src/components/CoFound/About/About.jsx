@@ -19,7 +19,6 @@ export const About = ({ aboutHeader, aboutContent }) => {
             return (
               <div className="team-item" key={index}>
                 <div className="team-photo">
-                  {/*TODO: change img from contentful */}
                   <img src={src} alt={alt} />
                 </div>
                 <h4>{title}</h4>

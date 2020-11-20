@@ -40,6 +40,8 @@
 	&-name {
 		letter-spacing: .2px;
 		font: 600 14px/20px $font-MessinaSans;
+		cursor: pointer;
+		display: inline-block;
 
 		@include desktop {
 			font-size: 17px;
@@ -114,7 +116,7 @@
 				circle {
 					stroke-dasharray: 227;
 					stroke-dashoffset: 75;
-					transition: all 5s ease-in-out;
+					transition: all 7s ease-in-out;
 					//animation: circle 5s linear alternate forwards;
 				}
 			}
@@ -209,12 +211,12 @@
 			img {
 				display: block;
 				height: auto;
-				max-width: 90%;
+				max-width: 300px;
 				object-fit: initial;
 				width: auto;
 
-				@include desktop {
-					max-width: 540px;
+				@include tablet {
+					max-width: 450px;
 				}
 			}
 		}

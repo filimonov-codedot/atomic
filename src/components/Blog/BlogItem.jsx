@@ -11,7 +11,7 @@ export const BlogItem = (props) => {
   }
 
   return (
-    <div className="article">
+    <div className="article" onClick={() => onClickHandler(props)}>
       <div className="article-img">
         <img src={src} alt={alt} />
       </div>
@@ -19,7 +19,7 @@ export const BlogItem = (props) => {
         <div className="article-date">{dateFormat(new Date(date))}</div>
         <h2>{title}</h2>
         <p>{text}</p>
-        <div className="article-more" onClick={() => onClickHandler(props)}>Read this article</div>
+        <div className="article-more">Read this article</div>
       </div>
     </div>
   )

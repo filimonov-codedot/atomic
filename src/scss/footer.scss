@@ -1,17 +1,17 @@
 .footer {
 	background: #0D0D0D;
 	padding: 86px 0 40px;
-	
+
 	@include desktop {
 		padding: 108px 0 40px;
 	}
-	
+
 	.container {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
 	}
-	
+
 	h3 {
 		color: #fff;
 		font: 600 14px/17px $font-MessinaSansMono;
@@ -19,42 +19,42 @@
 		opacity: .5;
 		width: 100%;
 	}
-	
+
 	&-nav {
 		display: flex;
 		flex-wrap: wrap;
 		max-width: 100%;
 		padding: 0 0 62px;
-		
+
 		@include tablet {
 			padding: 0 0 40px;
 			width: 70%;
 		}
-		
+
 		@include desktop {
 			max-width: 360px;
 			padding: 0;
 		}
-		
+
 		ul {
 			padding: 0 60px 0 0;
-			
+
 			@include desktop {
 				width: 50%;
 			}
-			
+
 			&:last-child {
 				padding: 0;
 			}
 		}
-		
+
 		li {
 			padding: 12px 0;
-			
+
 			@include desktop {
 				padding: 15px 0;
 			}
-			
+
 			a {
 				color: #fff;
 				font: 17px/24px $font-MessinaSans;
@@ -64,7 +64,7 @@
 				@include desktop {
 					font-size: 18px;
 				}
-				
+
 				&:hover {
 					color: #808080;
 				}
@@ -76,22 +76,22 @@
 			}
 		}
 	}
-	
+
 	&-contacts {
 		width: 100%;
 		padding: 0 0 56px;
-		
+
 		@include tablet {
 			max-width: 30%;
 			padding: 0 0 40px;
 			width: 70%;
 		}
-		
+
 		@include desktop {
 			max-width: 240px;
 			padding: 0;
 		}
-		
+
 		&-email {
 			color: #fff;
 			display: inline-flex;
@@ -104,14 +104,14 @@
 			}
 		}
 	}
-	
+
 	&-newsletter {
 		width: 100%;
-		
+
 		@include desktop {
 			max-width: 360px;
 		}
-		
+
 		p {
 			color: #fff;
 			font-size: 18px;
@@ -123,32 +123,66 @@
 				margin: 20px 0 25px;
 			}
 		}
-		
+
+		form {
+			position: relative;
+			margin-bottom: 36px;
+		}
+
 		input[type="email"],
 		input[type="text"] {
+			margin-bottom: 0;
 			border-color: #fff;
 			color: #fff;
-			
+			padding-right: 50px;
+
 			@include placeholder-color(rgba(#fff, .5));
 		}
+
+		button {
+			position: absolute;
+			z-index: 2;
+			right: 0;
+			top: 50%;
+			padding-right: 0;
+			transform: translateY(-50%);
+			background-color: transparent;
+			border: none;
+			color: #fff;
+			line-height: 47px;
+			font-weight: 600;
+			font-size: 15px;
+			letter-spacing: -0.01em;
+			cursor: pointer;
+			transition: opacity 0.3s ease-in-out;
+
+			&:hover {
+				opacity: 0.6;
+			}
+
+			&:focus,
+			&:active {
+				outline: none;
+			}
+		}
 	}
-	
+
 	&-logo {
 		display: none;
 		margin: auto;
 		left: calc(50% - 14px);
 		position: absolute;
-		
+
 		@include desktop {
 			display: block;
 		}
-		
+
 		img {
 			display: block;
 			margin: auto;
 		}
 	}
-	
+
 	&-bottom {
 		align-items: center;
 		display: flex;
@@ -159,50 +193,50 @@
 		position: relative;
 		text-align: center;
 		width: 100%;
-		
+
 		@include desktop {
 			letter-spacing: initial;
 			justify-content: initial;
 			padding: 69px 0 0;
 		}
-		
+
 		&-nav {
 			display: contents;
-			
+
 			@include desktop {
 				display: block;
 			}
-			
+
 			ul {
 				display: contents;
-				
+
 				@include desktop {
 					display: flex;
 				}
-				
+
 				li {
 					padding: 0 15px 0 0;
-					
+
 					&::before {
 						color: rgba(#fff,.3);
 						content: '•';
 						padding: 0 15px 0 0;
 					}
-					
+
 					&:first-child {
 						&::before {
 							display: none;
 						}
 					}
-					
+
 					&:last-child::before {
 						display: none;
-						
+
 						@include desktop {
 							display: inline;
 						}
 					}
-					
+
 					a {
 						color: rgba(#fff,.3);
 						font: 13px/16px $font-MessinaSans;
@@ -213,16 +247,16 @@
 				}
 			}
 		}
-		
+
 		.copyright {
 			display: contents;
 			margin: 0 0 0 auto;
 			text-align: right;
-			
+
 			@include desktop {
 				display: block;
 			}
-			
+
 			p {
 				color: rgba(#fff,.3);
 				display: inline;
@@ -230,7 +264,7 @@
 				letter-spacing: .6px;
 				margin: 0 15px 0 0;
 				text-transform: uppercase;
-				
+
 				@include desktop {
 					margin: 0;
 				}

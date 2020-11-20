@@ -23,6 +23,7 @@ export default function CoFound ({ data }) {
       teamHeader,
       teamReviews,
       ctaTitle,
+      tickerDuration,
       tickerData
     }
   } = data
@@ -33,6 +34,7 @@ export default function CoFound ({ data }) {
       footerData={footerData}
       ctaType="cta-inner"
       ctaTitle={ctaTitle}
+      tickerDuration={tickerDuration}
       tickerData={tickerData}
       pageTitle="Co-Found"
     >
@@ -212,6 +214,9 @@ export const pageQuery = graphql`
         author
       }
       ctaTitle
+      tickerDuration {
+        duration
+      }
       tickerData: ticker {
         text {
           text

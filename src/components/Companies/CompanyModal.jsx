@@ -25,15 +25,15 @@ export const CompanyModal = ({ logoBlack, title, desc, investors, links, images,
           <div className="modal-company-investors">
             <h3>Investors</h3>
             <ul>
-              {investorsLeftCol && investorsLeftCol.map(({ name }) => (
-                <li key={name}>{name}</li>
+              {investorsLeftCol && investorsLeftCol.map(({ name }, index) => (
+                <li key={index}>{name}</li>
               ))}
             </ul>
             <ul>
               {investorsRightCol && investorsRightCol.map(({ name }, index) => (
                 index === investorsRightCol.length - 1 ?
-                  <li key={name}><i>{name}</i></li> :
-                  <li key={name}>{name}</li>
+                  <li key={index}><i>{name}</i></li> :
+                  <li key={index}>{name}</li>
               ))}
             </ul>
           </div>
@@ -46,7 +46,11 @@ export const CompanyModal = ({ logoBlack, title, desc, investors, links, images,
           </div>
           <div className="modal-company-gallery">
             {images && images.map((imageItem, index) => (
-              <img key={index} src={imageItem.file.src} alt={imageItem?.alt} />
+              <div key={index}>
+                <div className="image-wrapper">
+                  <img src={imageItem.file.src} alt={imageItem?.alt} />
+                </div>
+              </div>
             ))}
           </div>
         </div>

@@ -12,9 +12,16 @@ export const ReviewSlider = ({ slides, description = null, addClass = '' }) => {
       circle.current.style.transition = 'none'
       circle.current.style.strokeDashoffset = 75
       setTimeout(() => {
-        circle.current.style.transition = 'all 5s linear'
+        circle.current.style.transition = 'all 7s linear'
         circle.current.style.strokeDashoffset = 227
       }, 50)
+    }
+  }
+
+  const progressPause = () => {
+    if (circle?.current?.style) {
+      circle.current.style.transition = 'none'
+      circle.current.style.strokeDashoffset = 75
     }
   }
 
@@ -23,10 +30,11 @@ export const ReviewSlider = ({ slides, description = null, addClass = '' }) => {
     arrows: false,
     fade: true,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 7000,
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
+    pauseOnHover: false,
     onInit: () => {
       progressStart()
     },
@@ -67,20 +75,22 @@ export const ReviewSlider = ({ slides, description = null, addClass = '' }) => {
                 className="review-slide"
                 key={index}
                 onClick={(e) => setActiveCompany(refCompanies)}
+                // onMouseEnter={progressPause}
+                // onMouseLeave={progressStart}
               >
                 <div className="review-slide-title">{title}</div>
                 <img
                   src={previewImage.file.src}
                   alt={previewImage.alt}
                 />
-                {logoWhile && (
+                {logoWhile ? (
                   <div className="review-slide-logo">
                     <img
                       src={logoWhile.file.src}
                       alt={logoWhile.alt}
                     />
                   </div>
-                )}
+                ) : ''}
               </div>
             )
           })}
