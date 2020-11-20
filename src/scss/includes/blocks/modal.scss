@@ -1,20 +1,26 @@
 .modal {
 	background: #fff;
 	height: 100vh;
-	max-width: 100%;
+	width: 100%;
 	padding: 60px 24px 24px;
 	position: fixed;
 	overflow: auto;
 	right: -100%;
 	top: 0;
-	transition: all .25s ease;
+	transition: all .5s ease;
 	z-index: 201;
-	display: none;
 	text-align: left;
+	animation-name: modal-open;
+	animation-duration: 0.3s;
 
 	@include tablet {
 		padding: 60px;
-		min-width: 600px;
+		width: 760px;
+	}
+
+	@keyframes modal-open {
+		from {right: -100%;}
+		to {right: 0}
 	}
 
 	&::-webkit-scrollbar {
@@ -24,13 +30,6 @@
 	&.show {
 		display: flex;
 		right: 0;
-		animation-name: modal-open;
-		animation-duration: 0.3s;
-	}
-
-	@keyframes modal-open {
-		from {right: -100%;}
-		to {right: 0}
 	}
 
 	&-menu {
@@ -100,7 +99,7 @@
 		display: flex;
 
 		&-wrapper {
-			max-width: 577px;
+			width: 100%;
 		}
 
 		h2 {
@@ -109,13 +108,39 @@
 			text-align: left;
 		}
 
+		.field-wrapper {
+			position: relative;
+			margin-bottom: 36px;
+
+			input {
+				margin-bottom: 0;
+
+				&:not([value=""]),
+				&:focus,
+				&:active {
+					+ label {
+						bottom: 100%;
+						font-size: 14px;
+					}
+				}
+			}
+
+			label {
+				position: absolute;
+				bottom: 50%;
+				left: 0;
+				margin: 0;
+				transform: translateY(50%);
+				transition: all 0.25s ease-in-out;
+			}
+		}
+
 		.btn {
-			background: #d7d7d7;
+			background-color: #000;
 			color: #fff;
 
-			&:hover {
-				background-color: #000;
-				opacity: 1;
+			&[disabled] {
+				background: #d7d7d7;
 			}
 		}
 	}
@@ -123,7 +148,7 @@
 	&-company {
 
 		&-wrapper {
-			max-width: 640px;
+			width: 100%;
 		}
 
 		&-logo {
@@ -178,7 +203,7 @@
 			}
 
 			i {
-				font: italic 17px/25px $font-MessinaSansSerif;
+				font: italic 17px/20px $font-MessinaSansSerif;
 			}
 		}
 
@@ -194,7 +219,7 @@
 			}
 
 			a {
-				background: url("../img/dest/icon-link.svg") no-repeat right center;
+				background: url("../img/dest/icon-link.svg") no-repeat right top;
 				border-bottom: 1px solid #000;
 				color: $color-black;
 				font: 600 20px/24px $font-MessinaSans;
@@ -226,16 +251,32 @@
 				padding: 0;
 			}
 
-			img {
-				display: block;
-				height: auto;
+			> div {
+				width: 100%;
+				min-width: 296px;
 				margin-right: 7px;
-				max-width: 316px;
-				object-fit: cover;
 
 				&:nth-child(2n) {
 					margin-right: 0;
 				}
+			}
+
+
+
+			.image-wrapper {
+				position: relative;
+				width: 100%;
+				padding-bottom: 82%;
+			}
+
+			img {
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
 			}
 		}
 
@@ -248,7 +289,6 @@
 			@include tablet {
 				font-size: 26px;
 				line-height: 31px;
-				margin: 0 0 10px;
 			}
 		}
 
@@ -538,19 +578,31 @@
 	}
 
 	&-close {
-		align-items: center;
 		background: #fff;
 		border: 1px solid #D7D7D7;
 		border-radius: 50%;
 		cursor: pointer;
-		display: flex;
-		justify-content: center;
-		height: 56px;
+		display: block;
 		position: fixed;
-		right: 30px;
-		top: 30px;
-		width: 56px;
+		right: 19px;
+		top: 19px;
+		width: 44px;
+		height: 44px;
 		z-index: 20;
+
+		> * {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		@include desktop {
+			width: 56px;
+			height: 56px;
+			right: 30px;
+			top: 30px;
+		}
 	}
 }
 
@@ -562,8 +614,21 @@
 	right: 0;
 	top: 0;
 	z-index: 200;
+	opacity: 0;
+	animation-name: modal-open-overlay;
+	animation-duration: 0.6s;
+	transition: all 0.5s ease-in-out;
+
+	@keyframes modal-open-overlay {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 0.75;
+		}
+	}
 
 	&.show {
-		opacity: .75;
+		opacity: 0.75;
 	}
 }

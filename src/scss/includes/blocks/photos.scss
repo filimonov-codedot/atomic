@@ -1,63 +1,70 @@
 .photos {
 	background: #fff;
 	overflow: hidden;
-	padding: 0 0 80px;
-	
-	@include desktop {
-		padding: 0 0 96px;
-	}
-	
+	padding: 0;
+
 	&-wrapper {
 		display: flex;
 		flex-wrap: wrap;
 		position: relative;
+		justify-content: center;
+		margin-bottom: -72px;
+
+		@include tablet {
+			margin-bottom: 0;
+		}
 	}
-	
+
 	&-line {
-		display: flex;
-		flex-wrap: wrap;
+		display: contents;
 		height: 146px;
 		margin: 0 0 0 -72px;
 		overflow: hidden;
 		min-width: calc(100% + 146px);
-		
+
 		@include tablet {
+			display: flex;
 			flex-wrap: nowrap;
 			height: auto;
 			margin-left: -35px;
 			min-width: initial;
 			overflow: visible;
-			
+
 			&:nth-child(2) {
 				margin-left: -65px;
 			}
 		}
+
+		&:last-child {
+			.photo {
+
+			}
+		}
 	}
-	
+
 	.photo {
-		height: 72px;
+		position: relative;
+		height: 71px;
 		margin: 0 1px 1px 0;
-		width: 72px;
-		
+		width: 71px;
+		flex: 0 0 71px;
+		overflow: hidden;
+		border-radius: 16px;
+
 		@include tablet {
 			height: 80px;
 			margin: 4px;
 			width: 120px;
+			flex: 0 0 120px;
 		}
-		
+
 		img {
 			display: block;
+			position: absolute;
 			height: 100%;
 			max-width: 100%;
 			object-fit: cover;
 			width: 100%;
-			
-			@include tablet {
-				border-radius: 16px;
-				height: auto;
-				object-fit: initial;
-				width: auto;
-			}
 		}
 	}
 }

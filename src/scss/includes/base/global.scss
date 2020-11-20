@@ -28,6 +28,54 @@ ul {
 	list-style: none;
 }
 
+.page-content {
+	ul, ol {
+		display: block;
+		list-style: disc outside none;
+		margin: 1em 0;
+		padding: 0 0 0 20px;
+	}
+
+	ol {
+		list-style-type: decimal;
+	}
+
+	li {
+		display: list-item;
+	}
+
+	ul ul, ol ul {
+		list-style-type: circle;
+		margin-left: 10px;
+	}
+
+	ul ul ul {
+		list-style-type: square;
+	}
+
+	ol ol, ul ol {
+		list-style-type: lower-latin;
+		margin-left: 10px;
+	}
+
+	h1 {
+		font-weight: 200;
+	}
+
+	h3 {
+		font-size: 20px;
+		text-transform: uppercase;
+	}
+
+	a {
+		color: $color-red;
+
+		&:hover {
+		  color: #000;
+		}
+	}
+}
+
 img,
 video,
 audio {

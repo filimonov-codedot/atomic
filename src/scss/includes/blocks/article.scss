@@ -1,5 +1,6 @@
 .article {
 	margin: 0 0 64px;
+	cursor: pointer;
 
 	@include tablet {
 		display: flex;

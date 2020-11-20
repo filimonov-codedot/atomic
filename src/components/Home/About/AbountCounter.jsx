@@ -14,11 +14,11 @@ export const AboutCounter = ({ counter }) => {
         {counter.prefix}
         <span className="counter">
           <CountUp
-            duration={3}
+            duration={2}
             end={counter.title}
             decimals={counter.title && isFloat(counter.title) ? 1 : 0}
             start={visible ? 0 : null}
-            useEasing={true}
+            useEasing={false}
             useGrouping={true}
             redraw={true}
           >

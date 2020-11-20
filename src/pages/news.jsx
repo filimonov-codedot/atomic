@@ -12,6 +12,7 @@ export default function News ({ data }) {
     headerData,
     footerData,
     newsData: {
+      tickerDuration,
       tickerData,
       companies,
       newsSection,
@@ -26,6 +27,7 @@ export default function News ({ data }) {
     <Layout
       headerData={headerData}
       footerData={footerData}
+      tickerDuration={tickerDuration}
       tickerData={tickerData}
       ctaType="cta-inner"
       ctaDisplay={false}
@@ -130,6 +132,9 @@ export const pageQuery = graphql`
         fullContent {
           text: fullContent
         }
+      }
+      tickerDuration {
+        duration
       }
       tickerData: ticker {
         text {

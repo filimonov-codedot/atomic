@@ -42,6 +42,7 @@ export default function Home ({ data }) {
       aboutHeader,
       ctaTitle,
       heroTicker,
+      tickerDuration,
       tickerData,
       whyAtomicHeader,
       quoteSection,
@@ -57,26 +58,31 @@ export default function Home ({ data }) {
 
   const setHeroShowed = () => {
     if (isFirstSession) {
-      document.cookie = 'heroShowed=true';
-      hero.current.style.opacity = '0.5';
+      hero.current.style.opacity = '0';
+      hero.current.style.transition = 'all 1s ease-in-out';
 
       setIsFirstSession(false)
       setTimeout(() => {
+        document.cookie = 'heroShowed=true';
         setIsShowedHero(false)
-      }, 300)
+      }, 600)
     }
     window.removeEventListener('scroll', setHeroShowed)
   }
 
   useEffect(() => {
-    if (Boolean(heroShowed) === false && isFirstSession && isShowedHero) {
-      hero.current.style.visibility = 'visible';
-      hero.current.style.opacity = '1';
+    if (typeof window !== `undefined`) {
+      if (Boolean(heroShowed) === false && isFirstSession && isShowedHero) {
+        hero.current.style.visibility = 'visible';
+        hero.current.style.opacity = '1';
 
-      window.addEventListener('scroll', setHeroShowed)
-    } else {
-      setHeroShowed()
-      setIsShowedHero(false)
+        window.addEventListener('scroll', setHeroShowed)
+      } else if (Boolean(heroShowed) === false && !isFirstSession) {
+        setHeroShowed()
+      } else if (Boolean(heroShowed) === true) {
+        setHeroShowed()
+        setIsShowedHero(false)
+      }
     }
   }, [isFirstSession, isShowedHero])
 
@@ -113,6 +119,7 @@ export default function Home ({ data }) {
         headerData={headerData}
         footerData={footerData}
         ctaTitle={ctaTitle}
+        tickerDuration={tickerDuration}
         tickerData={tickerData}
         isHomePage={true}
       >
@@ -198,9 +205,11 @@ export const pageQuery = graphql`
           }
           alt: title
         }
-        desc
         refCompanies {
           name
+          desc {
+            text: desc
+          }
           previewImage {
             file {
               src: url
@@ -214,9 +223,6 @@ export const pageQuery = graphql`
             alt: title
           }
           title
-          desc {
-            text: desc
-          }
           investors {
             name
           }
@@ -228,6 +234,41 @@ export const pageQuery = graphql`
               src: url
             }
             alt: title
+          }
+        }
+        role
+        refTeamMembers {
+          smallPhoto {
+            file {
+              src: url
+            }
+            alt: title
+          }
+          position
+          name
+          largePhoto {
+            file {
+              url
+            }
+            title
+          }
+          social {
+            icon {
+              file {
+                src: url
+              }
+              alt: title
+            }
+            link
+          }
+          desc {
+            text: desc
+          }
+          faq {
+            title
+            text {
+              text
+            }
           }
         }
       }
@@ -354,6 +395,9 @@ export const pageQuery = graphql`
         }
       }
       ctaTitle
+      tickerDuration {
+        duration
+      }
       tickerData: ticker {
         text {
           text

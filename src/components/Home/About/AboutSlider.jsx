@@ -2,28 +2,26 @@ import React, { useState, useRef, useEffect } from 'react'
 import Slider from 'react-slick'
 import { AboutSlide } from './AboutSlide'
 import { CompanyModal } from '../../Companies/CompanyModal'
+import { ModalUser } from "../../Team/ModalUser"
 
 export const AboutSlider = ({ slides }) => {
   const [isFirstSession, setIsFirstSession] = useState(true)
+
   const [activeCompany, setActiveCompany] = useState(false)
-  const [open, setOpen] = useState(false)
+  const [activeMember, setActiveMember] = useState(false)
+
   const [initSlide, setInitSlide] = useState(null)
   const [activeSlide, setActiveSlide] = useState(null)
 
   useEffect(() => {
     if (isFirstSession) {
       const sliderCount = slides.length
-      const slideInit = Math.floor(Math.random() * sliderCount)
+      const slideInit = Math.floor(Math.random() * 3)
       setInitSlide(slideInit)
       setActiveSlide(slideInit)
       setIsFirstSession(false)
     }
   }, [slides])
-
-  const handleClick = (slide) => {
-    setActiveCompany(slide)
-    setOpen(true)
-  }
 
   if (initSlide !== null) {
     const settings = {
@@ -32,7 +30,7 @@ export const AboutSlider = ({ slides }) => {
       fade: false,
       autoplay: true,
       autoplaySpeed: 6000,
-      speed: 1000,
+      speed: 750,
       slidesToShow: 3,
       slidesToScroll: 1,
       centerMode: true,
@@ -84,22 +82,25 @@ export const AboutSlider = ({ slides }) => {
                     index={index}
                     activeSlide={activeSlide}
                     slide={slide}
-                    onClickHandler={() => handleClick(slide)}
+                    onClickCompany={() => setActiveCompany(slide)}
+                    onClickMember={(member) => setActiveMember(member)}
                   />
                 )
               })}
             </Slider>
           </div>
         </div>
-        {open && activeCompany ? (
+        {activeCompany && activeCompany.refCompanies ? (
           <CompanyModal
             {...activeCompany.refCompanies}
-            onClose={() => setOpen(false)} />
+            onClose={() => setActiveCompany(false)} />
         ) : ''}
+        {activeMember ? (<ModalUser
+          {...activeMember}
+          onClose={() => setActiveMember(false)} />) : ''}
       </>
     )
   } else {
     return ''
   }
-
 }

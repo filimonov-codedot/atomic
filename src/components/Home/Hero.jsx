@@ -1,16 +1,11 @@
-import React, { useState } from "react"
+import React, { forwardRef } from "react"
 import { useEffect } from "react"
 import Typed from 'typed.js'
 
-export const Hero = React.forwardRef(({ heroTicker, setHeroShowed, hero }) => {
+export const Hero = forwardRef(({ heroTicker, setHeroShowed, hero }) => {
   useEffect(() => {
     new Typed('.hero-ticker span', {
-      strings: [
-        'build the future',
-        'take a leap',
-        'solve big problems',
-        'build together',
-      ],
+      strings: heroTicker.map((item)=>item.text),
       typeSpeed: 80,
       backSpeed: 40,
       loop: true,
@@ -30,7 +25,7 @@ export const Hero = React.forwardRef(({ heroTicker, setHeroShowed, hero }) => {
                   fill="#F2571F" />
           </svg>
         </div>
-        <h1>It’s never been a better time to
+        <h1>It’s never been a better time to<br/>
           <div className="hero-ticker">
             <span />
           </div>

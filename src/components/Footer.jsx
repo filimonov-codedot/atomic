@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
-
-const encode = (data) => Object.keys(data).
-  map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])).
-  join('&')
+import NetlifyForm from 'react-ssg-netlify-forms'
 
 export const Footer = ({ footerData, navFooter, navSiteMap }) => {
   const [email, setEmail] = useState('')
@@ -17,22 +14,7 @@ export const Footer = ({ footerData, navFooter, navSiteMap }) => {
     copyright
   } = footerData
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'newsletter', email })
-    }).
-      then(() => console.log('Success!')).
-      catch((error) => console.log(error))
-  }
-
-  const handleChange = (e) => {
-    const { value } = e.target
-    setEmail(value)
-  }
+  const handleChange = ({ target: { value } }) => setEmail(value)
 
   return (
     <footer className="footer">
@@ -41,7 +23,6 @@ export const Footer = ({ footerData, navFooter, navSiteMap }) => {
           <h3>Site Map</h3>
           {navSiteMap.map((item, index) => (
             <ul key={index}>
-
               {item.map(({ title, link, disabled }, index) => {
                 if (disabled) return (
                   <li key={index} className="disabled">
@@ -54,7 +35,6 @@ export const Footer = ({ footerData, navFooter, navSiteMap }) => {
                   </li>
                 )
               })}
-
             </ul>
           ))}
         </nav>
@@ -74,16 +54,20 @@ export const Footer = ({ footerData, navFooter, navSiteMap }) => {
         <div className="footer-newsletter">
           <h3>Newsletter</h3>
           <p>{newsletterTitle}</p>
-          <form data-netlify="true" onSubmit={handleSubmit}>
+          <NetlifyForm
+            formName="Newsletter"
+            formValues={{ email }}
+          >
             <input
+              type="email"
+              name="email"
               value={email}
               onChange={handleChange}
-              name='email'
-              type="email"
               placeholder="Enter your email"
               required
             />
-          </form>
+            <button type="submit">Send</button>
+          </NetlifyForm>
         </div>
       </div>
       <div className="container">
