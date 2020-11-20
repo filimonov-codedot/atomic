@@ -13,6 +13,11 @@ exports.createSchemaCustomization = ({ actions }) => {
       location: String
       schedule: String
     }
+    
+    type ContentfulModalReviewSlider implements Node
+    @childOf(types: ["ContentfulPageHome"]) {
+      logoWhile: ContentfulAsset
+    }
   `
   actions.createTypes(typeDefs)
 }
