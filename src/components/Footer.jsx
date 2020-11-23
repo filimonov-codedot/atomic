@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import { Link } from 'gatsby'
-import NetlifyForm from 'react-ssg-netlify-forms'
+import React, { useState } from "react"
+import { Link } from "gatsby"
+import NetlifyForm from "react-ssg-netlify-forms"
 
 export const Footer = ({ footerData, navFooter, navSiteMap }) => {
-  const [email, setEmail] = useState('')
+  const [email, setEmail] = useState("")
 
   if (!footerData) return null
   const {
@@ -66,7 +66,10 @@ export const Footer = ({ footerData, navFooter, navSiteMap }) => {
               placeholder="Enter your email"
               required
             />
-            <button type="submit">Send</button>
+            {
+              email ? <button type="submit">Send</button> : ""
+            }
+
           </NetlifyForm>
         </div>
       </div>
