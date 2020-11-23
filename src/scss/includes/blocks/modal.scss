@@ -30,6 +30,10 @@
 	&.show {
 		display: flex;
 		right: 0;
+
+		.modal-close {
+			opacity: 1;
+		}
 	}
 
 	&-menu {
@@ -589,6 +593,8 @@
 		width: 44px;
 		height: 44px;
 		z-index: 20;
+		opacity: 0;
+		transition: opacity 0.15s ease-in-out;
 
 		> * {
 			position: absolute;
