@@ -18,6 +18,10 @@ exports.createSchemaCustomization = ({ actions }) => {
     @childOf(types: ["ContentfulPageHome"]) {
       logoWhile: ContentfulAsset
     }
+    type ContentfulModelReviewSlider implements Node
+    @childOf(types: ["ContentfulPageCoFound"]) {
+      logoWhile: ContentfulAsset
+    }
   `
   actions.createTypes(typeDefs)
 }

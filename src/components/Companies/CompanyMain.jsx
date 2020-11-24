@@ -1,27 +1,42 @@
-import React, { useEffect, useState } from 'react'
-import { CompanyModal } from './CompanyModal'
+import React, { useEffect, useState } from "react"
+import { navigate } from "gatsby"
+
+import { CompanyModal } from "./CompanyModal"
 
 export const CompanyMain = ({ mainCompanies }) => {
   const [activeCompany, setActiveCompany] = useState(null)
-  const [open, setOpen] = useState(false)
   const [loaded, setLoaded] = useState(false)
 
-  const handleClick = (slide) => {
-    setActiveCompany(slide)
-    setOpen(true)
-  }
+  const handleClick = (slide) => setActiveCompany(slide)
 
-  useEffect(() => setLoaded(true), [])
+  useEffect(() => {
+    setLoaded(true)
+
+    if (typeof window !== "undefined") {
+      const paramId = new URLSearchParams(window.location.search).get("id")
+      if (paramId !== null)
+        setActiveCompany(mainCompanies.find(({ id }) => id === paramId))
+    }
+  }, [])
+
+  const Modal = () => {
+    if (activeCompany) {
+      navigate(`?id=${activeCompany.id}`)
+
+      return (
+        <CompanyModal
+          {...activeCompany}
+          onClose={() => setActiveCompany(null)} />
+      )
+    }
+    return null
+  }
 
   return (
     <div className="company-page">
-      <div className="container">
+      <div className="container">`
         <div className="company-page-list">
-          {open && activeCompany ? (
-            <CompanyModal
-              {...activeCompany}
-              onClose={() => setOpen(false)} />
-          ) : ''}
+          <Modal />
           {mainCompanies.map((item, index) => {
             const { name, previewImage: { file: { src }, alt } } = item
             return (
