@@ -26,7 +26,7 @@ export const Layout = ({
 }) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false)
   const [isOpenMenuMobile, setIsOpenMenuMobile] = useState(false)
-  const [isOpenContactModal, setIsOpenContactModal] = useState(true)
+  const [isOpenContactModal, setIsOpenContactModal] = useState(false)
 
   const navHeader = [
     {

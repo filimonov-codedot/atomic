@@ -109,25 +109,6 @@ export default function Home ({ data }) {
 
   ];
 
-  const Modal = () => {
-    if (isMemberModal) {
-      navigate(`?id=${refTeamMembers.id}`)
-
-      return (
-        <ModalUser
-          name={name}
-          position={position}
-          largePhoto={largePhoto}
-          desc={desc}
-          faq={faq}
-          social={social}
-          onClose={() => setIsMemberModal(false)}
-        />
-      )
-    }
-    return null
-  }
-
   return isShowedHero ? (
       <Hero
         hero={hero}
