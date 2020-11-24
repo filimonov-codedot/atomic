@@ -137,23 +137,48 @@ export const Layout = ({
     }
   ]
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const boolParam = (param) => window.location.hash === "#" + param
+
+      if (boolParam("join")) setIsOpenMenu(true)
+      if (boolParam("menu")) setIsOpenMenuMobile(true)
+      if (boolParam("contact")) setIsOpenContactModal(true)
+    }
+  }, [])
+
+  const changeUrlCLose = () => {
+    if (typeof window !== "undefined") {
+      navigate(window.location.pathname)
+    }
+  }
+
   const Modals = () => {
     if (isOpenMenu) {
+      navigate(`#join`)
       return (
         <MenuModal
-          onClose={setIsOpenMenu}
+          onClose={() => {
+            setIsOpenMenu(false)
+            changeUrlCLose()
+          }}
           navModal={navModal}
         />
       )
     }
     if (isOpenMenuMobile) {
+      navigate(`#menu`)
       return (
         <MenuModalMobile
-          onClose={setIsOpenMenuMobile}
+          onClose={() => {
+            setIsOpenMenuMobile(false)
+            changeUrlCLose()
+          }}
           navModalMobile={navModalMobile}
         />
       )
     }
+    if (isOpenContactModal) navigate(`#contact`)
     return null
   }
 
@@ -191,11 +216,14 @@ export const Layout = ({
           navSiteMap={navSiteMap}
           navFooter={navFooter}
         />
+        <Modals />
         <ContactUsModal
           isOpenContactModal={isOpenContactModal}
-          onClose={setIsOpenContactModal}
+          onClose={() => {
+            setIsOpenContactModal(false)
+            changeUrlCLose()
+          }}
         />
-        <Modals />
       </div>
     </PageTransition>
   )

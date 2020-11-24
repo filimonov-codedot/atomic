@@ -22,7 +22,7 @@ export const ContactUsModal = ({ isOpenContactModal, onClose }) => {
       </NetlifyForm>
       {isOpenContactModal && (
         <ModalWrapper
-          onClose={() => onClose(false)}
+          onClose={() => onClose()}
           modalType="form"
         >
           <div className="modal-form-wrapper">

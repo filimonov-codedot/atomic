@@ -81,7 +81,7 @@ export const pageQuery = graphql`
         }
       }
       teamMembers {
-        id: contentful_id
+        slug
         smallPhoto {
           file {
             src: url
