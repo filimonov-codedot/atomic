@@ -27,7 +27,7 @@ export const WhyAtomic = ({
 
   const Modal = () => {
     if (isMemberModal) {
-      navigate(`?id=${refTeamMembers.id}`)
+      navigate(`#${refTeamMembers.slug}`)
 
       return (
         <ModalUser
@@ -37,20 +37,21 @@ export const WhyAtomic = ({
           desc={desc}
           faq={faq}
           social={social}
-          onClose={() => setIsMemberModal(false)}
+          onClose={() => {
+            changeUrlCLose()
+            setIsMemberModal(false)
+          }}
         />
       )
     }
     return null
   }
 
-  useEffect(() => {
+  const changeUrlCLose = () => {
     if (typeof window !== "undefined") {
-      const paramId = new URLSearchParams(window.location.search).get("id")
-      if (paramId !== null)
-        setIsMemberModal(refTeamMembers.find(({ id }) => id === paramId))
+      navigate(window.location.pathname)
     }
-  }, [])
+  }
 
   return (
     <div className="why-atomic">

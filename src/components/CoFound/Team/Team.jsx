@@ -1,9 +1,44 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from "react"
+import { navigate } from "gatsby"
+
 import { ModalUser } from '../../Team/ModalUser'
 
 export const Team = ({ teamHeader, teamContent }) => {
   const { title, subtitle } = teamHeader
   const [memberModal, setMemberModal] = useState(false)
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash
+      if (hash) {
+        const data = teamContent.find(
+          ({ refTeamMember }) => refTeamMember.slug === hash.slice(1));
+        if (data) setMemberModal(data.refTeamMember)
+      }
+    }
+  }, [])
+
+  const Modal = () => {
+    if (memberModal) {
+      navigate(`#${memberModal.slug}`)
+      return (
+        <ModalUser
+          {...memberModal}
+          onClose={() => {
+            changeUrlCLose()
+            setMemberModal(null)
+          }}
+        />
+      )
+    }
+    return null
+  }
+
+  const changeUrlCLose = () => {
+    if (typeof window !== "undefined") {
+      navigate(window.location.pathname)
+    }
+  }
 
   return (
     <div className="team-list">
@@ -40,9 +75,7 @@ export const Team = ({ teamHeader, teamContent }) => {
               </React.Fragment>
             )
           })}
-          {memberModal && <ModalUser
-            {...memberModal}
-            onClose={() => setMemberModal(false)} />}
+          <Modal />
         </div>
       </div>
     </div>

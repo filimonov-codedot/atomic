@@ -1,5 +1,7 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from "react"
+import { navigate } from "gatsby"
 import Slider from 'react-slick'
+
 import { CompanyModal } from './Companies/CompanyModal'
 
 export const ReviewSlider = ({ slides, description = null, addClass = '' }) => {
@@ -22,6 +24,39 @@ export const ReviewSlider = ({ slides, description = null, addClass = '' }) => {
     if (circle?.current?.style) {
       circle.current.style.transition = 'none'
       circle.current.style.strokeDashoffset = 75
+    }
+  }
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash
+      if (hash) {
+        const data =
+          slides.find(({ refCompanies }) => refCompanies.slug === hash.slice(1));
+        if (data) setActiveCompany(data.refCompanies)
+      }
+    }
+  }, [])
+
+  const Modal = () => {
+    if (activeCompany) {
+      navigate(`#${activeCompany.slug}`)
+      return (
+        <CompanyModal
+          {...activeCompany}
+          onClose={() => {
+            setActiveCompany(false)
+            changeUrlCLose()
+          }}
+        />
+      )
+    }
+    return null
+  }
+
+  const changeUrlCLose = () => {
+    if (typeof window !== "undefined") {
+      navigate(window.location.pathname)
     }
   }
 
@@ -103,11 +138,7 @@ export const ReviewSlider = ({ slides, description = null, addClass = '' }) => {
           </div>
         </div>
       )}
-      {activeCompany ? (
-        <CompanyModal
-          {...activeCompany}
-          onClose={() => setActiveCompany(false)} />
-      ) : ''}
+      <Modal />
     </>
   )
 }

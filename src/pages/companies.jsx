@@ -72,7 +72,7 @@ export const pageQuery = graphql`
     }
     companiesPage: contentfulPageCompanies {
       mainCompanies {
-        id: contentful_id
+        slug
         name
         previewImage {
           file {

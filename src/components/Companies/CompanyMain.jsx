@@ -13,23 +13,33 @@ export const CompanyMain = ({ mainCompanies }) => {
     setLoaded(true)
 
     if (typeof window !== "undefined") {
-      const paramId = new URLSearchParams(window.location.search).get("id")
-      if (paramId !== null)
-        setActiveCompany(mainCompanies.find(({ id }) => id === paramId))
+      const hash = window.location.hash
+      if (hash) setActiveCompany(
+        mainCompanies.find(({ slug }) => slug === hash.slice(1)))
     }
   }, [])
 
   const Modal = () => {
     if (activeCompany) {
-      navigate(`?id=${activeCompany.id}`)
+      navigate(`#${activeCompany.slug}`)
 
       return (
         <CompanyModal
           {...activeCompany}
-          onClose={() => setActiveCompany(null)} />
+          onClose={() => {
+            setActiveCompany(null)
+            changeUrlCLose()
+          }}
+        />
       )
     }
     return null
+  }
+
+  const changeUrlCLose = () => {
+    if (typeof window !== "undefined") {
+      navigate(window.location.pathname)
+    }
   }
 
   return (

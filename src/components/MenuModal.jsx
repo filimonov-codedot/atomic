@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import { ModalWrapper } from './ModalWrapper'
 
 export const MenuModal = ({ onClose, navModal }) => (
-  <ModalWrapper onClose={() => onClose(false)} modalType="menu">
+  <ModalWrapper onClose={() => onClose()} modalType="menu">
     <div className="modal-menu-wrapper">
       <ul>
         {navModal.map(({ title, link, disabled }, index) => {

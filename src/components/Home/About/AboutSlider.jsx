@@ -5,7 +5,7 @@ import { CompanyModal } from '../../Companies/CompanyModal'
 import { ModalUser } from "../../Team/ModalUser"
 import { navigate } from "gatsby"
 
-export const AboutSlider = ({ slides }) => {
+export const AboutSlider = ({ slides, quoteSection }) => {
   const [isFirstSession, setIsFirstSession] = useState(true)
 
   const [activeCompany, setActiveCompany] = useState(false)
@@ -26,34 +26,55 @@ export const AboutSlider = ({ slides }) => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const paramId = new URLSearchParams(window.location.search).get("id")
-      if (paramId) {
-        setActiveCompany(activeCompany.refCompanies.find(({ id }) => id === paramId))
-        setActiveMember(activeMember.find(({ id }) => id === paramId))
+      const hash = window.location.hash
+      if (hash) {
+        if (activeCompany?.length > 0) {
+          const data = slides.refCompanies.find(
+            ({ slug }) => slug === hash.slice(1))
+          if (data) setActiveCompany(data)
+        }
+        if (activeMember?.length > 0) {
+          const data = slides.refTeamMembers.find(
+            ({ slug }) => slug === hash.slice(1))
+          const data_2 = quoteSection.refTeamMembers.find(
+            ({ slug }) => slug === hash.slice(1))
+          if (data) setActiveMember(data)
+          else if (data_2) setActiveMember(data_2)
+        }
       }
     }
   }, [])
 
   const Modals = () => {
     if (activeCompany) {
-      navigate(`?id=${activeCompany.refCompanies.id}`)
+      navigate(`#${activeCompany.refCompanies.slug}`)
       return (
         <CompanyModal
           {...activeCompany.refCompanies}
-          onClose={() => setActiveCompany(false)}
+          onClose={() => {
+            changeUrlCLose()
+            setActiveCompany(false)}}
         />
       )
     }
     if (activeMember) {
-      navigate(`?id=${activeMember.id}`)
+      navigate(`#${activeMember.slug}`)
       return (
         <ModalUser
           {...activeMember}
-          onClose={() => setActiveMember(false)}
+          onClose={() => {
+            changeUrlCLose()
+            setActiveMember(false)}}
         />
       )
     }
     return null
+  }
+
+  const changeUrlCLose = () => {
+    if (typeof window !== "undefined") {
+      navigate(window.location.pathname)
+    }
   }
 
   if (initSlide !== null) {

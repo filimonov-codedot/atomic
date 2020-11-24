@@ -21,22 +21,32 @@ export default function News ({ data }) {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const paramId = new URLSearchParams(window.location.search).get("id")
-      if (paramId !== null)
-        setModalContent(blogSection.find(({ id }) => id === paramId))
+      const hash = window.location.hash
+      if (hash) setModalContent(
+        blogSection.find(({ slug }) => slug === hash.slice(1)))
     }
   }, [])
 
   const Modal = () => {
-    if (modalContent) navigate(`?id=${modalContent.id}`)
-
-    if (modalContent) return (
-      <BlogModal
-        {...modalContent}
-        closeHandler={(post) => setModalContent(post)}
-      />
-    )
+    if (modalContent) {
+      navigate(`#${modalContent.slug}`)
+      return (
+        <BlogModal
+          {...modalContent}
+          closeHandler={(post) => {
+            changeUrlCLose()
+            setModalContent(post)
+          }}
+        />
+      )
+    }
     return null
+  }
+
+  const changeUrlCLose = () => {
+    if (typeof window !== "undefined") {
+      navigate(window.location.pathname)
+    }
   }
 
   return (
@@ -129,7 +139,7 @@ export const pageQuery = graphql`
         sourceLink
       }
       blogSection {
-        id: contentful_id
+        slug
         image {
           file {
             src: url

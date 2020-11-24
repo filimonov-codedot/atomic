@@ -128,6 +128,7 @@ export default function Home ({ data }) {
           counters={counterData}
           aboutSlider={aboutSlider}
           aboutHeader={aboutHeader}
+          quoteSection={quoteSection}
         />
         <WhyAtomic
           whyAtomicHeader={whyAtomicHeader}
@@ -207,7 +208,7 @@ export const pageQuery = graphql`
           alt: title
         }
         refCompanies {
-          id: contentful_id
+          slug
           name
           desc {
             text: desc
@@ -240,7 +241,7 @@ export const pageQuery = graphql`
         }
         role
         refTeamMembers {
-          id: contentful_id
+          slug
           smallPhoto {
             file {
               src: url
@@ -294,7 +295,7 @@ export const pageQuery = graphql`
           text
         }
         refTeamMembers {
-          id: contentful_id
+          slug
           smallPhoto {
             file {
               src: url
@@ -344,7 +345,7 @@ export const pageQuery = graphql`
         }
         title
         refCompanies {
-          id: contentful_id
+          slug
           name
           previewImage {
             file {
