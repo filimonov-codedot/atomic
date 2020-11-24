@@ -3,6 +3,7 @@ import Slider from 'react-slick'
 import { AboutSlide } from './AboutSlide'
 import { CompanyModal } from '../../Companies/CompanyModal'
 import { ModalUser } from "../../Team/ModalUser"
+import { navigate } from "gatsby"
 
 export const AboutSlider = ({ slides }) => {
   const [isFirstSession, setIsFirstSession] = useState(true)
@@ -22,6 +23,38 @@ export const AboutSlider = ({ slides }) => {
       setIsFirstSession(false)
     }
   }, [slides])
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const paramId = new URLSearchParams(window.location.search).get("id")
+      if (paramId) {
+        setActiveCompany(activeCompany.refCompanies.find(({ id }) => id === paramId))
+        setActiveMember(activeMember.find(({ id }) => id === paramId))
+      }
+    }
+  }, [])
+
+  const Modals = () => {
+    if (activeCompany) {
+      navigate(`?id=${activeCompany.refCompanies.id}`)
+      return (
+        <CompanyModal
+          {...activeCompany.refCompanies}
+          onClose={() => setActiveCompany(false)}
+        />
+      )
+    }
+    if (activeMember) {
+      navigate(`?id=${activeMember.id}`)
+      return (
+        <ModalUser
+          {...activeMember}
+          onClose={() => setActiveMember(false)}
+        />
+      )
+    }
+    return null
+  }
 
   if (initSlide !== null) {
     const settings = {
@@ -90,14 +123,7 @@ export const AboutSlider = ({ slides }) => {
             </Slider>
           </div>
         </div>
-        {activeCompany && activeCompany.refCompanies ? (
-          <CompanyModal
-            {...activeCompany.refCompanies}
-            onClose={() => setActiveCompany(false)} />
-        ) : ''}
-        {activeMember ? (<ModalUser
-          {...activeMember}
-          onClose={() => setActiveMember(false)} />) : ''}
+        <Modals />
       </>
     )
   } else {

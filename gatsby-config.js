@@ -49,8 +49,6 @@ module.exports = {
       },
     },
     // "gatsby-plugin-offline",
-    {
-      resolve: 'gatsby-plugin-page-transitions',
-    }
+    'gatsby-plugin-page-transitions',
   ],
 }
