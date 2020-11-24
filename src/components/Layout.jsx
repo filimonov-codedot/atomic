@@ -154,14 +154,6 @@ export const Layout = ({
         />
       )
     }
-    if (isOpenContactModal) {
-      return (
-        <ContactUsModal
-          isOpenContactModal={isOpenContactModal}
-          onClose={setIsOpenContactModal}
-        />
-      )
-    }
     return null
   }
 
@@ -198,6 +190,10 @@ export const Layout = ({
           footerData={footerData}
           navSiteMap={navSiteMap}
           navFooter={navFooter}
+        />
+        <ContactUsModal
+          isOpenContactModal={isOpenContactModal}
+          onClose={setIsOpenContactModal}
         />
         <Modals />
       </div>
