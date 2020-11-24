@@ -1,5 +1,5 @@
 import React, { useEffect, useState, createRef } from "react"
-import { graphql } from 'gatsby'
+import { graphql, navigate } from "gatsby"
 
 import { Hero } from "../components/Home/Hero"
 import { About } from "../components/Home/About/About"
@@ -8,6 +8,7 @@ import { WhyAtomic } from "../components/Home/WhyAtomic/WhyAtomic"
 import { Team } from "../components/Home/Team/Team"
 import { Photos } from "../components/Home/Photos/Photos"
 import { Press } from "../components/Home/Press/Press"
+import { ModalUser } from "../components/Team/ModalUser"
 
 function getCookie(cname) {
   const name = cname + "=";
@@ -127,6 +128,7 @@ export default function Home ({ data }) {
           counters={counterData}
           aboutSlider={aboutSlider}
           aboutHeader={aboutHeader}
+          quoteSection={quoteSection}
         />
         <WhyAtomic
           whyAtomicHeader={whyAtomicHeader}
@@ -206,6 +208,7 @@ export const pageQuery = graphql`
           alt: title
         }
         refCompanies {
+          slug
           name
           desc {
             text: desc
@@ -238,6 +241,7 @@ export const pageQuery = graphql`
         }
         role
         refTeamMembers {
+          slug
           smallPhoto {
             file {
               src: url
@@ -291,6 +295,7 @@ export const pageQuery = graphql`
           text
         }
         refTeamMembers {
+          slug
           smallPhoto {
             file {
               src: url
@@ -340,6 +345,7 @@ export const pageQuery = graphql`
         }
         title
         refCompanies {
+          slug
           name
           previewImage {
             file {

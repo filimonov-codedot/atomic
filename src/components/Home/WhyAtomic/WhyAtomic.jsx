@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from "react"
+import { navigate } from "gatsby"
 
 import { ReviewSlider } from '../../ReviewSlider'
 import { WhyAtomicArticles } from './WhyAtomicArticles'
@@ -7,6 +8,8 @@ import { ModalUser } from '../../Team/ModalUser'
 export const WhyAtomic = ({
   reviewSlider, whyAtomicHeader, whyAtomicContent, quoteSection
 }) => {
+  const [isMemberModal, setIsMemberModal] = useState(false)
+
   const { subtitle, title } = whyAtomicHeader
   const {
     text: { text },
@@ -21,7 +24,34 @@ export const WhyAtomic = ({
     faq,
     social
   } = refTeamMembers
-  const [isMemberModal, setIsMemberModal] = useState(false)
+
+  const Modal = () => {
+    if (isMemberModal) {
+      navigate(`#${refTeamMembers.slug}`)
+
+      return (
+        <ModalUser
+          name={name}
+          position={position}
+          largePhoto={largePhoto}
+          desc={desc}
+          faq={faq}
+          social={social}
+          onClose={() => {
+            changeUrlCLose()
+            setIsMemberModal(false)
+          }}
+        />
+      )
+    }
+    return null
+  }
+
+  const changeUrlCLose = () => {
+    if (typeof window !== "undefined") {
+      navigate(window.location.pathname)
+    }
+  }
 
   return (
     <div className="why-atomic">
@@ -48,14 +78,7 @@ export const WhyAtomic = ({
         </div>
       </div>
       <ReviewSlider slides={reviewSlider} />
-      {isMemberModal && <ModalUser
-        name={name}
-        position={position}
-        largePhoto={largePhoto}
-        desc={desc}
-        faq={faq}
-        social={social}
-        onClose={() => setIsMemberModal(false)} />}
+      <Modal />
     </div>
   )
 }

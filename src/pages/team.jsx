@@ -81,6 +81,7 @@ export const pageQuery = graphql`
         }
       }
       teamMembers {
+        slug
         smallPhoto {
           file {
             src: url

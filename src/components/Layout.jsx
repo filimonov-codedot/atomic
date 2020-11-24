@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react'
-import PageTransition from 'gatsby-plugin-page-transitions'
+import React, { useEffect, useState } from "react"
+import { navigate } from "gatsby"
+import PageTransition from "gatsby-plugin-page-transitions"
 
-import { SEO } from './SEO'
-import { Header } from './Header'
-import { Footer } from './Footer'
-import { Cta } from './Cta'
-import { Ticker } from './Ticker'
-import { MenuModal } from './MenuModal'
-import { MenuModalMobile } from './MenuModalMobile'
+import { SEO } from "./SEO"
+import { Header } from "./Header"
+import { Footer } from "./Footer"
+import { Cta } from "./Cta"
+import { Ticker } from "./Ticker"
+import { MenuModal } from "./MenuModal"
+import { MenuModalMobile } from "./MenuModalMobile"
 import { ContactUsModal } from "./ContactUsModal"
-import childrenContext from './childrenContext'
+import childrenContext from "./childrenContext"
 
 export const Layout = ({
   headerData,
@@ -17,7 +18,7 @@ export const Layout = ({
   tickerDuration,
   tickerData,
   ctaTitle,
-  ctaType = '',
+  ctaType = "",
   ctaDisplay = true,
   isHomePage = false,
   pageTitle = null,
@@ -25,58 +26,58 @@ export const Layout = ({
 }) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false)
   const [isOpenMenuMobile, setIsOpenMenuMobile] = useState(false)
-  const [isOpenContactModal, setIsOpenContactModal] = useState(true)
+  const [isOpenContactModal, setIsOpenContactModal] = useState(false)
 
   const navHeader = [
     {
-      title: 'Team',
-      link: '/team'
+      title: "Team",
+      link: "/team"
     },
     {
-      title: 'Companies',
-      link: '/companies'
+      title: "Companies",
+      link: "/companies"
     },
     {
-      title: 'News',
-      link: '/news'
+      title: "News",
+      link: "/news"
     }
   ]
 
   const navSiteMap = [
     [
       {
-        title: 'Home',
-        link: '/'
+        title: "Home",
+        link: "/"
       },
       {
-        title: 'Team',
-        link: '/team'
+        title: "Team",
+        link: "/team"
       },
       {
-        title: 'Companies',
-        link: '/companies'
+        title: "Companies",
+        link: "/companies"
       },
       {
-        title: 'Press',
-        link: '/news'
+        title: "Press",
+        link: "/news"
       }
     ],
     [
       {
-        title: 'Blog',
-        link: '/blog'
+        title: "Blog",
+        link: "/blog"
       },
       {
-        title: 'Co-Found with us',
-        link: '/co-found'
+        title: "Co-Found with us",
+        link: "/co-found"
       },
       {
-        title: 'Join a team',
-        link: '/join-team'
+        title: "Join a team",
+        link: "/join-team"
       },
       {
-        title: 'Fellowship Program',
-        link: '/',
+        title: "Fellowship Program",
+        link: "/",
         disabled: true
       }
     ]
@@ -84,65 +85,106 @@ export const Layout = ({
 
   const navFooter = [
     {
-      title: 'PRESS KIT',
-      link: '/'
+      title: "PRESS KIT",
+      link: "/"
     },
     {
-      title: 'PRIVACY POLICY',
-      link: '/privacy-policy'
+      title: "PRIVACY POLICY",
+      link: "/privacy-policy"
     }
   ]
 
   const navModal = [
     {
-      title: 'Co-found with us',
-      link: '/co-found'
+      title: "Co-found with us",
+      link: "/co-found"
     },
     {
-      title: 'Join a team',
-      link: '/join-team'
+      title: "Join a team",
+      link: "/join-team"
     },
     {
-      title: 'Atomic Fellowship',
-      link: '/',
+      title: "Atomic Fellowship",
+      link: "/",
       disabled: true
     }
   ]
 
   const navModalMobile = [
     {
-      title: 'Home',
-      link: '/'
+      title: "Home",
+      link: "/"
     },
     {
-      title: 'Team',
-      link: '/team'
+      title: "Team",
+      link: "/team"
     },
     {
-      title: 'Companies',
-      link: '/companies'
+      title: "Companies",
+      link: "/companies"
     },
     {
-      title: 'News',
-      link: '/news'
+      title: "News",
+      link: "/news"
     },
     {
-      title: 'Co-found with us',
-      link: '/co-found'
+      title: "Co-found with us",
+      link: "/co-found"
     },
     {
-      title: 'Join a team',
-      link: '/join-team'
+      title: "Join a team",
+      link: "/join-team"
     }
   ]
 
   useEffect(() => {
-    setIsOpenContactModal(false)
+    if (typeof window !== "undefined") {
+      const boolParam = (param) => window.location.hash === "#" + param
+
+      if (boolParam("join")) setIsOpenMenu(true)
+      if (boolParam("menu")) setIsOpenMenuMobile(true)
+      if (boolParam("contact")) setIsOpenContactModal(true)
+    }
   }, [])
+
+  const changeUrlCLose = () => {
+    if (typeof window !== "undefined") {
+      navigate(window.location.pathname)
+    }
+  }
+
+  const Modals = () => {
+    if (isOpenMenu) {
+      navigate(`#join`)
+      return (
+        <MenuModal
+          onClose={() => {
+            setIsOpenMenu(false)
+            changeUrlCLose()
+          }}
+          navModal={navModal}
+        />
+      )
+    }
+    if (isOpenMenuMobile) {
+      navigate(`#menu`)
+      return (
+        <MenuModalMobile
+          onClose={() => {
+            setIsOpenMenuMobile(false)
+            changeUrlCLose()
+          }}
+          navModalMobile={navModalMobile}
+        />
+      )
+    }
+    if (isOpenContactModal) navigate(`#contact`)
+    return null
+  }
 
   return (
     <PageTransition transitionTime={250}>
-      <div className={`page-wrapper ${isHomePage ? 'is-home' : ''}`}>
+      <div className={`page-wrapper ${isHomePage ? "is-home" : ""}`}>
         <SEO title={pageTitle} />
         <Header
           headerData={headerData}
@@ -174,21 +216,13 @@ export const Layout = ({
           navSiteMap={navSiteMap}
           navFooter={navFooter}
         />
-        {isOpenMenu && (
-          <MenuModal
-            onClose={setIsOpenMenu}
-            navModal={navModal}
-          />
-        )}
-        {isOpenMenuMobile && (
-          <MenuModalMobile
-            onClose={setIsOpenMenuMobile}
-            navModalMobile={navModalMobile}
-          />
-        )}
+        <Modals />
         <ContactUsModal
           isOpenContactModal={isOpenContactModal}
-          onClose={setIsOpenContactModal}
+          onClose={() => {
+            setIsOpenContactModal(false)
+            changeUrlCLose()
+          }}
         />
       </div>
     </PageTransition>

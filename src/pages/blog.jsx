@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { graphql } from 'gatsby'
+import React, { useEffect, useState } from "react"
+import { graphql, navigate } from "gatsby"
 
 import { Layout } from '../components/Layout'
 import { BlogItem } from "../components/Blog/BlogItem"
@@ -7,7 +7,7 @@ import { BlogModal } from "../components/Blog/BlogModal"
 import { NewsPageLinks } from "../components/News/NewsPageLinks"
 
 export default function News ({ data }) {
-  const [modalContent, setModalContent] = useState(false)
+  const [modalContent, setModalContent] = useState(null)
 
   const {
     headerData,
@@ -19,8 +19,34 @@ export default function News ({ data }) {
     }
   } = data
 
-  const triggerModal = (post) => {
-    setModalContent(post)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash
+      if (hash) setModalContent(
+        blogSection.find(({ slug }) => slug === hash.slice(1)))
+    }
+  }, [])
+
+  const Modal = () => {
+    if (modalContent) {
+      navigate(`#${modalContent.slug}`)
+      return (
+        <BlogModal
+          {...modalContent}
+          closeHandler={(post) => {
+            changeUrlCLose()
+            setModalContent(post)
+          }}
+        />
+      )
+    }
+    return null
+  }
+
+  const changeUrlCLose = () => {
+    if (typeof window !== "undefined") {
+      navigate(window.location.pathname)
+    }
   }
 
   return (
@@ -38,15 +64,14 @@ export default function News ({ data }) {
           <div className="news-page-header">
             <NewsPageLinks activeTab="Blog"/>
           </div>
+          <Modal />
           {blogSection.length && (
             <div className="articles">
               {blogSection.map((item, index) =>
-                <BlogItem key={index} {...item} onClickHandler={(post) => triggerModal(post)} />
-              )}
-              {modalContent && (
-                <BlogModal
-                  {...modalContent}
-                  closeHandler={(post) => triggerModal(post)}
+                <BlogItem
+                  key={index}
+                  {...item}
+                  onClickHandler={(post) => setModalContent(post)}
                 />
               )}
             </div>
@@ -114,6 +139,7 @@ export const pageQuery = graphql`
         sourceLink
       }
       blogSection {
+        slug
         image {
           file {
             src: url

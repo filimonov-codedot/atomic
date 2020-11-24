@@ -119,6 +119,7 @@ export const pageQuery = graphql`
         }
         title
         refCompanies {
+          slug
           name
           previewImage {
             file {
@@ -176,6 +177,7 @@ export const pageQuery = graphql`
       teamContent {
         companyName
         refTeamMember {
+          slug
           position
           name
           desc {
