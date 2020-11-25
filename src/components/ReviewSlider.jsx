@@ -1,64 +1,29 @@
-import React, { useState, useRef, useEffect } from "react"
-import { navigate } from "gatsby"
-import Slider from 'react-slick'
+import React, { useRef } from "react"
+import Slider from "react-slick"
 
-import { CompanyModal } from './Companies/CompanyModal'
-
-export const ReviewSlider = ({ slides, description = null, addClass = '' }) => {
-  const [activeCompany, setActiveCompany] = useState(false)
+export const ReviewSlider = ({
+  slides, description = null, addClass = "", setActiveCompany
+}) => {
   const circle = useRef(null)
   let currentSlider = useRef(null)
 
   const progressStart = () => {
     if (circle?.current?.style) {
-      circle.current.style.transition = 'none'
+      circle.current.style.transition = "none"
       circle.current.style.strokeDashoffset = 75
       setTimeout(() => {
-        circle.current.style.transition = 'all 7s linear'
+        circle.current.style.transition = "all 7s linear"
         circle.current.style.strokeDashoffset = 227
       }, 50)
     }
   }
 
-  const progressPause = () => {
-    if (circle?.current?.style) {
-      circle.current.style.transition = 'none'
-      circle.current.style.strokeDashoffset = 75
-    }
-  }
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const hash = window.location.hash
-      if (hash) {
-        const data =
-          slides.find(({ refCompanies }) => refCompanies.slug === hash.slice(1));
-        if (data) setActiveCompany(data.refCompanies)
-      }
-    }
-  }, [])
-
-  const Modal = () => {
-    if (activeCompany) {
-      navigate(`#${activeCompany.slug}`)
-      return (
-        <CompanyModal
-          {...activeCompany}
-          onClose={() => {
-            setActiveCompany(false)
-            changeUrlCLose()
-          }}
-        />
-      )
-    }
-    return null
-  }
-
-  const changeUrlCLose = () => {
-    if (typeof window !== "undefined") {
-      navigate(window.location.pathname)
-    }
-  }
+  // const progressPause = () => {
+  //   if (circle?.current?.style) {
+  //     circle.current.style.transition = 'none'
+  //     circle.current.style.strokeDashoffset = 75
+  //   }
+  // }
 
   const settings = {
     dots: false,
@@ -77,7 +42,7 @@ export const ReviewSlider = ({ slides, description = null, addClass = '' }) => {
       progressStart()
     },
     infinite: true,
-    swipe: false,
+    swipe: false
   }
   return (
     <>
@@ -98,7 +63,7 @@ export const ReviewSlider = ({ slides, description = null, addClass = '' }) => {
           {...settings}
           ref={slider => (currentSlider = slider)}
         >
-          {slides ?.map((slide, index) => {
+          {slides?.map((slide, index) => {
             const {
               refCompanies,
               title,
@@ -109,7 +74,7 @@ export const ReviewSlider = ({ slides, description = null, addClass = '' }) => {
               <div
                 className="review-slide"
                 key={index}
-                onClick={(e) => setActiveCompany(refCompanies)}
+                onClick={() => setActiveCompany(refCompanies)}
                 // onMouseEnter={progressPause}
                 // onMouseLeave={progressStart}
               >
@@ -125,7 +90,7 @@ export const ReviewSlider = ({ slides, description = null, addClass = '' }) => {
                       alt={logoWhile.alt}
                     />
                   </div>
-                ) : ''}
+                ) : ""}
               </div>
             )
           })}
@@ -138,9 +103,6 @@ export const ReviewSlider = ({ slides, description = null, addClass = '' }) => {
           </div>
         </div>
       )}
-      <Modal />
     </>
   )
 }
-
-

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { graphql, navigate } from "gatsby"
 
-import { Layout } from '../components/Layout'
+import { Layout } from "../components/Layout"
 import { BlogItem } from "../components/Blog/BlogItem"
 import { BlogModal } from "../components/Blog/BlogModal"
 import { NewsPageLinks } from "../components/News/NewsPageLinks"
@@ -25,6 +25,9 @@ export default function News ({ data }) {
       if (hash) setModalContent(
         blogSection.find(({ slug }) => slug === hash.slice(1)))
     }
+
+    if (typeof document !== "undefined")
+      document.documentElement.scrollTop = 0
   }, [])
 
   const Modal = () => {
@@ -44,9 +47,8 @@ export default function News ({ data }) {
   }
 
   const changeUrlCLose = () => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== "undefined")
       navigate(window.location.pathname)
-    }
   }
 
   return (
@@ -62,7 +64,7 @@ export default function News ({ data }) {
       <div className="news-page">
         <div className="container">
           <div className="news-page-header">
-            <NewsPageLinks activeTab="Blog"/>
+            <NewsPageLinks activeTab="Blog" />
           </div>
           <Modal />
           {blogSection.length && (

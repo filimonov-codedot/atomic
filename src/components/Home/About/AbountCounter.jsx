@@ -1,12 +1,10 @@
-import React, {useState} from "react"
-import CountUp from 'react-countup'
-import VisibilitySensor from 'react-visibility-sensor'
+import React, { useState } from "react"
+import CountUp from "react-countup"
+import VisibilitySensor from "react-visibility-sensor"
 
 export const AboutCounter = ({ counter }) => {
-  function isFloat(n){
-    return Number(n) === n && n % 1 !== 0;
-  }
   const [visible, setVisible] = useState(false)
+  const isFloat = (n) => Number(n) === n && n % 1 !== 0
 
   return (
     <div className="about-us-counter">
@@ -22,22 +20,19 @@ export const AboutCounter = ({ counter }) => {
             useGrouping={true}
             redraw={true}
           >
-            {({ countUpRef, start }) => {
-
-              return (
-                <VisibilitySensor
-                  onChange={(isVisible) => {
-                    if (isVisible && !visible) {
-                      start()
-                      setVisible(true);
-                    }
-                  }}
-                  delayedCall
-                >
-                  <span ref={countUpRef} />
-                </VisibilitySensor>
-              )
-            }}
+            {({ countUpRef, start }) => (
+              <VisibilitySensor
+                onChange={(isVisible) => {
+                  if (isVisible && !visible) {
+                    start()
+                    setVisible(true)
+                  }
+                }}
+                delayedCall
+              >
+                <span ref={countUpRef} />
+              </VisibilitySensor>
+            )}
           </CountUp>
         </span>
         {counter.suffix}

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { graphql } from 'gatsby'
 
 import { Layout } from '../components/Layout'
@@ -8,6 +8,7 @@ import { NewsPageLinks } from "../components/News/NewsPageLinks"
 
 export default function News ({ data }) {
   const [selectedCompany, setSelectedCompany] = useState('')
+
   const {
     headerData,
     footerData,
@@ -18,6 +19,11 @@ export default function News ({ data }) {
       newsSection,
     }
   } = data
+
+  useEffect(() => {
+    if (typeof document !== "undefined")
+      document.documentElement.scrollTop = 0;
+  }, [])
 
   const onCompanyChange = (name) => {
     setSelectedCompany(name)

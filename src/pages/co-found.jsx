@@ -1,14 +1,19 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+import React, { useEffect, useState } from "react"
+import { graphql, navigate } from "gatsby"
 
-import { Layout } from '../components/Layout'
-import { CoFoundInfo } from '../components/CoFound/CoFoundInfo'
-import { ReviewSlider } from '../components/ReviewSlider'
-import { About } from '../components/CoFound/About/About'
-import { Team } from '../components/CoFound/Team/Team'
-import { TeamReviews } from '../components/CoFound/Team/TeamReviews'
+import { Layout } from "../components/Layout"
+import { CoFoundInfo } from "../components/CoFound/CoFoundInfo"
+import { ReviewSlider } from "../components/ReviewSlider"
+import { About } from "../components/CoFound/About/About"
+import { Team } from "../components/CoFound/Team/Team"
+import { TeamReviews } from "../components/CoFound/Team/TeamReviews"
+import { CompanyModal } from "../components/Companies/CompanyModal"
+import { ModalUser } from "../components/Team/ModalUser"
 
 export default function CoFound ({ data }) {
+  const [activeCompany, setActiveCompany] = useState(false)
+  const [memberModal, setMemberModal] = useState(false)
+
   const {
     headerData,
     footerData,
@@ -28,6 +33,57 @@ export default function CoFound ({ data }) {
     }
   } = data
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash
+      if (hash) {
+        const dataCompanies = reviewSlider.find(
+          ({ refCompanies }) => refCompanies.slug === hash.slice(1))
+        if (dataCompanies) setActiveCompany(dataCompanies.refCompanies)
+
+        const dataMembers = teamContent.find(
+          ({ refTeamMember }) => refTeamMember.slug === hash.slice(1))
+        if (dataMembers) setMemberModal(dataMembers.refTeamMember)
+      }
+    }
+
+    if (typeof document !== "undefined")
+      document.documentElement.scrollTop = 0
+  }, [])
+
+  const Modals = () => {
+    if (activeCompany) {
+      navigate(`#${activeCompany.slug}`)
+      return (
+        <CompanyModal
+          {...activeCompany}
+          onClose={() => {
+            setActiveCompany(false)
+            changeUrlCLose()
+          }}
+        />
+      )
+    }
+    if (memberModal) {
+      navigate(`#${memberModal.slug}`)
+      return (
+        <ModalUser
+          {...memberModal}
+          onClose={() => {
+            changeUrlCLose()
+            setMemberModal(null)
+          }}
+        />
+      )
+    }
+    return null
+  }
+
+  const changeUrlCLose = () => {
+    if (typeof window !== "undefined")
+      navigate(window.location.pathname)
+  }
+
   return (
     <Layout
       headerData={headerData}
@@ -46,6 +102,7 @@ export default function CoFound ({ data }) {
         description={reviewDesc.text}
         slides={reviewSlider}
         addClass="content-slider"
+        setActiveCompany={setActiveCompany}
       />
       <About
         aboutHeader={aboutHeader}
@@ -54,8 +111,10 @@ export default function CoFound ({ data }) {
       <Team
         teamContent={teamContent}
         teamHeader={teamHeader}
+        setMemberModal={setMemberModal}
       />
       <TeamReviews teamReviews={teamReviews} />
+      <Modals />
     </Layout>
   )
 }

@@ -1,16 +1,13 @@
-import React from 'react'
-import { StickyContainer, Sticky } from 'react-sticky'
+import React from "react"
+import { StickyContainer, Sticky } from "react-sticky"
 
 export const CompanyItemList = ({ title, postings }) => (
   <StickyContainer className="select-company-item">
     <Sticky topOffset={-58} bottomOffset={-90}>
-      {({
-          style,
-          isSticky,
-        }) => (
-          <div className={`select-company-name ${isSticky ? 'is-sticky' : ''}`} style={style}>
-            <span>{title}</span>
-          </div>
+      {({ style, isSticky }) => (
+        <div className={`select-company-name ${isSticky ? "is-sticky" : ""}`} style={style}>
+          <span>{title}</span>
+        </div>
       )}
     </Sticky>
     <div className="select-company-content-list">

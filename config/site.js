@@ -1,4 +1,4 @@
 module.exports = {
   title: 'Atomic',
-  trackingId: 'YOUR_GOOGLE_ANALYTICS_TRACKING_ID'
+  trackingId: 'UA-39280937-1'
 }
