@@ -1,35 +1,35 @@
-import React, { useEffect, useState, createRef } from "react"
-import { graphql } from "gatsby"
+import React, { createRef, useEffect, useState } from "react"
+import { graphql, navigate } from "gatsby"
 
 import { Hero } from "../components/Home/Hero"
 import { About } from "../components/Home/About/About"
-import { Layout } from '../components/Layout'
+import { Layout } from "../components/Layout"
 import { WhyAtomic } from "../components/Home/WhyAtomic/WhyAtomic"
 import { Team } from "../components/Home/Team/Team"
 import { Photos } from "../components/Home/Photos/Photos"
 import { Press } from "../components/Home/Press/Press"
+import { CompanyModal } from "../components/Companies/CompanyModal"
+import { ModalUser } from "../components/Team/ModalUser"
 
-function getCookie(cname) {
-  const name = cname + "=";
+function getCookie (cname) {
+  const name = cname + "="
   if (typeof window !== `undefined`) {
-    const decodedCookie = decodeURIComponent(document.cookie);
-    const ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) === ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) === 0) {
-        return c.substring(name.length, c.length);
-      }
+    const decodedCookie = decodeURIComponent(document.cookie)
+    const ca = decodedCookie.split(";")
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i]
+      while (c.charAt(0) === " ") c = c.substring(1)
+      if (c.indexOf(name) === 0) return c.substring(name.length, c.length)
     }
   }
-  return "";
+  return ""
 }
 
 export default function Home ({ data }) {
   const [isFirstSession, setIsFirstSession] = useState(true)
   const [isShowedHero, setIsShowedHero] = useState(true)
+  const [activeCompany, setActiveCompany] = useState(null)
+  const [activeMember, setActiveMember] = useState(null)
   const hero = createRef()
 
   const {
@@ -56,12 +56,39 @@ export default function Home ({ data }) {
   } = data
 
   useEffect(() => {
-    if (typeof window !== `undefined`) {
-      if (Boolean(heroShowed) === false && isFirstSession && isShowedHero) {
-        hero.current.style.visibility = 'visible';
-        hero.current.style.opacity = '1';
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash
+      if (hash) setHeroShowed()
 
-        window.addEventListener('scroll', setHeroShowed)
+      if (hash) {
+        const dataCompanies = [...aboutSlider, ...reviewSlider].find(
+          ({ refCompanies: { slug } }) => slug === hash.slice(1))
+        if (dataCompanies) setActiveCompany(dataCompanies.refCompanies)
+
+        aboutSlider.map(({ refTeamMembers }) => {
+          const dataMembers = refTeamMembers.find(({ slug }) => slug === hash.slice(1))
+          if (dataMembers) setActiveMember(dataMembers)
+        })
+      }
+      if (hash.slice(1) === quoteSection.refTeamMembers.slug)
+        setActiveMember(quoteSection.refTeamMembers)
+    }
+
+    if (typeof document !== "undefined")
+      document.documentElement.scrollTop = 0
+  }, [])
+
+  useEffect(() => {
+    const heroShowed = getCookie("heroShowed")
+
+    if (typeof window !== `undefined`) {
+      const hash = window.location.hash
+
+      if (Boolean(heroShowed) === false && isFirstSession && isShowedHero && !hash) {
+        hero.current.style.visibility = "visible"
+        hero.current.style.opacity = "1"
+
+        window.addEventListener("scroll", setHeroShowed)
       } else if (Boolean(heroShowed) === false && !isFirstSession) {
         setHeroShowed()
       } else if (Boolean(heroShowed) === true) {
@@ -71,74 +98,113 @@ export default function Home ({ data }) {
     }
   }, [isFirstSession, isShowedHero])
 
-  const heroShowed = getCookie("heroShowed");
+  useEffect(() => {
+
+  }, [])
+
+  const Modals = () => {
+    if (activeCompany) {
+      navigate(`#${activeCompany.slug}`)
+      return (
+        <CompanyModal
+          {...activeCompany}
+          onClose={() => {
+            setActiveCompany(null)
+            changeUrlCLose()
+          }}
+        />
+      )
+    }
+    if (activeMember) {
+      navigate(`#${activeMember.slug}`)
+      return (
+        <ModalUser
+          {...activeMember}
+          onClose={() => {
+            setActiveMember(null)
+            changeUrlCLose()
+          }}
+        />
+      )
+    }
+    return null
+  }
+
+  const changeUrlCLose = () => {
+    if (typeof window !== "undefined")
+      navigate(window.location.pathname)
+  }
 
   const setHeroShowed = () => {
     if (isFirstSession) {
-      hero.current.style.opacity = '0';
-      hero.current.style.transition = 'all 1s ease-in-out';
+      hero.current.style.opacity = "0"
+      hero.current.style.transition = "all 1s ease-in-out"
 
       setIsFirstSession(false)
       setTimeout(() => {
-        document.cookie = 'heroShowed=true';
+        document.cookie = "heroShowed=true"
         setIsShowedHero(false)
       }, 600)
     }
-    window.removeEventListener('scroll', setHeroShowed)
+    window.removeEventListener("scroll", setHeroShowed)
   }
 
   const counterData = [
     {
-      prefix: '$',
-      suffix: 'B',
+      prefix: "$",
+      suffix: "B",
       title: counterRaised,
-      text: 'raised across portfolio'
+      text: "raised across portfolio"
     },
     {
-      prefix: '$',
-      suffix: 'M',
+      prefix: "$",
+      suffix: "M",
       title: counterFund,
-      text: 'assets under management'
+      text: "assets under management"
     },
     {
-      prefix: '',
-      suffix: '',
+      prefix: "",
+      suffix: "",
       title: counterActive,
-      text: 'active portfolio companies'
-    },
-  ];
+      text: "active portfolio companies"
+    }
+  ]
 
   return isShowedHero ? (
-      <Hero
-        hero={hero}
-        heroTicker={heroTicker}
-        setHeroShowed={setHeroShowed}
+    <Hero
+      hero={hero}
+      heroTicker={heroTicker}
+      setHeroShowed={setHeroShowed}
+    />
+  ) : (
+    <Layout
+      headerData={headerData}
+      footerData={footerData}
+      ctaTitle={ctaTitle}
+      tickerDuration={tickerDuration}
+      tickerData={tickerData}
+      isHomePage={true}
+    >
+      <About
+        counters={counterData}
+        aboutSlider={aboutSlider}
+        aboutHeader={aboutHeader}
+        setActiveCompany={setActiveCompany}
+        setActiveMember={setActiveMember}
       />
-    ) : (
-      <Layout
-        headerData={headerData}
-        footerData={footerData}
-        ctaTitle={ctaTitle}
-        tickerDuration={tickerDuration}
-        tickerData={tickerData}
-        isHomePage={true}
-      >
-        <About
-          counters={counterData}
-          aboutSlider={aboutSlider}
-          aboutHeader={aboutHeader}
-          quoteSection={quoteSection}
-        />
-        <WhyAtomic
-          whyAtomicHeader={whyAtomicHeader}
-          quoteSection={quoteSection}
-          whyAtomicContent={whyAtomicContent}
-          reviewSlider={reviewSlider}
-        />
-        <Team teamHeader={teamHeader} />
-        <Photos photos={photos} />
-        <Press press={press} />
-      </Layout>
+      <WhyAtomic
+        whyAtomicHeader={whyAtomicHeader}
+        quoteSection={quoteSection}
+        whyAtomicContent={whyAtomicContent}
+        reviewSlider={reviewSlider}
+        setActiveMember={setActiveMember}
+        setActiveCompany={setActiveCompany}
+      />
+      <Team teamHeader={teamHeader} />
+      <Photos photos={photos} />
+      <Press press={press} />
+      <Modals />
+    </Layout>
   )
 }
 

@@ -1,12 +1,15 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+import React, { useEffect, useState } from "react"
+import { graphql, navigate } from "gatsby"
 
-import { Layout } from '../components/Layout'
-import { TeamPage } from '../components/Team/TeamPage'
-import { TeamHeader } from '../components/Team/TeamHeader'
-import { TeamContent } from '../components/Team/TeamContent'
+import { Layout } from "../components/Layout"
+import { TeamPage } from "../components/Team/TeamPage"
+import { TeamHeader } from "../components/Team/TeamHeader"
+import { TeamContent } from "../components/Team/TeamContent"
+import { ModalUser } from "../components/Team/ModalUser"
 
 export default function Team ({ data }) {
+  const [curUser, setCurUser] = useState(null)
+
   const {
     headerData,
     footerData,
@@ -18,6 +21,38 @@ export default function Team ({ data }) {
       tickerData
     }
   } = data
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash
+      if (hash) setCurUser(teamMembers.find(
+        ({ slug }) => slug === hash.slice(1)))
+    }
+
+    if (typeof document !== "undefined")
+      document.documentElement.scrollTop = 0
+  }, [])
+
+  const Modal = () => {
+    if (curUser) {
+      navigate(`#${curUser.slug}`)
+      return (
+        <ModalUser
+          {...curUser}
+          onClose={() => {
+            changeUrlCLose()
+            setCurUser(null)
+          }}
+        />
+      )
+    }
+    return null
+  }
+
+  const changeUrlCLose = () => {
+    if (typeof window !== "undefined")
+      navigate(window.location.pathname)
+  }
 
   return (
     <Layout
@@ -31,7 +66,11 @@ export default function Team ({ data }) {
     >
       <TeamPage>
         <TeamHeader header={topHeader} />
-        <TeamContent content={teamMembers} />
+        <TeamContent
+          content={teamMembers}
+          setCurUser={setCurUser}
+        />
+        <Modal />
       </TeamPage>
     </Layout>
   )
