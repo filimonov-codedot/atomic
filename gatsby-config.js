@@ -29,13 +29,13 @@ module.exports = {
         importer: globImporter(),
       },
     },
-/*    {
+    {
       resolve: "gatsby-plugin-google-analytics",
       options: {
         trackingId,
         head: true,
       },
-    }, */
+    },
     {
       resolve: "gatsby-plugin-manifest",
       options: {

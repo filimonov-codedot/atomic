@@ -1,15 +1,11 @@
-import React, { useState } from "react"
-import { navigate } from '@reach/router';
+import React from "react"
 
-import { ReviewSlider } from '../../ReviewSlider'
-import { WhyAtomicArticles } from './WhyAtomicArticles'
-import { ModalUser } from '../../Team/ModalUser'
+import { ReviewSlider } from "../../ReviewSlider"
+import { WhyAtomicArticles } from "./WhyAtomicArticles"
 
 export const WhyAtomic = ({
-  reviewSlider, whyAtomicHeader, whyAtomicContent, quoteSection
+  reviewSlider, whyAtomicHeader, whyAtomicContent, quoteSection, setActiveMember, setActiveCompany
 }) => {
-  const [isMemberModal, setIsMemberModal] = useState(false)
-
   const { subtitle, title } = whyAtomicHeader
   const {
     text: { text },
@@ -18,40 +14,8 @@ export const WhyAtomic = ({
   const {
     smallPhoto: { file: { src }, alt },
     position,
-    name,
-    largePhoto,
-    desc,
-    faq,
-    social
+    name
   } = refTeamMembers
-
-  const Modal = () => {
-    if (isMemberModal) {
-      navigate(`#${refTeamMembers.slug}`)
-
-      return (
-        <ModalUser
-          name={name}
-          position={position}
-          largePhoto={largePhoto}
-          desc={desc}
-          faq={faq}
-          social={social}
-          onClose={() => {
-            changeUrlCLose()
-            setIsMemberModal(false)
-          }}
-        />
-      )
-    }
-    return null
-  }
-
-  const changeUrlCLose = () => {
-    if (typeof window !== "undefined") {
-      navigate(window.location.pathname)
-    }
-  }
 
   return (
     <div className="why-atomic">
@@ -71,14 +35,16 @@ export const WhyAtomic = ({
           <div className="review-info">
             <div
               className="review-name"
-              onClick={() => {setIsMemberModal(true)}}
+              onClick={() => setActiveMember(refTeamMembers)}
             >{name}</div>
             <div className="review-position">{position}</div>
           </div>
         </div>
       </div>
-      <ReviewSlider slides={reviewSlider} />
-      <Modal />
+      <ReviewSlider
+        slides={reviewSlider}
+        setActiveCompany={setActiveCompany}
+      />
     </div>
   )
 }

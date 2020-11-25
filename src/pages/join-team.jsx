@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { graphql } from "gatsby"
 
 import { Layout } from "../components/Layout"
@@ -19,6 +19,11 @@ export default function JoinTeam ({ data }) {
       tickerData
     }
   } = data
+
+  useEffect(() => {
+    if (typeof document !== "undefined")
+      document.documentElement.scrollTop = 0;
+  }, [])
 
   return (
     <Layout
