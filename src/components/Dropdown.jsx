@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react'
 
-function useComponentVisible(initialIsVisible) {
+const useComponentVisible = (initialIsVisible) => {
   const [isComponentVisible, setIsComponentVisible] = useState(initialIsVisible);
   const ref = useRef(null);
 
-  const handleClickOutside = (event) => {
-    if (ref.current && !ref.current.contains(event.target)) {
+  const handleClickOutside = (e) => {
+    if (ref.current && !ref.current.contains(e.target))
       setIsComponentVisible(false);
-    }
   };
 
   useEffect(() => {
@@ -31,13 +30,11 @@ export const Dropdown = ({ data, name, defaultItem = { title: '' }, onChange }) 
     setSelected(value)
   }
 
-  const clickHandler = () => {
+  const clickHandler = () =>
     setIsComponentVisible(!isComponentVisible)
-  }
 
-  const convertToKebabCase = (string) => {
-    return string.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2').toLowerCase()
-  }
+  const convertToKebabCase = (string) =>
+    string.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2').toLowerCase()
 
   return (
     <div
@@ -77,7 +74,6 @@ export const Dropdown = ({ data, name, defaultItem = { title: '' }, onChange }) 
               </label>
             </li>
           ))}
-
         </ul>
       </div>
     </div>

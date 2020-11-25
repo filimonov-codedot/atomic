@@ -8,6 +8,7 @@ import { NewsPageLinks } from "../components/News/NewsPageLinks"
 
 export default function News ({ data }) {
   const [selectedCompany, setSelectedCompany] = useState('')
+
   const {
     headerData,
     footerData,

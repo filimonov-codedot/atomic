@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react'
 export const ModalWrapper = ({ children, onClose, modalType }) => {
   const overlay = useRef(null)
   const modal = useRef(null)
+
   useEffect(() => {
     if (typeof document !== `undefined`) {
       document.body.style.width = `${document.body.clientWidth}px`

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { navigate } from "gatsby"
+import { navigate } from '@reach/router';
 
 import { CompanyModal } from "./CompanyModal"
 

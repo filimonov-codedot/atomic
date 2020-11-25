@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react"
-import { navigate } from "gatsby"
+import React, { useState } from "react"
+import { navigate } from '@reach/router';
 
 import { ReviewSlider } from '../../ReviewSlider'
 import { WhyAtomicArticles } from './WhyAtomicArticles'

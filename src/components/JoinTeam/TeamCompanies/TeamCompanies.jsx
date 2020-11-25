@@ -8,10 +8,6 @@ export const TeamCompanies = ({ contentfulCompanies }) => {
   const [data, setData] = useState([])
   const [selectedCompany, setSelectedCompany] = useState('')
 
-  const onChange = (name) => {
-    setSelectedCompany(name)
-  }
-
   useEffect(() => {
     if (!data.length) {
       const fetchData = async () => {
@@ -30,11 +26,12 @@ export const TeamCompanies = ({ contentfulCompanies }) => {
     }
   }, [])
 
+  const onChange = (name) => setSelectedCompany(name)
+
   if (data.length) {
     const companies = [...data, ...contentfulCompanies].sort(
       (a, b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0)
     )
-
     return (
       <div className="select-company" id="select-company">
         <div className="container">
@@ -61,6 +58,5 @@ export const TeamCompanies = ({ contentfulCompanies }) => {
       </div>
     )
   }
-
-  return ''
+  return null
 }

@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from "react"
+import { Link } from "gatsby"
 
-import { ModalWrapper } from './ModalWrapper'
+import { ModalWrapper } from "./ModalWrapper"
 
 export const MenuModal = ({ onClose, navModal }) => (
   <ModalWrapper onClose={() => onClose()} modalType="menu">
@@ -24,4 +24,3 @@ export const MenuModal = ({ onClose, navModal }) => (
     </div>
   </ModalWrapper>
 )
-

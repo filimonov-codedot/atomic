@@ -44,9 +44,8 @@ export default function News ({ data }) {
   }
 
   const changeUrlCLose = () => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== "undefined")
       navigate(window.location.pathname)
-    }
   }
 
   return (
