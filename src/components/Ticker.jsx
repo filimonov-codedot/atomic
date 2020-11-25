@@ -2,7 +2,9 @@ import React from 'react'
 
 export const Ticker = ({ tickerDuration, tickerData }) => {
   if (!tickerData || !tickerDuration) return null
+
   const { duration = 90 } = tickerDuration
+
   return (
     <div className='ticker-wrapper'>
       <div className='ticker-container'>

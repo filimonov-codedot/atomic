@@ -1,5 +1,5 @@
 import React, { useEffect, useState, createRef } from "react"
-import { graphql, navigate } from "gatsby"
+import { graphql } from "gatsby"
 
 import { Hero } from "../components/Home/Hero"
 import { About } from "../components/Home/About/About"
@@ -8,7 +8,6 @@ import { WhyAtomic } from "../components/Home/WhyAtomic/WhyAtomic"
 import { Team } from "../components/Home/Team/Team"
 import { Photos } from "../components/Home/Photos/Photos"
 import { Press } from "../components/Home/Press/Press"
-import { ModalUser } from "../components/Team/ModalUser"
 
 function getCookie(cname) {
   const name = cname + "=";
@@ -32,6 +31,7 @@ export default function Home ({ data }) {
   const [isFirstSession, setIsFirstSession] = useState(true)
   const [isShowedHero, setIsShowedHero] = useState(true)
   const hero = createRef()
+
   const {
     headerData,
     footerData,
@@ -55,22 +55,6 @@ export default function Home ({ data }) {
     }
   } = data
 
-  const heroShowed = getCookie("heroShowed");
-
-  const setHeroShowed = () => {
-    if (isFirstSession) {
-      hero.current.style.opacity = '0';
-      hero.current.style.transition = 'all 1s ease-in-out';
-
-      setIsFirstSession(false)
-      setTimeout(() => {
-        document.cookie = 'heroShowed=true';
-        setIsShowedHero(false)
-      }, 600)
-    }
-    window.removeEventListener('scroll', setHeroShowed)
-  }
-
   useEffect(() => {
     if (typeof window !== `undefined`) {
       if (Boolean(heroShowed) === false && isFirstSession && isShowedHero) {
@@ -86,6 +70,22 @@ export default function Home ({ data }) {
       }
     }
   }, [isFirstSession, isShowedHero])
+
+  const heroShowed = getCookie("heroShowed");
+
+  const setHeroShowed = () => {
+    if (isFirstSession) {
+      hero.current.style.opacity = '0';
+      hero.current.style.transition = 'all 1s ease-in-out';
+
+      setIsFirstSession(false)
+      setTimeout(() => {
+        document.cookie = 'heroShowed=true';
+        setIsShowedHero(false)
+      }, 600)
+    }
+    window.removeEventListener('scroll', setHeroShowed)
+  }
 
   const counterData = [
     {
@@ -106,7 +106,6 @@ export default function Home ({ data }) {
       title: counterActive,
       text: 'active portfolio companies'
     },
-
   ];
 
   return isShowedHero ? (

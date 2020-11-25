@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react"
-import { navigate } from "gatsby"
+import { navigate } from '@reach/router';
 
 import { ModalUser } from '../../Team/ModalUser'
 
-export const Team = ({ teamHeader, teamContent }) => {
-  const { title, subtitle } = teamHeader
+export const Team = ({ teamHeader: { title, subtitle }, teamContent }) => {
   const [memberModal, setMemberModal] = useState(false)
 
   useEffect(() => {
@@ -35,9 +34,8 @@ export const Team = ({ teamHeader, teamContent }) => {
   }
 
   const changeUrlCLose = () => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== "undefined")
       navigate(window.location.pathname)
-    }
   }
 
   return (

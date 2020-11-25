@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react"
-import { navigate } from "gatsby"
+import { navigate } from '@reach/router';
 import Slider from 'react-slick'
 
 import { CompanyModal } from './Companies/CompanyModal'
@@ -20,12 +20,12 @@ export const ReviewSlider = ({ slides, description = null, addClass = '' }) => {
     }
   }
 
-  const progressPause = () => {
-    if (circle?.current?.style) {
-      circle.current.style.transition = 'none'
-      circle.current.style.strokeDashoffset = 75
-    }
-  }
+  // const progressPause = () => {
+  //   if (circle?.current?.style) {
+  //     circle.current.style.transition = 'none'
+  //     circle.current.style.strokeDashoffset = 75
+  //   }
+  // }
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -55,9 +55,8 @@ export const ReviewSlider = ({ slides, description = null, addClass = '' }) => {
   }
 
   const changeUrlCLose = () => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== "undefined")
       navigate(window.location.pathname)
-    }
   }
 
   const settings = {
@@ -142,5 +141,3 @@ export const ReviewSlider = ({ slides, description = null, addClass = '' }) => {
     </>
   )
 }
-
-

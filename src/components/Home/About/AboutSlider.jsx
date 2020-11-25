@@ -1,9 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react'
-import Slider from 'react-slick'
-import { AboutSlide } from './AboutSlide'
-import { CompanyModal } from '../../Companies/CompanyModal'
+import React, { useState, useEffect } from "react"
+import { navigate } from '@reach/router';
+import Slider from "react-slick"
+
+import { AboutSlide } from "./AboutSlide"
+import { CompanyModal } from "../../Companies/CompanyModal"
 import { ModalUser } from "../../Team/ModalUser"
-import { navigate } from "gatsby"
 
 export const AboutSlider = ({ slides, quoteSection }) => {
   const [isFirstSession, setIsFirstSession] = useState(true)
@@ -16,7 +17,6 @@ export const AboutSlider = ({ slides, quoteSection }) => {
 
   useEffect(() => {
     if (isFirstSession) {
-      const sliderCount = slides.length
       const slideInit = Math.floor(Math.random() * 3)
       setInitSlide(slideInit)
       setActiveSlide(slideInit)
@@ -52,8 +52,9 @@ export const AboutSlider = ({ slides, quoteSection }) => {
         <CompanyModal
           {...activeCompany.refCompanies}
           onClose={() => {
+            setActiveCompany(null)
             changeUrlCLose()
-            setActiveCompany(false)}}
+          }}
         />
       )
     }
@@ -63,8 +64,9 @@ export const AboutSlider = ({ slides, quoteSection }) => {
         <ModalUser
           {...activeMember}
           onClose={() => {
+            setActiveMember(null)
             changeUrlCLose()
-            setActiveMember(false)}}
+          }}
         />
       )
     }
@@ -77,55 +79,56 @@ export const AboutSlider = ({ slides, quoteSection }) => {
     }
   }
 
-  if (initSlide !== null) {
-    const settings = {
-      dots: false,
-      arrows: false,
-      fade: false,
-      autoplay: true,
-      autoplaySpeed: 6000,
-      speed: 750,
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      centerMode: true,
-      initialSlide: initSlide,
-      beforeChange: (oldIndex, newIndex) => {
-        setActiveSlide(newIndex)
-      },
-      centerPadding: '15%',
-      swipeToSlide: true,
-      focusOnSelect: true,
-      infinite: true,
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            centerPadding: '10%'
-          }
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            centerPadding: '25%'
-          }
-        },
-        {
-          breakpoint: 560,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            centerPadding: '32px'
-          }
+  const settings = {
+    dots: false,
+    arrows: false,
+    fade: false,
+    autoplay: true,
+    autoplaySpeed: 6000,
+    speed: 750,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    centerMode: true,
+    initialSlide: initSlide,
+    beforeChange: (oldIndex, newIndex) => {
+      setActiveSlide(newIndex)
+    },
+    centerPadding: "15%",
+    swipeToSlide: true,
+    focusOnSelect: true,
+    infinite: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          centerPadding: "10%"
         }
-      ]
-    }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "25%"
+        }
+      },
+      {
+        breakpoint: 560,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "32px"
+        }
+      }
+    ]
+  }
 
-    return (
-      <>
+  return (
+    <>
+      <Modals />
+      {initSlide !== null ? (
         <div className="about-us-slider">
           <div className="about-us-slider-wrapper">
             <Slider {...settings}>
@@ -144,10 +147,8 @@ export const AboutSlider = ({ slides, quoteSection }) => {
             </Slider>
           </div>
         </div>
-        <Modals />
-      </>
-    )
-  } else {
-    return ''
-  }
+      ) : null}
+
+    </>
+  )
 }

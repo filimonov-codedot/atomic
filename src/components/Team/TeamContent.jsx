@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
+import { navigate } from '@reach/router';
+
 import { ModalUser } from './ModalUser'
-import { navigate } from "gatsby"
 
 export const TeamContent = ({ content }) => {
   const [curUser, setCurUser] = useState(null)
