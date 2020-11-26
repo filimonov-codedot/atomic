@@ -1,21 +1,46 @@
-import React, { useState } from 'react'
-import NetlifyForm from 'react-ssg-netlify-forms'
+import React, { useState } from "react"
+import NetlifyForm from "react-ssg-netlify-forms"
 
-import { ModalWrapper } from './ModalWrapper'
+import { ModalWrapper } from "./ModalWrapper"
 
 export const ContactUsModal = ({ isOpenContactModal, onClose }) => {
   const [values, setValues] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: ""
   })
+  const [msg, setMsg] = useState(null)
 
   const handleChange = ({ target: { name, value } }) =>
     setValues({ ...values, [name]: value })
 
+  const handleSuccess = () => {
+    setValues({
+      name: "",
+      email: "",
+      message: ""
+    })
+    setMsg("Thank you! Your form was submitted.")
+    setTimeout(() => {
+      setMsg(null)
+    }, 5000)
+  }
+
+  const handleError = () => {
+    setMsg("Error.")
+    setTimeout(() => {
+      setMsg(null)
+    }, 5000)
+  }
+
   return (
     <>
-      <NetlifyForm formName="Contact us" formValues={values}>
+      <NetlifyForm
+        formName="Contact us"
+        formValues={values}
+        onSuccess={handleSuccess}
+        onError={handleError}
+      >
         <input type="text" name="name" value={values.name} hidden />
         <input type="email" name="email" value={values.email} hidden />
         <textarea name="message" value={values.message} hidden />
@@ -58,13 +83,16 @@ export const ContactUsModal = ({ isOpenContactModal, onClose }) => {
                 onChange={handleChange}
                 required
               />
-              <button
-                type="submit"
-                className="btn btn-input"
-                disabled={values.name || values.email || values.message ? '' : 'disabled'}
-              >
-                Send
-              </button>
+              <div className='field-wrapper-bottom'>
+                <button
+                  type="submit"
+                  className="btn btn-input"
+                  disabled={values.name || values.email || values.message ? "" : "disabled"}
+                >
+                  Send
+                </button>
+                {msg ? <p>{msg}</p> : null}
+              </div>
             </NetlifyForm>
           </div>
         </ModalWrapper>
