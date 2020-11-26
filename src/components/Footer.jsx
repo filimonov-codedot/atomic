@@ -17,16 +17,9 @@ export const Footer = ({ footerData, navFooter, navSiteMap }) => {
 
   const handleChange = ({ target: { value } }) => setEmail(value)
 
-  const handleSuccess = () => {
+  const postSubmit = () => {
     setEmail("")
     setMsg("Thank you! Your form was submitted.")
-    setTimeout(() => {
-      setMsg(null)
-    }, 5000)
-  }
-
-  const handleError = () => {
-    setMsg("Error.")
     setTimeout(() => {
       setMsg(null)
     }, 5000)
@@ -73,7 +66,7 @@ export const Footer = ({ footerData, navFooter, navSiteMap }) => {
           <NetlifyForm
             formName="Newsletter"
             formValues={{ email }}
-            postSubmit={handleSuccess}
+            postSubmit={postSubmit}
           >
             <input
               type="email"

@@ -14,7 +14,7 @@ export const ContactUsModal = ({ isOpenContactModal, onClose }) => {
   const handleChange = ({ target: { name, value } }) =>
     setValues({ ...values, [name]: value })
 
-  const handleSuccess = () => {
+  const postSubmit = () => {
     setValues({
       name: "",
       email: "",
@@ -26,19 +26,12 @@ export const ContactUsModal = ({ isOpenContactModal, onClose }) => {
     }, 5000)
   }
 
-  const handleError = () => {
-    setMsg("Error.")
-    setTimeout(() => {
-      setMsg(null)
-    }, 5000)
-  }
-
   return (
     <>
       <NetlifyForm
         formName="Contact us"
         formValues={values}
-        postSubmit={handleSuccess}
+        postSubmit={postSubmit}
       >
         <input type="text" name="name" value={values.name} hidden />
         <input type="email" name="email" value={values.email} hidden />
@@ -51,7 +44,11 @@ export const ContactUsModal = ({ isOpenContactModal, onClose }) => {
         >
           <div className="modal-form-wrapper">
             <h2>Contact us</h2>
-            <NetlifyForm formName="Contact us" formValues={values}>
+            <NetlifyForm
+              formName="Contact us"
+              formValues={values}
+              postSubmit={postSubmit}
+            >
               <div className="field-wrapper">
                 <input
                   id='name'
