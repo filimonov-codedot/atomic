@@ -38,8 +38,7 @@ export const ContactUsModal = ({ isOpenContactModal, onClose }) => {
       <NetlifyForm
         formName="Contact us"
         formValues={values}
-        onSuccess={handleSuccess}
-        onError={handleError}
+        postSubmit={handleSuccess}
       >
         <input type="text" name="name" value={values.name} hidden />
         <input type="email" name="email" value={values.email} hidden />

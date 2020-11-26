@@ -73,8 +73,7 @@ export const Footer = ({ footerData, navFooter, navSiteMap }) => {
           <NetlifyForm
             formName="Newsletter"
             formValues={{ email }}
-            onSuccess={handleSuccess}
-            onError={handleError}
+            postSubmit={handleSuccess}
           >
             <input
               type="email"
