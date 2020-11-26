@@ -22,6 +22,7 @@ export const Layout = ({
   ctaDisplay = true,
   isHomePage = false,
   pageTitle = null,
+  titleTemplate = null,
   children
 }) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false)
@@ -159,8 +160,8 @@ export const Layout = ({
       return (
         <MenuModal
           onClose={() => {
-            setIsOpenMenu(false)
             changeUrlCLose()
+            setIsOpenMenu(false)
           }}
           navModal={navModal}
         />
@@ -171,8 +172,8 @@ export const Layout = ({
       return (
         <MenuModalMobile
           onClose={() => {
-            setIsOpenMenuMobile(false)
             changeUrlCLose()
+            setIsOpenMenuMobile(false)
           }}
           navModalMobile={navModalMobile}
         />
@@ -185,7 +186,10 @@ export const Layout = ({
   return (
     <PageTransition transitionTime={250}>
       <div className={`page-wrapper ${isHomePage ? "is-home" : ""}`}>
-        <SEO title={pageTitle} />
+        <SEO
+          title={pageTitle}
+          titleTemplate={titleTemplate}
+        />
         <Header
           headerData={headerData}
           navHeader={navHeader}
@@ -220,8 +224,8 @@ export const Layout = ({
         <ContactUsModal
           isOpenContactModal={isOpenContactModal}
           onClose={() => {
-            setIsOpenContactModal(false)
             changeUrlCLose()
+            setIsOpenContactModal(false)
           }}
         />
       </div>

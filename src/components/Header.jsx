@@ -22,7 +22,9 @@ export const Header = ({
       <nav className="header-nav">
         <ul>
           {navHeader.map(({ title, link }, i) => {
-            const current = (title === pageTitle || ( pageTitle === 'Blog' && title === 'News' )) ? 'current' : ''
+            const current =
+              (title === pageTitle || ( pageTitle === 'Blog' && title === 'News' ))
+                ? 'current' : ''
             return (
               <li key={i} className={current}>
                 <Link to={link}>{title}</Link>

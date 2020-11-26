@@ -184,6 +184,7 @@ export default function Home ({ data }) {
       tickerDuration={tickerDuration}
       tickerData={tickerData}
       isHomePage={true}
+      titleTemplate='Atomic | We found and fund companies'
     >
       <About
         counters={counterData}

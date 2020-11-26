@@ -1,14 +1,15 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-export const SEO = ({ title }) => {
-  const titleTemplate = `${title ? `${title} — ` : ''}Atomic`;
+export const SEO = ({ titleTemplate, title }) => {
+  const metaTitle = titleTemplate ?
+    titleTemplate : `Atomic${title ? ` | ${title}` : ''}`;
 
   return (
     <Helmet
       htmlAttributes={{ lang: 'en' }}
-      title={titleTemplate}
-      titleTemplate={titleTemplate}
+      title={metaTitle}
+      titleTemplate={metaTitle}
       meta={[
         {
           name: 'description',
@@ -20,7 +21,7 @@ export const SEO = ({ title }) => {
         },
         {
           property: `og:title`,
-          content: titleTemplate,
+          content: metaTitle,
         },
         {
           property: `og:type`,
@@ -32,7 +33,7 @@ export const SEO = ({ title }) => {
         },
         {
           name: `twitter:title`,
-          content: titleTemplate,
+          content: metaTitle,
         },
       ]}
     />

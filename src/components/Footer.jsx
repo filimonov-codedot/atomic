@@ -4,6 +4,7 @@ import NetlifyForm from "react-ssg-netlify-forms"
 
 export const Footer = ({ footerData, navFooter, navSiteMap }) => {
   const [email, setEmail] = useState("")
+  const [msg, setMsg] = useState(null)
 
   if (!footerData) return null
   const {
@@ -15,6 +16,21 @@ export const Footer = ({ footerData, navFooter, navSiteMap }) => {
   } = footerData
 
   const handleChange = ({ target: { value } }) => setEmail(value)
+
+  const handleSuccess = () => {
+    setEmail("")
+    setMsg("Thank you! Your form was submitted.")
+    setTimeout(() => {
+      setMsg(null)
+    }, 5000)
+  }
+
+  const handleError = () => {
+    setMsg("Error.")
+    setTimeout(() => {
+      setMsg(null)
+    }, 5000)
+  }
 
   return (
     <footer className="footer">
@@ -57,6 +73,8 @@ export const Footer = ({ footerData, navFooter, navSiteMap }) => {
           <NetlifyForm
             formName="Newsletter"
             formValues={{ email }}
+            onSuccess={handleSuccess}
+            onError={handleError}
           >
             <input
               type="email"
@@ -66,11 +84,9 @@ export const Footer = ({ footerData, navFooter, navSiteMap }) => {
               placeholder="Enter your email"
               required
             />
-            {
-              email ? <button type="submit">Send</button> : ""
-            }
-
+            {email ? <button type="submit">Send</button> : ""}
           </NetlifyForm>
+          {msg ? <p><small>{msg}</small></p> : null}
         </div>
       </div>
       <div className="container">
