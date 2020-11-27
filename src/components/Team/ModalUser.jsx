@@ -9,7 +9,7 @@ export const ModalUser = ({
   <ModalWrapper onClose={onClose} modalType="user">
     <div className="modal-user-wrapper">
       <div className="modal-user-photo">
-        <Image image={largePhoto} />
+        <Image className='img' image={largePhoto} />
       </div>
       <div className="modal-user-description">
         <h2>{name}</h2>

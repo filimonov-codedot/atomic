@@ -80,7 +80,7 @@ export const ReviewSlider = ({
                 // onMouseLeave={progressStart}
               >
                 <div className="review-slide-title">{title}</div>
-                <Image image={previewImage} />
+                <Image className='img' image={previewImage} />
                 {logoWhile ? (
                   <div className="review-slide-logo">
                     <img
