@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { graphql, navigate } from "gatsby"
+import Img from "gatsby-image"
 
 import { Layout } from "../components/Layout"
 import { TeamPage } from "../components/Team/TeamPage"
@@ -81,15 +82,15 @@ export const pageQuery = graphql`
     headerData: contentfulSectionHeader {
       logo {
         file {
-          logoSrc: url
+          src: url
         }
-        logoAlt: title
+        alt: title
       }
       logoMobile {
         file {
-          logoMobileSrc: url
+          src: url
         }
-        logoMobileAlt: title
+        alt: title
       }
     }
     footerData: contentfulSectionFooter {
@@ -122,16 +123,16 @@ export const pageQuery = graphql`
       teamMembers {
         slug
         smallPhoto {
-          file {
-            src: url
+          fluid(maxWidth: 294) {
+            ...GatsbyContentfulFluid
           }
           alt: title
         }
         position
         name
         largePhoto {
-          file {
-            url
+          fluid(maxWidth: 760) {
+            ...GatsbyContentfulFluid
           }
           title
         }

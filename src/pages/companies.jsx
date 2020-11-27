@@ -82,15 +82,15 @@ export const pageQuery = graphql`
     headerData: contentfulSectionHeader {
       logo {
         file {
-          logoSrc: url
+          src: url
         }
-        logoAlt: title
+        alt: title
       }
       logoMobile {
         file {
-          logoMobileSrc: url
+          src: url
         }
-        logoMobileAlt: title
+        alt: title
       }
     }
     footerData: contentfulSectionFooter {
@@ -118,8 +118,8 @@ export const pageQuery = graphql`
         slug
         name
         previewImage {
-          file {
-            src: url
+          fluid(maxWidth: 600) {
+            ...GatsbyContentfulFluid
           }
           alt: title
         }
@@ -140,8 +140,8 @@ export const pageQuery = graphql`
           link
         }
         images {
-          file {
-            src: url
+          fluid(maxWidth: 320) {
+            ...GatsbyContentfulFluid
           }
           alt: title
         }

@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import { Link } from "gatsby"
 import NetlifyForm from "react-ssg-netlify-forms"
 
+import { Image } from "./Image"
+
 export const Footer = ({ footerData, navFooter, navSiteMap }) => {
   const [email, setEmail] = useState("")
   const [msg, setMsg] = useState(null)
@@ -11,7 +13,7 @@ export const Footer = ({ footerData, navFooter, navSiteMap }) => {
     email: emailContact,
     social,
     newsletterTitle,
-    logo: { file: { src }, alt },
+    logo,
     copyright
   } = footerData
 
@@ -53,9 +55,12 @@ export const Footer = ({ footerData, navFooter, navSiteMap }) => {
             {emailContact}
           </a>
           <div className="social">
-            {social?.map(({ icon: { file: { src }, alt }, link }, index) => (
+            {social?.map(({ icon, link }, index) => (
               <a key={index} target="_blank" href={link}>
-                <img width={35} height={35} src={src} alt={alt} />
+                <img
+                  style={{ width: "35px", height: "35px" }}
+                  src={icon.file.src} alt={icon.alt}
+                />
               </a>
             ))}
           </div>
@@ -93,7 +98,7 @@ export const Footer = ({ footerData, navFooter, navSiteMap }) => {
             </ul>
           </nav>
           <Link to='/' className="footer-logo">
-            <img src={src} alt={alt} />
+            <img src={logo.file.src} alt={logo.alt} />
           </Link>
           <div className="copyright">
             <p>{copyright}</p>

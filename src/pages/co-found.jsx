@@ -124,15 +124,15 @@ export const pageQuery = graphql`
     headerData: contentfulSectionHeader {
       logo {
         file {
-          logoSrc: url
+          src: url
         }
-        logoAlt: title
+        alt: title
       }
       logoMobile {
         file {
-          logoMobileSrc: url
+          src: url
         }
-        logoMobileAlt: title
+        alt: title
       }
     }
     footerData: contentfulSectionFooter {
@@ -171,8 +171,8 @@ export const pageQuery = graphql`
           alt: title
         }
         previewImage {
-          file {
-            src: url
+          fluid(maxWidth: 1920) {
+            ...GatsbyContentfulFluid
           }
           alt: title
         }
@@ -180,12 +180,6 @@ export const pageQuery = graphql`
         refCompanies {
           slug
           name
-          previewImage {
-            file {
-              src: url
-            }
-            alt: title
-          }
           logoBlack {
             file {
               src: url
@@ -203,8 +197,8 @@ export const pageQuery = graphql`
             link
           }
           images {
-            file {
-              src: url
+            fluid(maxWidth: 320) {
+              ...GatsbyContentfulFluid
             }
             alt: title
           }
@@ -243,13 +237,13 @@ export const pageQuery = graphql`
             text: desc
           }
           smallPhoto {
-            file {
-              url
+            fluid(maxWidth: 30) {
+              ...GatsbyContentfulFluid
             }
           }
           largePhoto {
-            file {
-              url
+            fluid(maxWidth: 760) {
+              ...GatsbyContentfulFluid
             }
           }
           social {

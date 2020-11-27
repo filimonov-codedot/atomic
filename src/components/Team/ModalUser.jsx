@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { ModalWrapper } from '../ModalWrapper'
+import { Image } from "../Image"
 
 export const ModalUser = ({
   name, position, largePhoto, desc, faq, social, onClose
@@ -7,7 +9,7 @@ export const ModalUser = ({
   <ModalWrapper onClose={onClose} modalType="user">
     <div className="modal-user-wrapper">
       <div className="modal-user-photo">
-        <img src={largePhoto?.file.url} alt={largePhoto?.alt} />
+        <Image image={largePhoto} />
       </div>
       <div className="modal-user-description">
         <h2>{name}</h2>

@@ -2,6 +2,7 @@ import React from "react"
 
 import { ReviewSlider } from "../../ReviewSlider"
 import { WhyAtomicArticles } from "./WhyAtomicArticles"
+import { Image } from "../../Image"
 
 export const WhyAtomic = ({
   reviewSlider, whyAtomicHeader, whyAtomicContent, quoteSection, setActiveMember, setActiveCompany
@@ -12,7 +13,7 @@ export const WhyAtomic = ({
     refTeamMembers
   } = quoteSection
   const {
-    smallPhoto: { file: { src }, alt },
+    smallPhoto,
     position,
     name
   } = refTeamMembers
@@ -29,7 +30,17 @@ export const WhyAtomic = ({
       <div className="review">
         <div className="container">
           <div className="review-photo">
-            <img src={src} alt={alt} />
+            <Image
+              style={{
+                borderRadius: '50%',
+                display: 'block',
+                margin: "auto",
+                width: '44px',
+                objectFit: "cover",
+                height: '44px',
+              }}
+              image={smallPhoto}
+            />
           </div>
           <p>{text}</p>
           <div className="review-info">

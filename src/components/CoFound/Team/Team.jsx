@@ -1,4 +1,5 @@
 import React from "react"
+import { Image } from "../../Image"
 
 export const Team = ({
   teamHeader: { title, subtitle }, teamContent, setMemberModal
@@ -27,7 +28,7 @@ export const Team = ({
                 className="team-list-item"
               >
               <span className="team-list-photo">
-                <img src={smallPhoto.file.url} alt={smallPhoto.alt} />
+                <Image className='img' image={smallPhoto} />
               </span>
                 <span className="team-list-name">{name}</span>
                 <span className="team-list-position">{position}</span>

@@ -1,7 +1,7 @@
 import React from 'react'
+import { Image } from "../Image"
 
 export const NewsItem = ({ title, image, date, companyName, sourceTitle, sourceLink }) => {
-  const { file: { src }, alt } = image
   const { color, name } = companyName
 
   const dateFormat = (date) => {
@@ -12,7 +12,7 @@ export const NewsItem = ({ title, image, date, companyName, sourceTitle, sourceL
   return (
     <a href={sourceLink} target="_blank" rel="noreferrer" className="news-item">
       <div className="news-item-img">
-        <img src={src} alt={alt} />
+        <Image className='img' image={image} />
       </div>
       <div className="news-item-info">
         <div style={{ color }} className="news-item-type">
