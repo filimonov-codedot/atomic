@@ -24,7 +24,7 @@ export const AboutSlide = ({
   return (
     <div className={`about-us-slide ${index === activeSlide ? "slide-center" : ""}`}>
       <div className="about-us-slide-photo" onClick={() => onClickCompany()}>
-        <Image image={previewImage} />
+        <Image className='' image={previewImage} />
         <div className="about-us-slide-logo">
           <img src={logoWhile.file.src} alt="" />
         </div>

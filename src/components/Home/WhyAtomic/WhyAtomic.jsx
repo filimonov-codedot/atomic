@@ -30,17 +30,7 @@ export const WhyAtomic = ({
       <div className="review">
         <div className="container">
           <div className="review-photo">
-            <Image
-              style={{
-                borderRadius: '50%',
-                display: 'block',
-                margin: "auto",
-                width: '44px',
-                objectFit: "cover",
-                height: '44px',
-              }}
-              image={smallPhoto}
-            />
+            <Image className='img' image={smallPhoto} />
           </div>
           <p>{text}</p>
           <div className="review-info">

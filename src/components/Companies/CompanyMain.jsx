@@ -18,7 +18,7 @@ export const CompanyMain = ({ mainCompanies, handleClick }) => {
               <div key={index} className={`company${loaded ? "" : " current"}`}>
                 <h3 onClick={() => handleClick(item)}>{name}</h3>
                 <div className="company-photo" onClick={() => handleClick(item)}>
-                  <Image image={previewImage} />
+                  <Image className='img' image={previewImage} />
                 </div>
               </div>
             )
