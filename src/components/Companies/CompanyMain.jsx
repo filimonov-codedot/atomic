@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { Image } from "../Image"
 
 export const CompanyMain = ({ mainCompanies, handleClick }) => {
   const [loaded, setLoaded] = useState(false)
@@ -12,12 +13,12 @@ export const CompanyMain = ({ mainCompanies, handleClick }) => {
       <div className="container">
         <div className="company-page-list">
           {mainCompanies.map((item, index) => {
-            const { name, previewImage: { file: { src }, alt } } = item
+            const { name, previewImage } = item
             return (
               <div key={index} className={`company${loaded ? "" : " current"}`}>
                 <h3 onClick={() => handleClick(item)}>{name}</h3>
                 <div className="company-photo" onClick={() => handleClick(item)}>
-                  <img src={src} alt={alt} />
+                  <Image image={previewImage} />
                 </div>
               </div>
             )

@@ -1,5 +1,6 @@
 import React from 'react'
 import { ModalWrapper } from '../ModalWrapper'
+import { Image } from "../Image"
 
 export const CompanyModal = ({ logoBlack, title, desc, investors, links, images, onClose }) => {
   const parseLink = (link) => link.split('http').
@@ -48,7 +49,7 @@ export const CompanyModal = ({ logoBlack, title, desc, investors, links, images,
             {images && images.map((imageItem, index) => (
               <div key={index}>
                 <div className="image-wrapper">
-                  <img src={imageItem.file.src} alt={imageItem?.alt} />
+                  <Image className='img' image={imageItem} />
                 </div>
               </div>
             ))}

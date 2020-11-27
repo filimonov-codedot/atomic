@@ -69,18 +69,16 @@ export const AboutSlider = ({ slides, setActiveCompany, setActiveMember }) => {
         <div className="about-us-slider">
           <div className="about-us-slider-wrapper">
             <Slider {...settings}>
-              {slides && [...slides, ...slides].map((slide, index) => {
-                return (
-                  <AboutSlide
-                    key={index}
-                    index={index}
-                    activeSlide={activeSlide}
-                    slide={slide}
-                    onClickCompany={() => setActiveCompany(slide.refCompanies)}
-                    onClickMember={setActiveMember}
-                  />
-                )
-              })}
+              {slides && [...slides, ...slides].map((slide, index) => (
+                <AboutSlide
+                  key={index}
+                  index={index}
+                  activeSlide={activeSlide}
+                  slide={slide}
+                  onClickCompany={() => setActiveCompany(slide.refCompanies)}
+                  onClickMember={setActiveMember}
+                />
+              ))}
             </Slider>
           </div>
         </div>

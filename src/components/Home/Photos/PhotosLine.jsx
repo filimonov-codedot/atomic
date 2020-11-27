@@ -1,11 +1,12 @@
 import React from 'react'
+import { Image } from "../../Image"
 
 export const PhotosLine = ({ photos }) => (
   <div className="photos-line">
-    {photos.map(({ file: { src }, alt }, i) => (
+    {photos.map((image, i) => (
       <div key={i} className="photo">
-        <img src={src} alt={alt} />
-      </div>
+          <Image className='img' image={image} />
+        </div>
     ))}
   </div>
 )

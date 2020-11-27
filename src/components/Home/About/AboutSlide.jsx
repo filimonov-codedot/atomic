@@ -1,4 +1,5 @@
 import React from "react"
+import { Image } from "../../Image"
 
 export const AboutSlide = ({
   slide,
@@ -23,7 +24,7 @@ export const AboutSlide = ({
   return (
     <div className={`about-us-slide ${index === activeSlide ? "slide-center" : ""}`}>
       <div className="about-us-slide-photo" onClick={() => onClickCompany()}>
-        <img src={previewImage.file.src} alt="" />
+        <Image image={previewImage} />
         <div className="about-us-slide-logo">
           <img src={logoWhile.file.src} alt="" />
         </div>

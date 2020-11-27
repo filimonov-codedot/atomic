@@ -1,8 +1,8 @@
 import React from 'react'
+import { Image } from "../Image"
 
 export const BlogItem = (props) => {
   const { title, image, date, shortContent, onClickHandler } = props
-  const { file: { src }, alt } = image
   const { text } = shortContent
 
   const dateFormat = (date) => {
@@ -13,7 +13,7 @@ export const BlogItem = (props) => {
   return (
     <div className="article" onClick={() => onClickHandler(props)}>
       <div className="article-img">
-        <img src={src} alt={alt} />
+        <Image className='img' image={image} />
       </div>
       <div className="article-description">
         <div className="article-date">{dateFormat(new Date(date))}</div>

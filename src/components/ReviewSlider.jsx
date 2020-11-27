@@ -1,5 +1,6 @@
 import React, { useRef } from "react"
 import Slider from "react-slick"
+import { Image } from "./Image"
 
 export const ReviewSlider = ({
   slides, description = null, addClass = "", setActiveCompany
@@ -79,10 +80,7 @@ export const ReviewSlider = ({
                 // onMouseLeave={progressStart}
               >
                 <div className="review-slide-title">{title}</div>
-                <img
-                  src={previewImage.file.src}
-                  alt={previewImage.alt}
-                />
+                <Image image={previewImage} />
                 {logoWhile ? (
                   <div className="review-slide-logo">
                     <img

@@ -49,15 +49,15 @@ export const pageQuery = graphql`
     headerData: contentfulSectionHeader {
       logo {
         file {
-          logoSrc: url
+          src: url
         }
-        logoAlt: title
+        alt: title
       }
       logoMobile {
         file {
-          logoMobileSrc: url
+          src: url
         }
-        logoMobileAlt: title
+        alt: title
       }
     }
     footerData: contentfulSectionFooter {
@@ -89,15 +89,14 @@ export const pageQuery = graphql`
       }
       buttonText: topButton
       slides: photos {
-        file {
-          src: url
+        fluid(maxWidth: 550) {
+          ...GatsbyContentfulFluid
         }
         alt: title
       }
       selectionCompanies {
         title
         link
-
       }
       ctaTitle
       tickerDuration {
