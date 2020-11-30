@@ -226,10 +226,10 @@
 					&:first-child {
 						&::before {
 							display: none;
-						}
 
-						@include desktop {
-							display: none;
+							@include desktop {
+								display: none;
+							}
 						}
 					}
 
