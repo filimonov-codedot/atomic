@@ -62,7 +62,7 @@ export const AboutSlider = ({ slides, setActiveCompany, setActiveMember }) => {
       }
     ]
   }
-  if (!initSlide) return null
+  if (initSlide === null) return null
   return (
     <div className="about-us-slider">
       <div className="about-us-slider-wrapper">
