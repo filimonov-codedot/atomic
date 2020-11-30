@@ -1,9 +1,9 @@
 import React from 'react'
 import { ModalWrapper } from "../ModalWrapper"
+import { Image } from "../Image"
 
 export const BlogModal = ({ title, image, date, fullContent, closeHandler }) => {
   const { text } = fullContent
-  const { file: { src }, alt } = image
 
   const dateFormat = (date) => {
     const newDate = date.toDateString().split(' ')
@@ -14,7 +14,7 @@ export const BlogModal = ({ title, image, date, fullContent, closeHandler }) => 
     <ModalWrapper onClose={() => closeHandler(false)} modalType="blog">
       <div className="modal-blog-wrapper">
         <div className="modal-blog-photo">
-          <img src={src} alt={alt} />
+          <Image className='img' image={image} />
         </div>
         <div className="modal-blog-description">
           <h2>{title}</h2>

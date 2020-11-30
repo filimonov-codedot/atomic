@@ -2,6 +2,7 @@ import React from "react"
 
 import { ReviewSlider } from "../../ReviewSlider"
 import { WhyAtomicArticles } from "./WhyAtomicArticles"
+import { Image } from "../../Image"
 
 export const WhyAtomic = ({
   reviewSlider, whyAtomicHeader, whyAtomicContent, quoteSection, setActiveMember, setActiveCompany
@@ -12,7 +13,7 @@ export const WhyAtomic = ({
     refTeamMembers
   } = quoteSection
   const {
-    smallPhoto: { file: { src }, alt },
+    smallPhoto,
     position,
     name
   } = refTeamMembers
@@ -29,10 +30,11 @@ export const WhyAtomic = ({
       <div className="review">
         <div className="container">
           <div className="review-photo">
-            <img src={src} alt={alt} />
+            <Image className='img' image={smallPhoto} />
           </div>
           <p>{text}</p>
           <div className="review-info">
+            {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
             <div
               className="review-name"
               onClick={() => setActiveMember(refTeamMembers)}

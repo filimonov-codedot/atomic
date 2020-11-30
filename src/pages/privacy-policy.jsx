@@ -44,15 +44,15 @@ export const pageQuery = graphql`
     headerData: contentfulSectionHeader {
       logo {
         file {
-          logoSrc: url
+          src: url
         }
-        logoAlt: title
+        alt: title
       }
       logoMobile {
         file {
-          logoMobileSrc: url
+          src: url
         }
-        logoMobileAlt: title
+        alt: title
       }
     }
     footerData: contentfulSectionFooter {

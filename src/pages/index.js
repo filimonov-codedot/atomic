@@ -36,6 +36,7 @@ export default function Home ({ data }) {
     headerData,
     footerData,
     homePage: {
+      counterSectionSwitch,
       counterRaised,
       counterActive,
       counterFund,
@@ -68,6 +69,7 @@ export default function Home ({ data }) {
         aboutSlider.map(({ refTeamMembers }) => {
           const dataMembers = refTeamMembers.find(({ slug }) => slug === hash.slice(1))
           if (dataMembers) setActiveMember(dataMembers)
+          return dataMembers
         })
       }
       if (hash.slice(1) === quoteSection.refTeamMembers.slug)
@@ -187,6 +189,7 @@ export default function Home ({ data }) {
       titleTemplate='Atomic | We found and fund companies'
     >
       <About
+        countersSwitch={counterSectionSwitch}
         counters={counterData}
         aboutSlider={aboutSlider}
         aboutHeader={aboutHeader}
@@ -219,15 +222,15 @@ export const pageQuery = graphql`
     headerData: contentfulSectionHeader {
       logo {
         file {
-          logoSrc: url
+          src: url
         }
-        logoAlt: title
+        alt: title
       }
       logoMobile {
         file {
-          logoMobileSrc: url
+          src: url
         }
-        logoMobileAlt: title
+        alt: title
       }
     }
     footerData: contentfulSectionFooter {
@@ -268,8 +271,8 @@ export const pageQuery = graphql`
           alt: title
         }
         previewImage {
-          file {
-            src: url
+          fluid(maxWidth: 740) {
+            ...GatsbyContentfulFluid
           }
           alt: title
         }
@@ -278,12 +281,6 @@ export const pageQuery = graphql`
           name
           desc {
             text: desc
-          }
-          previewImage {
-            file {
-              src: url
-            }
-            alt: title
           }
           logoBlack {
             file {
@@ -299,8 +296,8 @@ export const pageQuery = graphql`
             link
           }
           images {
-            file {
-              src: url
+            fluid(maxWidth: 320) {
+              ...GatsbyContentfulFluid
             }
             alt: title
           }
@@ -309,16 +306,16 @@ export const pageQuery = graphql`
         refTeamMembers {
           slug
           smallPhoto {
-            file {
-              src: url
+            fluid(maxWidth: 317) {
+              ...GatsbyContentfulFluid
             }
             alt: title
           }
           position
           name
           largePhoto {
-            file {
-              url
+            fluid(maxWidth: 760) {
+              ...GatsbyContentfulFluid
             }
             title
           }
@@ -342,6 +339,7 @@ export const pageQuery = graphql`
           }
         }
       }
+      counterSectionSwitch
       counterRaised
       counterFund
       counterActive
@@ -363,16 +361,16 @@ export const pageQuery = graphql`
         refTeamMembers {
           slug
           smallPhoto {
-            file {
-              src: url
+            fluid(maxWidth: 44) {
+              ...GatsbyContentfulFluid
             }
             alt: title
           }
           position
           name
           largePhoto {
-            file {
-              url
+            fluid(maxWidth: 760) {
+              ...GatsbyContentfulFluid
             }
             title
           }
@@ -404,8 +402,8 @@ export const pageQuery = graphql`
           alt: title
         }
         previewImage {
-          file {
-            src: url
+          fluid(maxWidth: 1920) {
+            ...GatsbyContentfulFluid
           }
           alt: title
         }
@@ -413,12 +411,6 @@ export const pageQuery = graphql`
         refCompanies {
           slug
           name
-          previewImage {
-            file {
-              src: url
-            }
-            alt: title
-          }
           logoBlack {
             file {
               src: url
@@ -436,8 +428,8 @@ export const pageQuery = graphql`
             link
           }
           images {
-            file {
-              src: url
+            fluid(maxWidth: 320) {
+              ...GatsbyContentfulFluid
             }
             alt: title
           }
@@ -451,8 +443,8 @@ export const pageQuery = graphql`
         }
       }
       photos {
-        file {
-          src: url
+        fluid(maxWidth: 150) {
+          ...GatsbyContentfulFluid
         }
         alt: title
       }

@@ -26,6 +26,7 @@ export const ContactUsModal = ({ isOpenContactModal, onClose }) => {
     }, 5000)
   }
 
+  const { name, email, message } = values
   return (
     <>
       <NetlifyForm
@@ -33,9 +34,9 @@ export const ContactUsModal = ({ isOpenContactModal, onClose }) => {
         formValues={values}
         postSubmit={postSubmit}
       >
-        <input type="text" name="name" value={values.name} hidden />
-        <input type="email" name="email" value={values.email} hidden />
-        <textarea name="message" value={values.message} hidden />
+        <input type="text" name="name" defaultValue={name} hidden />
+        <input type="email" name="email" defaultValue={email} hidden />
+        <textarea name="message" defaultValue={message} hidden />
       </NetlifyForm>
       {isOpenContactModal && (
         <ModalWrapper
@@ -54,7 +55,7 @@ export const ContactUsModal = ({ isOpenContactModal, onClose }) => {
                   id='name'
                   type="text"
                   name='name'
-                  value={values.name}
+                  value={name}
                   onChange={handleChange}
                   required
                 />
@@ -65,7 +66,7 @@ export const ContactUsModal = ({ isOpenContactModal, onClose }) => {
                   id='email'
                   type="email"
                   name='email'
-                  value={values.email}
+                  value={email}
                   onChange={handleChange}
                   required
                 />
@@ -75,7 +76,7 @@ export const ContactUsModal = ({ isOpenContactModal, onClose }) => {
               <textarea
                 id="message"
                 name='message'
-                value={values.message}
+                value={message}
                 onChange={handleChange}
                 required
               />
@@ -83,7 +84,7 @@ export const ContactUsModal = ({ isOpenContactModal, onClose }) => {
                 <button
                   type="submit"
                   className="btn btn-input"
-                  disabled={values.name || values.email || values.message ? "" : "disabled"}
+                  disabled={name || email || message ? "" : "disabled"}
                 >
                   Send
                 </button>

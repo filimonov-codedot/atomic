@@ -86,10 +86,6 @@ export const Layout = ({
 
   const navFooter = [
     {
-      title: "PRESS KIT",
-      link: "/"
-    },
-    {
       title: "PRIVACY POLICY",
       link: "/privacy-policy"
     }

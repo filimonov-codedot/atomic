@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const CompanyStealth = ({ stealthCompanies }) => {
+export const CompanyStealth = ({ stealthCompanies, textEndList }) => {
   const companies = stealthCompanies.reduce((p, c) => {
     if (p[p.length - 1].length === 4) p.push([])
     p[p.length - 1].push(c)
@@ -17,8 +17,8 @@ export const CompanyStealth = ({ stealthCompanies }) => {
               {item.map(({ name }, index) => (
                 <li key={index}>{name}</li>
               ))}
-              {mainIndex === companies.length - 1 && (
-                <li><i>and dozens more</i></li>
+              {mainIndex === companies.length - 1 && textEndList (
+                <li><i>{textEndList}</i></li>
               )}
             </ul>
           ))}

@@ -4,8 +4,8 @@ import { Link } from 'gatsby'
 export const Header = ({
   pageTitle,
   headerData: {
-    logo: { file: { logoSrc }, logoAlt },
-    logoMobile: { file: { logoMobileSrc }, logoMobileAlt }
+    logo,
+    logoMobile
   },
   navHeader,
   openMenu,
@@ -14,10 +14,10 @@ export const Header = ({
   <header className="header">
     <div className="container">
       <Link to='/' className="logo-mobile">
-        <img src={logoMobileSrc} alt={logoMobileAlt} />
+        <img src={logoMobile.file.src} alt={logoMobile.alt} />
       </Link>
       <Link to='/' className="logo">
-        <img src={logoSrc} alt={logoAlt} />
+        <img src={logo.file.src} alt={logo.alt} />
       </Link>
       <nav className="header-nav">
         <ul>
@@ -41,6 +41,7 @@ export const Header = ({
           Join
         </button>
       </div>
+      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
       <div className="header-mobile-nav" onClick={openMenuMobile}>
         <span />
       </div>

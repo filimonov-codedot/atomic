@@ -28,7 +28,7 @@ export default function News ({ data }) {
 
     if (typeof document !== "undefined")
       document.documentElement.scrollTop = 0
-  }, [])
+  }, [blogSection])
 
   const Modal = () => {
     if (modalContent) {
@@ -89,15 +89,15 @@ export const pageQuery = graphql`
     headerData: contentfulSectionHeader {
       logo {
         file {
-          logoSrc: url
+          src: url
         }
-        logoAlt: title
+        alt: title
       }
       logoMobile {
         file {
-          logoMobileSrc: url
+          src: url
         }
-        logoMobileAlt: title
+        alt: title
       }
     }
     footerData: contentfulSectionFooter {
@@ -124,27 +124,11 @@ export const pageQuery = graphql`
       companies: listCompanies {
         title: name
       }
-      newsSection {
-        image {
-          file {
-            src: url
-          }
-          alt: title
-        }
-        date
-        title
-        companyName {
-          name
-          color
-        }
-        sourceTitle
-        sourceLink
-      }
       blogSection {
         slug
         image {
-          file {
-            src: url
+          fluid(maxWidth: 760) {
+            ...GatsbyContentfulFluid
           }
           alt: title
         }

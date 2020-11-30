@@ -1,13 +1,10 @@
 import React from "react"
+import { Image } from "../../Image"
 
-export const AboutCarouselItem = ({ slide }) => {
-  const { file: { src }, alt } = slide;
-
-  return (
-    <div className="carousel-item">
-      <div className="carousel-image">
-        <img src={src} alt={alt} />
-      </div>
+export const AboutCarouselItem = ({ slide }) => (
+  <div className="carousel-item">
+    <div className="carousel-image">
+      <Image className='' image={slide} />
     </div>
-  )
-}
+  </div>
+)

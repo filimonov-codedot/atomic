@@ -72,15 +72,15 @@ export const pageQuery = graphql`
     headerData: contentfulSectionHeader {
       logo {
         file {
-          logoSrc: url
+          src: url
         }
-        logoAlt: title
+        alt: title
       }
       logoMobile {
         file {
-          logoMobileSrc: url
+          src: url
         }
-        logoMobileAlt: title
+        alt: title
       }
     }
     footerData: contentfulSectionFooter {
@@ -109,8 +109,8 @@ export const pageQuery = graphql`
       }
       newsSection {
         image {
-          file {
-            src: url
+          fluid(maxWidth: 360) {
+            ...GatsbyContentfulFluid
           }
           alt: title
         }
@@ -122,30 +122,6 @@ export const pageQuery = graphql`
         }
         sourceTitle
         sourceLink
-      }
-      blogSection {
-        image {
-          file {
-            src: url
-          }
-          alt: title
-        }
-        title
-        date
-        shortContent {
-          text: shortContent
-        }
-        fullContent {
-          text: fullContent
-        }
-      }
-      tickerDuration {
-        duration
-      }
-      tickerData: ticker {
-        text {
-          text
-        }
       }
     }
   }

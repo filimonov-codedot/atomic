@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react';
 
 const useComponentVisible = (initialIsVisible) => {
-  const [isComponentVisible, setIsComponentVisible] = useState(initialIsVisible);
+  const [isComponentVisible, setIsComponentVisible] = useState(
+    initialIsVisible);
   const ref = useRef(null);
 
   const handleClickOutside = (e) => {
@@ -17,65 +18,65 @@ const useComponentVisible = (initialIsVisible) => {
   });
 
   return { ref, isComponentVisible, setIsComponentVisible };
-}
-
+};
 
 export const Dropdown = ({ data, name, defaultItem = { title: '' }, onChange }) => {
-  const [selected, setSelected] = useState(defaultItem.title)
+  const [selected, setSelected] = useState(defaultItem.title);
 
-  const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(false)
+  const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(
+    false);
 
   const onChangeFilter = (name, value) => {
-    onChange(name, value)
-    setSelected(value)
-  }
+    onChange(name, value);
+    setSelected(value);
+  };
 
   const clickHandler = () =>
-    setIsComponentVisible(!isComponentVisible)
+    setIsComponentVisible(!isComponentVisible);
 
   const convertToKebabCase = (string) =>
-    string.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2').toLowerCase()
+    string.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2').toLowerCase();
 
   return (
-    <div
-      className={`select ${isComponentVisible ? 'opened' : ''}`}
-      onClick={() => clickHandler()}
-      ref={ref}
-    >
-      <div className="select-title">
-        {selected || defaultItem.title}
-      </div>
-      <div className="select-list">
-        <ul>
+    <>
+      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
+      <div className={`select ${isComponentVisible ? 'opened' : ''}`}
+           onClick={() => clickHandler()} ref={ref}>
+        <div className="select-title">
+          {selected || defaultItem.title}
+        </div>
+        <div className="select-list">
+          <ul>
 
-          {defaultItem.title ? (
-            <li>
-              <input
-                type="radio"
-                id="dropdown-default"
-                name={name}
-                onChange={() => onChangeFilter(name, '')}
-              />
-              <label htmlFor="dropdown-default">{defaultItem.title}</label>
-            </li>
-          ) : ''}
+            {defaultItem.title ? (
+              <li>
+                <input
+                  type="radio"
+                  id="dropdown-default"
+                  name={name}
+                  onChange={() => onChangeFilter(name, '')}
+                />
+                <label htmlFor="dropdown-default">{defaultItem.title}</label>
+              </li>
+            ) : ''}
 
-          {data?.map(({ title }, index) => (
-            <li key={index} className={title === selected ? 'current' : ''}>
-              <input
-                type="radio"
-                id={convertToKebabCase(title)}
-                name={name}
-                value={title}
-                onChange={() => onChangeFilter(name, title)}
-              />
-              <label htmlFor={convertToKebabCase(title)}>
-                {title}
-              </label>
-            </li>
-          ))}
-        </ul>
+            {data?.map(({ title }, index) => (
+              <li key={index} className={title === selected ? 'current' : ''}>
+                <input
+                  type="radio"
+                  id={convertToKebabCase(title)}
+                  name={name}
+                  value={title}
+                  onChange={() => onChangeFilter(name, title)}
+                />
+                <label htmlFor={convertToKebabCase(title)}>
+                  {title}
+                </label>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-    </div>
-  )
-}
+    </>
+  );
+};

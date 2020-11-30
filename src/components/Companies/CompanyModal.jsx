@@ -1,17 +1,18 @@
-import React from 'react'
-import { ModalWrapper } from '../ModalWrapper'
+import React from 'react';
+import { ModalWrapper } from '../ModalWrapper';
+import { Image } from '../Image';
 
 export const CompanyModal = ({ logoBlack, title, desc, investors, links, images, onClose }) => {
-  const parseLink = (link) => link.split('http').
-    join('').split('s://').
-    join('').split('://').
-    join('').split('/')[0]
+  const parseLink = (link) => link.split('http')
+    .join('').split('s://')
+    .join('').split('://')
+    .join('').split('/')[0];
 
-  investors = investors.slice(0, 7)
-  investors.push({ name: 'and other great investors' })
+  investors = investors.slice(0, 7);
+  investors.push({ name: 'and other great investors' });
 
-  const investorsLeftCol = investors.slice(0, Math.ceil(investors.length / 2))
-  const investorsRightCol = investors.slice(Math.ceil(investors.length / 2))
+  const investorsLeftCol = investors.slice(0, Math.ceil(investors.length / 2));
+  const investorsRightCol = investors.slice(Math.ceil(investors.length / 2));
 
   return (
     <ModalWrapper onClose={onClose} modalType="company">
@@ -40,15 +41,16 @@ export const CompanyModal = ({ logoBlack, title, desc, investors, links, images,
           <div className="modal-company-links">
             {links && links.map(({ link }, index) => (
               <div key={index} className="modal-company-link">
-                <a target="_blank" rel="noreferrer" href={link.toString()}>{parseLink(link)}</a>
-              </div>)
+                <a target="_blank" rel="noreferrer"
+                   href={link.toString()}>{parseLink(link)}</a>
+              </div>),
             )}
           </div>
           <div className="modal-company-gallery">
             {images && images.map((imageItem, index) => (
               <div key={index}>
                 <div className="image-wrapper">
-                  <img src={imageItem.file.src} alt={imageItem?.alt} />
+                  <Image className='img' image={imageItem} />
                 </div>
               </div>
             ))}
@@ -56,5 +58,5 @@ export const CompanyModal = ({ logoBlack, title, desc, investors, links, images,
         </div>
       </div>
     </ModalWrapper>
-  )
-}
+  );
+};
