@@ -227,6 +227,10 @@
 						&::before {
 							display: none;
 						}
+
+						@include desktop {
+							display: none;
+						}
 					}
 
 					&:last-child::before {
