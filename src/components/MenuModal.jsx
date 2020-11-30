@@ -15,7 +15,7 @@ export const MenuModal = ({ onClose, navModal }) => {
           {navModal.map(({ title, link, disabled }, index) => {
             if (disabled) return (
               <li key={index} className="coming-soon">
-                <a href="#">{title} <span>COMING SOON</span></a>
+                <a href>{title} <span>COMING SOON</span></a>
               </li>
             )
 

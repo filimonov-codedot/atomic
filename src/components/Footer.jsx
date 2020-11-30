@@ -2,8 +2,6 @@ import React, { useState } from "react"
 import { Link } from "gatsby"
 import NetlifyForm from "react-ssg-netlify-forms"
 
-import { Image } from "./Image"
-
 export const Footer = ({ footerData, navFooter, navSiteMap }) => {
   const [email, setEmail] = useState("")
   const [msg, setMsg] = useState(null)

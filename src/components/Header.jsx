@@ -41,6 +41,7 @@ export const Header = ({
           Join
         </button>
       </div>
+      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
       <div className="header-mobile-nav" onClick={openMenuMobile}>
         <span />
       </div>

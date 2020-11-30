@@ -34,6 +34,7 @@ export const WhyAtomic = ({
           </div>
           <p>{text}</p>
           <div className="review-info">
+            {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
             <div
               className="review-name"
               onClick={() => setActiveMember(refTeamMembers)}

@@ -49,7 +49,7 @@ export default function CoFound ({ data }) {
 
     if (typeof document !== "undefined")
       document.documentElement.scrollTop = 0
-  }, [])
+  }, [reviewSlider, teamContent])
 
   const Modals = () => {
     if (activeCompany) {
