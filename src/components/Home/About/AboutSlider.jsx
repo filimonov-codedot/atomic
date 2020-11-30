@@ -15,7 +15,7 @@ export const AboutSlider = ({ slides, setActiveCompany, setActiveMember }) => {
       setActiveSlide(slideInit)
       setIsFirstSession(false)
     }
-  }, [slides])
+  }, [slides, isFirstSession])
 
   const settings = {
     dots: false,
@@ -62,28 +62,23 @@ export const AboutSlider = ({ slides, setActiveCompany, setActiveMember }) => {
       }
     ]
   }
-
+  if (!initSlide) return null
   return (
-    <>
-      {initSlide !== null ? (
-        <div className="about-us-slider">
-          <div className="about-us-slider-wrapper">
-            <Slider {...settings}>
-              {slides && [...slides, ...slides].map((slide, index) => (
-                <AboutSlide
-                  key={index}
-                  index={index}
-                  activeSlide={activeSlide}
-                  slide={slide}
-                  onClickCompany={() => setActiveCompany(slide.refCompanies)}
-                  onClickMember={setActiveMember}
-                />
-              ))}
-            </Slider>
-          </div>
-        </div>
-      ) : null}
-
-    </>
+    <div className="about-us-slider">
+      <div className="about-us-slider-wrapper">
+        <Slider {...settings}>
+          {slides && [...slides, ...slides].map((slide, index) => (
+            <AboutSlide
+              key={index}
+              index={index}
+              activeSlide={activeSlide}
+              slide={slide}
+              onClickCompany={() => setActiveCompany(slide.refCompanies)}
+              onClickMember={setActiveMember}
+            />
+          ))}
+        </Slider>
+      </div>
+    </div>
   )
 }

@@ -1,5 +1,5 @@
-import React from "react"
-import { Image } from "../Image"
+import React from 'react'
+import { Image } from '../Image'
 
 export const TeamContent = ({ content, setCurUser }) => (
   <div className="team-page-wrapper">
@@ -7,22 +7,23 @@ export const TeamContent = ({ content, setCurUser }) => (
       const {
         smallPhoto,
         position,
-        name
+        name,
       } = item
 
       return (
-        <div
-          key={index}
-          className="team-page-item"
-          onClick={() => setCurUser(item)}
-        >
-          <div className="team-page-item-photo">
-            <Image className='img' image={smallPhoto} />
+        <>
+          {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
+          <div onClick={() => setCurUser(item)}
+               key={index}
+               className="team-page-item"
+               role='article'>
+            <div className="team-page-item-photo">
+              <Image className='img' image={smallPhoto} />
+            </div>
+            <h3>{name}<br />{position}</h3>
           </div>
-          <h3>{name}<br />{position}</h3>
-        </div>
+        </>
       )
     })}
   </div>
 )
-

@@ -15,6 +15,7 @@ export default function Companies ({ data }) {
     companiesPage: {
       mainCompanies,
       stealthCompanies,
+      textEndList,
       ctaTitle,
       tickerDuration,
       tickerData
@@ -30,7 +31,7 @@ export default function Companies ({ data }) {
 
     if (typeof document !== "undefined")
       document.documentElement.scrollTop = 0
-  }, [])
+  }, [mainCompanies])
 
   const handleClick = (slide) => setActiveCompany(slide)
 
@@ -71,7 +72,10 @@ export default function Companies ({ data }) {
         mainCompanies={mainCompanies}
         handleClick={handleClick}
       />
-      <CompanyStealth stealthCompanies={stealthCompanies} />
+      <CompanyStealth
+        stealthCompanies={stealthCompanies}
+        textEndList={textEndList}
+      />
       <Modal />
     </Layout>
   )
@@ -149,6 +153,7 @@ export const pageQuery = graphql`
       stealthCompanies {
         name
       }
+      textEndList
       ctaTitle
       tickerDuration {
         duration

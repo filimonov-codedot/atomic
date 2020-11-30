@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 import { graphql, navigate } from "gatsby"
-import Img from "gatsby-image"
 
 import { Layout } from "../components/Layout"
 import { TeamPage } from "../components/Team/TeamPage"
@@ -32,7 +31,7 @@ export default function Team ({ data }) {
 
     if (typeof document !== "undefined")
       document.documentElement.scrollTop = 0
-  }, [])
+  }, [teamMembers])
 
   const Modal = () => {
     if (curUser) {

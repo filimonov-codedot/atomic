@@ -28,7 +28,7 @@ export default function News ({ data }) {
 
     if (typeof document !== "undefined")
       document.documentElement.scrollTop = 0
-  }, [])
+  }, [blogSection])
 
   const Modal = () => {
     if (modalContent) {

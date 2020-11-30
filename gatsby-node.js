@@ -22,6 +22,11 @@ exports.createSchemaCustomization = ({ actions }) => {
     @childOf(types: ["ContentfulPageCoFound"]) {
       logoWhile: ContentfulAsset
     }
+    
+    type ContentfulPageCompanies implements Node
+    @childOf(types: ["ContentfulPageCompanies"]) {
+      textEndList: String
+    }
   `
   actions.createTypes(typeDefs)
 }

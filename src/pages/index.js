@@ -36,6 +36,7 @@ export default function Home ({ data }) {
     headerData,
     footerData,
     homePage: {
+      counterSectionSwitch,
       counterRaised,
       counterActive,
       counterFund,
@@ -68,6 +69,7 @@ export default function Home ({ data }) {
         aboutSlider.map(({ refTeamMembers }) => {
           const dataMembers = refTeamMembers.find(({ slug }) => slug === hash.slice(1))
           if (dataMembers) setActiveMember(dataMembers)
+          return dataMembers
         })
       }
       if (hash.slice(1) === quoteSection.refTeamMembers.slug)
@@ -187,6 +189,7 @@ export default function Home ({ data }) {
       titleTemplate='Atomic | We found and fund companies'
     >
       <About
+        countersSwitch={counterSectionSwitch}
         counters={counterData}
         aboutSlider={aboutSlider}
         aboutHeader={aboutHeader}
@@ -336,6 +339,7 @@ export const pageQuery = graphql`
           }
         }
       }
+      counterSectionSwitch
       counterRaised
       counterFund
       counterActive
