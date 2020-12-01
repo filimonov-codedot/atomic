@@ -99,11 +99,6 @@ export const Layout = ({
     {
       title: "Join a team",
       link: "/join-team"
-    },
-    {
-      title: "Atomic Fellowship",
-      link: "/",
-      disabled: true
     }
   ]
 

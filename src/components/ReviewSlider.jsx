@@ -76,6 +76,7 @@ export const ReviewSlider = ({
               previewImage,
               logoWhile,
             } = slide
+
             return (
               <React.Fragment key={index}>
                 {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
