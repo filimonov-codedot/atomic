@@ -8,6 +8,7 @@
   padding-left: 100%;
   width: 100%;
   box-sizing: content-box;
+  height: 72px;
 }
 
 .ticker.ticker-pr-100 {
@@ -16,7 +17,7 @@
 
 .ticker {
   overflow: hidden;
-  padding: 24px 0 17px;
+  padding: 24px 0 24px;
   transition: 0s;
   white-space: nowrap; /* remove after js */
 
