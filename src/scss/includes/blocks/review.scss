@@ -89,6 +89,11 @@
 			&:focus {
 				outline: none;
 			}
+
+			&.slick-active.slick-current {
+				z-index: 1000;
+				cursor: pointer;
+			}
 		}
 
 		&-counter {
@@ -179,11 +184,6 @@
 
 		.content-slider & {
 			height: 600px;
-		}
-
-		.slick-active.slick-current & {
-			z-index: 1000;
-			cursor: pointer;
 		}
 
 		&::before {
