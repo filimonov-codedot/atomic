@@ -1,17 +1,25 @@
 import React, { useEffect, useRef } from 'react'
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 
 export const ModalWrapper = ({ children, onClose, modalType }) => {
   const overlay = useRef(null)
   const modal = useRef(null)
 
   useEffect(() => {
-    if (typeof document !== `undefined`) {
-      document.body.style.width = `${document.body.clientWidth}px`
-      document.body.style.overflowY = 'hidden'
-      return () => {
-        document.body.style.width = ''
-        document.body.style.overflowY = 'scroll'
-      }
+    // if (typeof document !== `undefined`) {
+      // document.body.style.width = `${document.body.clientWidth}px`
+      // document.body.style.overflowY = 'hidden'
+      // return () => {
+        // document.body.style.width = ''
+        // document.body.style.overflowY = 'scroll'
+      // }
+    // }
+
+    disableBodyScroll(modal.current, {
+      reserveScrollBarGap: true
+    })
+    return () => {
+      enableBodyScroll(modal.current)
     }
   })
 

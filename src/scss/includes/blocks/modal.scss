@@ -258,15 +258,23 @@
 			}
 		}
 
+		&-description {
+			padding-bottom: 50px;
+
+			@include tablet {
+				padding-bottom: 70px;
+			}
+		}
+
 		&-gallery {
 			display: flex;
-			margin: 0 -24px 50px -48px;
+			margin: 0 -24px 0 -48px;
 			max-width: calc(100vw + 24px);
 			overflow: auto;
 			padding: 0 24px 0 48px;
 
 			@include tablet {
-				margin: 0 0 70px;
+				margin: 0;
 				max-width: initial;
 				overflow: initial;
 				padding: 0;
