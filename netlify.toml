@@ -1,7 +1,123 @@
 [build]
-  command = "yarn build"
-  functions = "functions"
-  publish = "public"
+command = "yarn build"
+functions = "functions"
+publish = "public"
 
 [[plugins]]
-  package = "netlify-plugin-gatsby-cache"
+package = "netlify-plugin-gatsby-cache"
+
+[[redirects]]
+from = "/careers"
+to = "/join-team"
+status = 301
+force = false
+[[redirects]]
+from = "/cofound"
+to = "/co-found"
+status = 301
+force = false
+[[redirects]]
+from = "/about"
+to = "/team"
+status = 301
+force = false
+[[redirects]]
+from = "/bungalow"
+to = "/companies/#bungalow"
+status = 301
+force = false
+[[redirects]]
+from = "/hims-hers"
+to = "/companies/#hims-hers"
+status = 301
+force = false
+[[redirects]]
+from = "/homebound"
+to = "/companies/#homebound"
+status = 301
+force = false
+[[redirects]]
+from = "/paravision"
+to = "/companies/#paravision"
+status = 301
+force = false
+[[redirects]]
+from = "/raydiant"
+to = "/companies/#raydiant"
+status = 301
+force = false
+[[redirects]]
+from = "/remrise"
+to = "/companies/#remrise"
+status = 301
+force = false
+[[redirects]]
+from = "/replicant"
+to = "/companies/#replicant"
+status = 301
+force = false
+[[redirects]]
+from = "/talkiq"
+to = "/companies/#talkiq"
+status = 301
+force = false
+[[redirects]]
+from = "/terminal"
+to = "/companies/#terminal"
+status = 301
+force = false
+[[redirects]]
+from = "/zenreach"
+to = "/companies/#zenreach"
+status = 301
+force = false
+[[redirects]]
+from = "/companies/bungalow"
+to = "/companies/#bungalow"
+status = 301
+force = false
+[[redirects]]
+from = "/companies/hims-hers"
+to = "/companies/#hims-hers"
+status = 301
+force = false
+[[redirects]]
+from = "/companies/homebound"
+to = "/companies/#homebound"
+status = 301
+force = false
+[[redirects]]
+from = "/companies/paravision"
+to = "/companies/#paravision"
+status = 301
+force = false
+[[redirects]]
+from = "/companies/raydiant"
+to = "/companies/#raydiant"
+status = 301
+force = false
+[[redirects]]
+from = "/companies/remrise"
+to = "/companies/#remrise"
+status = 301
+force = false
+[[redirects]]
+from = "/companies/replicant"
+to = "/companies/#replicant"
+status = 301
+force = false
+[[redirects]]
+from = "/companies/talkiq"
+to = "/companies/#talkiq"
+status = 301
+force = false
+[[redirects]]
+from = "/companies/terminal"
+to = "/companies/#terminal"
+status = 301
+force = false
+[[redirects]]
+from = "/companies/zenreach"
+to = "/companies/#zenreach"
+status = 301
+force = false
