@@ -23,15 +23,63 @@
 	}
 
 	&.team-column {
-		padding: 80px 0 40px;
+		padding: 88px 0 28px;
 
 		@include desktop {
-			padding: 120px 0 111px;
+			padding: 136px 0 60px;
 		}
 
-		@include desktop {
-			.title {
-				padding: 0 0 100px;
+		.title {
+			border-bottom: 1px solid #ededed;
+			margin-bottom: 60px;
+			padding: 0 0 60px;
+			text-align: left;
+
+			@include desktop {
+				margin-bottom: 90px;
+				padding: 0 0 90px;
+			}
+
+			@include tablet {
+				text-align: center;
+			}
+
+			p {
+				max-width: 800px;
+			}
+		}
+
+		.roles {
+			display: flex;
+			flex-wrap: wrap;
+			margin-right: -30px;
+			margin-left: -30px;
+		}
+
+		.role {
+			flex: 1 1 100%;
+			padding-right: 30px;
+			padding-left: 30px;
+			margin-bottom: 60px;
+
+			@include tablet {
+				flex: 1 1 (100% / 3);
+			}
+
+			&__title {
+				margin: 0 0 8px;
+				color: $color-red;
+				font-size: 22px;
+				line-height: 26px;
+				letter-spacing: -0.02em;
+				font-weight: 400;
+			}
+
+			&__description {
+				margin-bottom: 0;
+				font-size: 17px;
+				line-height: 25px;
+				letter-spacing: -0.01em;
 			}
 		}
 
@@ -137,7 +185,7 @@
 	}
 
 	&-list {
-		padding: 122px 0 115px;
+		padding: 88px 0;
 
 		@include desktop {
 			padding: 136px 0 115px;
@@ -172,8 +220,9 @@
 
 			&:hover {
 				.team-list-name {
-					font-family: $font-MessinaSansSerif;
-					font-style: italic;
+					color: $color-red;
+					//font-family: $font-MessinaSansSerif;
+					//font-style: italic;
 				}
 
 				.team-list-position {
@@ -234,7 +283,7 @@
 	}
 
 	&-reviews {
-		padding: 0 0 60px;
+		padding: 0;
 
 		@include desktop {
 			padding: 0 0 120px;
@@ -258,6 +307,10 @@
 			@include desktop {
 				margin: 0 60px;
 				width: calc(50% - 120px);
+			}
+
+			&:last-child {
+				margin-bottom: 0;
 			}
 
 			p {
