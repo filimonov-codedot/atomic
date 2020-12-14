@@ -137,6 +137,7 @@ export const pageQuery = graphql`
     }
     footerData: contentfulSectionFooter {
       email
+      secondEmail
       social {
         icon {
           file {
