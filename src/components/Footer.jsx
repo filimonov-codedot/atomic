@@ -9,6 +9,7 @@ export const Footer = ({ footerData, navFooter, navSiteMap }) => {
   if (!footerData) return null
   const {
     email: emailContact,
+    secondEmail,
     social,
     newsletterTitle,
     logo,
@@ -51,6 +52,9 @@ export const Footer = ({ footerData, navFooter, navSiteMap }) => {
           <h3>Contact</h3>
           <a href={`mailto:${emailContact}`} className="footer-contacts-email">
             {emailContact}
+          </a>
+          <a href={`mailto:${secondEmail}`} className="footer-contacts-email">
+            {secondEmail}
           </a>
           <div className="social">
             {social?.map(({ icon, link }, index) => (
