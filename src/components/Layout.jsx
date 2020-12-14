@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { navigate } from '@reach/router';
+import { navigate } from "@reach/router"
 import PageTransition from "gatsby-plugin-page-transitions"
 
 import { SEO } from "./SEO"
@@ -19,11 +19,13 @@ export const Layout = ({
   tickerData,
   ctaTitle,
   ctaType = "",
+  ctaLink = false,
+  ctaDeadline = "",
   ctaDisplay = true,
   isHomePage = false,
   pageTitle = null,
   titleTemplate = null,
-  children
+  children,
 }) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false)
   const [isOpenMenuMobile, setIsOpenMenuMobile] = useState(false)
@@ -32,106 +34,106 @@ export const Layout = ({
   const navHeader = [
     {
       title: "Team",
-      link: "/team"
+      link: "/team",
     },
     {
       title: "Companies",
-      link: "/companies"
+      link: "/companies",
     },
     {
       title: "News",
-      link: "/news"
-    }
+      link: "/news",
+    },
   ]
 
   const navSiteMap = [
     [
       {
         title: "Home",
-        link: "/"
+        link: "/",
       },
       {
         title: "Team",
-        link: "/team"
+        link: "/team",
       },
       {
         title: "Companies",
-        link: "/companies"
+        link: "/companies",
       },
       {
         title: "Press",
-        link: "/news"
-      }
+        link: "/news",
+      },
     ],
     [
       {
         title: "Blog",
-        link: "/blog"
+        link: "/blog",
       },
       {
         title: "Co-Found with us",
-        link: "/co-found"
+        link: "/co-found",
       },
       {
         title: "Join a team",
-        link: "/join-team"
+        link: "/join-team",
       },
       {
         title: "Fellowship Program",
         link: "/",
-        disabled: true
-      }
-    ]
+        disabled: true,
+      },
+    ],
   ]
 
   const navFooter = [
     {
       title: "PRIVACY POLICY",
-      link: "/privacy-policy"
-    }
+      link: "/privacy-policy",
+    },
   ]
 
   const navModal = [
     {
       title: "Co-found with us",
-      link: "/co-found"
+      link: "/co-found",
     },
     {
       title: "Join a team",
-      link: "/join-team"
-    }
+      link: "/join-team",
+    },
   ]
 
   const navModalMobile = [
     {
       title: "Home",
-      link: "/"
+      link: "/",
     },
     {
       title: "Team",
-      link: "/team"
+      link: "/team",
     },
     {
       title: "Companies",
-      link: "/companies"
+      link: "/companies",
     },
     {
       title: "News",
-      link: "/news"
+      link: "/news",
     },
     {
       title: "Co-found with us",
-      link: "/co-found"
+      link: "/co-found",
     },
     {
       title: "Join a team",
-      link: "/join-team"
-    }
+      link: "/join-team",
+    },
   ]
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const boolParam = (param) => window.location.hash === "#" + param
+      const boolParam = param => window.location.hash === "#" + param
 
       if (boolParam("join")) setIsOpenMenu(true)
       if (boolParam("menu")) setIsOpenMenuMobile(true)
@@ -177,10 +179,7 @@ export const Layout = ({
   return (
     <PageTransition transitionTime={250}>
       <div className={`page-wrapper ${isHomePage ? "is-home" : ""}`}>
-        <SEO
-          title={pageTitle}
-          titleTemplate={titleTemplate}
-        />
+        <SEO title={pageTitle} titleTemplate={titleTemplate} />
         <Header
           headerData={headerData}
           navHeader={navHeader}
@@ -189,17 +188,20 @@ export const Layout = ({
           pageTitle={pageTitle}
         />
 
-        <childrenContext.Provider value={{
-          openContactModal: () => setIsOpenContactModal(true)
-        }}>
+        <childrenContext.Provider
+          value={{
+            openContactModal: () => setIsOpenContactModal(true),
+          }}
+        >
           {children}
         </childrenContext.Provider>
-
 
         {ctaDisplay && (
           <Cta
             title={ctaTitle}
             ctaType={ctaType}
+            ctaLink={ctaLink}
+            ctaDeadline={ctaDeadline}
             openMenu={() => setIsOpenMenu(true)}
             openMenuMobile={() => setIsOpenMenuMobile(true)}
             openContactModal={() => setIsOpenContactModal(true)}
