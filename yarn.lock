@@ -11982,6 +11982,11 @@ react-dom@^16.14.0:
     prop-types "^15.6.2"
     scheduler "^0.19.1"
 
+react-dvd-screensaver@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/react-dvd-screensaver/-/react-dvd-screensaver-0.0.4.tgz#6bbd2f600a56e53d4d08791be69f8c9b8774ff2e"
+  integrity sha512-Z0lfcxmJbsTaXSs3AzLinqExRbpusam36a9/ah3H8vu2rUctW7mYa9knbEmaG//yyZ2JiayfqyUe/JIUCnWTKw==
+
 react-error-overlay@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-3.0.0.tgz#c2bc8f4d91f1375b3dad6d75265d51cd5eeaf655"
