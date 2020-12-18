@@ -1,39 +1,14 @@
 .content.co-found {
-  .btn,
-  .deadline-notice {
-    font-size: 15px;
-    line-height: 18px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-
-    @include tablet {
-      font-size: 17px;
-      line-height: 25px;
-    }
-  }
-
   .btn {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 25px;
+    letter-spacing: -0.01em;
     border: none;
-    width: auto;
-    min-width: 280px;
-    max-width: none;
-    white-space: nowrap;
+    max-width: 280px;
 
     @include tablet {
-      min-width: 240px;
-    }
-  }
-
-  .deadline-notice {
-    margin-top: 10px;
-    color: #808080;
-  }
-
-  .title {
-    padding-bottom: 50px;
-
-    @include tablet {
-      padding-bottom: 65px;
+      max-width: 240px;
     }
   }
 }

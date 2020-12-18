@@ -5,14 +5,12 @@ import { Layout } from "../components/Layout"
 import { CoFoundInfo } from "../components/CoFound/CoFoundInfo"
 import { ReviewSlider } from "../components/ReviewSlider"
 import { About } from "../components/CoFound/About/About"
-import { LookingFor } from "../components/CoFound/LookingFor/LookingFor"
-import { Timeline } from "../components/CoFound/Timeline/Timeline"
 import { Team } from "../components/CoFound/Team/Team"
 import { TeamReviews } from "../components/CoFound/Team/TeamReviews"
 import { CompanyModal } from "../components/Companies/CompanyModal"
 import { ModalUser } from "../components/Team/ModalUser"
 
-export default function CoFound({ data }) {
+export default function CoFound ({ data }) {
   const [activeCompany, setActiveCompany] = useState(false)
   const [memberModal, setMemberModal] = useState(false)
 
@@ -31,8 +29,8 @@ export default function CoFound({ data }) {
       teamReviews,
       ctaTitle,
       tickerDuration,
-      tickerData,
-    },
+      tickerData
+    }
   } = data
 
   useEffect(() => {
@@ -40,18 +38,17 @@ export default function CoFound({ data }) {
       const hash = window.location.hash
       if (hash) {
         const dataCompanies = reviewSlider.find(
-          ({ refCompanies }) => refCompanies.slug === hash.slice(1)
-        )
+          ({ refCompanies }) => refCompanies.slug === hash.slice(1))
         if (dataCompanies) setActiveCompany(dataCompanies.refCompanies)
 
         const dataMembers = teamContent.find(
-          ({ refTeamMember }) => refTeamMember.slug === hash.slice(1)
-        )
+          ({ refTeamMember }) => refTeamMember.slug === hash.slice(1))
         if (dataMembers) setMemberModal(dataMembers.refTeamMember)
       }
     }
 
-    if (typeof document !== "undefined") document.documentElement.scrollTop = 0
+    if (typeof document !== "undefined")
+      document.documentElement.scrollTop = 0
   }, [reviewSlider, teamContent])
 
   const Modals = () => {
@@ -83,7 +80,8 @@ export default function CoFound({ data }) {
   }
 
   const changeUrlCLose = () => {
-    if (typeof window !== "undefined") navigate(window.location.pathname)
+    if (typeof window !== "undefined")
+      navigate(window.location.pathname)
   }
 
   return (
@@ -92,22 +90,24 @@ export default function CoFound({ data }) {
       footerData={footerData}
       ctaType="cta-inner"
       ctaTitle={ctaTitle}
-      ctaLink={{ url: "#", title: "Apply to Atomic" }}
-      ctaDeadline={`Q1 deadline January 24`}
       tickerDuration={tickerDuration}
       tickerData={tickerData}
       pageTitle="Co-Found"
     >
-      <CoFoundInfo topHeader={topHeader} topButton={topButton} />
+      <CoFoundInfo
+        topHeader={topHeader}
+        topButton={topButton}
+      />
       <ReviewSlider
         description={reviewDesc.text}
         slides={reviewSlider}
         addClass="content-slider"
         setActiveCompany={setActiveCompany}
       />
-      <About aboutHeader={aboutHeader} aboutContent={aboutContent} />
-      <LookingFor />
-      <Timeline />
+      <About
+        aboutHeader={aboutHeader}
+        aboutContent={aboutContent}
+      />
       <Team
         teamContent={teamContent}
         teamHeader={teamHeader}
