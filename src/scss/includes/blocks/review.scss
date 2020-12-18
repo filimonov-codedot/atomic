@@ -154,24 +154,36 @@
 			background: $color-black;
 			display: flex;
 			justify-content: center;
-			padding: 160px 0;
-			text-align: center;
+			padding: 120px 0;
 
 			@include desktop {
 				min-height: 480px;
 			}
 
+			@include tablet {
+				padding: 160px 0;
+				text-align: center;
+			}
+
+			.container {
+				padding-right: 48px;
+
+				@include tablet {
+					padding-right: 24px;
+				}
+			}
+
 			p {
 				color: #fff;
 				font: 22px/32px $font-MessinaSans;
-				letter-spacing: -0.01em;
+				letter-spacing: -0.02em;
 				font-weight: 300;
 				margin: auto;
-				max-width: 840px;
+				max-width: 950px;
 
 				@include desktop {
-					font-size: 32px;
-					line-height: 50px;
+					font-size: 28px;
+					line-height: 42px;
 				}
 			}
 		}

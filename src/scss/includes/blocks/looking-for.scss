@@ -1,8 +1,21 @@
 .looking-for {
-  padding: 88px 0 76px;
+  padding: 88px 0;
 
   @include tablet {
-    padding: 140px 0 110px;
+    padding: 140px 0 120px;
+  }
+
+  & + .team-list {
+    padding-top: 0;
+
+    .title {
+      padding-top: 88px;
+      border-top: 1px solid #d7d7d7;
+
+      @include tablet {
+        padding-top: 120px;
+      }
+    }
   }
 
   .title {
