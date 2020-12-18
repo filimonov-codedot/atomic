@@ -1,0 +1,83 @@
+.looking-for {
+  padding: 88px 0;
+
+  @include tablet {
+    padding: 140px 0 120px;
+  }
+
+  & + .team-list {
+    padding-top: 0;
+
+    .title {
+      padding-top: 88px;
+      border-top: 1px solid #d7d7d7;
+
+      @include tablet {
+        padding-top: 120px;
+      }
+    }
+  }
+
+  .title {
+    text-align: left;
+    padding-bottom: 32px;
+
+    @include tablet {
+      padding-bottom: 80px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 16px;
+      font-size: 22px;
+      line-height: 26px;
+      letter-spacing: -0.02em;
+      font-weight: 400;
+
+      @include tablet {
+        margin-bottom: 32px;
+      }
+    }
+
+    p {
+      font-size: 17px;
+      line-height: 25px;
+      letter-spacing: -0.01em;
+    }
+
+    br {
+      display: none;
+
+      @include desktop {
+        display: block;
+      }
+    }
+  }
+
+  .cards {
+    margin: 0 -8px;
+
+    @include tablet {
+      columns: 3;
+      column-gap: 30px;
+      margin: 0;
+    }
+  }
+
+  .card {
+    padding: 20px;
+    margin: 0 0 12px;
+    border-radius: 8px;
+    background-color: #fff;
+    break-inside: avoid;
+    font-size: 15px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+
+    @include tablet {
+      margin: 0 0 30px;
+      font-size: 17px;
+      line-height: 25px;
+    }
+  }
+}
