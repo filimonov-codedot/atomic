@@ -117,14 +117,7 @@ export const ReviewSlider = ({
       {description && (
         <div className="review-slider-description">
           <div className="container">
-            {/*<p dangerouslySetInnerHTML={{ __html: description }} />*/}
-            <p>
-              When you co-found a company with Atomic, you’re immediately
-              surrounded by an experienced team. You have co-founders who’ve
-              started $1B+ companies, functional teams of experts across legal,
-              design, engineering, finance, people ops, and IT, as well as
-              access to Atomic’s $250M Fund III.
-            </p>
+            <p dangerouslySetInnerHTML={{ __html: description }} />
           </div>
         </div>
       )}

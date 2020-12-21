@@ -6,13 +6,12 @@ import { CoFoundInfo } from "../components/CoFound/CoFoundInfo"
 import { ReviewSlider } from "../components/ReviewSlider"
 import { About } from "../components/CoFound/About/About"
 import { LookingFor } from "../components/CoFound/LookingFor/LookingFor"
-import { Timeline } from "../components/CoFound/Timeline/Timeline"
 import { Team } from "../components/CoFound/Team/Team"
 import { TeamReviews } from "../components/CoFound/Team/TeamReviews"
 import { CompanyModal } from "../components/Companies/CompanyModal"
 import { ModalUser } from "../components/Team/ModalUser"
 
-export default function CoFound({ data }) {
+export default function CoFound ({ data }) {
   const [activeCompany, setActiveCompany] = useState(false)
   const [memberModal, setMemberModal] = useState(false)
 
@@ -22,17 +21,26 @@ export default function CoFound({ data }) {
     coFound: {
       topHeader,
       topButton,
+      topButtonUrl,
+      topDeadlineToggle,
+      topDeadline,
       reviewDesc,
       reviewSlider,
       aboutHeader,
-      aboutContent,
+      aboutRole,
+      lookingHeader,
+      lookingContent,
       teamContent,
       teamHeader,
       teamReviews,
       ctaTitle,
+      ctaButtonText,
+      ctaButtonUrl,
+      ctaDeadlineToggle,
+      ctaDeadline,
       tickerDuration,
-      tickerData,
-    },
+      tickerData
+    }
   } = data
 
   useEffect(() => {
@@ -40,13 +48,11 @@ export default function CoFound({ data }) {
       const hash = window.location.hash
       if (hash) {
         const dataCompanies = reviewSlider.find(
-          ({ refCompanies }) => refCompanies.slug === hash.slice(1)
-        )
+          ({ refCompanies }) => refCompanies.slug === hash.slice(1))
         if (dataCompanies) setActiveCompany(dataCompanies.refCompanies)
 
         const dataMembers = teamContent.find(
-          ({ refTeamMember }) => refTeamMember.slug === hash.slice(1)
-        )
+          ({ refTeamMember }) => refTeamMember.slug === hash.slice(1))
         if (dataMembers) setMemberModal(dataMembers.refTeamMember)
       }
     }
@@ -93,24 +99,34 @@ export default function CoFound({ data }) {
       ctaType="cta-inner"
       ctaTitle={ctaTitle}
       ctaLink={{
-        url:
-          "https://jobs.lever.co/atomic/cb7c61d3-3379-4924-a240-7af1b15e35e9/apply",
-        title: "Apply to Atomic",
+        url: ctaButtonText,
+        title: ctaButtonUrl
       }}
-      //ctaDeadline={`Q1 deadline January 24`}
+      ctaDeadline={ctaDeadlineToggle ? ctaDeadline : ""}
       tickerDuration={tickerDuration}
       tickerData={tickerData}
       pageTitle="Co-Found"
     >
-      <CoFoundInfo topHeader={topHeader} topButton={topButton} />
+      <CoFoundInfo
+        topHeader={topHeader}
+        topButton={topButton}
+        topButtonUrl={topButtonUrl}
+        topDeadline={topDeadlineToggle ? topDeadline : ""}
+      />
       <ReviewSlider
         description={reviewDesc.text}
         slides={reviewSlider}
         addClass="content-slider"
         setActiveCompany={setActiveCompany}
       />
-      <About aboutHeader={aboutHeader} aboutContent={aboutContent} />
-      <LookingFor />
+      <About
+        aboutHeader={aboutHeader}
+        aboutRole={aboutRole}
+      />
+      <LookingFor
+        lookingHeader={lookingHeader}
+        lookingContent={lookingContent}
+      />
       {/*<Timeline />*/}
       <Team
         teamContent={teamContent}
@@ -168,6 +184,9 @@ export const pageQuery = graphql`
         }
       }
       topButton
+      topButtonUrl
+      topDeadlineToggle
+      topDeadline
       reviewSlider {
         logoWhile {
           file {
@@ -215,17 +234,25 @@ export const pageQuery = graphql`
       aboutHeader {
         subtitle
         title
+        desc {
+          text: desc
+        }
       }
-      aboutContent {
+      aboutRole {
         title
         desc {
           text: desc
         }
-        icon {
-          file {
-            src: url
-          }
-          alt: title
+      }
+      lookingHeader {
+        title
+        desc {
+          text: desc
+        }
+      }
+      lookingContent {
+        text {
+          text
         }
       }
       teamHeader {
@@ -274,6 +301,8 @@ export const pageQuery = graphql`
         author
       }
       ctaTitle
+      ctaButtonText
+      ctaButtonUrl
       tickerDuration {
         duration
       }
