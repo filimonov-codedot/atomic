@@ -2,7 +2,7 @@ import React from "react"
 // import React, { useContext } from 'react'
 // import childrenContext from '../childrenContext'
 
-export function CoFoundInfo({ topHeader, topButton }) {
+export function CoFoundInfo({ topHeader, topButton, topButtonUrl, topDeadline }) {
   // const context = useContext(childrenContext)
   const {
     title,
@@ -17,30 +17,23 @@ export function CoFoundInfo({ topHeader, topButton }) {
               __html: title,
             }}
           />
-          <p>
-            We’re accepting applications to our first ever open call for
-            entrepreneurs. We’re looking for people from all walks of life to
-            join us in co-founding high-growth companies; no need to pitch us
-            with an idea – we want to hear about you.
-          </p>
-          {/*<p>{text}</p>*/}
-          {/*<button*/}
-          {/*  style={{ cursor: 'pointer', outline: 'none' }}*/}
-          {/*  onClick={context.openContactModal}*/}
-          {/*  className="btn btn-large btn-red"*/}
-          {/*>*/}
-          {/*  {topButton}*/}
-          {/*</button>*/}
+          <p>{text}</p>
+          {/* <button
+            style={{ cursor: 'pointer', outline: 'none' }}
+            onClick={context.openContactModal}
+            className="btn btn-large btn-red"
+          >
+            {topButton}
+          </button> */}
           <a
-            href={`https://jobs.lever.co/atomic/cb7c61d3-3379-4924-a240-7af1b15e35e9/apply`}
+            href={topButtonUrl}
             className="btn btn-large btn-red"
             target="_blank"
             rel="noreferrer"
           >
-            Apply to Atomic
-            {/*{topButton}*/}
+            {topButton}
           </a>
-          {/*<p className="deadline-notice">Q1 deadline January 24</p>*/}
+          {topDeadline && <p className="deadline-notice">{topDeadline}</p>}
         </div>
       </div>
     </div>

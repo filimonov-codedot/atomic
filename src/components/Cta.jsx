@@ -23,7 +23,7 @@ export const Cta = ({
             >
               {ctaLink.title}
             </a>
-            <p className="deadline-notice">{ctaDeadline}</p>
+            {ctaDeadline && <p className="deadline-notice">{ctaDeadline}</p>}
           </div>
         ) : (
           <>
