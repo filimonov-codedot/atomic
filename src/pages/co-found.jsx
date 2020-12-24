@@ -99,8 +99,8 @@ export default function CoFound ({ data }) {
       ctaType="cta-inner"
       ctaTitle={ctaTitle}
       ctaLink={{
-        url: ctaButtonText,
-        title: ctaButtonUrl
+        url: ctaButtonUrl,
+        title: ctaButtonText
       }}
       ctaDeadline={ctaDeadlineToggle ? ctaDeadline : ""}
       tickerDuration={tickerDuration}
