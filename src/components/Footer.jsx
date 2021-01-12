@@ -13,7 +13,7 @@ export const Footer = ({ footerData, navFooter, navSiteMap }) => {
     social,
     newsletterTitle,
     logo,
-    copyright
+    copyright,
   } = footerData
 
   const handleChange = ({ target: { value } }) => setEmail(value)
@@ -33,12 +33,25 @@ export const Footer = ({ footerData, navFooter, navSiteMap }) => {
           <h3>Site Map</h3>
           {navSiteMap.map((item, index) => (
             <ul key={index}>
-              {item.map(({ title, link, disabled }, index) => {
-                if (disabled) return (
-                  <li key={index} className="disabled">
-                    <a>{title}</a>
-                  </li>
-                )
+              {item.map(({ title, link, disabled, external }, index) => {
+                if (disabled) {
+                  return (
+                    <li key={index} className="disabled">
+                      <a>{title}</a>
+                    </li>
+                  )
+                }
+
+                if (external) {
+                  return (
+                    <li key={index}>
+                      <a href={link} target="_blank">
+                        {title}
+                      </a>
+                    </li>
+                  )
+                }
+
                 return (
                   <li key={index}>
                     <Link to={link}>{title}</Link>
@@ -61,7 +74,8 @@ export const Footer = ({ footerData, navFooter, navSiteMap }) => {
               <a key={index} target="_blank" href={link}>
                 <img
                   style={{ width: "35px", height: "35px" }}
-                  src={icon.file.src} alt={icon.alt}
+                  src={icon.file.src}
+                  alt={icon.alt}
                 />
               </a>
             ))}
@@ -85,7 +99,11 @@ export const Footer = ({ footerData, navFooter, navSiteMap }) => {
             />
             {email ? <button type="submit">Send</button> : ""}
           </NetlifyForm>
-          {msg ? <p><small>{msg}</small></p> : null}
+          {msg ? (
+            <p>
+              <small>{msg}</small>
+            </p>
+          ) : null}
         </div>
       </div>
       <div className="container">
@@ -99,7 +117,7 @@ export const Footer = ({ footerData, navFooter, navSiteMap }) => {
               ))}
             </ul>
           </nav>
-          <Link to='/' className="footer-logo">
+          <Link to="/" className="footer-logo">
             <img src={logo.file.src} alt={logo.alt} />
           </Link>
           <div className="copyright">
