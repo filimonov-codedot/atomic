@@ -1,7 +1,8 @@
-import React from 'react'
+import React from "react"
 
 const childrenContext = React.createContext({
-  openContactModal: () => {}
+  openContactModal: () => {},
+  openMenu: () => {},
 })
 
 export default childrenContext

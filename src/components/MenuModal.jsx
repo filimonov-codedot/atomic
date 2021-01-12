@@ -12,16 +12,32 @@ export const MenuModal = ({ onClose, navModal }) => {
     <ModalWrapper onClose={() => onClose()} modalType="menu">
       <div className="modal-menu-wrapper">
         <ul>
-          {navModal.map(({ title, link, disabled }, index) => {
-            if (disabled) return (
-              <li key={index} className="coming-soon">
-                <a href>{title} <span>COMING SOON</span></a>
-              </li>
-            )
+          {navModal.map(({ title, link, disabled, external }, index) => {
+            if (disabled) {
+              return (
+                <li key={index} className="coming-soon">
+                  <a href>
+                    {title} <span>COMING SOON</span>
+                  </a>
+                </li>
+              )
+            }
+
+            if (external) {
+              return (
+                <li key={index}>
+                  <a href={link} target="_blank" onClick={() => closeHandler()}>
+                    {title}
+                  </a>
+                </li>
+              )
+            }
 
             return (
               <li key={index}>
-                <Link to={link} onClick={() => closeHandler()}>{title}</Link>
+                <Link to={link} onClick={() => closeHandler()}>
+                  {title}
+                </Link>
               </li>
             )
           })}
