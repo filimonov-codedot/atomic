@@ -79,9 +79,10 @@ export const Layout = ({
         link: "/join-team",
       },
       {
-        title: "Fellowship Program",
-        link: "/",
-        disabled: true,
+        title: "Summer Internship",
+        link:
+          "https://jobs.lever.co/atomic/11ad695b-931e-4c7d-8fd2-8b5a2c89a864",
+        external: true,
       },
     ],
   ]
@@ -101,6 +102,11 @@ export const Layout = ({
     {
       title: "Join a team",
       link: "/join-team",
+    },
+    {
+      title: "Summer Internship",
+      link: "https://jobs.lever.co/atomic/11ad695b-931e-4c7d-8fd2-8b5a2c89a864",
+      external: true,
     },
   ]
 
@@ -191,6 +197,7 @@ export const Layout = ({
         <childrenContext.Provider
           value={{
             openContactModal: () => setIsOpenContactModal(true),
+            openMenu: () => setIsOpenMenu(true),
           }}
         >
           {children}
