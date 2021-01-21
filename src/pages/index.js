@@ -10,6 +10,8 @@ import { Photos } from "../components/Home/Photos/Photos"
 import { Press } from "../components/Home/Press/Press"
 import { CompanyModal } from "../components/Companies/CompanyModal"
 import { ModalUser } from "../components/Team/ModalUser"
+import { HomeModal } from "../components/Home/Modal/HomeModal"
+import childrenContext from "../components/childrenContext"
 
 function getCookie (cname) {
   const name = cname + "="
@@ -25,17 +27,36 @@ function getCookie (cname) {
   return ""
 }
 
+export const usePersistState = (key, defaultValue) => {
+  const [value, setValue] = useState(() => {
+    if (typeof window !== "undefined") {
+      const persistedState = window.localStorage.getItem(key)
+      return persistedState !== null
+        ? JSON.parse(persistedState)
+        : defaultValue
+    }
+  })
+
+  useEffect(() => {
+    window.localStorage.setItem(key, JSON.stringify(value))
+  }, [key, value])
+  return [value, setValue]
+}
+
 export default function Home ({ data }) {
   const [isFirstSession, setIsFirstSession] = useState(true)
   const [isShowedHero, setIsShowedHero] = useState(true)
   const [activeCompany, setActiveCompany] = useState(null)
   const [activeMember, setActiveMember] = useState(null)
+  const [homeModalClose, setHomeModalClose] =
+    usePersistState("homeModal", true)
   const hero = createRef()
 
   const {
     headerData,
     footerData,
     homePage: {
+      modal = { toggle: false },
       counterSectionSwitch,
       counterRaised,
       counterActive,
@@ -55,6 +76,12 @@ export default function Home ({ data }) {
       press
     }
   } = data
+  const { toggle: showModal } = modal
+
+  useEffect(() => {
+    console.log("Layout mounted")
+    return () => console.log("Layout unmounted")
+  }, [])
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -63,11 +90,14 @@ export default function Home ({ data }) {
 
       if (hash) {
         const dataCompanies = [...aboutSlider, ...reviewSlider].find(
-          ({ refCompanies: { slug } }) => slug === hash.slice(1))
+          ({ refCompanies: { slug } }) => slug === hash.slice(1)
+        )
         if (dataCompanies) setActiveCompany(dataCompanies.refCompanies)
 
         aboutSlider.map(({ refTeamMembers }) => {
-          const dataMembers = refTeamMembers.find(({ slug }) => slug === hash.slice(1))
+          const dataMembers = refTeamMembers.find(
+            ({ slug }) => slug === hash.slice(1)
+          )
           if (dataMembers) setActiveMember(dataMembers)
           return dataMembers
         })
@@ -76,8 +106,7 @@ export default function Home ({ data }) {
         setActiveMember(quoteSection.refTeamMembers)
     }
 
-    if (typeof document !== "undefined")
-      document.documentElement.scrollTop = 0
+    if (typeof document !== "undefined") document.documentElement.scrollTop = 0
   }, [])
 
   useEffect(() => {
@@ -86,7 +115,12 @@ export default function Home ({ data }) {
     if (typeof window !== `undefined`) {
       const hash = window.location.hash
 
-      if (Boolean(heroShowed) === false && isFirstSession && isShowedHero && !hash) {
+      if (
+        Boolean(heroShowed) === false &&
+        isFirstSession &&
+        isShowedHero &&
+        !hash
+      ) {
         hero.current.style.visibility = "visible"
         hero.current.style.opacity = "1"
 
@@ -101,7 +135,13 @@ export default function Home ({ data }) {
   }, [isFirstSession, isShowedHero])
 
   useEffect(() => {
-
+    if (typeof window !== `undefined`) {
+      window.addEventListener("beforeunload", (e) => {
+        localStorage.removeItem("homeModal")
+        // e.preventDefault();
+        // e.returnValue = '';
+      })
+    }
   }, [])
 
   const Modals = () => {
@@ -133,8 +173,7 @@ export default function Home ({ data }) {
   }
 
   const changeUrlCLose = () => {
-    if (typeof window !== "undefined")
-      navigate(window.location.pathname)
+    if (typeof window !== "undefined") navigate(window.location.pathname)
   }
 
   const setHeroShowed = () => {
@@ -173,11 +212,7 @@ export default function Home ({ data }) {
   ]
 
   return isShowedHero ? (
-    <Hero
-      hero={hero}
-      heroTicker={heroTicker}
-      setHeroShowed={setHeroShowed}
-    />
+    <Hero hero={hero} heroTicker={heroTicker} setHeroShowed={setHeroShowed} />
   ) : (
     <Layout
       headerData={headerData}
@@ -186,7 +221,8 @@ export default function Home ({ data }) {
       tickerDuration={tickerDuration}
       tickerData={tickerData}
       isHomePage={true}
-      titleTemplate='Atomic | We found and fund companies'
+      titleTemplate="Atomic | We found and fund companies"
+      homeModal={modal}
     >
       <About
         countersSwitch={counterSectionSwitch}
@@ -208,6 +244,14 @@ export default function Home ({ data }) {
       <Photos photos={photos} />
       <Press press={press} />
       <Modals />
+      {(homeModalClose && showModal) ? (
+        <HomeModal
+          modal={modal}
+          onClose={() => {
+            setHomeModalClose(false)
+          }}
+        />
+      ) : null}
     </Layout>
   )
 }
@@ -257,6 +301,33 @@ export const pageQuery = graphql`
     homePage: contentfulPageHome {
       heroTicker {
         text
+      }
+      modal {
+        toggle
+        image {
+          fluid(maxWidth: 740) {
+            ...GatsbyContentfulFluid
+          }
+          alt: title
+        }
+        message {
+          message
+        }
+        refCompany {
+          logoBlack {
+            file {
+              src: url
+            }
+            alt: title
+          }
+          
+        }
+        refTeamMembers {
+          name
+        }
+        role
+        titleLink
+        link
       }
       aboutHeader {
         title
