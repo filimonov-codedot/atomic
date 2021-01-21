@@ -79,7 +79,7 @@ export const HomeModal = ({ modal, onClose }) => {
             <p dangerouslySetInnerHTML={{
               __html: descCompany
             }}/>
-            {(/^((http[s]?|ftp):\/)/i.test('/blog/#hims-and-hers-is-a-public-company')) ? (
+            {(/^((http[s]?|ftp):\/)/i.test(link)) ? (
               <a href={link} className="home-modal__link">{titleLink}</a>
             ) : (
               <Link to={link} className="home-modal__link">{titleLink}</Link>
