@@ -44,7 +44,7 @@ export const usePersistState = (key, defaultValue) => {
 
 export default function Home ({ data }) {
   const [isFirstSession, setIsFirstSession] = useState(true)
-  const [isShowedHero, setIsShowedHero] = useState(true)
+  const [isShowedHero, setIsShowedHero] = useState(data.homePage.heroToggle)
   const [activeCompany, setActiveCompany] = useState(null)
   const [activeMember, setActiveMember] = useState(null)
   const [homeModalClose, setHomeModalClose] =
@@ -128,13 +128,6 @@ export default function Home ({ data }) {
       }
     }
   }, [isFirstSession, isShowedHero])
-
-  useEffect(() => {
-    if (heroToggle) {
-      setHeroShowed()
-      setIsShowedHero(false)
-    }
-  }, [heroToggle])
 
   useEffect(() => {
     if (typeof window !== `undefined`) {
