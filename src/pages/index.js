@@ -63,6 +63,7 @@ export default function Home ({ data }) {
       aboutSlider,
       aboutHeader,
       ctaTitle,
+      heroToggle,
       heroTicker,
       tickerDuration,
       tickerData,
@@ -112,7 +113,7 @@ export default function Home ({ data }) {
       if (
         Boolean(heroShowed) === false &&
         isFirstSession &&
-        isShowedHero &&
+        isShowedHero && heroToggle &&
         !hash
       ) {
         hero.current.style.visibility = 'visible'
@@ -203,7 +204,7 @@ export default function Home ({ data }) {
     },
   ]
 
-  return isShowedHero ? (
+  return (isShowedHero && heroToggle) ? (
     <Hero hero={hero} heroTicker={heroTicker} setHeroShowed={setHeroShowed}/>
   ) : (
     <Layout
@@ -290,6 +291,7 @@ export const pageQuery = graphql`
       copyright
     }
     homePage: contentfulPageHome {
+      heroToggle
       heroTicker {
         text
       }
@@ -313,10 +315,9 @@ export const pageQuery = graphql`
           }
           
         }
-        refTeamMembers {
-          name
+        descCompany {
+          descCompany
         }
-        role
         titleLink
         link
       }
