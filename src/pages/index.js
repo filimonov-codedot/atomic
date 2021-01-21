@@ -211,6 +211,7 @@ export default function Home ({ data }) {
     },
   ]
 
+  const _homeModalClose = () => setHomeModalClose(false)
   return isShowedHero ? (
     <Hero hero={hero} heroTicker={heroTicker} setHeroShowed={setHeroShowed}/>
   ) : (
@@ -226,9 +227,7 @@ export default function Home ({ data }) {
       {(homeModalClose && showModal) ? (
         <HomeModal
           modal={modal}
-          onClose={() => {
-            setHomeModalClose(false)
-          }}
+          onClose={_homeModalClose}
         />
       ) : null}
       <About
