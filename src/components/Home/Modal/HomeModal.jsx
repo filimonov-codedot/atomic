@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react"
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
-import { Link } from 'gatsby'
+import { Link, navigate } from 'gatsby'
 
 import { Image } from "../../Image"
 
@@ -27,11 +27,12 @@ export const HomeModal = ({ modal, onClose }) => {
     }
   })
 
-  const closeHandler = () => {
+  const closeHandler = (func = () => {}) => {
     homeOverlay.current.classList.remove("show")
     homeModal.current.classList.remove("show")
     setTimeout(() => {
       onClose()
+      func()
     }, 500)
   }
 
@@ -80,9 +81,11 @@ export const HomeModal = ({ modal, onClose }) => {
               __html: descCompany
             }}/>
             {(/^((http[s]?|ftp):\/)/i.test(link)) ? (
-              <a href={link} className="home-modal__link">{titleLink}</a>
+              <a href={link} className="home-modal__link" target='_blank'>{titleLink}</a>
             ) : (
-              <Link to={link} className="home-modal__link">{titleLink}</Link>
+              <a className="home-modal__link" onClick={() => {
+                onClose(navigate(link))
+              }}>{titleLink}</a>
             )}
           </div>
         </div>
