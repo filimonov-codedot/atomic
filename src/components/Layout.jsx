@@ -25,7 +25,7 @@ export const Layout = ({
   isHomePage = false,
   pageTitle = null,
   titleTemplate = null,
-  children,
+  children
 }) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false)
   const [isOpenMenuMobile, setIsOpenMenuMobile] = useState(false)
@@ -34,107 +34,107 @@ export const Layout = ({
   const navHeader = [
     {
       title: "Team",
-      link: "/team",
+      link: "/team"
     },
     {
       title: "Companies",
-      link: "/companies",
+      link: "/companies"
     },
     {
       title: "News",
-      link: "/news",
-    },
+      link: "/news"
+    }
   ]
 
   const navSiteMap = [
     [
       {
         title: "Home",
-        link: "/",
+        link: "/"
       },
       {
         title: "Team",
-        link: "/team",
+        link: "/team"
       },
       {
         title: "Companies",
-        link: "/companies",
+        link: "/companies"
       },
       {
         title: "Press",
-        link: "/news",
-      },
+        link: "/news"
+      }
     ],
     [
       {
         title: "Blog",
-        link: "/blog",
+        link: "/blog"
       },
       {
         title: "Co-Found with us",
-        link: "/co-found",
+        link: "/co-found"
       },
       {
         title: "Join a team",
-        link: "/join-team",
+        link: "/join-team"
       },
       {
         title: "Summer Internship",
         link:
           "https://jobs.lever.co/atomic/11ad695b-931e-4c7d-8fd2-8b5a2c89a864",
-        external: true,
-      },
-    ],
+        external: true
+      }
+    ]
   ]
 
   const navFooter = [
     {
       title: "PRIVACY POLICY",
-      link: "/privacy-policy",
-    },
+      link: "/privacy-policy"
+    }
   ]
 
   const navModal = [
     {
-      title: "Co-found with us",
-      link: "/co-found",
+      title: "Co-found with Atomic",
+      link: "/co-found"
     },
     {
-      title: "Join a team",
-      link: "/join-team",
+      title: "Join a Portfolio Company",
+      link: "/join-team"
     },
     {
       title: "Summer Internship",
       link: "https://jobs.lever.co/atomic/11ad695b-931e-4c7d-8fd2-8b5a2c89a864",
-      external: true,
-    },
+      external: true
+    }
   ]
 
   const navModalMobile = [
     {
       title: "Home",
-      link: "/",
+      link: "/"
     },
     {
       title: "Team",
-      link: "/team",
+      link: "/team"
     },
     {
       title: "Companies",
-      link: "/companies",
+      link: "/companies"
     },
     {
       title: "News",
-      link: "/news",
+      link: "/news"
     },
     {
-      title: "Co-found with us",
-      link: "/co-found",
+      title: "Co-found with Atomic",
+      link: "/co-found"
     },
     {
-      title: "Join a team",
-      link: "/join-team",
-    },
+      title: "Join a Portfolio Company",
+      link: "/join-team"
+    }
   ]
 
   useEffect(() => {
@@ -197,7 +197,7 @@ export const Layout = ({
         <childrenContext.Provider
           value={{
             openContactModal: () => setIsOpenContactModal(true),
-            openMenu: () => setIsOpenMenu(true),
+            openMenu: () => setIsOpenMenu(true)
           }}
         >
           {children}
