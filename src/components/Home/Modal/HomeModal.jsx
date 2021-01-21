@@ -67,9 +67,8 @@ export const HomeModal = ({ modal, onClose }) => {
           </svg>
         </div>
         <div className="home-modal__inside">
-          <div className="home-modal__image">
-            <Image className="=home-modal__logo" image={image} />
-          </div>
+          <Image className="img home-modal__image" image={image} />
+
           <div className="home-modal__content">
             <h2 className="home-modal__title" dangerouslySetInnerHTML={{
               __html: message
