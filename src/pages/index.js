@@ -113,7 +113,7 @@ export default function Home ({ data }) {
       if (
         Boolean(heroShowed) === false &&
         isFirstSession &&
-        isShowedHero && heroToggle &&
+        isShowedHero &&
         !hash
       ) {
         hero.current.style.visibility = 'visible'
@@ -128,6 +128,13 @@ export default function Home ({ data }) {
       }
     }
   }, [isFirstSession, isShowedHero])
+
+  useEffect(() => {
+    if (heroToggle) {
+      setHeroShowed()
+      setIsShowedHero(false)
+    }
+  }, [heroToggle])
 
   useEffect(() => {
     if (typeof window !== `undefined`) {
@@ -204,7 +211,7 @@ export default function Home ({ data }) {
     },
   ]
 
-  return (isShowedHero && heroToggle) ? (
+  return isShowedHero ? (
     <Hero hero={hero} heroTicker={heroTicker} setHeroShowed={setHeroShowed}/>
   ) : (
     <Layout
