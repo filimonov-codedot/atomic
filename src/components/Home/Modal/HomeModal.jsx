@@ -68,7 +68,6 @@ export const HomeModal = ({ modal, onClose }) => {
         </div>
         <div className="home-modal__inside">
           <Image className="img home-modal__image" image={image} />
-
           <div className="home-modal__content">
             <h2 className="home-modal__title" dangerouslySetInnerHTML={{
               __html: message
@@ -83,7 +82,7 @@ export const HomeModal = ({ modal, onClose }) => {
                 <span key={index}>
                   {(index > 0 && membersCount > 2 && index !==
                     (membersCount - 1))
-                    ? ", " : index > 0 ? " and " : ""}
+                    ? ", " : " "}
                   {name}
                 </span>
               ))}
