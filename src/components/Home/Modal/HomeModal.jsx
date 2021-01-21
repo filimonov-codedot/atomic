@@ -82,12 +82,12 @@ export const HomeModal = ({ modal, onClose }) => {
                 <span key={index}>
                   {(index > 0 && membersCount > 2 && index !==
                     (membersCount - 1))
-                    ? ", " : " "}
+                    ? ", " : index > 0 ? ", " : ""}
                   {name}
                 </span>
               ))}
               <span dangerouslySetInnerHTML={{
-                __html: role
+                __html: ' ' + role
               }} />
             </p>
             <a href={link} className="home-modal__link">{titleLink}</a>
