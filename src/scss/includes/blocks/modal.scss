@@ -804,6 +804,11 @@
 
 	&__link {
 		margin-top: 32px;
+
+		@include tablet {
+			display: block;
+			margin-top: 52px;
+		}
 	}
 
 	&__close {

@@ -11,8 +11,7 @@ export const HomeModal = ({ modal, onClose }) => {
     refCompany: {
       logoBlack
     },
-    refTeamMembers,
-    role,
+    descCompany: { descCompany },
     titleLink,
     link
   } = modal
@@ -33,8 +32,6 @@ export const HomeModal = ({ modal, onClose }) => {
       onClose()
     }, 500)
   }
-
-  const membersCount = refTeamMembers?.length
 
   return (
     <div className="home-modal">
@@ -77,19 +74,9 @@ export const HomeModal = ({ modal, onClose }) => {
               src={logoBlack?.file.src}
               alt={logoBlack.alt}
             />
-            <p>
-              {refTeamMembers?.map(({ name }, index) => (
-                <span key={index}>
-                  {(index > 0 && membersCount > 2 && index !==
-                    (membersCount - 1))
-                    ? ", " : index > 0 ? ", " : ""}
-                  {name}
-                </span>
-              ))}
-              <span dangerouslySetInnerHTML={{
-                __html: ' ' + role
-              }} />
-            </p>
+            <p dangerouslySetInnerHTML={{
+              __html: descCompany
+            }}/>
             <a href={link} className="home-modal__link">{titleLink}</a>
           </div>
         </div>
