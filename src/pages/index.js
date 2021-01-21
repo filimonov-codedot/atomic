@@ -44,7 +44,7 @@ export const usePersistState = (key, defaultValue) => {
 
 export default function Home ({ data }) {
   const [isFirstSession, setIsFirstSession] = useState(true)
-  const [isShowedHero, setIsShowedHero] = useState(data.homePage.heroToggle)
+  const [isShowedHero, setIsShowedHero] = useState(true)
   const [activeCompany, setActiveCompany] = useState(null)
   const [activeMember, setActiveMember] = useState(null)
   const [homeModalClose, setHomeModalClose] =
@@ -110,21 +110,26 @@ export default function Home ({ data }) {
     if (typeof window !== `undefined`) {
       const hash = window.location.hash
 
-      if (
-        Boolean(heroShowed) === false &&
-        isFirstSession &&
-        isShowedHero &&
-        !hash
-      ) {
-        hero.current.style.visibility = 'visible'
-        hero.current.style.opacity = '1'
-
-        window.addEventListener('scroll', setHeroShowed)
-      } else if (Boolean(heroShowed) === false && !isFirstSession) {
-        setHeroShowed()
-      } else if (Boolean(heroShowed) === true) {
+      if (!heroToggle) {
         setHeroShowed()
         setIsShowedHero(false)
+      } else {
+        if (
+          Boolean(heroShowed) === false &&
+          isFirstSession &&
+          isShowedHero &&
+          !hash
+        ) {
+          hero.current.style.visibility = 'visible'
+          hero.current.style.opacity = '1'
+
+          window.addEventListener('scroll', setHeroShowed)
+        } else if (Boolean(heroShowed) === false && !isFirstSession) {
+          setHeroShowed()
+        } else if (Boolean(heroShowed) === true) {
+          setHeroShowed()
+          setIsShowedHero(false)
+        }
       }
     }
   }, [isFirstSession, isShowedHero])
@@ -171,8 +176,10 @@ export default function Home ({ data }) {
 
   const setHeroShowed = () => {
     if (isFirstSession) {
-      hero.current.style.opacity = '0'
-      hero.current.style.transition = 'all 1s ease-in-out'
+      if (hero.current) {
+        hero.current.style.opacity = '0'
+        hero.current.style.transition = 'all 1s ease-in-out'
+      }
 
       setIsFirstSession(false)
       setTimeout(() => {
@@ -216,6 +223,14 @@ export default function Home ({ data }) {
       isHomePage={true}
       titleTemplate="Atomic | We found and fund companies"
     >
+      {(homeModalClose && showModal) ? (
+        <HomeModal
+          modal={modal}
+          onClose={() => {
+            setHomeModalClose(false)
+          }}
+        />
+      ) : null}
       <About
         countersSwitch={counterSectionSwitch}
         counters={counterData}
@@ -236,14 +251,6 @@ export default function Home ({ data }) {
       <Photos photos={photos}/>
       <Press press={press}/>
       <Modals/>
-      {(homeModalClose && showModal) ? (
-        <HomeModal
-          modal={modal}
-          onClose={() => {
-            setHomeModalClose(false)
-          }}
-        />
-      ) : null}
     </Layout>
   )
 }
