@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from "react"
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
+import { Link } from 'gatsby'
+
 import { Image } from "../../Image"
 
 export const HomeModal = ({ modal, onClose }) => {
@@ -77,7 +79,11 @@ export const HomeModal = ({ modal, onClose }) => {
             <p dangerouslySetInnerHTML={{
               __html: descCompany
             }}/>
-            <a href={link} className="home-modal__link">{titleLink}</a>
+            {(/^((http[s]?|ftp):\/)/i.test('/blog/#hims-and-hers-is-a-public-company')) ? (
+              <a href={link} className="home-modal__link">{titleLink}</a>
+            ) : (
+              <Link to={link} className="home-modal__link">{titleLink}</Link>
+            )}
           </div>
         </div>
       </div>
