@@ -213,7 +213,7 @@ export default function Home ({ data }) {
 
   const _homeModalClose = () => setHomeModalClose(false)
   return isShowedHero ? (
-    <Hero hero={hero} heroTicker={heroTicker} setHeroShowed={setHeroShowed}/>
+    <Hero hero={hero} heroTicker={heroTicker} setHeroShowed={setHeroShowed} />
   ) : (
     <Layout
       headerData={headerData}
@@ -246,10 +246,10 @@ export default function Home ({ data }) {
         setActiveMember={setActiveMember}
         setActiveCompany={setActiveCompany}
       />
-      <Team teamHeader={teamHeader}/>
-      <Photos photos={photos}/>
-      <Press press={press}/>
-      <Modals/>
+      <Team teamHeader={teamHeader} />
+      <Photos photos={photos} />
+      <Press press={press} />
+      <Modals />
     </Layout>
   )
 }
