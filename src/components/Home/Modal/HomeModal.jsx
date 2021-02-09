@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from 'react'
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
+import React, { useEffect, useRef } from "react"
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
 import { navigate } from 'gatsby'
 
-import { Image } from '../../Image'
+import { Image } from "../../Image"
 
 export const HomeModal = ({ modal, onClose }) => {
   const homeOverlay = useRef(null)
@@ -11,26 +11,29 @@ export const HomeModal = ({ modal, onClose }) => {
     image,
     message: { message },
     refCompany: {
-      logoBlack,
+      logoBlack
     },
     descCompany: { descCompany },
     titleLink,
-    link,
+    link
   } = modal
 
   useEffect(() => {
     disableBodyScroll(homeModal.current, {
-      reserveScrollBarGap: true,
+      reserveScrollBarGap: true
     })
     return () => {
       enableBodyScroll(homeModal.current)
     }
   })
 
-  const closeHandler = () => {
-    homeOverlay.current.classList.remove('show')
-    homeModal.current.classList.remove('show')
-    setTimeout(() => onClose(), 500)
+  const closeHandler = (func = () => {}) => {
+    homeOverlay.current.classList.remove("show")
+    homeModal.current.classList.remove("show")
+    setTimeout(() => {
+      onClose()
+      func()
+    }, 500)
   }
 
   return (
@@ -67,7 +70,7 @@ export const HomeModal = ({ modal, onClose }) => {
           <Image className="img home-modal__image" image={image} />
           <div className="home-modal__content">
             <h2 className="home-modal__title" dangerouslySetInnerHTML={{
-              __html: message,
+              __html: message
             }} />
             <img
               className="home-modal__logo"
@@ -75,11 +78,10 @@ export const HomeModal = ({ modal, onClose }) => {
               alt={logoBlack.alt}
             />
             <p dangerouslySetInnerHTML={{
-              __html: descCompany,
-            }} />
+              __html: descCompany
+            }}/>
             {(/^((http[s]?|ftp):\/)/i.test(link)) ? (
-              <a href={link} className="home-modal__link"
-                 target="_blank">{titleLink}</a>
+              <a href={link} className="home-modal__link" target='_blank'>{titleLink}</a>
             ) : (
               <a className="home-modal__link" onClick={() => {
                 onClose(navigate(link))

@@ -11,6 +11,7 @@ import { Press } from '../components/Home/Press/Press'
 import { CompanyModal } from '../components/Companies/CompanyModal'
 import { ModalUser } from '../components/Team/ModalUser'
 import { HomeModal } from '../components/Home/Modal/HomeModal'
+import { AnnouncementModal } from '../components/Home/Modal/AnnouncementModal'
 
 function getCookie (cname) {
   const name = cname + '='
@@ -49,6 +50,8 @@ export default function Home ({ data }) {
   const [activeMember, setActiveMember] = useState(null)
   const [homeModalClose, setHomeModalClose] =
     usePersistState('homeModal', true)
+  const [annModalClose, setAnnModalClose] =
+    usePersistState('annModal', true)
   const hero = createRef()
 
   const {
@@ -56,6 +59,7 @@ export default function Home ({ data }) {
     footerData,
     homePage: {
       modal = { toggle: false },
+      announcement = { toggle: false },
       counterSectionSwitch,
       counterRaised,
       counterActive,
@@ -77,6 +81,7 @@ export default function Home ({ data }) {
     },
   } = data
   const { toggle: showModal } = modal
+  const { toggle: showAnnouncementModal } = announcement
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -136,8 +141,11 @@ export default function Home ({ data }) {
 
   useEffect(() => {
     if (typeof window !== `undefined`) {
-      window.addEventListener('beforeunload', (e) => {
+      window.addEventListener('beforeunload', () => {
         localStorage.removeItem('homeModal')
+      })
+      window.addEventListener('beforeunload', () => {
+        localStorage.removeItem('annModal')
       })
     }
   }, [])
@@ -212,6 +220,8 @@ export default function Home ({ data }) {
   ]
 
   const _homeModalClose = () => setHomeModalClose(false)
+  const _annModalClose = () => setAnnModalClose(false)
+
   return isShowedHero ? (
     <Hero hero={hero} heroTicker={heroTicker} setHeroShowed={setHeroShowed} />
   ) : (
@@ -224,10 +234,13 @@ export default function Home ({ data }) {
       isHomePage={true}
       titleTemplate="Atomic | We found and fund companies"
     >
-      {(homeModalClose && showModal) ? (
-        <HomeModal
-          modal={modal}
-          onClose={_homeModalClose}
+      {homeModalClose && showModal ? (
+        <HomeModal modal={modal} onClose={_homeModalClose} />
+      ) : null}
+      {annModalClose && showAnnouncementModal ? (
+        <AnnouncementModal
+          announcementModal={announcement}
+          onClose={_annModalClose}
         />
       ) : null}
       <About
@@ -319,13 +332,35 @@ export const pageQuery = graphql`
             }
             alt: title
           }
-          
         }
         descCompany {
           descCompany
         }
         titleLink
         link
+      }
+      announcement {
+        toggle
+        imageDesktop {
+          file {
+            src: url
+          }
+          alt: title
+        }
+        imageMobile {
+          file {
+            src: url
+          }
+          alt: title
+        }
+        title
+        titleLinkApply
+        urlLinkApply
+        description {
+          description
+        }
+        titleLinkReadMore
+        urlLinkReadMore
       }
       aboutHeader {
         title
