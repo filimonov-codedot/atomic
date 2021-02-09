@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react"
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
-import { Link, navigate } from 'gatsby'
+import { navigate } from 'gatsby'
 
 import { Image } from "../../Image"
 
