@@ -30,6 +30,7 @@
     "gatsby-transformer-sharp": "^2.7.0",
     "node-sass": "^4.9.0",
     "react": "^16.14.0",
+    "react-collapsible": "^2.8.1",
     "react-countup": "^4.3.3",
     "react-dom": "^16.14.0",
     "react-dvd-screensaver": "^0.0.4",
