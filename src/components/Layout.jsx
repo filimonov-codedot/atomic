@@ -71,11 +71,11 @@ export const Layout = ({
         link: "/blog"
       },
       {
-        title: "Co-Found with us",
+        title: "Co-found with Atomic",
         link: "/co-found"
       },
       {
-        title: "Join a team",
+        title: "Join a Portfolio Company",
         link: "/join-team"
       },
       // {
