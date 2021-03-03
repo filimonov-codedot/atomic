@@ -29,6 +29,7 @@ export default function Futurefounders({ data }) {
       reviewDesc,
       reviewSlider,
       aboutHeader,
+      aboutRoleToggle,
       aboutRole,
       lookingHeader,
       lookingContent,
@@ -125,7 +126,11 @@ export default function Futurefounders({ data }) {
         addClass="content-slider"
         setActiveCompany={setActiveCompany}
       />
-      <About aboutHeader={aboutHeader} aboutRole={aboutRole} />
+      <About
+        aboutHeader={aboutHeader}
+        aboutRoleToggle={aboutRoleToggle}
+        aboutRole={aboutRole}
+      />
       <LookingFor
         lookingHeader={lookingHeader}
         lookingContent={lookingContent}
@@ -249,6 +254,7 @@ export const pageQuery = graphql`
           text: desc
         }
       }
+      aboutRoleToggle
       aboutRole {
         title
         desc {

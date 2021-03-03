@@ -26,8 +26,8 @@ export const Faqs = ({ faq }) => {
     <div className="faqs">
       <div className="container">
         <h2 className="title">Frequently Asked Questions</h2>
-        {faq?.map(({ title, content: { content } }) => (
-          <FaqItem title={title} content={content} />
+        {faq?.map(({ title, content: { content } }, index) => (
+          <FaqItem key={index} title={title} content={content} />
         ))}
       </div>
     </div>

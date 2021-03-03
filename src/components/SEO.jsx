@@ -23,27 +23,27 @@ export const SEO = ({ titleTemplate, title, metaData }) => {
         },
         {
           property: "og:url",
-          content: "https://atomic.vc/"
+          content: "https://atomic.vc/",
         },
         {
-          property: 'og:title',
+          property: "og:title",
           content: metaTitle,
         },
         {
-          property: 'og:description',
+          property: "og:description",
           content: metaTitle,
         },
         {
-          property: 'og:image',
-          content: metaData?.image.sizes.src
+          property: "og:image",
+          content: metaData?.image.sizes.src,
         },
         {
-          property: 'og:image:width',
-          content: '800'
+          property: "og:image:width",
+          content: "800",
         },
         {
-          property: 'og:image:height',
-          content: '471'
+          property: "og:image:height",
+          content: "471",
         },
         {
           property: `og:type`,

@@ -1,26 +1,25 @@
-import React, { useEffect, useState } from 'react'
-import { useDvdScreenSaver } from 'react-dvd-screensaver'
-import { Link } from 'gatsby'
+import React, { useEffect, useState } from "react"
+import { useDvdScreenSaver } from "react-dvd-screensaver"
+import { Link } from "gatsby"
 
 export const COLORS = [
-  '#157CFB',
-  '#00B336',
-  '#A51FF2',
-  '#F2571F',
-  '#FAA700',
-  '#157CFB',
-  '#00B336',
-  '#A51FF2',
-  '#F2571F',
-  '#FAA700',
+  "#157CFB",
+  "#00B336",
+  "#A51FF2",
+  "#F2571F",
+  "#FAA700",
+  "#157CFB",
+  "#00B336",
+  "#A51FF2",
+  "#F2571F",
+  "#FAA700",
 ]
 
-export default function PageNotFound () {
+export default function PageNotFound() {
   const [logoColor, setLogoColor] = useState(COLORS[0])
 
   useEffect(() => {
-    if (typeof document !== "undefined")
-      document.documentElement.scrollTop = 0
+    if (typeof document !== "undefined") document.documentElement.scrollTop = 0
   }, [])
 
   if (typeof document !== "undefined") {
