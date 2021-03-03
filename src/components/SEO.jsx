@@ -8,6 +8,7 @@ export const SEO = ({ titleTemplate, title, metaData }) => {
 
   return (
     <Helmet
+      defer={false}
       htmlAttributes={{ lang: "en" }}
       title={metaTitle}
       titleTemplate={metaTitle}

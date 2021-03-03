@@ -267,11 +267,6 @@ export default function Home({ data }) {
 
 export const pageQuery = graphql`
   query HomeQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     metaData: contentfulGlobalMetaData {
       image {
         sizes {
