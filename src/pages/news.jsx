@@ -69,8 +69,8 @@ export const pageQuery = graphql`
   query NewsQuery {
     metaData: contentfulGlobalMetaData {
       image {
-        sizes {
-          src
+        file {
+          src: url
         }
       }
     }

@@ -86,8 +86,8 @@ export const pageQuery = graphql`
   query BlogQuery {
     globalMetaData: contentfulGlobalMetaData {
       image {
-        sizes {
-          src
+        file {
+          src: url
         }
       }
     }

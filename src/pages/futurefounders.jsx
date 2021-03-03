@@ -152,8 +152,8 @@ export const pageQuery = graphql`
   query CoFoundQuery {
     metaData: contentfulGlobalMetaData {
       image {
-        sizes {
-          src
+        file {
+          src: url
         }
       }
     }

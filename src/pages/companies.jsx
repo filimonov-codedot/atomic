@@ -85,8 +85,8 @@ export const pageQuery = graphql`
   query CompaniesQuery {
     metaData: contentfulGlobalMetaData {
       image {
-        sizes {
-          src
+        file {
+          src: url
         }
       }
     }
