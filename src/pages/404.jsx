@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useDvdScreenSaver } from "react-dvd-screensaver"
 import { Link } from "gatsby"
+
 export const COLORS = [
   "#157CFB",
   "#00B336",
@@ -66,7 +67,6 @@ export default function PageNotFound() {
         </div>
       </>
     )
-  } else {
-    return ""
   }
+  return null
 }

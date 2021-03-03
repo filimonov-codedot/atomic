@@ -16,11 +16,20 @@ export const CompanyMain = ({ mainCompanies, handleClick }) => {
             const { name, previewImage } = item
             return (
               <div key={index} className={`company${loaded ? "" : " current"}`}>
-                {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
-                <h3 onClick={() => handleClick(item)}>{name}</h3>
-                {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
-                <div className="company-photo" onClick={() => handleClick(item)}>
-                  <Image className='img' image={previewImage} />
+                <h3
+                  onClick={() => handleClick(item)}
+                  role="button"
+                  tabIndex={0}
+                >
+                  {name}
+                </h3>
+                <div
+                  className="company-photo"
+                  onClick={() => handleClick(item)}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <Image className="img" image={previewImage} />
                 </div>
               </div>
             )

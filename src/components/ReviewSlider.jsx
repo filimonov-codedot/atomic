@@ -68,10 +68,11 @@ export const ReviewSlider = ({
               fill="transparent"
             />
           </svg>
-          {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
           <div
             onClick={() => currentSlider.slickNext()}
             className="review-slider-counter-next"
+            role="button"
+            tabIndex={0}
           >
             <svg
               width={22}
@@ -94,10 +95,11 @@ export const ReviewSlider = ({
 
             return (
               <React.Fragment key={index}>
-                {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
                 <div
                   onClick={() => setActiveCompany(refCompanies)}
                   className="review-slide"
+                  role="button"
+                  tabIndex={0}
                 >
                   <div className="review-slide-title">{title}</div>
                   <Image className="img" image={previewImage} />

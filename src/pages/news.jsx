@@ -1,31 +1,26 @@
 import React, { useEffect, useState } from "react"
-import { graphql } from 'gatsby'
+import { graphql } from "gatsby"
 
-import { Layout } from '../components/Layout'
+import { Layout } from "../components/Layout"
 import { Dropdown } from "../components/Dropdown"
 import { NewsItem } from "../components/News/NewsItem"
 import { NewsPageLinks } from "../components/News/NewsPageLinks"
 
-export default function News ({ data }) {
-  const [selectedCompany, setSelectedCompany] = useState('')
+export default function News({ data }) {
+  const [selectedCompany, setSelectedCompany] = useState("")
 
   const {
+    metaData,
     headerData,
     footerData,
-    newsData: {
-      tickerDuration,
-      tickerData,
-      companies,
-      newsSection,
-    }
+    newsData: { tickerDuration, tickerData, companies, newsSection },
   } = data
 
   useEffect(() => {
-    if (typeof document !== "undefined")
-      document.documentElement.scrollTop = 0;
+    if (typeof document !== "undefined") document.documentElement.scrollTop = 0
   }, [])
 
-  const onCompanyChange = (name) => {
+  const onCompanyChange = name => {
     setSelectedCompany(name)
   }
 
@@ -38,27 +33,30 @@ export default function News ({ data }) {
       ctaType="cta-inner"
       ctaDisplay={false}
       pageTitle="News"
+      metaData={metaData}
     >
       <div className="news-page">
         <div className="container">
           <div className="news-page-header">
-            <NewsPageLinks activeTab="News"/>
+            <NewsPageLinks activeTab="News" />
             <div className="news-page-select">
               <Dropdown
                 data={companies}
                 name="companies"
-                defaultItem={{ title: 'All companies' }}
+                defaultItem={{ title: "All companies" }}
                 onChange={(name, value) => onCompanyChange(value)}
               />
             </div>
           </div>
           {newsSection.length && (
             <div className="news-page-wrapper">
-              {newsSection.filter(({ companyName: { name } }) => {
-                return !(selectedCompany && selectedCompany !== name)
-              }).map((news, index) =>
-                <NewsItem key={index} {...news} />
-              )}
+              {newsSection
+                .filter(({ companyName: { name } }) => {
+                  return !(selectedCompany && selectedCompany !== name)
+                })
+                .map((news, index) => (
+                  <NewsItem key={index} {...news} />
+                ))}
             </div>
           )}
         </div>
@@ -69,6 +67,13 @@ export default function News ({ data }) {
 
 export const pageQuery = graphql`
   query NewsQuery {
+    metaData: contentfulGlobalMetaData {
+      image {
+        sizes {
+          src
+        }
+      }
+    }
     headerData: contentfulSectionHeader {
       logo {
         file {

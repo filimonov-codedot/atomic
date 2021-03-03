@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react"
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
-import { Link, navigate } from 'gatsby'
+import { navigate } from "gatsby"
 
 import { Image } from "../../Image"
 
@@ -10,17 +10,15 @@ export const HomeModal = ({ modal, onClose }) => {
   const {
     image,
     message: { message },
-    refCompany: {
-      logoBlack
-    },
+    refCompany: { logoBlack },
     descCompany: { descCompany },
     titleLink,
-    link
+    link,
   } = modal
 
   useEffect(() => {
     disableBodyScroll(homeModal.current, {
-      reserveScrollBarGap: true
+      reserveScrollBarGap: true,
     })
     return () => {
       enableBodyScroll(homeModal.current)
@@ -38,14 +36,12 @@ export const HomeModal = ({ modal, onClose }) => {
 
   return (
     <div className="home-modal">
-      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
       <div
         className="home-modal__overlay show"
         ref={homeOverlay}
         onClick={closeHandler}
       />
       <div className={`home-modal__wrapper show`} ref={homeModal}>
-        {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
         <div
           onClick={closeHandler}
           style={{ zIndex: 1000 }}
@@ -69,23 +65,35 @@ export const HomeModal = ({ modal, onClose }) => {
         <div className="home-modal__inside">
           <Image className="img home-modal__image" image={image} />
           <div className="home-modal__content">
-            <h2 className="home-modal__title" dangerouslySetInnerHTML={{
-              __html: message
-            }} />
+            <h2
+              className="home-modal__title"
+              dangerouslySetInnerHTML={{
+                __html: message,
+              }}
+            />
             <img
               className="home-modal__logo"
               src={logoBlack?.file.src}
               alt={logoBlack.alt}
             />
-            <p dangerouslySetInnerHTML={{
-              __html: descCompany
-            }}/>
-            {(/^((http[s]?|ftp):\/)/i.test(link)) ? (
-              <a href={link} className="home-modal__link" target='_blank'>{titleLink}</a>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: descCompany,
+              }}
+            />
+            {/^((http[s]?|ftp):\/)/i.test(link) ? (
+              <a href={link} className="home-modal__link" target="_blank">
+                {titleLink}
+              </a>
             ) : (
-              <a className="home-modal__link" onClick={() => {
-                onClose(navigate(link))
-              }}>{titleLink}</a>
+              <a
+                className="home-modal__link"
+                onClick={() => {
+                  onClose(navigate(link))
+                }}
+              >
+                {titleLink}
+              </a>
             )}
           </div>
         </div>

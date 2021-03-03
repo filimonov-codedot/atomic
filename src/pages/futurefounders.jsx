@@ -8,14 +8,16 @@ import { About } from "../components/CoFound/About/About"
 import { LookingFor } from "../components/CoFound/LookingFor/LookingFor"
 import { Team } from "../components/CoFound/Team/Team"
 import { TeamReviews } from "../components/CoFound/Team/TeamReviews"
+import { Faqs } from "../components/CoFound/Faqs/Faqs"
 import { CompanyModal } from "../components/Companies/CompanyModal"
 import { ModalUser } from "../components/Team/ModalUser"
 
-export default function CoFound ({ data }) {
+export default function Futurefounders({ data }) {
   const [activeCompany, setActiveCompany] = useState(false)
   const [memberModal, setMemberModal] = useState(false)
 
   const {
+    metaData,
     headerData,
     footerData,
     coFound: {
@@ -27,20 +29,22 @@ export default function CoFound ({ data }) {
       reviewDesc,
       reviewSlider,
       aboutHeader,
+      aboutRoleToggle,
       aboutRole,
       lookingHeader,
       lookingContent,
       teamContent,
       teamHeader,
       teamReviews,
+      faq,
       ctaTitle,
       ctaButtonText,
       ctaButtonUrl,
       ctaDeadlineToggle,
       ctaDeadline,
       tickerDuration,
-      tickerData
-    }
+      tickerData,
+    },
   } = data
 
   useEffect(() => {
@@ -48,11 +52,13 @@ export default function CoFound ({ data }) {
       const hash = window.location.hash
       if (hash) {
         const dataCompanies = reviewSlider.find(
-          ({ refCompanies }) => refCompanies.slug === hash.slice(1))
+          ({ refCompanies }) => refCompanies.slug === hash.slice(1)
+        )
         if (dataCompanies) setActiveCompany(dataCompanies.refCompanies)
 
         const dataMembers = teamContent.find(
-          ({ refTeamMember }) => refTeamMember.slug === hash.slice(1))
+          ({ refTeamMember }) => refTeamMember.slug === hash.slice(1)
+        )
         if (dataMembers) setMemberModal(dataMembers.refTeamMember)
       }
     }
@@ -100,12 +106,13 @@ export default function CoFound ({ data }) {
       ctaTitle={ctaTitle}
       ctaLink={{
         url: ctaButtonUrl,
-        title: ctaButtonText
+        title: ctaButtonText,
       }}
       ctaDeadline={ctaDeadlineToggle ? ctaDeadline : ""}
       tickerDuration={tickerDuration}
       tickerData={tickerData}
       pageTitle="Co-Found"
+      metaData={metaData}
     >
       <CoFoundInfo
         topHeader={topHeader}
@@ -121,6 +128,7 @@ export default function CoFound ({ data }) {
       />
       <About
         aboutHeader={aboutHeader}
+        aboutRoleToggle={aboutRoleToggle}
         aboutRole={aboutRole}
       />
       <LookingFor
@@ -134,6 +142,7 @@ export default function CoFound ({ data }) {
         setMemberModal={setMemberModal}
       />
       <TeamReviews teamReviews={teamReviews} />
+      <Faqs faq={faq} />
       <Modals />
     </Layout>
   )
@@ -141,6 +150,13 @@ export default function CoFound ({ data }) {
 
 export const pageQuery = graphql`
   query CoFoundQuery {
+    metaData: contentfulGlobalMetaData {
+      image {
+        sizes {
+          src
+        }
+      }
+    }
     headerData: contentfulSectionHeader {
       logo {
         file {
@@ -238,6 +254,7 @@ export const pageQuery = graphql`
           text: desc
         }
       }
+      aboutRoleToggle
       aboutRole {
         title
         desc {
@@ -299,6 +316,12 @@ export const pageQuery = graphql`
           text
         }
         author
+      }
+      faq {
+        title
+        content {
+          content
+        }
       }
       ctaTitle
       ctaButtonText

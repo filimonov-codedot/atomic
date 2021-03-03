@@ -94,13 +94,17 @@
 
 		&-email {
 			color: #fff;
-			display: inline-flex;
+			display: block;
 			font: 18px/24px $font-MessinaSans;
-			margin: 15px 0 6px;
+			margin: 21px 0 6px;
 			font-weight: 300;
 
+			&:first-of-type {
+				margin-top: 23px;
+			}
+
 			@include desktop {
-				margin: 15px 0 3px;
+				margin: 18px 0 3px;
 			}
 		}
 	}

@@ -6,28 +6,24 @@ import { BlogItem } from "../components/Blog/BlogItem"
 import { BlogModal } from "../components/Blog/BlogModal"
 import { NewsPageLinks } from "../components/News/NewsPageLinks"
 
-export default function News ({ data }) {
+export default function News({ data }) {
   const [modalContent, setModalContent] = useState(null)
 
   const {
+    metaData,
     headerData,
     footerData,
-    newsData: {
-      tickerDuration,
-      tickerData,
-      blogSection
-    }
+    newsData: { tickerDuration, tickerData, blogSection },
   } = data
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       const hash = window.location.hash
-      if (hash) setModalContent(
-        blogSection.find(({ slug }) => slug === hash.slice(1)))
+      if (hash)
+        setModalContent(blogSection.find(({ slug }) => slug === hash.slice(1)))
     }
 
-    if (typeof document !== "undefined")
-      document.documentElement.scrollTop = 0
+    if (typeof document !== "undefined") document.documentElement.scrollTop = 0
   }, [blogSection])
 
   const Modal = () => {
@@ -36,7 +32,7 @@ export default function News ({ data }) {
       return (
         <BlogModal
           {...modalContent}
-          closeHandler={(post) => {
+          closeHandler={post => {
             changeUrlCLose()
             setModalContent(post)
           }}
@@ -47,8 +43,7 @@ export default function News ({ data }) {
   }
 
   const changeUrlCLose = () => {
-    if (typeof window !== "undefined")
-      navigate(window.location.pathname)
+    if (typeof window !== "undefined") navigate(window.location.pathname)
   }
 
   return (
@@ -60,6 +55,7 @@ export default function News ({ data }) {
       ctaType="cta-inner"
       ctaDisplay={false}
       pageTitle="Blog"
+      metaData={modalContent || metaData}
     >
       <div className="news-page">
         <div className="container">
@@ -69,13 +65,13 @@ export default function News ({ data }) {
           <Modal />
           {blogSection.length && (
             <div className="articles">
-              {blogSection.map((item, index) =>
+              {blogSection.map((item, index) => (
                 <BlogItem
                   key={index}
                   {...item}
-                  onClickHandler={(post) => setModalContent(post)}
+                  onClickHandler={post => setModalContent(post)}
                 />
-              )}
+              ))}
             </div>
           )}
         </div>
@@ -86,6 +82,13 @@ export default function News ({ data }) {
 
 export const pageQuery = graphql`
   query BlogQuery {
+    metaData: contentfulGlobalMetaData {
+      image {
+        sizes {
+          src
+        }
+      }
+    }
     headerData: contentfulSectionHeader {
       logo {
         file {
@@ -130,6 +133,9 @@ export const pageQuery = graphql`
         image {
           fluid(maxWidth: 760) {
             ...GatsbyContentfulFluid
+          }
+          sizes {
+            src
           }
           alt: title
         }

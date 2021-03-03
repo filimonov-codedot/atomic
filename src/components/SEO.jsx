@@ -1,27 +1,49 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+import React from "react"
+import { Helmet } from "react-helmet"
 
-export const SEO = ({ titleTemplate, title }) => {
-  const metaTitle = titleTemplate ?
-    titleTemplate : `Atomic${title ? ` | ${title}` : ''}`;
+export const SEO = ({ titleTemplate, title, metaData }) => {
+  const metaTitle = titleTemplate
+    ? titleTemplate
+    : `Atomic${title ? ` | ${title}` : ""}`
 
   return (
     <Helmet
-      htmlAttributes={{ lang: 'en' }}
+      defer={false}
+      htmlAttributes={{ lang: "en" }}
       title={metaTitle}
       titleTemplate={metaTitle}
       meta={[
         {
-          name: 'description',
-          content: 'Atomic'
-        },
-        {
-          name: 'keywords',
-          content: 'atomic'
-        },
-        {
-          property: `og:title`,
+          name: "description",
           content: metaTitle,
+        },
+        {
+          name: "keywords",
+          content: "atomic",
+        },
+        {
+          property: "og:url",
+          content: "https://atomic.vc/",
+        },
+        {
+          property: "og:title",
+          content: metaTitle,
+        },
+        {
+          property: "og:description",
+          content: metaTitle,
+        },
+        {
+          property: "og:image",
+          content: metaData?.image.sizes.src,
+        },
+        {
+          property: "og:image:width",
+          content: "800",
+        },
+        {
+          property: "og:image:height",
+          content: "471",
         },
         {
           property: `og:type`,
@@ -29,13 +51,9 @@ export const SEO = ({ titleTemplate, title }) => {
         },
         {
           name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:title`,
-          content: metaTitle,
+          content: `summary_large_image`,
         },
       ]}
     />
-  );
-};
+  )
+}

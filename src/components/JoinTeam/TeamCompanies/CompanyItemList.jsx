@@ -5,7 +5,10 @@ export const CompanyItemList = ({ title, postings }) => (
   <StickyContainer className="select-company-item">
     <Sticky topOffset={-58} bottomOffset={-90}>
       {({ style, isSticky }) => (
-        <div className={`select-company-name ${isSticky ? "is-sticky" : ""}`} style={style}>
+        <div
+          className={`select-company-name ${isSticky ? "is-sticky" : ""}`}
+          style={style}
+        >
           <span>{title}</span>
         </div>
       )}
@@ -24,7 +27,8 @@ export const CompanyItemList = ({ title, postings }) => (
               {text}
             </a>
             <div className="select-company-info">
-              {location}<br />
+              {location}
+              <br />
               {commitment}
             </div>
           </div>

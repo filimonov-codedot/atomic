@@ -2,7 +2,9 @@ import React from "react"
 import { Image } from "../../Image"
 
 export const Team = ({
-  teamHeader: { title, subtitle }, teamContent, setMemberModal
+  teamHeader: { title, subtitle },
+  teamContent,
+  setMemberModal,
 }) => (
   <div className="team-list">
     <div className="container">
@@ -11,9 +13,7 @@ export const Team = ({
         <h2>{title}</h2>
       </div>
       <div className="team-list-wrapper">
-        {teamContent.map(({
-          refTeamMember
-        }, index) => {
+        {teamContent.map(({ refTeamMember }, index) => {
           const { smallPhoto, name, position } = refTeamMember
           return (
             <React.Fragment key={index}>
@@ -22,14 +22,14 @@ export const Team = ({
                   cursor: "pointer",
                   outline: "none",
                   backgroundColor: "transparent",
-                  border: "none"
+                  border: "none",
                 }}
                 onClick={() => setMemberModal(refTeamMember)}
                 className="team-list-item"
               >
-              <span className="team-list-photo">
-                <Image className='img' image={smallPhoto} />
-              </span>
+                <span className="team-list-photo">
+                  <Image className="img" image={smallPhoto} />
+                </span>
                 <span className="team-list-name">{name}</span>
                 <span className="team-list-position">{position}</span>
               </button>
@@ -40,4 +40,3 @@ export const Team = ({
     </div>
   </div>
 )
-

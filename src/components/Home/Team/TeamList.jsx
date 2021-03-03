@@ -1,7 +1,6 @@
 import React from "react"
 
 export const TeamList = () => {
-
   return (
     <div className="team-wrapper">
       <div className="team-item">
@@ -53,6 +52,5 @@ export const TeamList = () => {
         <h4>Recruiting</h4>
       </div>
     </div>
-
   )
 }

@@ -1,15 +1,20 @@
 import React from "react"
 
 export const AboutInfo = ({ header }) => {
-  const { title, desc: { text }, buttonText } = header
+  const {
+    title,
+    desc: { text },
+    buttonText,
+  } = header
 
   const scrollToSection = () => {
-    const section = document.getElementById('select-company')
-    section && section.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-      inline: "nearest"
-    })
+    const section = document.getElementById("select-company")
+    section &&
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      })
   }
   return (
     <div className="container">

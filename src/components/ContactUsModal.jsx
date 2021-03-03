@@ -7,7 +7,7 @@ export const ContactUsModal = ({ isOpenContactModal, onClose }) => {
   const [values, setValues] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
   })
   const [msg, setMsg] = useState(null)
 
@@ -18,7 +18,7 @@ export const ContactUsModal = ({ isOpenContactModal, onClose }) => {
     setValues({
       name: "",
       email: "",
-      message: ""
+      message: "",
     })
     setMsg("Thank you! Your form was submitted.")
     setTimeout(() => {
@@ -39,10 +39,7 @@ export const ContactUsModal = ({ isOpenContactModal, onClose }) => {
         <textarea name="message" defaultValue={message} hidden />
       </NetlifyForm>
       {isOpenContactModal && (
-        <ModalWrapper
-          onClose={() => onClose()}
-          modalType="form"
-        >
+        <ModalWrapper onClose={() => onClose()} modalType="form">
           <div className="modal-form-wrapper">
             <h2>Contact us</h2>
             <NetlifyForm
@@ -52,9 +49,9 @@ export const ContactUsModal = ({ isOpenContactModal, onClose }) => {
             >
               <div className="field-wrapper">
                 <input
-                  id='name'
+                  id="name"
                   type="text"
-                  name='name'
+                  name="name"
                   value={name}
                   onChange={handleChange}
                   required
@@ -63,9 +60,9 @@ export const ContactUsModal = ({ isOpenContactModal, onClose }) => {
               </div>
               <div className="field-wrapper">
                 <input
-                  id='email'
+                  id="email"
                   type="email"
-                  name='email'
+                  name="email"
                   value={email}
                   onChange={handleChange}
                   required
@@ -75,12 +72,12 @@ export const ContactUsModal = ({ isOpenContactModal, onClose }) => {
               <label htmlFor="message">Message</label>
               <textarea
                 id="message"
-                name='message'
+                name="message"
                 value={message}
                 onChange={handleChange}
                 required
               />
-              <div className='field-wrapper-bottom'>
+              <div className="field-wrapper-bottom">
                 <button
                   type="submit"
                   className="btn btn-input"

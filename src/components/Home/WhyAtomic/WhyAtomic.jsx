@@ -5,18 +5,19 @@ import { WhyAtomicArticles } from "./WhyAtomicArticles"
 import { Image } from "../../Image"
 
 export const WhyAtomic = ({
-  reviewSlider, whyAtomicHeader, whyAtomicContent, quoteSection, setActiveMember, setActiveCompany
+  reviewSlider,
+  whyAtomicHeader,
+  whyAtomicContent,
+  quoteSection,
+  setActiveMember,
+  setActiveCompany,
 }) => {
   const { subtitle, title } = whyAtomicHeader
   const {
     text: { text },
-    refTeamMembers
+    refTeamMembers,
   } = quoteSection
-  const {
-    smallPhoto,
-    position,
-    name
-  } = refTeamMembers
+  const { smallPhoto, position, name } = refTeamMembers
 
   return (
     <div className="why-atomic">
@@ -30,23 +31,23 @@ export const WhyAtomic = ({
       <div className="review">
         <div className="container">
           <div className="review-photo">
-            <Image className='img' image={smallPhoto} />
+            <Image className="img" image={smallPhoto} />
           </div>
           <p>{text}</p>
           <div className="review-info">
-            {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
             <div
               className="review-name"
               onClick={() => setActiveMember(refTeamMembers)}
-            >{name}</div>
+              role="button"
+              tabIndex={0}
+            >
+              {name}
+            </div>
             <div className="review-position">{position}</div>
           </div>
         </div>
       </div>
-      <ReviewSlider
-        slides={reviewSlider}
-        setActiveCompany={setActiveCompany}
-      />
+      <ReviewSlider slides={reviewSlider} setActiveCompany={setActiveCompany} />
     </div>
   )
 }
