@@ -1,7 +1,7 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 
-export const SEO = ({ titleTemplate, title, metaData }) => {
+export const SEO = ({ titleTemplate, title, description = null, metaData }) => {
   const metaTitle = titleTemplate
     ? titleTemplate
     : `Atomic${title ? ` | ${title}` : ""}`
@@ -15,7 +15,7 @@ export const SEO = ({ titleTemplate, title, metaData }) => {
       meta={[
         {
           name: "description",
-          content: metaTitle,
+          content: description || metaTitle,
         },
         {
           name: "keywords",
@@ -31,7 +31,7 @@ export const SEO = ({ titleTemplate, title, metaData }) => {
         },
         {
           property: "og:description",
-          content: metaTitle,
+          content: description || metaTitle,
         },
         {
           property: "og:image",
@@ -48,6 +48,10 @@ export const SEO = ({ titleTemplate, title, metaData }) => {
         {
           property: `og:type`,
           content: `website`,
+        },
+        {
+          name: 'twitter:image',
+          content: metaData?.image.sizes.src,
         },
         {
           name: `twitter:card`,

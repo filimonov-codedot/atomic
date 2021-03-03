@@ -25,6 +25,7 @@ export const Layout = ({
   isHomePage = false,
   pageTitle = null,
   titleTemplate = null,
+  description = null,
   children,
   metaData = null,
 }) => {
@@ -189,6 +190,7 @@ export const Layout = ({
         <SEO
           title={pageTitle}
           titleTemplate={titleTemplate}
+          description={description}
           metaData={metaData}
         />
         <Header
