@@ -22,12 +22,12 @@ export const SEO = ({ titleTemplate, title, description = null, metaData }) => {
           content: "atomic",
         },
         {
-          property: "og:url",
-          content: "https://atomic.vc/",
-        },
-        {
           property: "og:title",
           content: metaTitle,
+        },
+        {
+          property: "og:url",
+          content: "https://atomic.vc/",
         },
         {
           property: "og:description",
@@ -35,23 +35,23 @@ export const SEO = ({ titleTemplate, title, description = null, metaData }) => {
         },
         {
           property: "og:image",
-          content: metaData?.image.sizes.src,
+          content: 'https:' + metaData?.image.file.src,
         },
         {
           property: "og:image:width",
-          content: "800",
+          content: "1200",
         },
         {
           property: "og:image:height",
-          content: "471",
+          content: "630",
         },
         {
           property: `og:type`,
           content: `website`,
         },
         {
-          property: 'twitter:image',
-          content: metaData?.image.sizes.src,
+          name: 'twitter:image:src',
+          content: 'https:' + metaData?.image.file.src,
         },
         {
           name: `twitter:card`,

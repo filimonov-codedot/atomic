@@ -49,8 +49,8 @@ export const pageQuery = graphql`
   query PrivacyQuery {
     metaData: contentfulGlobalMetaData {
       image {
-        sizes {
-          src
+        file {
+          src: url
         }
       }
     }

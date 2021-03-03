@@ -71,8 +71,8 @@ export const pageQuery = graphql`
   query TeamQuery {
     metaData: contentfulGlobalMetaData {
       image {
-        sizes {
-          src
+        file {
+          src: url
         }
       }
     }
