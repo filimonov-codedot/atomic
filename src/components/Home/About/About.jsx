@@ -5,7 +5,12 @@ import { AboutCounters } from "./AboutCounters"
 import { AboutSlider } from "./AboutSlider"
 
 export const About = ({
-  aboutHeader, aboutSlider, countersSwitch, counters, setActiveCompany, setActiveMember
+  aboutHeader,
+  aboutSlider,
+  countersSwitch,
+  counters,
+  setActiveCompany,
+  setActiveMember,
 }) => (
   <div className="about-us" id="about-us">
     <AboutInfo aboutHeader={aboutHeader} />
@@ -14,8 +19,6 @@ export const About = ({
       setActiveCompany={setActiveCompany}
       setActiveMember={setActiveMember}
     />
-    {countersSwitch && (
-      <AboutCounters counters={counters} />
-    )}
+    {countersSwitch && <AboutCounters counters={counters} />}
   </div>
 )

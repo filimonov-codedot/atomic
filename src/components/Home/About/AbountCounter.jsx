@@ -4,7 +4,7 @@ import VisibilitySensor from "react-visibility-sensor"
 
 export const AboutCounter = ({ counter }) => {
   const [visible, setVisible] = useState(false)
-  const isFloat = (n) => Number(n) === n && n % 1 !== 0
+  const isFloat = n => Number(n) === n && n % 1 !== 0
 
   return (
     <div className="about-us-counter">
@@ -22,7 +22,7 @@ export const AboutCounter = ({ counter }) => {
           >
             {({ countUpRef, start }) => (
               <VisibilitySensor
-                onChange={(isVisible) => {
+                onChange={isVisible => {
                   if (isVisible && !visible) {
                     start()
                     setVisible(true)

@@ -1,21 +1,25 @@
-import React from 'react';
-import { Image } from '../Image';
+import React from "react"
+import { Image } from "../Image"
 
-export const BlogItem = (props) => {
-  const { title, image, date, shortContent, onClickHandler } = props;
-  const { text } = shortContent;
+export const BlogItem = props => {
+  const { title, image, date, shortContent, onClickHandler } = props
+  const { text } = shortContent
 
-  const dateFormat = (date) => {
-    const newDate = date.toDateString().split(' ');
-    return `${newDate[1]} ${newDate[2]} ${newDate[3]}`;
-  };
+  const dateFormat = date => {
+    const newDate = date.toDateString().split(" ")
+    return `${newDate[1]} ${newDate[2]} ${newDate[3]}`
+  }
 
   return (
     <>
-      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
-      <div className="article" onClick={() => onClickHandler(props)}>
+      <div
+        className="article"
+        onClick={() => onClickHandler(props)}
+        role="button"
+        tabIndex={0}
+      >
         <div className="article-img">
-          <Image className='img' image={image} />
+          <Image className="img" image={image} />
         </div>
         <div className="article-description">
           <div className="article-date">{dateFormat(new Date(date))}</div>
@@ -24,6 +28,7 @@ export const BlogItem = (props) => {
           <div className="article-more">Read this article</div>
         </div>
       </div>
+      {/* eslint-enable jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */}
     </>
-  );
-};
+  )
+}

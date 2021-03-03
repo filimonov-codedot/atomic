@@ -6,10 +6,11 @@ import { CompanyStealth } from "../components/Companies/CompanyStealth"
 import { CompanyMain } from "../components/Companies/CompanyMain"
 import { CompanyModal } from "../components/Companies/CompanyModal"
 
-export default function Companies ({ data }) {
+export default function Companies({ data }) {
   const [activeCompany, setActiveCompany] = useState(null)
 
   const {
+    metaData,
     headerData,
     footerData,
     companiesPage: {
@@ -18,22 +19,23 @@ export default function Companies ({ data }) {
       textEndList,
       ctaTitle,
       tickerDuration,
-      tickerData
-    }
+      tickerData,
+    },
   } = data
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       const hash = window.location.hash
-      if (hash) setActiveCompany(
-        mainCompanies.find(({ slug }) => slug === hash.slice(1)))
+      if (hash)
+        setActiveCompany(
+          mainCompanies.find(({ slug }) => slug === hash.slice(1))
+        )
     }
 
-    if (typeof document !== "undefined")
-      document.documentElement.scrollTop = 0
+    if (typeof document !== "undefined") document.documentElement.scrollTop = 0
   }, [mainCompanies])
 
-  const handleClick = (slide) => setActiveCompany(slide)
+  const handleClick = slide => setActiveCompany(slide)
 
   const Modal = () => {
     if (activeCompany) {
@@ -67,11 +69,9 @@ export default function Companies ({ data }) {
       tickerDuration={tickerDuration}
       tickerData={tickerData}
       pageTitle="Companies"
+      metaData={metaData}
     >
-      <CompanyMain
-        mainCompanies={mainCompanies}
-        handleClick={handleClick}
-      />
+      <CompanyMain mainCompanies={mainCompanies} handleClick={handleClick} />
       <CompanyStealth
         stealthCompanies={stealthCompanies}
         textEndList={textEndList}
@@ -83,6 +83,13 @@ export default function Companies ({ data }) {
 
 export const pageQuery = graphql`
   query CompaniesQuery {
+    metaData: contentfulGlobalMetaData {
+      image {
+        sizes {
+          src
+        }
+      }
+    }
     headerData: contentfulSectionHeader {
       logo {
         file {

@@ -5,8 +5,9 @@ import { Layout } from "../components/Layout"
 import { About } from "../components/JoinTeam/About/About"
 import { TeamCompanies } from "../components/JoinTeam/TeamCompanies/TeamCompanies"
 
-export default function JoinTeam ({ data }) {
+export default function JoinTeam({ data }) {
   const {
+    metaData,
     headerData,
     footerData,
     joinTeam: {
@@ -16,13 +17,12 @@ export default function JoinTeam ({ data }) {
       selectionCompanies,
       ctaTitle,
       tickerDuration,
-      tickerData
-    }
+      tickerData,
+    },
   } = data
 
   useEffect(() => {
-    if (typeof document !== "undefined")
-      document.documentElement.scrollTop = 0;
+    if (typeof document !== "undefined") document.documentElement.scrollTop = 0
   }, [])
 
   return (
@@ -34,11 +34,9 @@ export default function JoinTeam ({ data }) {
       tickerDuration={tickerDuration}
       tickerData={tickerData}
       pageTitle="Join a Team"
+      metaData={metaData}
     >
-      <About
-        header={{ ...topHeader, buttonText }}
-        slides={slides}
-      />
+      <About header={{ ...topHeader, buttonText }} slides={slides} />
       <TeamCompanies contentfulCompanies={selectionCompanies} />
     </Layout>
   )
@@ -46,6 +44,13 @@ export default function JoinTeam ({ data }) {
 
 export const pageQuery = graphql`
   query JoinTeamQuery {
+    metaData: contentfulGlobalMetaData {
+      image {
+        sizes {
+          src
+        }
+      }
+    }
     headerData: contentfulSectionHeader {
       logo {
         file {
@@ -110,4 +115,4 @@ export const pageQuery = graphql`
       }
     }
   }
- `
+`

@@ -1,15 +1,17 @@
 const globImporter = require("node-sass-glob-importer")
-const { title, trackingId } = require("./config/site");
+const { title, trackingId } = require("./config/site")
 
 const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID || "13ygwdmf0s6j",
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || "Hmar6xqEqgXgFA2eRrJ_jVYcBQiq_t9DlNkvCjGwkPs"
+  accessToken:
+    process.env.CONTENTFUL_ACCESS_TOKEN ||
+    "Hmar6xqEqgXgFA2eRrJ_jVYcBQiq_t9DlNkvCjGwkPs",
 }
 
 if (process.env.CONTENTFUL_HOST) {
   contentfulConfig.host = process.env.CONTENTFUL_HOST
 }
-  
+
 module.exports = {
   siteMetadata: {
     title,
@@ -49,6 +51,6 @@ module.exports = {
       },
     },
     // "gatsby-plugin-offline",
-    'gatsby-plugin-page-transitions',
+    "gatsby-plugin-page-transitions",
   ],
 }

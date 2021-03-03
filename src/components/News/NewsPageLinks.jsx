@@ -5,12 +5,12 @@ export const NewsPageLinks = ({ activeTab }) => {
   const tabs = [
     {
       title: "News",
-      link: "/news"
+      link: "/news",
     },
     {
       title: "Blog",
-      link: "/blog"
-    }
+      link: "/blog",
+    },
   ]
 
   return (
@@ -18,7 +18,9 @@ export const NewsPageLinks = ({ activeTab }) => {
       <ul>
         {tabs?.map(({ title, link }, index) => (
           <li key={index} className={`${activeTab === title ? "current" : ""}`}>
-            <Link to={link}><span>{title}</span></Link>
+            <Link to={link}>
+              <span>{title}</span>
+            </Link>
           </li>
         ))}
       </ul>

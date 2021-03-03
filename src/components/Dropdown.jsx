@@ -1,67 +1,76 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react"
 
-const useComponentVisible = (initialIsVisible) => {
-  const [isComponentVisible, setIsComponentVisible] = useState(
-    initialIsVisible);
-  const ref = useRef(null);
+const useComponentVisible = initialIsVisible => {
+  const [isComponentVisible, setIsComponentVisible] = useState(initialIsVisible)
+  const ref = useRef(null)
 
-  const handleClickOutside = (e) => {
+  const handleClickOutside = e => {
     if (ref.current && !ref.current.contains(e.target))
-      setIsComponentVisible(false);
-  };
+      setIsComponentVisible(false)
+  }
 
   useEffect(() => {
-    document.addEventListener('click', handleClickOutside, true);
+    document.addEventListener("click", handleClickOutside, true)
     return () => {
-      document.removeEventListener('click', handleClickOutside, true);
-    };
-  });
+      document.removeEventListener("click", handleClickOutside, true)
+    }
+  })
 
-  return { ref, isComponentVisible, setIsComponentVisible };
-};
+  return { ref, isComponentVisible, setIsComponentVisible }
+}
 
-export const Dropdown = ({ data, name, defaultItem = { title: '' }, onChange }) => {
-  const [selected, setSelected] = useState(defaultItem.title);
+export const Dropdown = ({
+  data,
+  name,
+  defaultItem = { title: "" },
+  onChange,
+}) => {
+  const [selected, setSelected] = useState(defaultItem.title)
 
-  const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(
-    false);
+  const {
+    ref,
+    isComponentVisible,
+    setIsComponentVisible,
+  } = useComponentVisible(false)
 
   const onChangeFilter = (name, value) => {
-    onChange(name, value);
-    setSelected(value);
-  };
+    onChange(name, value)
+    setSelected(value)
+  }
 
-  const clickHandler = () =>
-    setIsComponentVisible(!isComponentVisible);
+  const clickHandler = () => setIsComponentVisible(!isComponentVisible)
 
-  const convertToKebabCase = (string) =>
-    string.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2').toLowerCase();
+  const convertToKebabCase = string =>
+    string.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, "$1-$2").toLowerCase()
 
   return (
     <>
-      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
-      <div className={`select ${isComponentVisible ? 'opened' : ''}`}
-           onClick={() => clickHandler()} ref={ref}>
-        <div className="select-title">
-          {selected || defaultItem.title}
-        </div>
+      <div
+        className={`select ${isComponentVisible ? "opened" : ""}`}
+        onClick={() => clickHandler()}
+        ref={ref}
+        role="button"
+        tabIndex={0}
+      >
+        <div className="select-title">{selected || defaultItem.title}</div>
         <div className="select-list">
           <ul>
-
             {defaultItem.title ? (
               <li>
                 <input
                   type="radio"
                   id="dropdown-default"
                   name={name}
-                  onChange={() => onChangeFilter(name, '')}
+                  onChange={() => onChangeFilter(name, "")}
                 />
                 <label htmlFor="dropdown-default">{defaultItem.title}</label>
               </li>
-            ) : ''}
+            ) : (
+              ""
+            )}
 
             {data?.map(({ title }, index) => (
-              <li key={index} className={title === selected ? 'current' : ''}>
+              <li key={index} className={title === selected ? "current" : ""}>
                 <input
                   type="radio"
                   id={convertToKebabCase(title)}
@@ -69,14 +78,13 @@ export const Dropdown = ({ data, name, defaultItem = { title: '' }, onChange }) 
                   value={title}
                   onChange={() => onChangeFilter(name, title)}
                 />
-                <label htmlFor={convertToKebabCase(title)}>
-                  {title}
-                </label>
+                <label htmlFor={convertToKebabCase(title)}>{title}</label>
               </li>
             ))}
           </ul>
         </div>
       </div>
+      {/* eslint-enable jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */}
     </>
-  );
-};
+  )
+}

@@ -41,42 +41,43 @@ export const AboutSlider = ({ slides, setActiveCompany, setActiveMember }) => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-          centerPadding: "10%"
-        }
+          centerPadding: "10%",
+        },
       },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          centerPadding: "25%"
-        }
+          centerPadding: "25%",
+        },
       },
       {
         breakpoint: 560,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          centerPadding: "32px"
-        }
-      }
-    ]
+          centerPadding: "32px",
+        },
+      },
+    ],
   }
   if (initSlide === null) return null
   return (
     <div className="about-us-slider">
       <div className="about-us-slider-wrapper">
         <Slider {...settings}>
-          {slides && [...slides, ...slides].map((slide, index) => (
-            <AboutSlide
-              key={index}
-              index={index}
-              activeSlide={activeSlide}
-              slide={slide}
-              onClickCompany={() => setActiveCompany(slide.refCompanies)}
-              onClickMember={setActiveMember}
-            />
-          ))}
+          {slides &&
+            [...slides, ...slides].map((slide, index) => (
+              <AboutSlide
+                key={index}
+                index={index}
+                activeSlide={activeSlide}
+                slide={slide}
+                onClickCompany={() => setActiveCompany(slide.refCompanies)}
+                onClickMember={setActiveMember}
+              />
+            ))}
         </Slider>
       </div>
     </div>

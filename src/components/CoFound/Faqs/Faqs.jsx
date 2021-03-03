@@ -1,5 +1,5 @@
-import React from 'react'
-import Collapsible from 'react-collapsible'
+import React from "react"
+import Collapsible from "react-collapsible"
 
 export const Faqs = ({ faq }) => {
   if (faq?.length === 0) return null
@@ -8,9 +8,9 @@ export const Faqs = ({ faq }) => {
     <Collapsible
       trigger={
         <span>
-            {title}
+          {title}
           <span className="trigger-icon" />
-          </span>
+        </span>
       }
       transitionTime={200}
     >

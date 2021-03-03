@@ -1,7 +1,7 @@
-import React from 'react'
-import Slider from 'react-slick'
+import React from "react"
+import Slider from "react-slick"
 
-import { AboutCarouselItem } from './AboutCarouselItem'
+import { AboutCarouselItem } from "./AboutCarouselItem"
 
 export const AboutCarousel = ({ slides }) => {
   const sliderCount = slides.length - 1
@@ -15,7 +15,7 @@ export const AboutCarousel = ({ slides }) => {
     slidesToScroll: 1,
     centerMode: true,
     initialSlide: Math.floor(Math.random() * sliderCount),
-    centerPadding: '17%',
+    centerPadding: "17%",
     swipeToSlide: true,
     focusOnSelect: true,
     responsive: [
@@ -24,26 +24,26 @@ export const AboutCarousel = ({ slides }) => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-          centerPadding: '10%'
-        }
+          centerPadding: "10%",
+        },
       },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          centerPadding: '30%'
-        }
+          centerPadding: "30%",
+        },
       },
       {
         breakpoint: 560,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          centerPadding: '20%'
-        }
-      }
-    ]
+          centerPadding: "20%",
+        },
+      },
+    ],
   }
   return (
     <div className="carousel">

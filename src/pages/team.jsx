@@ -7,30 +7,24 @@ import { TeamHeader } from "../components/Team/TeamHeader"
 import { TeamContent } from "../components/Team/TeamContent"
 import { ModalUser } from "../components/Team/ModalUser"
 
-export default function Team ({ data }) {
+export default function Team({ data }) {
   const [curUser, setCurUser] = useState(null)
 
   const {
+    metaData,
     headerData,
     footerData,
-    teamPage: {
-      topHeader,
-      teamMembers,
-      ctaTitle,
-      tickerDuration,
-      tickerData
-    }
+    teamPage: { topHeader, teamMembers, ctaTitle, tickerDuration, tickerData },
   } = data
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       const hash = window.location.hash
-      if (hash) setCurUser(teamMembers.find(
-        ({ slug }) => slug === hash.slice(1)))
+      if (hash)
+        setCurUser(teamMembers.find(({ slug }) => slug === hash.slice(1)))
     }
 
-    if (typeof document !== "undefined")
-      document.documentElement.scrollTop = 0
+    if (typeof document !== "undefined") document.documentElement.scrollTop = 0
   }, [teamMembers])
 
   const Modal = () => {
@@ -50,12 +44,12 @@ export default function Team ({ data }) {
   }
 
   const changeUrlCLose = () => {
-    if (typeof window !== "undefined")
-      navigate(window.location.pathname)
+    if (typeof window !== "undefined") navigate(window.location.pathname)
   }
 
   return (
     <Layout
+      metaData={metaData}
       headerData={headerData}
       footerData={footerData}
       ctaType="cta-inner"
@@ -66,10 +60,7 @@ export default function Team ({ data }) {
     >
       <TeamPage>
         <TeamHeader header={topHeader} />
-        <TeamContent
-          content={teamMembers}
-          setCurUser={setCurUser}
-        />
+        <TeamContent content={teamMembers} setCurUser={setCurUser} />
         <Modal />
       </TeamPage>
     </Layout>
@@ -78,6 +69,13 @@ export default function Team ({ data }) {
 
 export const pageQuery = graphql`
   query TeamQuery {
+    metaData: contentfulGlobalMetaData {
+      image {
+        sizes {
+          src
+        }
+      }
+    }
     headerData: contentfulSectionHeader {
       logo {
         file {
