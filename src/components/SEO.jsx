@@ -35,7 +35,7 @@ export const SEO = ({ titleTemplate, title, description = null, metaData }) => {
         },
         {
           property: "og:image",
-          content: 'https' + metaData?.image.sizes.src,
+          content: 'https:' + metaData?.image.file.src,
         },
         {
           property: "og:image:width",
@@ -50,8 +50,8 @@ export const SEO = ({ titleTemplate, title, description = null, metaData }) => {
           content: `website`,
         },
         {
-          name: 'twitter:image',
-          content: 'https' + metaData?.image.sizes.src,
+          name: 'twitter:image:src',
+          content: 'https:' + metaData?.image.file.src,
         },
         {
           name: `twitter:card`,
