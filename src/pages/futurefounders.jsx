@@ -1,22 +1,23 @@
-import React, { useEffect, useState } from 'react'
-import { graphql, navigate } from 'gatsby'
+import React, { useEffect, useState } from "react"
+import { graphql, navigate } from "gatsby"
 
-import { Layout } from '../components/Layout'
-import { CoFoundInfo } from '../components/CoFound/CoFoundInfo'
-import { ReviewSlider } from '../components/ReviewSlider'
-import { About } from '../components/CoFound/About/About'
-import { LookingFor } from '../components/CoFound/LookingFor/LookingFor'
-import { Team } from '../components/CoFound/Team/Team'
-import { TeamReviews } from '../components/CoFound/Team/TeamReviews'
-import { Faqs } from '../components/CoFound/Faqs/Faqs'
-import { CompanyModal } from '../components/Companies/CompanyModal'
-import { ModalUser } from '../components/Team/ModalUser'
+import { Layout } from "../components/Layout"
+import { CoFoundInfo } from "../components/CoFound/CoFoundInfo"
+import { ReviewSlider } from "../components/ReviewSlider"
+import { About } from "../components/CoFound/About/About"
+import { LookingFor } from "../components/CoFound/LookingFor/LookingFor"
+import { Team } from "../components/CoFound/Team/Team"
+import { TeamReviews } from "../components/CoFound/Team/TeamReviews"
+import { Faqs } from "../components/CoFound/Faqs/Faqs"
+import { CompanyModal } from "../components/Companies/CompanyModal"
+import { ModalUser } from "../components/Team/ModalUser"
 
-export default function CoFound ({ data }) {
+export default function Futurefounders({ data }) {
   const [activeCompany, setActiveCompany] = useState(false)
   const [memberModal, setMemberModal] = useState(false)
 
   const {
+    metaData,
     headerData,
     footerData,
     coFound: {
@@ -46,22 +47,22 @@ export default function CoFound ({ data }) {
   } = data
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       const hash = window.location.hash
       if (hash) {
         const dataCompanies = reviewSlider.find(
-          ({ refCompanies }) => refCompanies.slug === hash.slice(1),
+          ({ refCompanies }) => refCompanies.slug === hash.slice(1)
         )
         if (dataCompanies) setActiveCompany(dataCompanies.refCompanies)
 
         const dataMembers = teamContent.find(
-          ({ refTeamMember }) => refTeamMember.slug === hash.slice(1),
+          ({ refTeamMember }) => refTeamMember.slug === hash.slice(1)
         )
         if (dataMembers) setMemberModal(dataMembers.refTeamMember)
       }
     }
 
-    if (typeof document !== 'undefined') document.documentElement.scrollTop = 0
+    if (typeof document !== "undefined") document.documentElement.scrollTop = 0
   }, [reviewSlider, teamContent])
 
   const Modals = () => {
@@ -93,7 +94,7 @@ export default function CoFound ({ data }) {
   }
 
   const changeUrlCLose = () => {
-    if (typeof window !== 'undefined') navigate(window.location.pathname)
+    if (typeof window !== "undefined") navigate(window.location.pathname)
   }
 
   return (
@@ -106,16 +107,17 @@ export default function CoFound ({ data }) {
         url: ctaButtonUrl,
         title: ctaButtonText,
       }}
-      ctaDeadline={ctaDeadlineToggle ? ctaDeadline : ''}
+      ctaDeadline={ctaDeadlineToggle ? ctaDeadline : ""}
       tickerDuration={tickerDuration}
       tickerData={tickerData}
       pageTitle="Co-Found"
+      metaData={metaData}
     >
       <CoFoundInfo
         topHeader={topHeader}
         topButton={topButton}
         topButtonUrl={topButtonUrl}
-        topDeadline={topDeadlineToggle ? topDeadline : ''}
+        topDeadline={topDeadlineToggle ? topDeadline : ""}
       />
       <ReviewSlider
         description={reviewDesc.text}
@@ -143,6 +145,13 @@ export default function CoFound ({ data }) {
 
 export const pageQuery = graphql`
   query CoFoundQuery {
+    metaData: contentfulGlobalMetaData {
+      image {
+        sizes {
+          src
+        }
+      }
+    }
     headerData: contentfulSectionHeader {
       logo {
         file {

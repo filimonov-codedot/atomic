@@ -1,11 +1,14 @@
-import React from 'react'
+import React from "react"
 
 export const CompanyStealth = ({ stealthCompanies, textEndList = null }) => {
-  const companies = stealthCompanies.reduce((p, c) => {
-    if (p[p.length - 1].length === 4) p.push([])
-    p[p.length - 1].push(c)
-    return p
-  }, [[]])
+  const companies = stealthCompanies.reduce(
+    (p, c) => {
+      if (p[p.length - 1].length === 4) p.push([])
+      p[p.length - 1].push(c)
+      return p
+    },
+    [[]]
+  )
 
   return (
     <div className="stealth-companies">
@@ -18,7 +21,9 @@ export const CompanyStealth = ({ stealthCompanies, textEndList = null }) => {
                 <li key={index}>{name}</li>
               ))}
               {mainIndex === companies.length - 1 && textEndList && (
-                <li><i>{textEndList}</i></li>
+                <li>
+                  <i>{textEndList}</i>
+                </li>
               )}
             </ul>
           ))}

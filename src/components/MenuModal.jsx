@@ -26,7 +26,7 @@ export const MenuModal = ({ onClose, navModal }) => {
             if (external) {
               return (
                 <li key={index}>
-                  <a href={link} target="_blank" onClick={() => closeHandler()}>
+                  <a href={link} target="_blank" rel='noreferrer' onClick={() => closeHandler()}>
                     {title}
                   </a>
                 </li>

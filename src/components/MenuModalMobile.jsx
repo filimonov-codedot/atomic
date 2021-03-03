@@ -14,7 +14,9 @@ export const MenuModalMobile = ({ onClose, navModalMobile }) => {
         <ul>
           {navModalMobile?.map(({ title, link, disabled }, index) => (
             <li key={index}>
-              <Link to={link} onClick={() => closeHandler()}>{title}</Link>
+              <Link to={link} onClick={() => closeHandler()}>
+                {title}
+              </Link>
             </li>
           ))}
         </ul>

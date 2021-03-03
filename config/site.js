@@ -1,4 +1,4 @@
 module.exports = {
-  title: 'Atomic',
-  trackingId: 'UA-39280937-1'
+  title: "Atomic",
+  trackingId: "UA-39280937-1",
 }

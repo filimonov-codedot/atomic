@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
-import { Link } from 'gatsby'
+import React, { useEffect, useRef } from "react"
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
+import { Link } from "gatsby"
 
 export const AnnouncementModal = ({ announcementModal, onClose }) => {
   const annOverlay = useRef(null)
@@ -11,11 +11,9 @@ export const AnnouncementModal = ({ announcementModal, onClose }) => {
     title,
     titleLinkApply,
     urlLinkApply,
-    description: {
-      description
-    },
+    description: { description },
     titleLinkReadMore,
-    urlLinkReadMore
+    urlLinkReadMore,
   } = announcementModal
 
   useEffect(() => {
@@ -28,8 +26,8 @@ export const AnnouncementModal = ({ announcementModal, onClose }) => {
   })
 
   const closeHandler = () => {
-    annOverlay.current.classList.remove('show')
-    annModal.current.classList.remove('show')
+    annOverlay.current.classList.remove("show")
+    annModal.current.classList.remove("show")
     setTimeout(() => {
       onClose()
     }, 500)
@@ -65,15 +63,8 @@ export const AnnouncementModal = ({ announcementModal, onClose }) => {
         </div>
         <div className="home-modal__inside">
           <div className="home-modal__image">
-            <img
-              src={imageDesktop?.file.src}
-              alt={imageDesktop.alt}
-            />
-            <img
-              src={imageMobile?.file.src}
-              alt={imageMobile.alt}
-            />
-
+            <img src={imageDesktop?.file.src} alt={imageDesktop.alt} />
+            <img src={imageMobile?.file.src} alt={imageMobile.alt} />
           </div>
           <div className="home-modal__content">
             <div className="home-modal__top">
@@ -94,10 +85,10 @@ export const AnnouncementModal = ({ announcementModal, onClose }) => {
             </div>
 
             <p>
-              <span
-                dangerouslySetInnerHTML={{ __html: description }}
-              />
-              <a href={urlLinkReadMore} target="_blank">{titleLinkReadMore}</a>
+              <span dangerouslySetInnerHTML={{ __html: description }} />
+              <a href={urlLinkReadMore} target="_blank">
+                {titleLinkReadMore}
+              </a>
             </p>
           </div>
         </div>

@@ -12,11 +12,6 @@ to = "/join-team"
 status = 301
 force = false
 [[redirects]]
-from = "/cofound"
-to = "/co-found"
-status = 301
-force = false
-[[redirects]]
 from = "/about"
 to = "/team"
 status = 301
@@ -119,5 +114,15 @@ force = false
 [[redirects]]
 from = "/companies/zenreach"
 to = "/companies/#zenreach"
+status = 301
+force = false
+[[redirects]]
+from = "/co-found"
+to = "/futurefounders"
+status = 301
+force = false
+[[redirects]]
+from = "/cofound"
+to = "/futurefounders"
 status = 301
 force = false

@@ -1,6 +1,12 @@
 import React from "react"
 
-export function LookingFor ({ lookingHeader: { title, desc: { text } }, lookingContent }) {
+export function LookingFor({
+  lookingHeader: {
+    title,
+    desc: { text },
+  },
+  lookingContent,
+}) {
   return (
     <div className="looking-for">
       <div className="container">

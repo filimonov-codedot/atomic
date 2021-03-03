@@ -1,23 +1,23 @@
 import React, { useEffect } from "react"
-import { graphql } from 'gatsby'
+import { graphql } from "gatsby"
 
-import { Layout } from '../components/Layout'
+import { Layout } from "../components/Layout"
 
-export default function PrivacyPolicy ({ data }) {
+export default function PrivacyPolicy({ data }) {
   const {
+    metaData,
     headerData,
     footerData,
     privacyPage: {
       text: { html },
       ctaTitle,
       tickerDuration,
-      tickerData
-    }
+      tickerData,
+    },
   } = data
 
   useEffect(() => {
-    if (typeof document !== "undefined")
-      document.documentElement.scrollTop = 0;
+    if (typeof document !== "undefined") document.documentElement.scrollTop = 0
   }, [])
 
   return (
@@ -29,11 +29,17 @@ export default function PrivacyPolicy ({ data }) {
       tickerDuration={tickerDuration}
       tickerData={tickerData}
       pageTitle="Privacy Policy"
+      metaData={metaData}
     >
       <div className="privacy-policy page-content">
-        {html && <div className="container" dangerouslySetInnerHTML={{
-          __html: html
-        }}/>}
+        {html && (
+          <div
+            className="container"
+            dangerouslySetInnerHTML={{
+              __html: html,
+            }}
+          />
+        )}
       </div>
     </Layout>
   )
@@ -41,6 +47,13 @@ export default function PrivacyPolicy ({ data }) {
 
 export const pageQuery = graphql`
   query PrivacyQuery {
+    metaData: contentfulGlobalMetaData {
+      image {
+        sizes {
+          src
+        }
+      }
+    }
     headerData: contentfulSectionHeader {
       logo {
         file {

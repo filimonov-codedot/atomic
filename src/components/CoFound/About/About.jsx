@@ -1,6 +1,13 @@
 import React from "react"
 
-export const About = ({ aboutHeader: { subtitle, title, desc: { text } }, aboutRole }) => (
+export const About = ({
+  aboutHeader: {
+    subtitle,
+    title,
+    desc: { text },
+  },
+  aboutRole,
+}) => (
   <div className="team team-column">
     <div className="container">
       <div className="title">
@@ -12,17 +19,17 @@ export const About = ({ aboutHeader: { subtitle, title, desc: { text } }, aboutR
         />
       </div>
       <div className="roles">
-        {aboutRole.length && aboutRole.map(
-          ({ title, desc: { text } }, index) => {
-          return (
-            <div className="role" key={index}>
-              <h4 className="role__title">{title}</h4>
-              <p className="role__description">{text}</p>
-            </div>
-          )
-        })}
+        {aboutRole.length &&
+          aboutRole.map(({ title, desc: { text } }, index) => {
+            return (
+              <div className="role" key={index}>
+                <h4 className="role__title">{title}</h4>
+                <p className="role__description">{text}</p>
+              </div>
+            )
+          })}
       </div>
-{/*
+      {/*
       <div className="team-wrapper">
         {aboutContent.length &&
         aboutContent.map((item, index) => {

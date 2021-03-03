@@ -91,17 +91,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "social"
-                ]
+                "linkContentType": ["social"]
               }
             ],
             "linkType": "Entry"
@@ -113,8 +110,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -126,9 +122,7 @@
           "required": true,
           "validations": [
             {
-              "linkMimetypeGroup": [
-                "image"
-              ]
+              "linkMimetypeGroup": ["image"]
             }
           ],
           "disabled": false,
@@ -141,8 +135,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         }
@@ -207,9 +200,7 @@
           "required": true,
           "validations": [
             {
-              "linkMimetypeGroup": [
-                "image"
-              ]
+              "linkMimetypeGroup": ["image"]
             }
           ],
           "disabled": false,
@@ -224,9 +215,7 @@
           "required": true,
           "validations": [
             {
-              "linkMimetypeGroup": [
-                "image"
-              ]
+              "linkMimetypeGroup": ["image"]
             }
           ],
           "disabled": false,
@@ -294,9 +283,7 @@
           "required": true,
           "validations": [
             {
-              "linkMimetypeGroup": [
-                "image"
-              ]
+              "linkMimetypeGroup": ["image"]
             }
           ],
           "disabled": false,
@@ -379,8 +366,7 @@
           "type": "Symbol",
           "localized": false,
           "required": false,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -390,8 +376,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -401,8 +386,7 @@
           "type": "Text",
           "localized": false,
           "required": false,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         }
@@ -465,8 +449,7 @@
           "type": "Boolean",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": true
         },
@@ -476,8 +459,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         }
@@ -540,8 +522,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -567,9 +548,7 @@
           "required": true,
           "validations": [
             {
-              "linkMimetypeGroup": [
-                "image"
-              ]
+              "linkMimetypeGroup": ["image"]
             }
           ],
           "disabled": false,
@@ -584,9 +563,7 @@
           "required": true,
           "validations": [
             {
-              "linkMimetypeGroup": [
-                "image"
-              ]
+              "linkMimetypeGroup": ["image"]
             }
           ],
           "disabled": false,
@@ -599,8 +576,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -610,8 +586,7 @@
           "type": "Text",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -621,17 +596,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "investors"
-                ]
+                "linkContentType": ["investors"]
               }
             ],
             "linkType": "Entry"
@@ -643,17 +615,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "links"
-                ]
+                "linkContentType": ["links"]
               }
             ],
             "linkType": "Entry"
@@ -665,17 +634,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkMimetypeGroup": [
-                  "image"
-                ]
+                "linkMimetypeGroup": ["image"]
               }
             ],
             "linkType": "Asset"
@@ -740,8 +706,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         }
@@ -804,8 +769,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -834,9 +798,7 @@
           "required": true,
           "validations": [
             {
-              "linkMimetypeGroup": [
-                "image"
-              ]
+              "linkMimetypeGroup": ["image"]
             }
           ],
           "disabled": false,
@@ -902,8 +864,7 @@
           "type": "Text",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         }
@@ -966,17 +927,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "companies"
-                ]
+                "linkContentType": ["companies"]
               }
             ],
             "linkType": "Entry"
@@ -988,17 +946,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "stealthCompanies"
-                ]
+                "linkContentType": ["stealthCompanies"]
               }
             ],
             "linkType": "Entry"
@@ -1010,8 +965,7 @@
           "type": "Symbol",
           "localized": false,
           "required": false,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -1021,8 +975,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -1034,9 +987,7 @@
           "required": true,
           "validations": [
             {
-              "linkContentType": [
-                "tickerDuration"
-              ]
+              "linkContentType": ["tickerDuration"]
             }
           ],
           "disabled": false,
@@ -1049,17 +1000,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "quotes"
-                ]
+                "linkContentType": ["quotes"]
               }
             ],
             "linkType": "Entry"
@@ -1124,8 +1072,7 @@
           "type": "Boolean",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -1135,17 +1082,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "heroTicker"
-                ]
+                "linkContentType": ["heroTicker"]
               }
             ],
             "linkType": "Entry"
@@ -1159,9 +1103,7 @@
           "required": true,
           "validations": [
             {
-              "linkContentType": [
-                "homeModal"
-              ]
+              "linkContentType": ["homeModal"]
             }
           ],
           "disabled": false,
@@ -1176,9 +1118,7 @@
           "required": true,
           "validations": [
             {
-              "linkContentType": [
-                "section"
-              ]
+              "linkContentType": ["section"]
             }
           ],
           "disabled": false,
@@ -1191,17 +1131,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "aboutSlider"
-                ]
+                "linkContentType": ["aboutSlider"]
               }
             ],
             "linkType": "Entry"
@@ -1213,8 +1150,7 @@
           "type": "Boolean",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -1224,8 +1160,7 @@
           "type": "Number",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -1235,8 +1170,7 @@
           "type": "Integer",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -1246,8 +1180,7 @@
           "type": "Integer",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -1257,8 +1190,7 @@
           "type": "Integer",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -1270,9 +1202,7 @@
           "required": true,
           "validations": [
             {
-              "linkContentType": [
-                "section"
-              ]
+              "linkContentType": ["section"]
             }
           ],
           "disabled": false,
@@ -1285,17 +1215,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "section"
-                ]
+                "linkContentType": ["section"]
               }
             ],
             "linkType": "Entry"
@@ -1309,9 +1236,7 @@
           "required": true,
           "validations": [
             {
-              "linkContentType": [
-                "quoteSection"
-              ]
+              "linkContentType": ["quoteSection"]
             }
           ],
           "disabled": false,
@@ -1324,17 +1249,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "reviewSlider"
-                ]
+                "linkContentType": ["reviewSlider"]
               }
             ],
             "linkType": "Entry"
@@ -1348,9 +1270,7 @@
           "required": true,
           "validations": [
             {
-              "linkContentType": [
-                "section"
-              ]
+              "linkContentType": ["section"]
             }
           ],
           "disabled": false,
@@ -1363,17 +1283,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkMimetypeGroup": [
-                  "image"
-                ]
+                "linkMimetypeGroup": ["image"]
               }
             ],
             "linkType": "Asset"
@@ -1385,17 +1302,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "press"
-                ]
+                "linkContentType": ["press"]
               }
             ],
             "linkType": "Entry"
@@ -1407,8 +1321,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -1420,9 +1333,7 @@
           "required": true,
           "validations": [
             {
-              "linkContentType": [
-                "tickerDuration"
-              ]
+              "linkContentType": ["tickerDuration"]
             }
           ],
           "disabled": false,
@@ -1435,17 +1346,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "quotes"
-                ]
+                "linkContentType": ["quotes"]
               }
             ],
             "linkType": "Entry"
@@ -1512,9 +1420,7 @@
           "required": true,
           "validations": [
             {
-              "linkContentType": [
-                "section"
-              ]
+              "linkContentType": ["section"]
             }
           ],
           "disabled": false,
@@ -1527,17 +1433,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "teamMembers"
-                ]
+                "linkContentType": ["teamMembers"]
               }
             ],
             "linkType": "Entry"
@@ -1549,8 +1452,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -1562,9 +1464,7 @@
           "required": true,
           "validations": [
             {
-              "linkContentType": [
-                "tickerDuration"
-              ]
+              "linkContentType": ["tickerDuration"]
             }
           ],
           "disabled": false,
@@ -1577,17 +1477,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "quotes"
-                ]
+                "linkContentType": ["quotes"]
               }
             ],
             "linkType": "Entry"
@@ -1654,9 +1551,7 @@
           "required": true,
           "validations": [
             {
-              "linkMimetypeGroup": [
-                "image"
-              ]
+              "linkMimetypeGroup": ["image"]
             }
           ],
           "disabled": false,
@@ -1669,8 +1564,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -1694,8 +1588,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -1707,9 +1600,7 @@
           "required": true,
           "validations": [
             {
-              "linkMimetypeGroup": [
-                "image"
-              ]
+              "linkMimetypeGroup": ["image"]
             }
           ],
           "disabled": false,
@@ -1722,17 +1613,14 @@
           "type": "Array",
           "localized": false,
           "required": false,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "social"
-                ]
+                "linkContentType": ["social"]
               }
             ],
             "linkType": "Entry"
@@ -1744,8 +1632,7 @@
           "type": "Text",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -1755,17 +1642,14 @@
           "type": "Array",
           "localized": false,
           "required": false,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "faq"
-                ]
+                "linkContentType": ["faq"]
               }
             ],
             "linkType": "Entry"
@@ -1830,8 +1714,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -1841,8 +1724,7 @@
           "type": "Text",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         }
@@ -1975,8 +1857,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         }
@@ -2041,9 +1922,7 @@
           "required": true,
           "validations": [
             {
-              "linkMimetypeGroup": [
-                "image"
-              ]
+              "linkMimetypeGroup": ["image"]
             }
           ],
           "disabled": false,
@@ -2058,9 +1937,7 @@
           "required": true,
           "validations": [
             {
-              "linkMimetypeGroup": [
-                "image"
-              ]
+              "linkMimetypeGroup": ["image"]
             }
           ],
           "disabled": false,
@@ -2075,9 +1952,7 @@
           "required": true,
           "validations": [
             {
-              "linkContentType": [
-                "companies"
-              ]
+              "linkContentType": ["companies"]
             }
           ],
           "disabled": false,
@@ -2090,17 +1965,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "teamMembers"
-                ]
+                "linkContentType": ["teamMembers"]
               }
             ],
             "linkType": "Entry"
@@ -2112,8 +1984,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         }
@@ -2178,9 +2049,7 @@
           "required": true,
           "validations": [
             {
-              "linkMimetypeGroup": [
-                "image"
-              ]
+              "linkMimetypeGroup": ["image"]
             }
           ],
           "disabled": false,
@@ -2193,8 +2062,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -2206,9 +2074,7 @@
           "required": false,
           "validations": [
             {
-              "linkMimetypeGroup": [
-                "image"
-              ]
+              "linkMimetypeGroup": ["image"]
             }
           ],
           "disabled": false,
@@ -2223,9 +2089,7 @@
           "required": true,
           "validations": [
             {
-              "linkContentType": [
-                "companies"
-              ]
+              "linkContentType": ["companies"]
             }
           ],
           "disabled": false,
@@ -2293,9 +2157,7 @@
           "required": true,
           "validations": [
             {
-              "linkContentType": [
-                "section"
-              ]
+              "linkContentType": ["section"]
             }
           ],
           "disabled": false,
@@ -2308,8 +2170,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -2336,8 +2197,7 @@
           "type": "Boolean",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -2347,8 +2207,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -2358,17 +2217,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "reviewSlider"
-                ]
+                "linkContentType": ["reviewSlider"]
               }
             ],
             "linkType": "Entry"
@@ -2380,8 +2236,7 @@
           "type": "Text",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -2393,9 +2248,7 @@
           "required": true,
           "validations": [
             {
-              "linkContentType": [
-                "section"
-              ]
+              "linkContentType": ["section"]
             }
           ],
           "disabled": false,
@@ -2408,17 +2261,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "aboutRole"
-                ]
+                "linkContentType": ["aboutRole"]
               }
             ],
             "linkType": "Entry"
@@ -2432,9 +2282,7 @@
           "required": true,
           "validations": [
             {
-              "linkContentType": [
-                "section"
-              ]
+              "linkContentType": ["section"]
             }
           ],
           "disabled": false,
@@ -2447,17 +2295,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "lookingContent"
-                ]
+                "linkContentType": ["lookingContent"]
               }
             ],
             "linkType": "Entry"
@@ -2471,9 +2316,7 @@
           "required": true,
           "validations": [
             {
-              "linkContentType": [
-                "section"
-              ]
+              "linkContentType": ["section"]
             }
           ],
           "disabled": false,
@@ -2486,17 +2329,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "teamList"
-                ]
+                "linkContentType": ["teamList"]
               }
             ],
             "linkType": "Entry"
@@ -2508,17 +2348,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "teamReviews"
-                ]
+                "linkContentType": ["teamReviews"]
               }
             ],
             "linkType": "Entry"
@@ -2530,17 +2367,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "faqSection"
-                ]
+                "linkContentType": ["faqSection"]
               }
             ],
             "linkType": "Entry"
@@ -2552,8 +2386,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -2563,8 +2396,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -2591,8 +2423,7 @@
           "type": "Boolean",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -2602,8 +2433,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -2615,9 +2445,7 @@
           "required": true,
           "validations": [
             {
-              "linkContentType": [
-                "tickerDuration"
-              ]
+              "linkContentType": ["tickerDuration"]
             }
           ],
           "disabled": false,
@@ -2630,17 +2458,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "quotes"
-                ]
+                "linkContentType": ["quotes"]
               }
             ],
             "linkType": "Entry"
@@ -2705,8 +2530,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -2718,9 +2542,7 @@
           "required": true,
           "validations": [
             {
-              "linkContentType": [
-                "teamMembers"
-              ]
+              "linkContentType": ["teamMembers"]
             }
           ],
           "disabled": false,
@@ -2786,8 +2608,7 @@
           "type": "Text",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -2797,8 +2618,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         }
@@ -2863,9 +2683,7 @@
           "required": true,
           "validations": [
             {
-              "linkContentType": [
-                "section"
-              ]
+              "linkContentType": ["section"]
             }
           ],
           "disabled": false,
@@ -2878,8 +2696,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -2889,17 +2706,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkMimetypeGroup": [
-                  "image"
-                ]
+                "linkMimetypeGroup": ["image"]
               }
             ],
             "linkType": "Asset"
@@ -2911,17 +2725,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "selectionCompanies"
-                ]
+                "linkContentType": ["selectionCompanies"]
               }
             ],
             "linkType": "Entry"
@@ -2933,8 +2744,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -2946,9 +2756,7 @@
           "required": true,
           "validations": [
             {
-              "linkContentType": [
-                "tickerDuration"
-              ]
+              "linkContentType": ["tickerDuration"]
             }
           ],
           "disabled": false,
@@ -2961,17 +2769,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "quotes"
-                ]
+                "linkContentType": ["quotes"]
               }
             ],
             "linkType": "Entry"
@@ -3036,8 +2841,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -3064,17 +2868,14 @@
           "type": "Array",
           "localized": false,
           "required": false,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "joinTeamPositions"
-                ]
+                "linkContentType": ["joinTeamPositions"]
               }
             ],
             "linkType": "Entry"
@@ -3139,8 +2940,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -3167,8 +2967,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -3178,8 +2977,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         }
@@ -3242,17 +3040,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "listCompanies"
-                ]
+                "linkContentType": ["listCompanies"]
               }
             ],
             "linkType": "Entry"
@@ -3264,17 +3059,14 @@
           "type": "Array",
           "localized": false,
           "required": false,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "sectionNews"
-                ]
+                "linkContentType": ["sectionNews"]
               }
             ],
             "linkType": "Entry"
@@ -3286,17 +3078,14 @@
           "type": "Array",
           "localized": false,
           "required": false,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "blogSection"
-                ]
+                "linkContentType": ["blogSection"]
               }
             ],
             "linkType": "Entry"
@@ -3310,9 +3099,7 @@
           "required": true,
           "validations": [
             {
-              "linkContentType": [
-                "tickerDuration"
-              ]
+              "linkContentType": ["tickerDuration"]
             }
           ],
           "disabled": false,
@@ -3325,17 +3112,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "quotes"
-                ]
+                "linkContentType": ["quotes"]
               }
             ],
             "linkType": "Entry"
@@ -3402,9 +3186,7 @@
           "required": true,
           "validations": [
             {
-              "linkMimetypeGroup": [
-                "image"
-              ]
+              "linkMimetypeGroup": ["image"]
             }
           ],
           "disabled": false,
@@ -3417,8 +3199,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -3428,8 +3209,7 @@
           "type": "Date",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -3441,9 +3221,7 @@
           "required": true,
           "validations": [
             {
-              "linkContentType": [
-                "listCompanies"
-              ]
+              "linkContentType": ["listCompanies"]
             }
           ],
           "disabled": false,
@@ -3456,8 +3234,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -3467,8 +3244,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         }
@@ -3531,8 +3307,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -3542,8 +3317,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         }
@@ -3608,9 +3382,7 @@
           "required": true,
           "validations": [
             {
-              "linkMimetypeGroup": [
-                "image"
-              ]
+              "linkMimetypeGroup": ["image"]
             }
           ],
           "disabled": false,
@@ -3623,8 +3395,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -3648,8 +3419,7 @@
           "type": "Date",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -3659,8 +3429,7 @@
           "type": "Text",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -3670,8 +3439,7 @@
           "type": "Text",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         }
@@ -3734,8 +3502,7 @@
           "type": "Text",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -3747,9 +3514,7 @@
           "required": true,
           "validations": [
             {
-              "linkContentType": [
-                "teamMembers"
-              ]
+              "linkContentType": ["teamMembers"]
             }
           ],
           "disabled": false,
@@ -3815,8 +3580,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -3828,9 +3592,7 @@
           "required": true,
           "validations": [
             {
-              "linkContentType": [
-                "tickerDuration"
-              ]
+              "linkContentType": ["tickerDuration"]
             }
           ],
           "disabled": false,
@@ -3843,17 +3605,14 @@
           "type": "Array",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Link",
             "validations": [
               {
-                "linkContentType": [
-                  "quotes"
-                ]
+                "linkContentType": ["quotes"]
               }
             ],
             "linkType": "Entry"
@@ -3865,8 +3624,7 @@
           "type": "Text",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         }
@@ -3999,8 +3757,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -4010,8 +3767,7 @@
           "type": "Text",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         }
@@ -4074,8 +3830,7 @@
           "type": "Text",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         }
@@ -4138,8 +3893,7 @@
           "type": "Boolean",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -4151,9 +3905,7 @@
           "required": true,
           "validations": [
             {
-              "linkMimetypeGroup": [
-                "image"
-              ]
+              "linkMimetypeGroup": ["image"]
             }
           ],
           "disabled": false,
@@ -4166,8 +3918,7 @@
           "type": "Text",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -4179,9 +3930,7 @@
           "required": true,
           "validations": [
             {
-              "linkContentType": [
-                "companies"
-              ]
+              "linkContentType": ["companies"]
             }
           ],
           "disabled": false,
@@ -4194,8 +3943,7 @@
           "type": "Text",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -4205,8 +3953,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -4216,8 +3963,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         }
@@ -4280,8 +4026,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -4291,16 +4036,14 @@
           "type": "Text",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         }
       ]
     }
   ],
-  "tags": [
-  ],
+  "tags": [],
   "editorInterfaces": [
     {
       "sys": {
@@ -65132,8 +64875,7 @@
       }
     }
   ],
-  "webhooks": [
-  ],
+  "webhooks": [],
   "roles": [
     {
       "name": "Editor",
@@ -65173,19 +64915,12 @@
         }
       ],
       "permissions": {
-        "ContentModel": [
-          "read"
-        ],
-        "Settings": [
-        ],
-        "ContentDelivery": [
-        ],
-        "Environments": [
-        ],
-        "EnvironmentAliases": [
-        ],
-        "Tags": [
-        ]
+        "ContentModel": ["read"],
+        "Settings": [],
+        "ContentDelivery": [],
+        "Environments": [],
+        "EnvironmentAliases": [],
+        "Tags": []
       },
       "sys": {
         "type": "Role",
