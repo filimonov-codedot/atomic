@@ -55,7 +55,7 @@ export default function News({ data }) {
       ctaType="cta-inner"
       ctaDisplay={false}
       pageTitle="Blog"
-      metaData={metaData}
+      metaData={modalContent || metaData}
     >
       <div className="news-page">
         <div className="container">
@@ -133,6 +133,9 @@ export const pageQuery = graphql`
         image {
           fluid(maxWidth: 760) {
             ...GatsbyContentfulFluid
+          }
+          sizes {
+            src
           }
           alt: title
         }
