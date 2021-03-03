@@ -12,7 +12,7 @@ import { CompanyModal } from "../components/Companies/CompanyModal"
 import { ModalUser } from "../components/Team/ModalUser"
 import { HomeModal } from "../components/Home/Modal/HomeModal"
 import { AnnouncementModal } from "../components/Home/Modal/AnnouncementModal"
-import { SEO } from '../components/SEO'
+import { SEO } from "../components/SEO"
 
 function getCookie(cname) {
   const name = cname + "="
@@ -222,7 +222,10 @@ export default function Home({ data }) {
 
   return isShowedHero ? (
     <>
-      <SEO titleTemplate="Atomic | We found and fund companies" metaData={metaData} />
+      <SEO
+        titleTemplate="Atomic | We found and fund companies"
+        metaData={metaData}
+      />
       <Hero hero={hero} heroTicker={heroTicker} setHeroShowed={setHeroShowed} />
     </>
   ) : (

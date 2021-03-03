@@ -26,7 +26,7 @@ export const Layout = ({
   pageTitle = null,
   titleTemplate = null,
   children,
-  metaData = null
+  metaData = null,
 }) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false)
   const [isOpenMenuMobile, setIsOpenMenuMobile] = useState(false)
@@ -186,7 +186,11 @@ export const Layout = ({
   return (
     <PageTransition transitionTime={250}>
       <div className={`page-wrapper ${isHomePage ? "is-home" : ""}`}>
-        <SEO title={pageTitle} titleTemplate={titleTemplate} metaData={metaData} />
+        <SEO
+          title={pageTitle}
+          titleTemplate={titleTemplate}
+          metaData={metaData}
+        />
         <Header
           headerData={headerData}
           navHeader={navHeader}
