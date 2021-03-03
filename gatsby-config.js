@@ -17,6 +17,7 @@ module.exports = {
     title,
   },
   plugins: [
+    "gatsby-plugin-react-helmet",
     "gatsby-transformer-remark",
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
@@ -51,6 +52,5 @@ module.exports = {
     },
     // "gatsby-plugin-offline",
     "gatsby-plugin-page-transitions",
-    "gatsby-plugin-react-helmet",
   ],
 }
