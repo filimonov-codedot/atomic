@@ -49,10 +49,6 @@ export const SEO = ({ titleTemplate, title, metaData }) => {
           content: `website`,
         },
         {
-          name: `twitter:title`,
-          content: metaTitle,
-        },
-        {
           name: `twitter:card`,
           content: `summary_large_image`,
         },
