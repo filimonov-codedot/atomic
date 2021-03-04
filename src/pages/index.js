@@ -52,7 +52,9 @@ export default function Home({ data }) {
   const hero = createRef()
 
   const {
-    site: { siteMetadata: { title } },
+    site: {
+      siteMetadata: { title },
+    },
     globalMetaData,
     headerData,
     footerData,

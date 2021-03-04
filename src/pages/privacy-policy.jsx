@@ -5,7 +5,9 @@ import { Layout } from "../components/Layout"
 
 export default function PrivacyPolicy({ data }) {
   const {
-    site: { siteMetadata: { title } },
+    site: {
+      siteMetadata: { title },
+    },
     globalMetaData,
     headerData,
     footerData,

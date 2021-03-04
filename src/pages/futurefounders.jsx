@@ -17,7 +17,9 @@ export default function Futurefounders({ data }) {
   const [memberModal, setMemberModal] = useState(false)
 
   const {
-    site: { siteMetadata: { title } },
+    site: {
+      siteMetadata: { title },
+    },
     globalMetaData,
     headerData,
     footerData,

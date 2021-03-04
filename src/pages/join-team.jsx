@@ -7,7 +7,9 @@ import { TeamCompanies } from "../components/JoinTeam/TeamCompanies/TeamCompanie
 
 export default function JoinTeam({ data }) {
   const {
-    site: { siteMetadata: { title } },
+    site: {
+      siteMetadata: { title },
+    },
     globalMetaData,
     headerData,
     footerData,

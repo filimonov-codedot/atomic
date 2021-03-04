@@ -10,7 +10,9 @@ export default function News({ data }) {
   const [selectedCompany, setSelectedCompany] = useState("")
 
   const {
-    site: { siteMetadata: { title } },
+    site: {
+      siteMetadata: { title },
+    },
     globalMetaData,
     headerData,
     footerData,

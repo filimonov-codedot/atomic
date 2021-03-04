@@ -10,7 +10,9 @@ export default function Companies({ data }) {
   const [activeCompany, setActiveCompany] = useState(null)
 
   const {
-    site: { siteMetadata: { title } },
+    site: {
+      siteMetadata: { title },
+    },
     globalMetaData,
     headerData,
     footerData,

@@ -10,13 +10,13 @@ export default function News({ data }) {
   const [modalContent, setModalContent] = useState(null)
 
   const {
-    site: { siteMetadata: { title } },
+    site: {
+      siteMetadata: { title },
+    },
     globalMetaData,
     headerData,
     footerData,
-    newsData: {
-      metaData, tickerDuration, tickerData, blogSection
-    },
+    newsData: { metaData, tickerDuration, tickerData, blogSection },
   } = data
 
   useEffect(() => {

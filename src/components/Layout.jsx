@@ -25,7 +25,7 @@ export const Layout = ({
   isHomePage = false,
   pageTitle = null,
   children,
-  title = '',
+  title = "",
   globalMetaData = null,
   metaData = null,
 }) => {

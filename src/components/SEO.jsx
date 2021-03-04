@@ -46,7 +46,7 @@ export const SEO = ({ titleTemplate, title, description, keywords, image }) => {
           content: `website`,
         },
         {
-          name: 'twitter:image:src',
+          name: "twitter:image:src",
           content: image,
         },
         {

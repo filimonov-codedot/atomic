@@ -11,11 +11,20 @@ export default function Team({ data }) {
   const [curUser, setCurUser] = useState(null)
 
   const {
-    site: { siteMetadata: { title } },
+    site: {
+      siteMetadata: { title },
+    },
     globalMetaData,
     headerData,
     footerData,
-    teamPage: { metaData, topHeader, teamMembers, ctaTitle, tickerDuration, tickerData },
+    teamPage: {
+      metaData,
+      topHeader,
+      teamMembers,
+      ctaTitle,
+      tickerDuration,
+      tickerData,
+    },
   } = data
 
   useEffect(() => {
