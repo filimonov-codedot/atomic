@@ -185,7 +185,7 @@ export const Layout = ({
   ]
 
   const [titleTemplate, description, keywords, image] = [
-    metaData?.title || globalMetaData?.title,
+    metaData?.title,
     metaData?.desc?.desc || globalMetaData?.desc?.desc,
     metaData?.keywords?.keywords || globalMetaData?.keywords?.keywords,
     metaData?.image?.file.src || globalMetaData?.image?.file.src,

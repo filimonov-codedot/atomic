@@ -224,11 +224,21 @@ export default function Home({ data }) {
   const _homeModalClose = () => setHomeModalClose(false)
   const _annModalClose = () => setAnnModalClose(false)
 
+  const [titleTemplate, description, keywords, image] = [
+    metaData?.title,
+    metaData?.desc?.desc || globalMetaData?.desc?.desc,
+    metaData?.keywords?.keywords || globalMetaData?.keywords?.keywords,
+    metaData?.image?.file.src || globalMetaData?.image?.file.src,
+  ]
+
   return isShowedHero ? (
     <>
       <SEO
-        titleTemplate="Atomic | We found and fund companies"
-        metaData={metaData}
+        title={title}
+        titleTemplate={titleTemplate}
+        description={description}
+        keywords={keywords}
+        image={'https:' + image}
       />
       <Hero hero={hero} heroTicker={heroTicker} setHeroShowed={setHeroShowed} />
     </>
