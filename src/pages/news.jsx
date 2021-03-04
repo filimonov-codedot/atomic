@@ -10,10 +10,11 @@ export default function News({ data }) {
   const [selectedCompany, setSelectedCompany] = useState("")
 
   const {
-    metaData,
+    site: { siteMetadata: { title } },
+    globalMetaData,
     headerData,
     footerData,
-    newsData: { tickerDuration, tickerData, companies, newsSection },
+    newsData: { metaData, tickerDuration, tickerData, companies, newsSection },
   } = data
 
   useEffect(() => {
@@ -33,6 +34,8 @@ export default function News({ data }) {
       ctaType="cta-inner"
       ctaDisplay={false}
       pageTitle="News"
+      title={title}
+      globalMetaData={globalMetaData}
       metaData={metaData}
     >
       <div className="news-page">
@@ -67,7 +70,18 @@ export default function News({ data }) {
 
 export const pageQuery = graphql`
   query NewsQuery {
-    metaData: contentfulGlobalMetaData {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    globalMetaData: contentfulGlobalMetaData {
+      desc {
+        desc
+      }
+      keywords {
+        keywords
+      }
       image {
         file {
           src: url
@@ -110,6 +124,20 @@ export const pageQuery = graphql`
       copyright
     }
     newsData: contentfulPageNews {
+      metaData {
+        title
+        desc {
+          desc
+        }
+        keywords {
+          keywords
+        }
+        image {
+          file {
+            src: url
+          }
+        }
+      }
       companies: listCompanies {
         title: name
       }

@@ -10,10 +10,12 @@ export default function Companies({ data }) {
   const [activeCompany, setActiveCompany] = useState(null)
 
   const {
-    metaData,
+    site: { siteMetadata: { title } },
+    globalMetaData,
     headerData,
     footerData,
     companiesPage: {
+      metaData,
       mainCompanies,
       stealthCompanies,
       textEndList,
@@ -69,6 +71,8 @@ export default function Companies({ data }) {
       tickerDuration={tickerDuration}
       tickerData={tickerData}
       pageTitle="Companies"
+      title={title}
+      globalMetaData={globalMetaData}
       metaData={metaData}
     >
       <CompanyMain mainCompanies={mainCompanies} handleClick={handleClick} />
@@ -83,7 +87,18 @@ export default function Companies({ data }) {
 
 export const pageQuery = graphql`
   query CompaniesQuery {
-    metaData: contentfulGlobalMetaData {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    globalMetaData: contentfulGlobalMetaData {
+      desc {
+        desc
+      }
+      keywords {
+        keywords
+      }
       image {
         file {
           src: url
@@ -126,6 +141,20 @@ export const pageQuery = graphql`
       copyright
     }
     companiesPage: contentfulPageCompanies {
+      metaData {
+        title
+        desc {
+          desc
+        }
+        keywords {
+          keywords
+        }
+        image {
+          file {
+            src: url
+          }
+        }
+      }
       mainCompanies {
         slug
         name

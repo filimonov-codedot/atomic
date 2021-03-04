@@ -52,10 +52,12 @@ export default function Home({ data }) {
   const hero = createRef()
 
   const {
-    metaData,
+    site: { siteMetadata: { title } },
+    globalMetaData,
     headerData,
     footerData,
     homePage: {
+      metaData,
       modal = { toggle: false },
       announcement = { toggle: false },
       counterSectionSwitch,
@@ -236,7 +238,8 @@ export default function Home({ data }) {
       tickerDuration={tickerDuration}
       tickerData={tickerData}
       isHomePage={true}
-      titleTemplate="Atomic | We found and fund companies"
+      title={title}
+      globalMetaData={globalMetaData}
       metaData={metaData}
     >
       {homeModalClose && showModal ? (
@@ -274,7 +277,18 @@ export default function Home({ data }) {
 
 export const pageQuery = graphql`
   query HomeQuery {
-    metaData: contentfulGlobalMetaData {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    globalMetaData: contentfulGlobalMetaData {
+      desc {
+        desc
+      }
+      keywords {
+        keywords
+      }
       image {
         file {
           src: url
@@ -317,6 +331,20 @@ export const pageQuery = graphql`
       copyright
     }
     homePage: contentfulPageHome {
+      metaData {
+        title
+        desc {
+          desc
+        }
+        keywords {
+          keywords
+        }
+        image {
+          file {
+            src: url
+          }
+        }
+      }
       heroToggle
       heroTicker {
         text
