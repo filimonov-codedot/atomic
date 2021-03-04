@@ -6,7 +6,7 @@ export const SEO = ({ titleTemplate, title, description, keywords, image }) => {
     <Helmet
       defer={false}
       htmlAttributes={{ lang: "en" }}
-      title={title}
+      title={titleTemplate || title}
       titleTemplate={titleTemplate}
       meta={[
         {
@@ -19,7 +19,7 @@ export const SEO = ({ titleTemplate, title, description, keywords, image }) => {
         },
         {
           property: "og:title",
-          content: title,
+          content: titleTemplate || title,
         },
         {
           property: "og:url",
