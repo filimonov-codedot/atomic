@@ -199,7 +199,7 @@ export const Layout = ({
           titleTemplate={titleTemplate}
           description={description}
           keywords={keywords}
-          image={image}
+          image={'https:' + image}
         />
         <Header
           headerData={headerData}
