@@ -11,10 +11,20 @@ export default function Team({ data }) {
   const [curUser, setCurUser] = useState(null)
 
   const {
-    metaData,
+    site: {
+      siteMetadata: { title },
+    },
+    globalMetaData,
     headerData,
     footerData,
-    teamPage: { topHeader, teamMembers, ctaTitle, tickerDuration, tickerData },
+    teamPage: {
+      metaData,
+      topHeader,
+      teamMembers,
+      ctaTitle,
+      tickerDuration,
+      tickerData,
+    },
   } = data
 
   useEffect(() => {
@@ -49,7 +59,6 @@ export default function Team({ data }) {
 
   return (
     <Layout
-      metaData={metaData}
       headerData={headerData}
       footerData={footerData}
       ctaType="cta-inner"
@@ -57,6 +66,9 @@ export default function Team({ data }) {
       tickerDuration={tickerDuration}
       tickerData={tickerData}
       pageTitle="Team"
+      title={title}
+      globalMetaData={globalMetaData}
+      metaData={metaData}
     >
       <TeamPage>
         <TeamHeader header={topHeader} />
@@ -69,7 +81,18 @@ export default function Team({ data }) {
 
 export const pageQuery = graphql`
   query TeamQuery {
-    metaData: contentfulGlobalMetaData {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    globalMetaData: contentfulGlobalMetaData {
+      desc {
+        desc
+      }
+      keywords {
+        keywords
+      }
       image {
         file {
           src: url
@@ -112,6 +135,20 @@ export const pageQuery = graphql`
       copyright
     }
     teamPage: contentfulPageTeam {
+      metaData {
+        title
+        desc {
+          desc
+        }
+        keywords {
+          keywords
+        }
+        image {
+          file {
+            src: url
+          }
+        }
+      }
       topHeader {
         title
         desc {

@@ -4,7 +4,6 @@ exports.createSchemaCustomization = ({ actions }) => {
     @childOf(types: ["ContentfulPageJoinTeam"]) {
       positions: [ContentfulPageJoinTeamSelectionCompaniesPositions]
     }
-
     type ContentfulPageJoinTeamSelectionCompaniesPositions implements Node
     @childOf(types: ["ContentfulPageJoinTeam"]) {
       id: ID!
@@ -13,16 +12,14 @@ exports.createSchemaCustomization = ({ actions }) => {
       location: String
       schedule: String
     }
-    
     type ContentfulModalReviewSlider implements Node
     @childOf(types: ["ContentfulPageHome"]) {
       logoWhile: ContentfulAsset
     }
     type ContentfulModelReviewSlider implements Node
-    @childOf(types: ["ContentfulPageCoFound"]) {
+    @childOf(types: ["ContentfulPageFutureFounders"]) {
       logoWhile: ContentfulAsset
     }
-    
     type ContentfulPageCompanies implements Node
     @childOf(types: ["ContentfulPageCompanies"]) {
       textEndList: String

@@ -10,10 +10,13 @@ export default function News({ data }) {
   const [modalContent, setModalContent] = useState(null)
 
   const {
+    site: {
+      siteMetadata: { title },
+    },
     globalMetaData,
     headerData,
     footerData,
-    newsData: { metaData: { title, desc: { desc } }, tickerDuration, tickerData, blogSection },
+    newsData: { metaData, tickerDuration, tickerData, blogSection },
   } = data
 
   useEffect(() => {
@@ -55,9 +58,9 @@ export default function News({ data }) {
       ctaType="cta-inner"
       ctaDisplay={false}
       pageTitle="Blog"
-      metaData={modalContent || globalMetaData}
-      titleTemplate={title}
-      description={desc}
+      title={title}
+      globalMetaData={globalMetaData}
+      metaData={metaData}
     >
       <div className="news-page">
         <div className="container">
@@ -84,7 +87,18 @@ export default function News({ data }) {
 
 export const pageQuery = graphql`
   query BlogQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     globalMetaData: contentfulGlobalMetaData {
+      desc {
+        desc
+      }
+      keywords {
+        keywords
+      }
       image {
         file {
           src: url
@@ -127,6 +141,20 @@ export const pageQuery = graphql`
       copyright
     }
     newsData: contentfulPageNews {
+      metaData {
+        title
+        desc {
+          desc
+        }
+        keywords {
+          keywords
+        }
+        image {
+          file {
+            src: url
+          }
+        }
+      }
       metaData {
         title
         desc {

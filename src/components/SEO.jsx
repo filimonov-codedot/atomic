@@ -1,29 +1,25 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 
-export const SEO = ({ titleTemplate, title, description = null, metaData }) => {
-  const metaTitle = titleTemplate
-    ? titleTemplate
-    : `Atomic${title ? ` | ${title}` : ""}`
-
+export const SEO = ({ titleTemplate, title, description, keywords, image }) => {
   return (
     <Helmet
       defer={false}
       htmlAttributes={{ lang: "en" }}
-      title={metaTitle}
-      titleTemplate={metaTitle}
+      title={title}
+      titleTemplate={titleTemplate}
       meta={[
         {
           name: "description",
-          content: description || metaTitle,
+          content: description,
         },
         {
           name: "keywords",
-          content: "atomic",
+          content: keywords,
         },
         {
           property: "og:title",
-          content: metaTitle,
+          content: title,
         },
         {
           property: "og:url",
@@ -31,11 +27,11 @@ export const SEO = ({ titleTemplate, title, description = null, metaData }) => {
         },
         {
           property: "og:description",
-          content: description || metaTitle,
+          content: description,
         },
         {
           property: "og:image",
-          content: 'https:' + metaData?.image.file.src,
+          content: image,
         },
         {
           property: "og:image:width",
@@ -50,8 +46,8 @@ export const SEO = ({ titleTemplate, title, description = null, metaData }) => {
           content: `website`,
         },
         {
-          name: 'twitter:image:src',
-          content: 'https:' + metaData?.image.file.src,
+          name: "twitter:image:src",
+          content: image,
         },
         {
           name: `twitter:card`,
