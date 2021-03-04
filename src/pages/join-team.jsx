@@ -7,10 +7,14 @@ import { TeamCompanies } from "../components/JoinTeam/TeamCompanies/TeamCompanie
 
 export default function JoinTeam({ data }) {
   const {
-    metaData,
+    site: {
+      siteMetadata: { title },
+    },
+    globalMetaData,
     headerData,
     footerData,
     joinTeam: {
+      metaData,
       topHeader,
       buttonText,
       slides,
@@ -34,6 +38,8 @@ export default function JoinTeam({ data }) {
       tickerDuration={tickerDuration}
       tickerData={tickerData}
       pageTitle="Join a Team"
+      title={title}
+      globalMetaData={globalMetaData}
       metaData={metaData}
     >
       <About header={{ ...topHeader, buttonText }} slides={slides} />
@@ -44,7 +50,18 @@ export default function JoinTeam({ data }) {
 
 export const pageQuery = graphql`
   query JoinTeamQuery {
-    metaData: contentfulGlobalMetaData {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    globalMetaData: contentfulGlobalMetaData {
+      desc {
+        desc
+      }
+      keywords {
+        keywords
+      }
       image {
         file {
           src: url
@@ -87,6 +104,20 @@ export const pageQuery = graphql`
       copyright
     }
     joinTeam: contentfulPageJoinTeam {
+      metaData {
+        title
+        desc {
+          desc
+        }
+        keywords {
+          keywords
+        }
+        image {
+          file {
+            src: url
+          }
+        }
+      }
       topHeader {
         title
         desc {

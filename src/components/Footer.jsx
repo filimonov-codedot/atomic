@@ -112,7 +112,7 @@ export const Footer = ({ footerData, navFooter, navSiteMap }) => {
             <ul>
               {navFooter.map(({ title, link }, index) => (
                 <li key={index}>
-                  <a href={link}>{title}</a>
+                  <Link to={link}>{title}</Link>
                 </li>
               ))}
             </ul>

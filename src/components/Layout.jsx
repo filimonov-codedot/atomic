@@ -24,14 +24,59 @@ export const Layout = ({
   ctaDisplay = true,
   isHomePage = false,
   pageTitle = null,
-  titleTemplate = null,
-  description = null,
   children,
+  title = "",
+  globalMetaData = null,
   metaData = null,
 }) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false)
   const [isOpenMenuMobile, setIsOpenMenuMobile] = useState(false)
   const [isOpenContactModal, setIsOpenContactModal] = useState(false)
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const boolParam = param => window.location.hash === "#" + param
+
+      if (boolParam("join")) setIsOpenMenu(true)
+      if (boolParam("menu")) setIsOpenMenuMobile(true)
+      if (boolParam("contact")) setIsOpenContactModal(true)
+    }
+  }, [])
+
+  const changeUrlCLose = () => {
+    if (typeof window !== "undefined") {
+      navigate(window.location.pathname)
+    }
+  }
+
+  const Modals = () => {
+    if (isOpenMenu) {
+      navigate(`#join`)
+      return (
+        <MenuModal
+          onClose={() => {
+            changeUrlCLose()
+            setIsOpenMenu(false)
+          }}
+          navModal={navModal}
+        />
+      )
+    }
+    if (isOpenMenuMobile) {
+      navigate(`#menu`)
+      return (
+        <MenuModalMobile
+          onClose={() => {
+            changeUrlCLose()
+            setIsOpenMenuMobile(false)
+          }}
+          navModalMobile={navModalMobile}
+        />
+      )
+    }
+    if (isOpenContactModal) navigate(`#contact`)
+    return null
+  }
 
   const navHeader = [
     {
@@ -139,59 +184,22 @@ export const Layout = ({
     },
   ]
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const boolParam = param => window.location.hash === "#" + param
-
-      if (boolParam("join")) setIsOpenMenu(true)
-      if (boolParam("menu")) setIsOpenMenuMobile(true)
-      if (boolParam("contact")) setIsOpenContactModal(true)
-    }
-  }, [])
-
-  const changeUrlCLose = () => {
-    if (typeof window !== "undefined") {
-      navigate(window.location.pathname)
-    }
-  }
-
-  const Modals = () => {
-    if (isOpenMenu) {
-      navigate(`#join`)
-      return (
-        <MenuModal
-          onClose={() => {
-            changeUrlCLose()
-            setIsOpenMenu(false)
-          }}
-          navModal={navModal}
-        />
-      )
-    }
-    if (isOpenMenuMobile) {
-      navigate(`#menu`)
-      return (
-        <MenuModalMobile
-          onClose={() => {
-            changeUrlCLose()
-            setIsOpenMenuMobile(false)
-          }}
-          navModalMobile={navModalMobile}
-        />
-      )
-    }
-    if (isOpenContactModal) navigate(`#contact`)
-    return null
-  }
+  const [titleTemplate, description, keywords, image] = [
+    metaData?.title || globalMetaData?.title,
+    metaData?.desc?.desc || globalMetaData?.desc?.desc,
+    metaData?.keywords?.keywords || globalMetaData?.keywords?.keywords,
+    metaData?.image?.file.src || globalMetaData?.image?.file.src,
+  ]
 
   return (
     <PageTransition transitionTime={250}>
       <div className={`page-wrapper ${isHomePage ? "is-home" : ""}`}>
         <SEO
-          title={pageTitle}
+          title={title}
           titleTemplate={titleTemplate}
           description={description}
-          metaData={metaData}
+          keywords={keywords}
+          image={'https:' + image}
         />
         <Header
           headerData={headerData}

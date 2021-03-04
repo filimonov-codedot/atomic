@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react"
 import { graphql, navigate } from "gatsby"
 
 import { Layout } from "../components/Layout"
-import { CoFoundInfo } from "../components/CoFound/CoFoundInfo"
+import { FutureFoundersInfo } from "../components/FutureFounders/FutureFoundersInfo"
 import { ReviewSlider } from "../components/ReviewSlider"
-import { About } from "../components/CoFound/About/About"
-import { LookingFor } from "../components/CoFound/LookingFor/LookingFor"
-import { Team } from "../components/CoFound/Team/Team"
-import { TeamReviews } from "../components/CoFound/Team/TeamReviews"
-import { Faqs } from "../components/CoFound/Faqs/Faqs"
+import { About } from "../components/FutureFounders/About/About"
+import { LookingFor } from "../components/FutureFounders/LookingFor/LookingFor"
+import { Team } from "../components/FutureFounders/Team/Team"
+import { TeamReviews } from "../components/FutureFounders/Team/TeamReviews"
+import { Faqs } from "../components/FutureFounders/Faqs/Faqs"
 import { CompanyModal } from "../components/Companies/CompanyModal"
 import { ModalUser } from "../components/Team/ModalUser"
 
@@ -17,10 +17,14 @@ export default function Futurefounders({ data }) {
   const [memberModal, setMemberModal] = useState(false)
 
   const {
-    metaData,
+    site: {
+      siteMetadata: { title },
+    },
+    globalMetaData,
     headerData,
     footerData,
-    coFound: {
+    futureFounders: {
+      metaData,
       topHeader,
       topButton,
       topButtonUrl,
@@ -112,9 +116,11 @@ export default function Futurefounders({ data }) {
       tickerDuration={tickerDuration}
       tickerData={tickerData}
       pageTitle="Co-Found"
+      title={title}
+      globalMetaData={globalMetaData}
       metaData={metaData}
     >
-      <CoFoundInfo
+      <FutureFoundersInfo
         topHeader={topHeader}
         topButton={topButton}
         topButtonUrl={topButtonUrl}
@@ -149,8 +155,19 @@ export default function Futurefounders({ data }) {
 }
 
 export const pageQuery = graphql`
-  query CoFoundQuery {
-    metaData: contentfulGlobalMetaData {
+  query FutureFoundersQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    globalMetaData: contentfulGlobalMetaData {
+      desc {
+        desc
+      }
+      keywords {
+        keywords
+      }
       image {
         file {
           src: url
@@ -192,7 +209,21 @@ export const pageQuery = graphql`
       }
       copyright
     }
-    coFound: contentfulPageCoFound {
+    futureFounders: contentfulPageFutureFounders {
+      metaData {
+        title
+        desc {
+          desc
+        }
+        keywords {
+          keywords
+        }
+        image {
+          file {
+            src: url
+          }
+        }
+      }
       topHeader {
         title
         desc {

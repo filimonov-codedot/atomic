@@ -5,10 +5,14 @@ import { Layout } from "../components/Layout"
 
 export default function PrivacyPolicy({ data }) {
   const {
-    metaData,
+    site: {
+      siteMetadata: { title },
+    },
+    globalMetaData,
     headerData,
     footerData,
     privacyPage: {
+      metaData,
       text: { html },
       ctaTitle,
       tickerDuration,
@@ -29,6 +33,8 @@ export default function PrivacyPolicy({ data }) {
       tickerDuration={tickerDuration}
       tickerData={tickerData}
       pageTitle="Privacy Policy"
+      title={title}
+      globalMetaData={globalMetaData}
       metaData={metaData}
     >
       <div className="privacy-policy page-content">
@@ -47,7 +53,18 @@ export default function PrivacyPolicy({ data }) {
 
 export const pageQuery = graphql`
   query PrivacyQuery {
-    metaData: contentfulGlobalMetaData {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    globalMetaData: contentfulGlobalMetaData {
+      desc {
+        desc
+      }
+      keywords {
+        keywords
+      }
       image {
         file {
           src: url
@@ -90,6 +107,20 @@ export const pageQuery = graphql`
       copyright
     }
     privacyPage: contentfulPagePrivacyPolicy {
+      metaData {
+        title
+        desc {
+          desc
+        }
+        keywords {
+          keywords
+        }
+        image {
+          file {
+            src: url
+          }
+        }
+      }
       text {
         html: text
       }

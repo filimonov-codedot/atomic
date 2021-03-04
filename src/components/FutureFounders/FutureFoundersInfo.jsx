@@ -2,7 +2,7 @@ import React from "react"
 // import React, { useContext } from 'react'
 // import childrenContext from '../childrenContext'
 
-export function CoFoundInfo({
+export function FutureFoundersInfo({
   topHeader,
   topButton,
   topButtonUrl,
