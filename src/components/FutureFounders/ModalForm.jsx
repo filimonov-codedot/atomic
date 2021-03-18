@@ -7,7 +7,7 @@ import { useFormik } from 'formik';
 import NetlifyForm from '../NetlifyForm'
 import { ModalWrapper } from '../ModalWrapper'
 
-const RECAPTCHA_KEY = '6LdO44EaAAAAAJ_wVhooK7HLp9BlZej5ml6_SBdA'
+const RECAPTCHA_KEY = '6Lcf4IQaAAAAAEvHy2QajeAmGNSWPBFaW0jXRGw5'
 
 const validationSchema = yup.object({
   name: yup
@@ -64,10 +64,7 @@ export default function ModalForm ({ isOpen, onClose }) {
       veteranStatus: '',
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-      return false
-    },
+    onSubmit: () => true,
   });
 
   const postSubmit = () => setIsSent(true)
