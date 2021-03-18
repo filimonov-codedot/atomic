@@ -44,6 +44,10 @@ export default function NetlifyForm ({
   const onSubmit = async (e) => {
     e.preventDefault()
 
+    console.log(preSubmit)
+    console.log(await preSubmit())
+    console.log(!preSubmit)
+
     if ((preSubmit && await preSubmit()) || !preSubmit) {
       if (await handleSubmit()) {
         postSubmit && postSubmit()
