@@ -44,6 +44,15 @@
 		color: #fff;
 	}
 
+	&-black {
+		background: $color-black;
+		color: #fff;
+	}
+
+	&-block {
+		width: 100%;
+	}
+
 	&-clear {
 		background: transparent;
 	}
