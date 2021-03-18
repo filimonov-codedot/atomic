@@ -80,8 +80,6 @@ export default function ModalForm ({ isOpen, onClose }) {
     },
   })
 
-  console.log(formik.errors.name)
-
   return (
     <>
       <NetlifyForm

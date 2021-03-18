@@ -99,18 +99,7 @@ export default function Futurefounders({ data }) {
         />
       )
     }
-    if (modalForm) {
-      navigate(`#apply`)
-      return (
-        <ModalForm
-          onClose={() => {
-            changeUrlCLose()
-            setModalForm(false)
-          }}
-          isOpen={modalForm}
-        />
-      )
-    }
+    if (modalForm) navigate(`#apply`)
     return null
   }
 
@@ -166,6 +155,13 @@ export default function Futurefounders({ data }) {
       <TeamReviews teamReviews={teamReviews} />
       <Faqs faq={faq} />
       <Modals />
+      <ModalForm
+        onClose={() => {
+          changeUrlCLose()
+          setModalForm(false)
+        }}
+        isOpen={modalForm}
+      />
     </Layout>
   )
 }

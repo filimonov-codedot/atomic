@@ -74,18 +74,7 @@ export const Layout = ({
         />
       )
     }
-    if (isOpenContactModal) {
-      navigate(`#contact`)
-      return (
-        <ContactUsModal
-          onClose={() => {
-            changeUrlCLose()
-            setIsOpenContactModal(false)
-          }}
-          isOpenContactModal={isOpenContactModal}
-        />
-      )
-    }
+    if (isOpenContactModal) navigate(`#contact`)
     return null
   }
 
@@ -247,6 +236,13 @@ export const Layout = ({
           navFooter={navFooter}
         />
         <Modals />
+        <ContactUsModal
+          onClose={() => {
+            changeUrlCLose()
+            setIsOpenContactModal(false)
+          }}
+          isOpenContactModal={isOpenContactModal}
+        />
       </div>
     </PageTransition>
   )
