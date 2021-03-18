@@ -80,6 +80,7 @@ export default function ModalForm ({ isOpen, onClose }) {
     },
   })
 
+  const isValid = !!(formik.values.name) && !(formik.errors.name) && formik.isValid
   return (
     <>
       <NetlifyForm
@@ -87,6 +88,7 @@ export default function ModalForm ({ isOpen, onClose }) {
         formValues={formik.values}
         preSubmit={formik.handleSubmit}
         postSubmit={postSubmit}
+        isValid={isValid}
       >
         <input type="text" name="name" defaultValue={formik.values.name} hidden />
         <input type="text" name="email" defaultValue={formik.values.email} hidden />
@@ -117,6 +119,7 @@ export default function ModalForm ({ isOpen, onClose }) {
                   formValues={formik.values.values}
                   preSubmit={formik.handleSubmit}
                   postSubmit={postSubmit}
+                  isValid={isValid}
                 >
                   <div className={[
                     'field-wrapper',
