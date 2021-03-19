@@ -1,9 +1,5 @@
 .ccpa {
-  padding: 120px 0;
-
-  @include desktop {
-    padding: 100px 0;
-  }
+  padding: 128px 0 120px;
 
   p, li {
     font-family: $font-MessinaSans;
@@ -23,6 +19,7 @@
     text-align: center;
     letter-spacing: -0.03em;
     color: #1A1A1A;
+    margin: 0 0 40px;
   }
 
   h2 {
@@ -32,7 +29,7 @@
     font-size: 24px;
     line-height: 28px;
     letter-spacing: -0.01em;
-    margin-bottom: 20px;
+    margin: 0 0 20px;
   }
 
   h4 {
@@ -44,6 +41,7 @@
     text-align: center;
     text-transform: uppercase;
     color: #242528;
+    margin: 0 0 80px;
   }
 
   p {
