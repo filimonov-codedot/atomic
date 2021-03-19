@@ -28,9 +28,7 @@ const validationSchema = yup.object({
     .required("Linkedin URL is required"),
   twitterUrl: yup.string("Enter your twitter URL").url("Enter a valid URL"),
   githubUrl: yup.string("Enter your github URL").url("Enter a valid URL"),
-  portfolioUrl: yup
-    .string("Enter your portfolio URL")
-    .url("Enter a valid URL"),
+  portfolioUrl: yup.string("Enter your portfolio URL").url("Enter a valid URL"),
   otherLink: yup.string("Enter a valid URL").url("Enter a valid URL"),
   USEmploymentAuthorization: yup
     .string("Enter your US Employment Authorization")
@@ -133,14 +131,9 @@ export default function ApplicationModal({ isOpen, onClose }) {
           hidden
         />
         <input
-          type="text"
+          type="file"
           name="file"
           defaultValue={formik.values.file}
-          hidden
-        />
-        <textarea
-          name="areasOfInterest"
-          defaultValue={formik.values.areasOfInterest}
           hidden
         />
         <input
@@ -149,15 +142,20 @@ export default function ApplicationModal({ isOpen, onClose }) {
           defaultValue={formik.values.referrals}
           hidden
         />
-        <input
-          type="text"
-          name="USEmploymentAuthorization"
-          defaultValue={formik.values.USEmploymentAuthorization}
+        <textarea
+          name="areasOfInterest"
+          defaultValue={formik.values.areasOfInterest}
           hidden
         />
         <textarea
           name="anythingElse"
           defaultValue={formik.values.anythingElse}
+          hidden
+        />
+        <input
+          type="text"
+          name="USEmploymentAuthorization"
+          defaultValue={formik.values.USEmploymentAuthorization}
           hidden
         />
         <input
@@ -288,11 +286,11 @@ export default function ApplicationModal({ isOpen, onClose }) {
                     className={[
                       "field-wrapper",
                       formik.touched.twitterUrl &&
-                      Boolean(formik.errors.twitterUrl) &&
-                      "error",
+                        Boolean(formik.errors.twitterUrl) &&
+                        "error",
                     ]
-                    .filter(Boolean)
-                    .join(" ")}
+                      .filter(Boolean)
+                      .join(" ")}
                   >
                     <label htmlFor="twitterUrl">Twitter URL</label>
                     <input
@@ -303,21 +301,21 @@ export default function ApplicationModal({ isOpen, onClose }) {
                       onChange={formik.handleChange}
                     />
                     {formik.touched.twitterUrl &&
-                    Boolean(formik.errors.twitterUrl) && (
-                      <span className="helper-text">
+                      Boolean(formik.errors.twitterUrl) && (
+                        <span className="helper-text">
                           {formik.errors.twitterUrl}
                         </span>
-                    )}
+                      )}
                   </div>
                   <div
                     className={[
                       "field-wrapper",
                       formik.touched.githubUrl &&
-                      Boolean(formik.errors.githubUrl) &&
-                      "error",
+                        Boolean(formik.errors.githubUrl) &&
+                        "error",
                     ]
-                    .filter(Boolean)
-                    .join(" ")}
+                      .filter(Boolean)
+                      .join(" ")}
                   >
                     <label htmlFor="githubUrl">Github URL</label>
                     <input
@@ -328,21 +326,21 @@ export default function ApplicationModal({ isOpen, onClose }) {
                       onChange={formik.handleChange}
                     />
                     {formik.touched.githubUrl &&
-                    Boolean(formik.errors.githubUrl) && (
-                      <span className="helper-text">
+                      Boolean(formik.errors.githubUrl) && (
+                        <span className="helper-text">
                           {formik.errors.githubUrl}
                         </span>
-                    )}
+                      )}
                   </div>
                   <div
                     className={[
                       "field-wrapper",
                       formik.touched.portfolioUrl &&
-                      Boolean(formik.errors.portfolioUrl) &&
-                      "error",
+                        Boolean(formik.errors.portfolioUrl) &&
+                        "error",
                     ]
-                    .filter(Boolean)
-                    .join(" ")}
+                      .filter(Boolean)
+                      .join(" ")}
                   >
                     <label htmlFor="portfolioUrl">Portfolio URL</label>
                     <input
@@ -353,21 +351,21 @@ export default function ApplicationModal({ isOpen, onClose }) {
                       onChange={formik.handleChange}
                     />
                     {formik.touched.portfolioUrl &&
-                    Boolean(formik.errors.portfolioUrl) && (
-                      <span className="helper-text">
+                      Boolean(formik.errors.portfolioUrl) && (
+                        <span className="helper-text">
                           {formik.errors.portfolioUrl}
                         </span>
-                    )}
+                      )}
                   </div>
                   <div
                     className={[
                       "field-wrapper",
                       formik.touched.otherLink &&
-                      Boolean(formik.errors.otherLink) &&
-                      "error",
+                        Boolean(formik.errors.otherLink) &&
+                        "error",
                     ]
-                    .filter(Boolean)
-                    .join(" ")}
+                      .filter(Boolean)
+                      .join(" ")}
                   >
                     <label htmlFor="otherLink">Other link</label>
                     <input
@@ -378,17 +376,42 @@ export default function ApplicationModal({ isOpen, onClose }) {
                       onChange={formik.handleChange}
                     />
                     {formik.touched.otherLink &&
-                    Boolean(formik.errors.otherLink) && (
-                      <span className="helper-text">
+                      Boolean(formik.errors.otherLink) && (
+                        <span className="helper-text">
                           {formik.errors.otherLink}
                         </span>
-                    )}
+                      )}
                   </div>
                   <h3>Additional Options</h3>
                   <div className="comment">
                     Feel free to submit anything else you feel would be helpful
                     or would like us to consider – code, website, slide deck,
                     video, etc.
+                  </div>
+                  <div className="field-wrapper file-wrapper">
+                    {!formik.values.file ? (
+                      <>
+                        <label className="label-file" htmlFor="file">
+                          Upload File
+                        </label>
+                        <input
+                          id="file"
+                          type="file"
+                          name="file"
+                          onChange={e =>
+                            formik.setFieldValue("file", e.target.files[0])
+                          }
+                        />
+                      </>
+                    ) : (
+                      <>
+                        <div className='uploaded-button'>File Uploaded</div>
+                        <button
+                          className='uploaded-button-close'
+                          onClick={() => formik.setFieldValue("file", "")}
+                        />
+                      </>
+                    )}
                   </div>
                   <h3>Referrals</h3>
                   <div className="comment">
@@ -426,7 +449,7 @@ export default function ApplicationModal({ isOpen, onClose }) {
                   <div
                     className={[
                       "field-wrapper",
-                      "field-radio-wrapper",
+                      "radio-wrapper",
                       formik.touched.USEmploymentAuthorization &&
                         Boolean(formik.errors.USEmploymentAuthorization) &&
                         "error",
@@ -580,7 +603,7 @@ export default function ApplicationModal({ isOpen, onClose }) {
                     sitekey={RECAPTCHA_KEY}
                     onChange={value => setRecaptchaState(!!value)}
                   />
-                  <div className='btn-wrapper'>
+                  <div className="btn-wrapper">
                     {!isValid && (
                       <span className="helper-text">
                         Please fill in the required fields correctly

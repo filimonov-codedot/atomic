@@ -15,18 +15,19 @@ export default function NetlifyForm({
   }, [])
 
   // Transform object to proper form data
-  const formEncodeString = str => encodeURIComponent(str).replace(/%20/g, "+")
-  const encodeData = obj =>
-    Object.entries(obj)
-      .map(pair => formEncodeString(pair[0]) + "=" + formEncodeString(pair[1]))
-      .join("&")
+  const encode = data => {
+    const formData = new FormData()
+
+    for (const key of Object.keys(data)) formData.append(key, data[key])
+
+    return formData
+  }
 
   // Submit via POST then pass back true
   const handleSubmit = async () => {
     return await fetch("/", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encodeData({
+      body: encode({
         ...formValues,
         "form-name": formName,
         infoo: honey,
