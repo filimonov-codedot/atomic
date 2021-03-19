@@ -405,9 +405,9 @@ export default function ApplicationModal({ isOpen, onClose }) {
                       </>
                     ) : (
                       <>
-                        <div className='uploaded-button'>File Uploaded</div>
+                        <div className="uploaded-button">File Uploaded</div>
                         <button
-                          className='uploaded-button-close'
+                          className="uploaded-button-close"
                           onClick={() => formik.setFieldValue("file", "")}
                         />
                       </>
