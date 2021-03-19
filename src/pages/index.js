@@ -238,7 +238,7 @@ export default function Home({ data }) {
         titleTemplate={titleTemplate}
         description={description}
         keywords={keywords}
-        image={'https:' + image}
+        image={"https:" + image}
       />
       <Hero hero={hero} heroTicker={heroTicker} setHeroShowed={setHeroShowed} />
     </>
