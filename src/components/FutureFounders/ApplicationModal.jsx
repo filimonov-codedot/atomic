@@ -80,6 +80,7 @@ export default function ApplicationModal({ isOpen, onClose }) {
       <NetlifyForm
         formName="Future Founder"
         formValues={formik.values}
+        preSubmit={formik.handleSubmit}
         postSubmit={postSubmit}
         isValid={isValid}
       >
@@ -188,6 +189,7 @@ export default function ApplicationModal({ isOpen, onClose }) {
                   formName="Future Founder"
                   formValues={formik.values}
                   postSubmit={postSubmit}
+                  preSubmit={formik.handleSubmit}
                   isValid={isValid}
                 >
                   <div
