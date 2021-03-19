@@ -116,7 +116,7 @@ export default function ModalForm ({ isOpen, onClose }) {
                 <h2>Apply as a Future Founder</h2>
                 <NetlifyForm
                   formName="Future Founder"
-                  formValues={formik.values.values}
+                  formValues={formik.values}
                   preSubmit={formik.handleSubmit}
                   postSubmit={postSubmit}
                   isValid={isValid}
