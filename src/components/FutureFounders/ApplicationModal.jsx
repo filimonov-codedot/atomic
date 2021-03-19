@@ -26,19 +26,15 @@ const validationSchema = yup.object({
     .string("Enter your Linkedin URL")
     .url("Enter a valid URL")
     .required("Linkedin URL is required"),
-  twitterUrl: yup.string("Enter your Linkedin URL").url("Enter a valid URL"),
-  githubUrl: yup.string("Enter your Linkedin URL").url("Enter a valid URL"),
-  portfolioUrl: yup.string("Enter your Linkedin URL").url("Enter a valid URL"),
-  otherLink: yup.string("Enter your Linkedin URL").url("Enter a valid URL"),
-  file: "",
-  referrals: "",
-  anythingElse: "",
+  twitterUrl: yup.string("Enter your twitter URL").url("Enter a valid URL"),
+  githubUrl: yup.string("Enter your github URL").url("Enter a valid URL"),
+  portfolioUrl: yup
+    .string("Enter your portfolio4 URL")
+    .url("Enter a valid URL"),
+  otherLink: yup.string("Enter a valid URL").url(),
   USEmploymentAuthorization: yup
     .string("Enter your US Employment Authorization")
     .required("US Employment Authorization is required"),
-  gender: "",
-  race: "",
-  veteranStatus: "",
 })
 
 export default function ApplicationModal({ isOpen, onClose }) {
@@ -60,7 +56,6 @@ export default function ApplicationModal({ isOpen, onClose }) {
       USEmploymentAuthorization: "Yes",
       gender: "",
       race: "",
-      veteranStatus: "",
     },
     validationSchema: validationSchema,
     onSubmit: () => true,
@@ -534,8 +529,10 @@ export default function ApplicationModal({ isOpen, onClose }) {
               </>
             ) : (
               <>
-                <h3 className='gutter-top'>Success!</h3>
-                <span className="success-comment">Thank you for your application.</span>
+                <h3 className="gutter-top">Success!</h3>
+                <span className="success-comment">
+                  Thank you for your application.
+                </span>
               </>
             )}
           </div>
