@@ -29,9 +29,9 @@ const validationSchema = yup.object({
   twitterUrl: yup.string("Enter your twitter URL").url("Enter a valid URL"),
   githubUrl: yup.string("Enter your github URL").url("Enter a valid URL"),
   portfolioUrl: yup
-    .string("Enter your portfolio4 URL")
+    .string("Enter your portfolio URL")
     .url("Enter a valid URL"),
-  otherLink: yup.string("Enter a valid URL").url(),
+  otherLink: yup.string("Enter a valid URL").url("Enter a valid URL"),
   USEmploymentAuthorization: yup
     .string("Enter your US Employment Authorization")
     .required("US Employment Authorization is required"),
