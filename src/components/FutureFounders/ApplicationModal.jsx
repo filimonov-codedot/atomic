@@ -29,9 +29,9 @@ const validationSchema = yup.object({
   twitterUrl: yup.string("Enter your twitter URL").url("Enter a valid URL"),
   githubUrl: yup.string("Enter your github URL").url("Enter a valid URL"),
   portfolioUrl: yup
-    .string("Enter your portfolio4 URL")
+    .string("Enter your portfolio URL")
     .url("Enter a valid URL"),
-  otherLink: yup.string("Enter a valid URL").url(),
+  otherLink: yup.string("Enter a valid URL").url("Enter a valid URL"),
   USEmploymentAuthorization: yup
     .string("Enter your US Employment Authorization")
     .required("US Employment Authorization is required"),
@@ -272,7 +272,7 @@ export default function ApplicationModal({ isOpen, onClose }) {
                     <label htmlFor="linkedinUrl">Linkedin URL *</label>
                     <input
                       id="linkedinUrl"
-                      type="url"
+                      type="text"
                       name="linkedinUrl"
                       value={formik.values.linkedinUrl}
                       onChange={formik.handleChange}
@@ -284,45 +284,105 @@ export default function ApplicationModal({ isOpen, onClose }) {
                         </span>
                       )}
                   </div>
-                  <div className="field-wrapper">
+                  <div
+                    className={[
+                      "field-wrapper",
+                      formik.touched.twitterUrl &&
+                      Boolean(formik.errors.twitterUrl) &&
+                      "error",
+                    ]
+                    .filter(Boolean)
+                    .join(" ")}
+                  >
                     <label htmlFor="twitterUrl">Twitter URL</label>
                     <input
                       id="twitterUrl"
-                      type="url"
+                      type="text"
                       name="twitterUrl"
                       value={formik.values.twitterUrl}
                       onChange={formik.handleChange}
                     />
+                    {formik.touched.twitterUrl &&
+                    Boolean(formik.errors.twitterUrl) && (
+                      <span className="helper-text">
+                          {formik.errors.twitterUrl}
+                        </span>
+                    )}
                   </div>
-                  <div className="field-wrapper">
+                  <div
+                    className={[
+                      "field-wrapper",
+                      formik.touched.githubUrl &&
+                      Boolean(formik.errors.githubUrl) &&
+                      "error",
+                    ]
+                    .filter(Boolean)
+                    .join(" ")}
+                  >
                     <label htmlFor="githubUrl">Github URL</label>
                     <input
                       id="githubUrl"
-                      type="url"
+                      type="text"
                       name="githubUrl"
                       value={formik.values.githubUrl}
                       onChange={formik.handleChange}
                     />
+                    {formik.touched.githubUrl &&
+                    Boolean(formik.errors.githubUrl) && (
+                      <span className="helper-text">
+                          {formik.errors.githubUrl}
+                        </span>
+                    )}
                   </div>
-                  <div className="field-wrapper">
+                  <div
+                    className={[
+                      "field-wrapper",
+                      formik.touched.portfolioUrl &&
+                      Boolean(formik.errors.portfolioUrl) &&
+                      "error",
+                    ]
+                    .filter(Boolean)
+                    .join(" ")}
+                  >
                     <label htmlFor="portfolioUrl">Portfolio URL</label>
                     <input
                       id="portfolioUrl"
-                      type="url"
+                      type="text"
                       name="portfolioUrl"
                       value={formik.values.portfolioUrl}
                       onChange={formik.handleChange}
                     />
+                    {formik.touched.portfolioUrl &&
+                    Boolean(formik.errors.portfolioUrl) && (
+                      <span className="helper-text">
+                          {formik.errors.portfolioUrl}
+                        </span>
+                    )}
                   </div>
-                  <div className="field-wrapper">
+                  <div
+                    className={[
+                      "field-wrapper",
+                      formik.touched.otherLink &&
+                      Boolean(formik.errors.otherLink) &&
+                      "error",
+                    ]
+                    .filter(Boolean)
+                    .join(" ")}
+                  >
                     <label htmlFor="otherLink">Other link</label>
                     <input
                       id="otherLink"
-                      type="url"
+                      type="text"
                       name="otherLink"
                       value={formik.values.otherLink}
                       onChange={formik.handleChange}
                     />
+                    {formik.touched.otherLink &&
+                    Boolean(formik.errors.otherLink) && (
+                      <span className="helper-text">
+                          {formik.errors.otherLink}
+                        </span>
+                    )}
                   </div>
                   <h3>Additional Options</h3>
                   <div className="comment">
@@ -339,7 +399,7 @@ export default function ApplicationModal({ isOpen, onClose }) {
                     <label htmlFor="referrals">Linkedin or email</label>
                     <input
                       id="referrals"
-                      type="url"
+                      type="text"
                       name="referrals"
                       value={formik.values.referrals}
                       onChange={formik.handleChange}
