@@ -273,7 +273,6 @@
 		.btn {
 			border-radius: 6px;
 			height: 64px;
-			margin: 64px 0;
 
 			font: 20px/26px $font-MessinaSans;
 			font-style: normal;
@@ -357,6 +356,24 @@
 
 			&__indicator-separator {
 				width: 0;
+			}
+		}
+
+		.btn-wrapper {
+			margin: 64px 0;
+			display: inline-block;
+			width: 100%;
+
+			.helper-text {
+				font-family: $font-MessinaSans;
+				font-style: normal;
+				font-weight: 600;
+				font-size: 13px;
+				line-height: 26px;
+				text-align: right;
+				letter-spacing: -0.01em;
+				color: #F2571F;
+				display: block;
 			}
 		}
 	}

@@ -520,13 +520,20 @@ export default function ApplicationModal({ isOpen, onClose }) {
                     sitekey={RECAPTCHA_KEY}
                     onChange={value => setRecaptchaState(!!value)}
                   />
-                  <button
-                    type="submit"
-                    className="btn btn-black btn-block"
-                    disabled={!recaptchaState}
-                  >
-                    Submit Application
-                  </button>
+                  <div className='btn-wrapper'>
+                    {!isValid && (
+                      <span className="helper-text">
+                        Please fill in the required fields correctly
+                      </span>
+                    )}
+                    <button
+                      type="submit"
+                      className="btn btn-black btn-block"
+                      disabled={!recaptchaState}
+                    >
+                      Submit Application
+                    </button>
+                  </div>
                 </NetlifyForm>
               </>
             ) : (
