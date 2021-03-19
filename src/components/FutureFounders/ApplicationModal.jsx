@@ -42,7 +42,7 @@ const validationSchema = yup.object({
 })
 
 export default function ApplicationModal({ isOpen, onClose }) {
-  const [isSent, setIsSent] = React.useState(true)
+  const [isSent, setIsSent] = React.useState(false)
   const [recaptchaState, setRecaptchaState] = React.useState(false)
   const formik = useFormik({
     initialValues: {
