@@ -33,8 +33,7 @@ export default function NetlifyForm({
   const handleSubmit = async () => {
     return await fetch("/", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encodeData({
+      body: encode({
         ...formValues,
         "form-name": formName,
         infoo: honey,

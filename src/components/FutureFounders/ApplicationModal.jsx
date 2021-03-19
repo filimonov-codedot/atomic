@@ -59,14 +59,7 @@ export default function ApplicationModal({ isOpen, onClose }) {
     onSubmit: () => true,
   })
 
-  const postSubmit = () => {
-    console.log("1")
-    setIsSent(true)
-  }
-  const postSubmit2 = () => {
-    console.log("2")
-    setIsSent(true)
-  }
+  const postSubmit = () => setIsSent(true)
 
   const themeSelect = theme => ({
     ...theme,
@@ -79,6 +72,8 @@ export default function ApplicationModal({ isOpen, onClose }) {
     },
   })
 
+  console.log(formik.values.file)
+
   const isValid = !!formik.values.name && !formik.errors.name && formik.isValid
   return (
     <>
@@ -86,7 +81,7 @@ export default function ApplicationModal({ isOpen, onClose }) {
         formName="Future Founder"
         formValues={formik.values}
         preSubmit={formik.handleSubmit}
-        postSubmit={postSubmit2}
+        postSubmit={postSubmit}
         isValid={isValid}
       >
         <input
@@ -138,14 +133,9 @@ export default function ApplicationModal({ isOpen, onClose }) {
           hidden
         />
         <input
-          type="text"
+          type="file"
           name="file"
           defaultValue={formik.values.file}
-          hidden
-        />
-        <textarea
-          name="areasOfInterest"
-          defaultValue={formik.values.areasOfInterest}
           hidden
         />
         <input
@@ -154,15 +144,20 @@ export default function ApplicationModal({ isOpen, onClose }) {
           defaultValue={formik.values.referrals}
           hidden
         />
-        <input
-          type="text"
-          name="USEmploymentAuthorization"
-          defaultValue={formik.values.USEmploymentAuthorization}
+        <textarea
+          name="areasOfInterest"
+          defaultValue={formik.values.areasOfInterest}
           hidden
         />
         <textarea
           name="anythingElse"
           defaultValue={formik.values.anythingElse}
+          hidden
+        />
+        <input
+          type="text"
+          name="USEmploymentAuthorization"
+          defaultValue={formik.values.USEmploymentAuthorization}
           hidden
         />
         <input
@@ -394,6 +389,19 @@ export default function ApplicationModal({ isOpen, onClose }) {
                     Feel free to submit anything else you feel would be helpful
                     or would like us to consider – code, website, slide deck,
                     video, etc.
+                  </div>
+                  <div className="field-wrapper">
+                    <label className="file" htmlFor="file">
+                      📎 Upload File
+                    </label>
+                    <input
+                      id="file"
+                      type="file"
+                      name="file"
+                      onChange={e =>
+                        formik.setFieldValue("file", e.target.files[0])
+                      }
+                    />
                   </div>
                   <h3>Referrals</h3>
                   <div className="comment">
