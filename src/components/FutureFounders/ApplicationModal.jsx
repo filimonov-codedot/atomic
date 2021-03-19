@@ -272,7 +272,7 @@ export default function ApplicationModal({ isOpen, onClose }) {
                     <label htmlFor="linkedinUrl">Linkedin URL *</label>
                     <input
                       id="linkedinUrl"
-                      type="url"
+                      type="text"
                       name="linkedinUrl"
                       value={formik.values.linkedinUrl}
                       onChange={formik.handleChange}
@@ -288,7 +288,7 @@ export default function ApplicationModal({ isOpen, onClose }) {
                     <label htmlFor="twitterUrl">Twitter URL</label>
                     <input
                       id="twitterUrl"
-                      type="url"
+                      type="text"
                       name="twitterUrl"
                       value={formik.values.twitterUrl}
                       onChange={formik.handleChange}
@@ -298,7 +298,7 @@ export default function ApplicationModal({ isOpen, onClose }) {
                     <label htmlFor="githubUrl">Github URL</label>
                     <input
                       id="githubUrl"
-                      type="url"
+                      type="text"
                       name="githubUrl"
                       value={formik.values.githubUrl}
                       onChange={formik.handleChange}
@@ -308,7 +308,7 @@ export default function ApplicationModal({ isOpen, onClose }) {
                     <label htmlFor="portfolioUrl">Portfolio URL</label>
                     <input
                       id="portfolioUrl"
-                      type="url"
+                      type="text"
                       name="portfolioUrl"
                       value={formik.values.portfolioUrl}
                       onChange={formik.handleChange}
@@ -318,7 +318,7 @@ export default function ApplicationModal({ isOpen, onClose }) {
                     <label htmlFor="otherLink">Other link</label>
                     <input
                       id="otherLink"
-                      type="url"
+                      type="text"
                       name="otherLink"
                       value={formik.values.otherLink}
                       onChange={formik.handleChange}
@@ -339,7 +339,7 @@ export default function ApplicationModal({ isOpen, onClose }) {
                     <label htmlFor="referrals">Linkedin or email</label>
                     <input
                       id="referrals"
-                      type="url"
+                      type="text"
                       name="referrals"
                       value={formik.values.referrals}
                       onChange={formik.handleChange}
