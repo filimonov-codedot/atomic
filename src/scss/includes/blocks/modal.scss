@@ -178,6 +178,32 @@
 			letter-spacing: -0.02em;
 		}
 
+		h3 {
+			font: 24px/56px $font-MessinaSans;
+			font-style: normal;
+			font-weight: normal;
+			letter-spacing: -0.02em;
+			margin: 42px 0 0;
+
+			&.gutter-bottom {
+				margin: 42px 0 26px;
+			}
+
+			&.gutter-top {
+				margin: 64px 0 0;
+			}
+		}
+
+		.success-comment {
+			font: 17px/25px $font-MessinaSans;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 17px;
+			line-height: 25px;
+			letter-spacing: -0.01em;
+			color: #666666;
+		}
+
 		input, textarea {
 			background: #FFFFFF;
 			border: 1px solid #D7D7D7;
@@ -233,18 +259,6 @@
 			font: 20px/28px $font-MessinaSans;
 			padding: 16px 20px 20px;
 			margin: 0 0 14px;
-		}
-
-		h3 {
-			font: 24px/56px $font-MessinaSans;
-			font-style: normal;
-			font-weight: normal;
-			letter-spacing: -0.02em;
-			margin: 42px 0 0;
-
-			&.gutter-bottom {
-				margin: 42px 0 26px;
-			}
 		}
 
 		.comment {

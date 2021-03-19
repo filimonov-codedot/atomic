@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 
-import NetlifyForm from './NetlifyForm'
+import NetlifyForm from "./NetlifyForm"
 
 export const Footer = ({ footerData, navFooter, navSiteMap }) => {
   const [email, setEmail] = useState("")
