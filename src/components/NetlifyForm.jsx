@@ -21,6 +21,14 @@ export default function NetlifyForm({
       .map(pair => formEncodeString(pair[0]) + "=" + formEncodeString(pair[1]))
       .join("&")
 
+  const encode = data => {
+    const formData = new FormData()
+
+    for (const key of Object.keys(data)) formData.append(key, data[key])
+
+    return formData
+  }
+
   // Submit via POST then pass back true
   const handleSubmit = async () => {
     return await fetch("/", {
