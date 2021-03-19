@@ -405,9 +405,9 @@ export default function ApplicationModal({ isOpen, onClose }) {
                       </>
                     ) : (
                       <>
-                        <div className='uploaded-button'>File Uploaded</div>
+                        <div className="uploaded-button">File Uploaded</div>
                         <button
-                          className='uploaded-button-close'
+                          className="uploaded-button-close"
                           onClick={() => formik.setFieldValue("file", "")}
                         />
                       </>
@@ -457,28 +457,30 @@ export default function ApplicationModal({ isOpen, onClose }) {
                       .filter(Boolean)
                       .join(" ")}
                   >
-                    <label className="label-container">
-                      <input
-                        type="radio"
-                        name="USEmploymentAuthorization"
-                        value="Yes"
-                        onChange={formik.handleChange}
-                        checked={
-                          formik.values.USEmploymentAuthorization === "Yes"
-                        }
-                      />
+                    <input
+                      id="USEmploymentAuthorizationYes"
+                      type="radio"
+                      name="USEmploymentAuthorization"
+                      value="Yes"
+                      onChange={formik.handleChange}
+                      checked={
+                        formik.values.USEmploymentAuthorization === "Yes"
+                      }
+                    />
+                    <label className="label-container" htmlFor="USEmploymentAuthorizationYes">
                       Yes
                     </label>
-                    <label className="label-container">
-                      <input
-                        type="radio"
-                        name="USEmploymentAuthorization"
-                        value="No"
-                        onChange={formik.handleChange}
-                        checked={
-                          formik.values.USEmploymentAuthorization === "No"
-                        }
-                      />
+                    <input
+                      id="USEmploymentAuthorizationNo"
+                      type="radio"
+                      name="USEmploymentAuthorization"
+                      value="No"
+                      onChange={formik.handleChange}
+                      checked={
+                        formik.values.USEmploymentAuthorization === "No"
+                      }
+                    />
+                    <label className="label-container" htmlFor="USEmploymentAuthorizationNo">
                       No
                     </label>
                     {formik.touched.USEmploymentAuthorization &&
