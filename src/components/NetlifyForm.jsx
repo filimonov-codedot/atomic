@@ -15,12 +15,6 @@ export default function NetlifyForm({
   }, [])
 
   // Transform object to proper form data
-  const formEncodeString = str => encodeURIComponent(str).replace(/%20/g, "+")
-  const encodeData = obj =>
-    Object.entries(obj)
-      .map(pair => formEncodeString(pair[0]) + "=" + formEncodeString(pair[1]))
-      .join("&")
-
   const encode = data => {
     const formData = new FormData()
 

@@ -72,8 +72,6 @@ export default function ApplicationModal({ isOpen, onClose }) {
     },
   })
 
-  console.log(formik.values.file)
-
   const isValid = !!formik.values.name && !formik.errors.name && formik.isValid
   return (
     <>
@@ -390,18 +388,30 @@ export default function ApplicationModal({ isOpen, onClose }) {
                     or would like us to consider – code, website, slide deck,
                     video, etc.
                   </div>
-                  <div className="field-wrapper">
-                    <label className="file" htmlFor="file">
-                      📎 Upload File
-                    </label>
-                    <input
-                      id="file"
-                      type="file"
-                      name="file"
-                      onChange={e =>
-                        formik.setFieldValue("file", e.target.files[0])
-                      }
-                    />
+                  <div className="field-wrapper file-wrapper">
+                    {!formik.values.file ? (
+                      <>
+                        <label className="label-file" htmlFor="file">
+                          Upload File
+                        </label>
+                        <input
+                          id="file"
+                          type="file"
+                          name="file"
+                          onChange={e =>
+                            formik.setFieldValue("file", e.target.files[0])
+                          }
+                        />
+                      </>
+                    ) : (
+                      <>
+                        <div className='uploaded-button'>File Uploaded</div>
+                        <button
+                          className='uploaded-button-close'
+                          onClick={() => formik.setFieldValue("file", "")}
+                        />
+                      </>
+                    )}
                   </div>
                   <h3>Referrals</h3>
                   <div className="comment">
@@ -439,7 +449,7 @@ export default function ApplicationModal({ isOpen, onClose }) {
                   <div
                     className={[
                       "field-wrapper",
-                      "field-radio-wrapper",
+                      "radio-wrapper",
                       formik.touched.USEmploymentAuthorization &&
                         Boolean(formik.errors.USEmploymentAuthorization) &&
                         "error",
