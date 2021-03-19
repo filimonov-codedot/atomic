@@ -467,7 +467,10 @@ export default function ApplicationModal({ isOpen, onClose }) {
                         formik.values.USEmploymentAuthorization === "Yes"
                       }
                     />
-                    <label className="label-container" htmlFor="USEmploymentAuthorizationYes">
+                    <label
+                      className="label-container"
+                      htmlFor="USEmploymentAuthorizationYes"
+                    >
                       Yes
                     </label>
                     <input
@@ -476,11 +479,12 @@ export default function ApplicationModal({ isOpen, onClose }) {
                       name="USEmploymentAuthorization"
                       value="No"
                       onChange={formik.handleChange}
-                      checked={
-                        formik.values.USEmploymentAuthorization === "No"
-                      }
+                      checked={formik.values.USEmploymentAuthorization === "No"}
                     />
-                    <label className="label-container" htmlFor="USEmploymentAuthorizationNo">
+                    <label
+                      className="label-container"
+                      htmlFor="USEmploymentAuthorizationNo"
+                    >
                       No
                     </label>
                     {formik.touched.USEmploymentAuthorization &&
