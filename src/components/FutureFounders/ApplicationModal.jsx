@@ -284,7 +284,16 @@ export default function ApplicationModal({ isOpen, onClose }) {
                         </span>
                       )}
                   </div>
-                  <div className="field-wrapper">
+                  <div
+                    className={[
+                      "field-wrapper",
+                      formik.touched.twitterUrl &&
+                      Boolean(formik.errors.twitterUrl) &&
+                      "error",
+                    ]
+                    .filter(Boolean)
+                    .join(" ")}
+                  >
                     <label htmlFor="twitterUrl">Twitter URL</label>
                     <input
                       id="twitterUrl"
@@ -293,8 +302,23 @@ export default function ApplicationModal({ isOpen, onClose }) {
                       value={formik.values.twitterUrl}
                       onChange={formik.handleChange}
                     />
+                    {formik.touched.twitterUrl &&
+                    Boolean(formik.errors.twitterUrl) && (
+                      <span className="helper-text">
+                          {formik.errors.twitterUrl}
+                        </span>
+                    )}
                   </div>
-                  <div className="field-wrapper">
+                  <div
+                    className={[
+                      "field-wrapper",
+                      formik.touched.githubUrl &&
+                      Boolean(formik.errors.githubUrl) &&
+                      "error",
+                    ]
+                    .filter(Boolean)
+                    .join(" ")}
+                  >
                     <label htmlFor="githubUrl">Github URL</label>
                     <input
                       id="githubUrl"
@@ -303,8 +327,23 @@ export default function ApplicationModal({ isOpen, onClose }) {
                       value={formik.values.githubUrl}
                       onChange={formik.handleChange}
                     />
+                    {formik.touched.githubUrl &&
+                    Boolean(formik.errors.githubUrl) && (
+                      <span className="helper-text">
+                          {formik.errors.githubUrl}
+                        </span>
+                    )}
                   </div>
-                  <div className="field-wrapper">
+                  <div
+                    className={[
+                      "field-wrapper",
+                      formik.touched.portfolioUrl &&
+                      Boolean(formik.errors.portfolioUrl) &&
+                      "error",
+                    ]
+                    .filter(Boolean)
+                    .join(" ")}
+                  >
                     <label htmlFor="portfolioUrl">Portfolio URL</label>
                     <input
                       id="portfolioUrl"
@@ -313,8 +352,23 @@ export default function ApplicationModal({ isOpen, onClose }) {
                       value={formik.values.portfolioUrl}
                       onChange={formik.handleChange}
                     />
+                    {formik.touched.portfolioUrl &&
+                    Boolean(formik.errors.portfolioUrl) && (
+                      <span className="helper-text">
+                          {formik.errors.portfolioUrl}
+                        </span>
+                    )}
                   </div>
-                  <div className="field-wrapper">
+                  <div
+                    className={[
+                      "field-wrapper",
+                      formik.touched.otherLink &&
+                      Boolean(formik.errors.otherLink) &&
+                      "error",
+                    ]
+                    .filter(Boolean)
+                    .join(" ")}
+                  >
                     <label htmlFor="otherLink">Other link</label>
                     <input
                       id="otherLink"
@@ -323,6 +377,12 @@ export default function ApplicationModal({ isOpen, onClose }) {
                       value={formik.values.otherLink}
                       onChange={formik.handleChange}
                     />
+                    {formik.touched.otherLink &&
+                    Boolean(formik.errors.otherLink) && (
+                      <span className="helper-text">
+                          {formik.errors.otherLink}
+                        </span>
+                    )}
                   </div>
                   <h3>Additional Options</h3>
                   <div className="comment">
