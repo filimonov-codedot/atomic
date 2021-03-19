@@ -283,16 +283,14 @@
 		.label-container {
 			display: block;
 			color: #000;
-			margin: 0 0 14px;
+			margin: 0 0 14px 28px;
 			cursor: pointer;
 		}
 
 		input[type='radio'] {
 			position: relative;
 			width: 0;
-			height: 20px;
-			margin-left: 28px;
-			opacity: 0;
+			height: 0;
 
 			&:after {
 				content: '';
