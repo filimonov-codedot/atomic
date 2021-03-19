@@ -129,7 +129,9 @@ export const pageQuery = graphql`
         duration
       }
       tickerData: ticker {
-        id
+        text {
+          text
+        }
       }
     }
   }
