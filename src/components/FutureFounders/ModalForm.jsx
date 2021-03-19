@@ -46,10 +46,10 @@ export default function ModalForm ({ isOpen, onClose }) {
   const [recaptchaState, setRecaptchaState] = React.useState(false)
   const formik = useFormik({
     initialValues: {
-      name: '',
-      email: '',
-      phone: '',
-      linkedinUrl: '',
+      name: 'Vlad',
+      email: 'vlad@gmail.com',
+      phone: '+375291234567',
+      linkedinUrl: 'http://atomic.vc/',
       twitterUrl: '',
       githubUrl: '',
       portfolioUrl: '',
@@ -57,7 +57,7 @@ export default function ModalForm ({ isOpen, onClose }) {
       file: '',
       areasOfInterest: '',
       referrals: '',
-      USEmploymentAuthorization: '',
+      USEmploymentAuthorization: 'Yes',
       anythingElse: '',
       gender: '',
       race: '',
