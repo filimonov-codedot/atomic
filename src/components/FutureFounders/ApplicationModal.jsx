@@ -521,7 +521,7 @@ export default function ApplicationModal({ isOpen, onClose }) {
                     onChange={value => setRecaptchaState(!!value)}
                   />
                   <div className='btn-wrapper'>
-                    {isValid && (
+                    {!isValid && (
                       <span className="helper-text">
                         Please fill in the required fields correctly
                       </span>
