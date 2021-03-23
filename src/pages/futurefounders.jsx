@@ -11,12 +11,10 @@ import { TeamReviews } from "../components/FutureFounders/Team/TeamReviews"
 import { Faqs } from "../components/FutureFounders/Faqs/Faqs"
 import { CompanyModal } from "../components/Companies/CompanyModal"
 import { ModalUser } from "../components/Team/ModalUser"
-import ApplicationModal from "../components/FutureFounders/ApplicationModal"
 
 export default function Futurefounders({ data }) {
   const [activeCompany, setActiveCompany] = useState(false)
   const [memberModal, setMemberModal] = useState(false)
-  const [modalForm, setModalForm] = useState(false)
 
   const {
     site: {
@@ -66,8 +64,6 @@ export default function Futurefounders({ data }) {
           ({ refTeamMember }) => refTeamMember.slug === hash.slice(1)
         )
         if (dataMembers) setMemberModal(dataMembers.refTeamMember)
-
-        if (hash === "#application") setModalForm(true)
       }
     }
 
@@ -99,7 +95,6 @@ export default function Futurefounders({ data }) {
         />
       )
     }
-    if (modalForm) navigate(`#application`)
     return null
   }
 
@@ -155,13 +150,6 @@ export default function Futurefounders({ data }) {
       <TeamReviews teamReviews={teamReviews} />
       <Faqs faq={faq} />
       <Modals />
-      <ApplicationModal
-        onClose={() => {
-          changeUrlCLose()
-          setModalForm(false)
-        }}
-        isOpen={modalForm}
-      />
     </Layout>
   )
 }
