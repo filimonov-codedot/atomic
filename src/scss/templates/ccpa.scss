@@ -1,0 +1,68 @@
+.ccpa {
+  padding: 128px 0 120px;
+
+  p, li {
+    font-family: $font-MessinaSans;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 28px;
+    letter-spacing: -0.01em;
+  }
+
+  h1 {
+    font-family: $font-MessinaSans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 35px;
+    text-align: center;
+    letter-spacing: -0.03em;
+    color: #1A1A1A;
+    margin: 0 0 40px;
+  }
+
+  h2 {
+    font-family: $font-MessinaSans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: -0.01em;
+    margin: 0 0 20px;
+  }
+
+  h4 {
+    font-family: $font-MessinaSansMono;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #242528;
+    margin: 0 0 80px;
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+
+  ul li {
+    &:not(:last-of-type) {
+      margin-bottom: 20px;
+    }
+
+    &:last-of-type {
+      margin-bottom: 32px;
+    }
+
+    &::marker {
+      font-size: 0.75em;
+    }
+  }
+
+  .text-center {
+    text-align: center;
+  }
+}

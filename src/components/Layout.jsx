@@ -199,7 +199,7 @@ export const Layout = ({
           titleTemplate={titleTemplate}
           description={description}
           keywords={keywords}
-          image={'https:' + image}
+          image={"https:" + image}
         />
         <Header
           headerData={headerData}
@@ -237,11 +237,11 @@ export const Layout = ({
         />
         <Modals />
         <ContactUsModal
-          isOpenContactModal={isOpenContactModal}
           onClose={() => {
             changeUrlCLose()
             setIsOpenContactModal(false)
           }}
+          isOpenContactModal={isOpenContactModal}
         />
       </div>
     </PageTransition>

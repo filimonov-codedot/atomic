@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import NetlifyForm from "react-ssg-netlify-forms"
 
+import NetlifyForm from "./NetlifyForm"
 import { ModalWrapper } from "./ModalWrapper"
 
 export const ContactUsModal = ({ isOpenContactModal, onClose }) => {

@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 
 import { Layout } from "../components/Layout"
 
-export default function PrivacyPolicy({ data }) {
+export default function CCPA({ data }) {
   const {
     site: {
       siteMetadata: { title },
@@ -14,7 +14,6 @@ export default function PrivacyPolicy({ data }) {
     privacyPage: {
       metaData,
       text: { html },
-      ctaTitle,
       tickerDuration,
       tickerData,
     },
@@ -26,18 +25,17 @@ export default function PrivacyPolicy({ data }) {
 
   return (
     <Layout
-      headerData={headerData}
-      footerData={footerData}
-      ctaTitle={ctaTitle}
-      ctaType="cta-inner"
-      tickerDuration={tickerDuration}
-      tickerData={tickerData}
-      pageTitle="Privacy Policy"
-      title={title}
       globalMetaData={globalMetaData}
       metaData={metaData}
+      pageTitle="CCPA"
+      title={title}
+      headerData={headerData}
+      tickerDuration={tickerDuration}
+      tickerData={tickerData}
+      ctaDisplay={false}
+      footerData={footerData}
     >
-      <div className="privacy-policy page-content">
+      <div className="ccpa page-content">
         {html && (
           <div
             className="container"
@@ -52,7 +50,7 @@ export default function PrivacyPolicy({ data }) {
 }
 
 export const pageQuery = graphql`
-  query PrivacyQuery {
+  query CCPAQuery {
     site {
       siteMetadata {
         title
@@ -106,7 +104,7 @@ export const pageQuery = graphql`
       }
       copyright
     }
-    privacyPage: contentfulPagePrivacyPolicy {
+    privacyPage: contentfulPageCcpa {
       metaData {
         title
         desc {
@@ -124,7 +122,6 @@ export const pageQuery = graphql`
       text {
         html: text
       }
-      ctaTitle
       tickerDuration {
         duration
       }
